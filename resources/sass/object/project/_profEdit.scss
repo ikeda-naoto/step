@@ -1,0 +1,14 @@
+.p-prof-edit {
+    padding: $space_7l;
+    &__label {
+        font-size: $font-size_l;
+        font-weight: bold;
+    }
+    &__btn {
+        width: 200px;
+        padding: $space_l 0;
+        margin-top: $space_3l;
+        margin-left: auto;
+        font-size: $font-size_default;
+    }
+}

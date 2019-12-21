@@ -1,0 +1,160 @@
+// ==============================
+// 変数
+// ==============================
+
+// カラーパレット
+$palette-white: #fff;
+$palette-white_opacity: rgba(255,255,255,.5);
+$palette-black_base: #333;
+$palette-black_light: #4d4d4d;
+$palette-black_opacity: rgba(0,0,0,0.75);
+$palette-gray_light: #ebebeb;
+$palette-gray_base: #e4e4e4;
+$palette-gray_dark: #bebebe;
+$palette-navy: #0057a3;
+$palette-blue: #3ba7da;
+$palette-yellow: #c7ba00ef;
+$palette-green: #1aa125;
+$palette-beige_base: #f8ebd5;
+$palette-beige_light: #f4f0e9;
+$palette-beige_dark: #c49515;
+$palette-red_light: #ffecec;
+$palette-red: #fd6363;
+
+// フォントカラー
+$font-color_default: $palette-black_light;
+$font-color_dark: $palette-black_base;
+$font-color_light: $palette-white;
+$font-color_active: $palette-beige_dark;
+$font-color_err: $palette-red;
+
+// 背景カラー
+$background-color_main-light: $palette-beige_light;
+$background-color_main-dark: $palette-gray_base;
+$background-color_light: $palette-white;
+$background-color_step-content: $palette-gray_base;
+$background-color_base: $palette-navy;
+$background-color_form-item: $palette-gray_light;
+$background-color_active: $palette-beige_base;
+$background-color_err: $palette-red_light;
+$background-color_modal-back: $palette-black_opacity;
+$background-color_category: $palette-blue;
+
+$icn-color_success: $palette-green;
+
+// シャドウカラー
+$shadow-color_dark: $palette-black_base;
+$shadow-color_light: $palette-black_light;
+
+// ボタンカラー
+$btn-color_primary: $palette-blue;
+$btn-color_success: $palette-green;
+$btn-color_warning: $palette-yellow;
+
+// ボーダーカラー
+$border-color_base: $palette-navy;
+$border-color_light: $palette-gray_dark;
+$border-color_dark: $palette-black_light;
+
+// プログレスバーカラー
+$progressbar-color_back: $palette-white-opacity;
+$progressbar-color_front: $palette-green;
+
+// フォントサイズ
+$font-size_xs: 8px;
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_default: 16px;
+$font-size_l: 18px;
+$font-size_xl: 22px;
+$font-size_xxl: 30px;
+$font-size_3l: 36px;
+$font-size_4l: 48px;
+
+// ボーダーサイズ
+$border_s: 1px;
+$border_m: 2px;
+$border_l: 3px;
+$border_xl: 4px;
+$border_xxl: 5px;
+
+// 角丸サイズ
+$border-radius_s: 3px;
+$border-radius_m: 5px;
+$border-radius_l: 10px;
+
+// コンテンツサイズ
+$site-width: 1080px;
+
+// 余白サイズ
+$space_s: 5px;
+$space_m: 10px;
+$space_l: 15px;
+$space_xl: 20px;
+$space_xxl: 30px;
+$space_3l: 40px;
+$space_4l: 50px;
+$space_5l: 60px;
+$space_6l: 70px;
+$space_7l: 80px;
+$space_8l: 90px;
+$space_9l: 100px;
+
+// フォントファミリー
+$font-family_default: 'Noto Sans JP', sans-serif;
+$font-family_gothic: 'Sawarabi Gothic', sans-serif;
+
+// ブレイクポイント
+$breakpoints: (
+  'sm': 'screen and (max-width: 414px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1024px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+@mixin sm($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+@mixin md($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// ==============================
+// base
+// ==============================
+
+body{
+    width: 100%;
+    color: $font-color_default;
+    font-size: $font-size_default;
+    padding: 0;
+    margin: 0;
+    line-height: 150%;
+    font-family: $font-family_default;
+    @include sm() {
+      font-size: $font-size_m;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: $font-color_default;
+    cursor: pointer;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+input:focus, textarea:focus, button:focus{
+    outline: none;
+}

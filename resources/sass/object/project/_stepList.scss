@@ -1,0 +1,24 @@
+.p-step-list {
+    &__panel-container {
+        padding: 0 $space_l;
+        margin: $space_l 0;
+    }
+    &__img {
+        height: 160px;
+        margin-bottom: $space_m;
+    }
+    &__title {
+        margin-bottom: $space_s;
+        padding: 0 $space_s;
+    }
+    &__body {
+        padding: 0 $space_s;
+        font-size: $font-size_m;
+    }
+    &__category {
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        top: -20px;
+    }
+}

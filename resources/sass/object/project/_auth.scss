@@ -1,0 +1,39 @@
+.p-auth {
+    padding: $space_7l;
+    @include sm() {
+        padding: $space_7l $space_l;
+    }
+    &__btn {
+        width: 300px;
+        font-size: $font-size_default;
+        padding: $space_l 0;
+        margin: 0 auto;
+    }
+    &__lead {
+        color: #333;
+        margin-top: $space_xxl;
+        margin-bottom: $space_3l;
+        &::before, &::after{
+            height: 2px;
+            background: $border-color_dark;
+            display: block;
+            content: "";
+            flex-grow: 1;
+        }
+        &::before {
+        margin-right: 1rem;
+        }
+        &::after {
+        margin-left: 1rem;
+        }
+    }
+    &__help {
+        margin: $space_xl 0;
+        text-align: right;
+        font-size: $font-size_m;
+        a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+    }
+}

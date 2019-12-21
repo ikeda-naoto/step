@@ -1,0 +1,54 @@
+// ==============================
+// ヘッダー
+// ==============================
+.p-header {
+    border-bottom: $border_l solid $border-color_base;
+    &__logo {
+        width: 200px;
+    }
+}
+.p-nav {
+    &__link {
+        display: inline-block;
+        padding: $space_s; 
+        position: relative;
+        &::after {
+            background: $border-color_base;
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 2px;
+            left: 0;
+            position: absolute;
+            transition: .5s all;
+            width: 0;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
+        &:hover::after {
+            width: 100%;
+        }
+    }
+    &__item {
+        border-left: $border_s solid $border-color_light;
+        padding: $space_l $space_xxl;
+    }
+    &__item:last-child {
+        border-right: $border_s solid $border-color_light;
+    }
+    &__img {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        vertical-align: middle;
+    }
+    &__name {
+        vertical-align: middle;
+        display: inline-block;
+    }
+}

@@ -1,0 +1,18 @@
+.p-regist-step {
+    &__group {
+        padding: $space_xxl $space_7l;
+        background: $background-color_light;
+    }
+    &__num {
+        color: $font-color_light;
+        background: $background-color_base;
+        font-size: $font-size_xxl;
+        padding: $space_xl $space_l;
+        margin: $space_3l 0;
+    }
+    &__btn {
+        padding: $space_l 0;
+        width: 130px;
+        font-size: $font-size_default;
+    }
+}

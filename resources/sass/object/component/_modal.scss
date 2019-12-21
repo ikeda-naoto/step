@@ -1,0 +1,35 @@
+.c-overview {
+    z-index:1;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:120%;
+	background: $background-color_modal-back;
+}
+.c-modal {
+    position: fixed;
+    top:0;
+	left:0;
+    width: 100%;
+    height:100%;
+    z-index: 2;
+    &__container {
+        width: 30%;
+        box-sizing: border-box;
+        padding: $space_l;
+        background: $background-color_light;
+    }
+    &__group {
+        margin: $space_3l 0;
+        &:last-child {
+            margin: 0;
+        }
+    }
+    &__btn {
+        width: 100px;
+        padding: $space_l 0;
+        margin-left: auto;
+        font-size: $font-size_default;
+    }
+}

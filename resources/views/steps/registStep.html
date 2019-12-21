@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>マイページ | あなたの人生のSTEPを共有しよう</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="fontawesome-free-5.11.2-web/js/all.min.js"></script>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="l-header">
+        <div class="p-header">
+            <div class="l-site-width">
+                <div class="l-row l-row--between l-row--center">
+                    <div class="p-header__logo">
+                        <img src="img/logo.png" alt="">
+                    </div>
+                    <nav class="p-header__nav">
+                        <ul class="p-nav l-row">
+                            <li class="p-nav__item"><a href="#" class="p-nav__link">STEP一覧</a></li>
+                            <li class="p-nav__item"><a href="" class="p-nav__link">ログイン</a></li>
+                            <li class="p-nav__item"><a href="" class="p-nav__link">新規会員登録</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- パンくずリスト -->
+    <div class="l-bread-crumbs">
+        <div class="p-bread-crumbs l-row  l-row--middle">
+            <ul class="l-site-width l-row p-bread-crumbs__list">
+                <li><a href="" class="p-bread-crumbs__link">ホーム</a><i class="fas fa-angle-right p-bread-crumbs__icn"></i></li>
+                <li>マイページ</li>
+            </ul>
+        </div>
+    </div>
+    <div class="c-overview"></div>
+    <div class="l-row l-row--middle l-row--center c-modal">
+        <div class="c-modal__container">
+            <div class="c-modal__group">
+                <p class="u-text-center">エラーメッセージ</p>
+            </div>
+            <div class="c-modal__group">
+                <button class="c-btn c-btn--primary c-modal__btn">OK</button>
+            </div>
+        </div>
+    </div>
+    <!-- モーダル -->
+    <div class="c-overview"></div>
+    <div class="l-row l-row--middle l-row--center c-modal">
+        <div class="c-modal__container">
+            <div class="c-modal__group">
+                <p class="u-text-center">エラーメッセージ</p>
+            </div>
+            <div class="c-modal__group">
+                <button class="c-btn c-btn--primary c-modal__btn">OK</button>
+            </div>
+        </div>
+    </div>
+    <!-- メインコンテンツ -->
+    <div class="l-container u-bg-light">
+        <div class="l-row l-row--center l-site-width">
+            <!-- メインカラム -->
+            <div class="l-row l-row--center l-row__col10-pc">
+                <form action="" class="c-form p-regist-step u-bg-light">
+                    <h1 class="c-title--normal u-mb-5l">STEP登録</h1>
+                    <div class="p-regist-step__parent">
+                        <div class="p-regist-step__group">
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="name" class="p-prof-edit__label">タイトル</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <input id="name" type="text" class="c-input c-input--full">
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="intro" class="p-prof-edit__label">カテゴリー</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <select name="" id="" class="c-select c-select--half">
+                                        <option value="">プログラミング</option>
+                                        <option value="">英語</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="img" class="p-prof-edit__label">終了目安時間</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <select name="" id="" class="c-select c-select--half">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="email" class="p-prof-edit__label">STEPの内容</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <textarea class="c-textarea c-textarea--full" name="" id="intro"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-regist-step__child">
+                        <h2 class="p-regist-step__num">STEP1</h2>
+                        <div class="p-regist-step__group">
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="name" class="p-prof-edit__label">タイトル</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <input id="name" type="text" class="c-input c-input--full">
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="intro" class="p-prof-edit__label">難易度</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <select name="" id="" class="c-select c-select--half">
+                                        <option value="">入門</option>
+                                        <option value="">基礎</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="img" class="p-prof-edit__label">クリア条件</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <input id="name" type="text" class="c-input c-input--full">
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="email" class="p-prof-edit__label">STEP1の概要</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <textarea class="c-textarea c-textarea--full" name="" id="intro"></textarea>
+                                </div>
+                            </div>
+                            <div class="l-row c-form__group">
+                                <div class="l-row__col04-pc">
+                                    <label for="email" class="p-prof-edit__label">STEP1の内容</label>
+                                </div>
+                                <div class="l-row__col08-pc">
+                                    <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="l-row l-row--between c-form__group">
+                        <button class="c-btn c-btn--success p-regist-step__btn"><i class="fas fa-plus u-mr-s"></i>STEPを追加</button>
+                        <input type="submit" value="編集する" class="c-btn c-btn--warning p-regist-step__btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- フッター -->
+    <footer class="l-footer">
+        <div class="p-footer">
+            <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
+            <div class="p-footer__logo">
+                <img src="img/logo.png" alt="">
+            </div>
+            <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
+        </div>
+    </footer>
+</body>
+</html>

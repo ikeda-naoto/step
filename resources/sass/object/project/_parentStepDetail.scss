@@ -1,0 +1,62 @@
+.p-parent {
+    position: relative;
+    width: 100%;
+    &__outer {
+        width: 100%;
+        padding: $space_3l 0;
+        margin-bottom: $space_6l;
+        background: $background-color_light;
+        border-radius: $border-radius_s;
+        -webkit-border-radius: $border-radius_s;
+        -moz-border-radius: $border-radius_s;
+        box-sizing: border-box;
+    }
+    &__inner {
+        width: 70%;
+        margin: 0 auto;
+    }
+    &__category {
+        width: 180px;
+        height: 50px;
+        top: -25px;
+        letter-spacing: 3px;
+        line-height: 50px;
+    }
+    &__head {
+        margin: $space_xl 0;
+    }
+    &__title {
+        text-align: center;
+        font-size: $font-size_xxl;
+        font-family: $font-family_gothic;
+        font-weight: bold;
+    }
+    &__img { 
+        width: 100%;
+        margin-bottom: $space_l;
+    } 
+    &__body { 
+        width: 100%;
+        min-height: 90px;
+        padding: $space_m;
+        margin: $space_m 0;
+        background: $background-color_step-content;
+        box-sizing: border-box;
+        border-radius: $border-radius_s;
+        -webkit-border-radius: $border-radius_s;
+        -moz-border-radius: $border-radius_s;
+    } 
+    &__time { 
+        text-align: right;
+        margin-bottom: $space_xxl;
+    } 
+    &__btn { 
+        width: 220px;
+        font-size: $font-size_l;
+        margin-left: auto;
+        padding: $space_l 0;
+        @include sm() {
+            margin: 0 auto;
+        }
+    }
+}

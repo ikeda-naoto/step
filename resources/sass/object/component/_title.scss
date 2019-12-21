@@ -1,0 +1,24 @@
+.c-title {
+    &--small {
+        text-align: center;
+        font-family: $font-family_gothic;
+        font-size: $font-size_xl;
+        font-weight: bold;
+    }
+    &--normal {
+        text-align: center;
+        font-family: $font-family_gothic;
+        font-size: $font-size_3l;
+        font-weight: bold;
+        @include sm() {
+            font-size: $font-size_xl;
+        }
+    }
+    &--type01 {
+        font-size: $font-size_xxl;
+        //margin-bottom: $space_3l;
+        padding: $space_xl $space_xl;
+        border-left: solid $border_xxl $border-color_base;
+        //background: $background-color_dark;
+    }
+}
