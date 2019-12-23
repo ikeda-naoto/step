@@ -1,14 +1,15 @@
 <template>
     <div class="l-row c-form__group">
         <div class="l-row__col04-pc">
-            <label for="img" class="p-prof-edit__label">プロフィール画像</label>
+            <label for="img" class="p-prof-edit__label" v-if="page==='users'">プロフィール画像</label>
+            <label for="img" class="p-prof-edit__label" v-else>STEP画像</label>
         </div>
         <div class="l-row__col08-pc">
             <div class="l-row l-row--middle l-row--center c-file-upload">
                 <img class="c-file-upload__img" :src="showImg" alt="">
                 <div>
                     <input type="file" id="img" class="c-file-upload__input-file" accept="" @change="onFileChange">
-                    <p class="c-file-upload__lead">画像をここにドラッグ&ドロップ<br><span class="u-fontsize--m">または</span></p>
+                    <p class="c-file-upload__lead">画像をここにドラッグ&ドロップ<br>または</p>
                     <div class="c-file-upload__btn">ファイルを選択</div>
                 </div>
             </div> 
@@ -34,7 +35,7 @@
                 if(this.uploadedImg !== '') {
                     return this.uploadedImg;
                 }else if(this.uploadedImg === '' && this.img !== undefined) {
-                    return this.img;
+                    return '/storage/img/' + this.img;
                 }else {
                     return '';
                 }
@@ -44,6 +45,7 @@
             onFileChange: function(e) {
                 let files = e.target.files || e.dataTransfer.files;
                 this.$parent.file = files[0];
+                //this.$emit('changeFile', files[0]);
                 this.createImg(files[0]);
             },
             createImg: function(file) {
@@ -52,7 +54,7 @@
                     this.uploadedImg = e.target.result;
                 };
                 fileReader.readAsDataURL(file);
-            }
+            },
         }
     }
 </script>

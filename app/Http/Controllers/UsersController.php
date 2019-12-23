@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Rules\AlphaNumHalf;
+use Intervention\Image\Image;
 
 class UsersController extends Controller
 {
@@ -88,10 +89,23 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'max:20',
             'introduction' => 'max:400',
-            'pic' => 'nullable|file|image',
+            'file' => 'nullable|file|image',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
         ]);
-        return response()->json(['success'=>'Done!']);
+
+        // ファイルが送信されていれば、そのパスを保存し、
+        if($request->file){
+            logger('aaa');
+            // $file = $request->file('file');
+            // $fileName = $file->hashName();
+            // \Image::make($file)->resize('300', '300')->save(public_path('/images/'.$fileName) );
+            $path = $request->file->store('public/img');
+            $request->merge(['pic' => basename($path)]);
+        }
+
+        $user = User::find($id);
+        $user->fill($request->all())->save();
+        return response()->json(['flg'=> true]);
     }
 
     /**
@@ -103,5 +117,10 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function mypage()
+    {
+        return view('steps.mypage');
     }
 }

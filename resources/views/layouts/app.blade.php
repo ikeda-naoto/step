@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -78,7 +78,7 @@
                 <div class="l-site-width">
                     <div class="l-row l-row--between l-row--middle">
                         <div class="p-header__logo">
-                            <img src="img/logo.png" alt="">
+                            <img src="{{ asset('images/logo.png') }}" alt="">
                         </div>
                         <nav class="p-header__nav">
                             <ul class="p-nav l-row">
@@ -99,9 +99,9 @@
                                         @csrf
                                     </form>
                                     <li class="p-nav__item">
-                                        <a href="" class="p-nav__link">
+                                        <a href="{{ route('mypage') }}" class="p-nav__link">
                                             <div class="p-nav__img">
-                                                <img src="img/no-img.jpg" alt="">
+                                                <img src="{{ asset('storage/img/'.$user->pic) }}" alt="">
                                             </div>
                                             <p class="p-nav__name">なおちん</p>
                                         </a>
@@ -118,5 +118,14 @@
             @yield('content')
         </main>
     </div>
+    <footer class="l-footer">
+        <div class="p-footer">
+            <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
+            <div class="p-footer__logo">
+                <img src="{{ asset('images/logo.png') }}" alt="">
+            </div>
+            <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
+        </div>
+    </footer>
 </body>
 </html>

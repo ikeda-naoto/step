@@ -1,42 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>STEP一覧 | STEP</title>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="fontawesome-free-5.11.2-web/js/all.min.js"></script>
-</head>
-<body>
-    <!-- ヘッダー -->
-    <header class="l-header">
-        <div class="p-header">
-            <div class="l-site-width">
-                <div class="l-row l-row--between l-row--middle">
-                    <div class="p-header__logo">
-                        <img src="img/logo.png" alt="">
-                    </div>
-                    <nav class="p-header__nav">
-                        <ul class="p-nav l-row">
-                            <li class="p-nav__item"><a href="#" class="p-nav__link">STEP一覧</a></li>
-                            <li class="p-nav__item"><a href="" class="p-nav__link">ログイン</a></li>
-                            <li class="p-nav__item"><a href="" class="p-nav__link">新規会員登録</a></li>
-                            <li class="p-nav__item">
-                                <a href="" class="p-nav__link">
-                                    <div class="p-nav__img">
-                                        <img src="img/no-img.jpg" alt="">
-                                    </div>
-                                    <p class="p-nav__name">なおちん</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+@extends('layouts.app')
+
+@section('content')
     <!-- パンくずリスト -->
     <div class="l-bread-crumbs">
         <div class="p-bread-crumbs l-row  l-row--center">
@@ -204,20 +168,4 @@
         </div>
     </div>
     <!-- フッター -->
-    <footer class="l-footer">
-        <div class="p-footer">
-            <div class="p-footer__share-message">＼シェアする／</div>
-            <ul class="l-flex l-justify-center p-footer__share-btns">
-                <li class="p-footer__share-list"><a href="" class="c-btn c-btn__share c-btn__share--circle c-btn__twitter"><i class="fab fa-twitter"></i></a></li>
-                <li class="p-footer__share-list"><a href="" class="c-btn c-btn__share c-btn__share--circle c-btn__twitter"><i class="fab fa-twitter"></i></a></li>
-            </ul>
-            <!-- <i href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a> -->
-            <div class="p-footer__logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
-            <a href="" class="c-btn c-btn-center c-btn__twitter c-btn__twitter--circle u-mt-m"></a>
-        </div>
-    </footer>
-</body>
-</html>
+@endsection

@@ -7,7 +7,7 @@
                 <p class="u-text-center" v-for="errMsg in errMsgs">{{ errMsg }}</p>
             </div>
             <div class="c-modal__group">
-                <button class="c-btn c-btn--primary c-modal__btn" @click="$emit('flashErrMsgs')">OK</button>
+                <button class="c-btn c-btn--primary c-modal__btn" @click="flashErrMsgs">OK</button>
             </div>
         </div>
     </div>
@@ -19,9 +19,10 @@
     export default {
         props: ['errMsgs'],
         methods : {
-            onSubmit : function() {
-                console.log('aaa');
-            }
+            // エラーメッセージフラッシュ用メソッド
+            flashErrMsgs : function() {
+                this.$parent.errMsgs=[];
+            },
         }
     }
 </script>

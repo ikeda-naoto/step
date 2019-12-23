@@ -13,6 +13,10 @@ import ja from 'vee-validate/dist/locale/ja'
 Vue.use(VeeValidate);
 Validator.localize('ja', ja);
 
+import UUID from 'vue-uuid';
+ 
+Vue.use(UUID);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -26,6 +30,7 @@ Validator.localize('ja', ja);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('prof-edit-component', require('./components/profEditComponent.vue').default);
+Vue.component('regist-step-component', require('./components/registStepComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

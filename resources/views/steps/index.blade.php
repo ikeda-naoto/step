@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ホーム | STEP</title>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="fontawesome-free-5.11.2-web/js/all.min.js"></script>
-</head>
-<body>
-    <header class="l-header">
-        <div class="p-header">
-            <div class="l-site-width">
-                <div class="l-row l-row--between l-row-center">
-                    <div class="p-header__logo">
-                        <img src="img/logo.png" alt="">
-                    </div>
-                    <nav class="p-header__nav">
-                        <ul class="p-nav l-row">
-                            <li class="p-nav__item"><a href="#" class="p-nav__link">STEP一覧</a></li>
-                            <li class="p-nav__item"><a href="" class="p-nav__link">ログイン</a></li>
-                            <li class="p-nav__item"><a href="" class="p-nav__link">新規会員登録</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+@extends('layouts.app')
+
+@section('content')
     <div class="l-container p-lp u-p-0">
         <section class="p-baner l-row l-row--middle l-row--center">
             <h1 class="p-baner__phrase ">
@@ -201,14 +174,4 @@
             </div>
         </section>
     </div>
-    <footer class="l-footer">
-        <div class="p-footer">
-            <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
-            <div class="p-footer__logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
-        </div>
-    </footer>
-</body>
-</html>
+@endsection

@@ -12,13 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('steps.index');
 });
 
-
-Route::resource('users','UsersController');
 Route::group(['middleware' => 'auth'], function() {
-    Route::resource('users','UsersController' ,['only' => ['edit', 'update']]);
+    Route::get('users/mypage', 'UsersController@mypage')->name('mypage');
+    Route::resource('users', 'UsersController' ,['only' => ['edit', 'update']]); 
+    Route::get('/steps/create', 'StepsController@create')->name('steps.create');
+    Route::post('/steps', 'StepsController@store')->name('steps.store');
 });
+Route::resource('users','UsersController', ['except' => ['edit', 'update', 'mypage']]);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

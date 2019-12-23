@@ -38,6 +38,7 @@
         border-right: $border_s solid $border-color_light;
     }
     &__img {
+        position: relative;
         display: inline-block;
         width: 30px;
         height: 30px;
@@ -46,6 +47,18 @@
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         vertical-align: middle;
+        img {
+            width: auto;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            -o-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
     }
     &__name {
         vertical-align: middle;

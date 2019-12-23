@@ -41,7 +41,8 @@
                             </div>
                         </div>
                         <!-- プロフィール画像 -->
-                        <inputFileComponent></inputFileComponent>
+                        <inputFileComponent
+                        :img="pic"></inputFileComponent>
                         <!-- メールアドレス入力欄 -->
                         <div class="l-row c-form__group">
                             <div class="l-row__col04-pc">
@@ -89,7 +90,7 @@
                 // 各データを格納
                 data.append('name', this.name);
                 data.append('introduction', this.introduction);
-                this.isset(this.file) ? data.append('pic', this.file) : false; // nullなどで送るとバリデーションにひっかかってしまうため
+                this.isset(this.file) ? data.append('file', this.file) : false; // nullなどで送るとバリデーションにひっかかってしまうため
                 data.append('email', this.email)
                 let config = {
                     headers: {
@@ -104,6 +105,8 @@
                 .then(res => {
                     // 通信成功の場合
                     console.log(res.data);
+                    // マイページへ遷移
+                    location.href = '/users/mypage';
                  })
                 .catch(error => {
                     // 通信失敗の場合
@@ -113,10 +116,6 @@
                     }
                 });
              // });
-            },
-            // エラーメッセージフラッシュ用メソッド
-            flashErrMsgs : function() {
-                this.errMsgs=[];
             },
             // 変数が存在するかをチェックするためのメソッド
             isset: function(data) {

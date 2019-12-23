@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>マイページ | あなたの人生のSTEPを共有しよう</title>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="fontawesome-free-5.11.2-web/js/all.min.js"></script>
-</head>
-<body>
-    <!-- ヘッダー -->
-    <header class="l-header">
-        <div class="p-header">
-            <div class="l-site-width">
-                <div class="l-row l-row--between l-row--center">
-                    <div class="p-header__logo">
-                        <img src="img/logo.png" alt="">
-                    </div>
-                    <nav class="p-header__nav">
-                        <ul class="p-nav l-row">
-                            <li class="p-nav__item"><a href="#" class="p-nav__link">STEP一覧</a></li>
-                            <li class="p-nav__item"><a href="" class="p-nav__link">ログイン</a></li>
-                            <li class="p-nav__item"><a href="" class="p-nav__link">新規会員登録</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+@extends('layouts.app')
+
+@section('content')
     <!-- パンくずリスト -->
     <div class="l-bread-crumbs">
         <div class="p-bread-crumbs l-row  l-row--middle">
@@ -112,21 +84,21 @@
             <div class="l-row__col12 l-row__col04-pc">
                 <div class=" c-sidebar">
                     <div class="c-sidebar__group">
-                        <a href="" class="c-btn c-btn--warning c-sidebar__btn--full">STEPを作る</a>
+                        <a href="{{ route('steps.create') }}" class="c-btn c-btn--warning c-sidebar__btn--full">STEPを作る</a>
                     </div>
                     <div class="c-sidebar__group">
                         <h2 class="c-sidebar__head"><span class="c-sidebar__title"><i class="fas fa-user-alt c-sidebar__icn"></i>マイページ</span></h2>
                         <div class="c-sidebar__body">
-                            <div class="c-sidebar__img-container">
-                                <img class="c-sidebar__prof-img" src="img/no-img.jpg" alt="">
+                            <div class="c-sidebar__prof-img">
+                                <img class="" src="{{ asset('storage/img/'.$user->pic) }}" alt="">
                             </div>
-                            <h3 class="c-sidebar__prof-name">なおちん</h3>
+                            <h3 class="c-sidebar__prof-name">{{ $user->name }}</h3>
                             <div class="c-sidebar__prof-intro">
-                                テキスト
+                                {{ $user->introduction }}
                             </div>
                             <ul class="c-sidebar__list">
                                 <li class="c-sidebar__list-item c-sidebar__list-item--active">
-                                    プロフィール
+                                    <a href="{{ route('users.edit', $user->id) }}">プロフィール</a>
                                 </li>
                                 <li class="c-sidebar__list-item">
                                     ログアウト
@@ -141,15 +113,4 @@
             </div>
         </div>
     </div>
-    <!-- フッター -->
-    <footer class="l-footer">
-        <div class="p-footer">
-            <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
-            <div class="p-footer__logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
-        </div>
-    </footer>
-</body>
-</html>
+@endsection
