@@ -10,6 +10,12 @@
             </ul>
         </div>
     </div>
+    {{-- {{ var_dump($steps) }} --}}
+    {{-- {{ var_dump($categories) }} --}}
+    @foreach ($categories as $category)
+        {{ $category->name }}
+    @endforeach
+        
     <!-- メインコンテンツ -->
     <div class="l-container u-bg-light">
         <div class="l-row l-site-width">
@@ -129,7 +135,7 @@
             <div class="l-row__col12 l-row__col04-pc">
                 <div class="c-sidebar">
                         <div class="c-sidebar__group">
-                            <a href="" class="c-btn c-btn--warning c-sidebar__btn--full">STEPを作る</a>
+                            <a href="{{ route('steps.create') }}" class="c-btn c-btn--warning c-sidebar__btn--full">STEPを作る</a>
                         </div>
                         <div class="c-sidebar__group">
                             <h2 class="c-sidebar__head"><span class="c-sidebar__title"><i class="fas fa-search c-sidebar__icn"></i>探す</span></h2>
@@ -149,18 +155,20 @@
                                     <li class="c-sidebar__list-item c-sidebar__list-item--active">
                                         すべて
                                     </li>
-                                    <li class="c-sidebar__list-item">
-                                        プログラミング
-                                    </li>
-                                    <li class="c-sidebar__list-item">
-                                        英語
-                                    </li>
+                                    @foreach ($categories as $category)
+                                        <li class="c-sidebar__list-item">
+                                            {{ $category->name }}
+                                        </li>
+                                    @endforeach
+                                    {{-- <li class="c-sidebar__list-item">
+                                        ゆかちんこ
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
-                        <div class="c-sidebar__group"> 
+                        {{-- <div class="c-sidebar__group"> 
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        </div>
+                        </div> --}}
                 
 
                 </div>

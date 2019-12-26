@@ -8,12 +8,18 @@ use App\Time;
 use App\ParentStep;
 use App\ChildStep;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StepsController extends Controller
 {
     public function index()
     {
-        
+        $steps = DB::table('parent_steps')
+                ->leftJoin('categories', 'parent_steps.category_id', '=', 'categories.id')
+                ->get();
+
+        $categories = Category::all();
+        return view('steps.stepList', compact('steps', 'categories'));
     }
 
     public function create()

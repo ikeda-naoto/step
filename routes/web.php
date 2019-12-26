@@ -21,6 +21,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/steps/create', 'StepsController@create')->name('steps.create');
     Route::post('/steps', 'StepsController@store')->name('steps.store');
 });
+Route::get('/steps', 'StepsController@index')->name('steps.index');
 Route::resource('users','UsersController', ['except' => ['edit', 'update', 'mypage']]);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
