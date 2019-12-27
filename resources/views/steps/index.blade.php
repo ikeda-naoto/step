@@ -12,7 +12,7 @@
                 <h2 class="p-lp__title">学習するとき<br>こんなことで悩んでいませんか？</h2>
                 <div class="l-row l-row--between p-trouble__head">
                     <div class="l-row__col12 l-row__col06-pc p-trouble__img">
-                        <img src="img/trouble_person.jpg" alt="">
+                        <img src="{{ asset('images/trouble_person.jpg') }}" alt="">
                     </div>
                     <ul class="l-row__col12 l-row__col06-pc">
                         <li class="p-trouble__list">「なにを勉強すればいいかわからない...」</li>
@@ -28,7 +28,7 @@
                     「STEP」なら、そのお悩み解決できます。<br>
                     しかも、無料で。
                 </h3>
-                <a href="" class="c-btn c-btn--center c-btn--success p-lp__btn">今すぐ無料会員登録</a>
+                <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success p-lp__btn">今すぐ無料会員登録</a>
             </div>
         </section>
         <section class="l-container p-intro u-bg-dark">
@@ -65,7 +65,7 @@
                         <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
                     </ul>
                     <div class="l-row__col12 l-row__col06-pc p-merit__img">
-                        <img src="img/step_block.jpg" alt="">
+                        <img src="{{ asset('images/step_block.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -78,7 +78,24 @@
                     STEPの登録・チャレンジには会員登録（無料）が必要です。
                 </p>
                 <div class="l-row  p-step-list">
-                    <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
+                    @foreach ($steps as $step)
+                        <a href="{{ route('steps.show', $step->id) }}" class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
+                            <div class="c-panel p-step-list__panel">
+                                <div class="c-panel__category p-step-list__category">{{ $step->categoryName }}</div>
+                                <div class="c-panel__img p-step-list__img">
+                                    <img src="img/trouble_person.jpg" alt="">
+                                </div>
+                                <div class="l-row l-row--between p-step-list__head">
+                                    <h3 class="c-panel__title p-step-list__title">{{ $step->parent_title }}</h3>
+                                </div>
+                                <div class="l-row l-row--between l-row--center p-step-list__body">
+                                    <p class="p-step-list__time">終了目安：{{ $step->time / 60}}時間</p>
+                                    <p class="p-step-list__sum">全{{ $step->sumChildNum }}STEP</p>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                    {{-- <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
                         <div class="c-panel p-step-list__panel">
                             <div class="c-panel__category p-step-list__category">カテゴリー</div>
                             <div class="c-panel__img p-step-list__img">
@@ -167,10 +184,10 @@
                                 <p class="p-step-list__sum">全10STEP</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-                    <a href="" class="c-btn c-btn--warning p-browse__btn">他のSTEPを見る</a>
-                    <a href="" class="c-btn c-btn--success p-lp__btn">今すぐ無料会員登録</a>
+                    <a href="{{ route('steps.create') }}" class="c-btn c-btn--warning p-browse__btn">他のSTEPを見る</a>
+                    <a href="{{ route('register') }}" class="c-btn c-btn--success p-lp__btn">今すぐ無料会員登録</a>
             </div>
         </section>
     </div>

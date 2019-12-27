@@ -412,7 +412,6 @@ button:focus {
 }
 
 .c-sidebar__list-item {
-  padding: 15px 10px;
   margin-bottom: 15px;
   border-radius: 5px;
   border: 2px dashed #0057a3;
@@ -426,6 +425,15 @@ button:focus {
 
 .c-sidebar__list-item:hover {
   opacity: 0.7;
+}
+
+.c-sidebar__label {
+  display: block;
+  padding: 15px 10px;
+}
+
+.c-sidebar__radio {
+  display: none;
 }
 
 .c-sidebar__btn--full {
@@ -940,14 +948,30 @@ button:focus {
   opacity: 0.7;
 }
 
+.p-step-list {
+  position: relative;
+}
+
 .p-step-list__panel-container {
   padding: 0 15px;
   margin: 15px 0;
 }
 
 .p-step-list__img {
-  height: 160px;
+  height: 214px;
   margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.p-step-list__img img {
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .p-step-list__title {
@@ -965,6 +989,7 @@ button:focus {
   height: 40px;
   line-height: 40px;
   top: -20px;
+  z-index: 1;
 }
 
 .p-registed-step__panel {

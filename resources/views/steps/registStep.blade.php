@@ -14,7 +14,7 @@
             </div>
         </div>
     </div> --}}
-    <form method="post" action="{{ route('steps.store') }}">
+    {{-- <form method="post" action="{{ route('steps.store') }}">
         @csrf
         <input type="text" name="a[]">
         <input type="text" name="a[]">
@@ -23,8 +23,7 @@
         <input type="text" name="a[]">
         <input type="text" name="a[]">
         <input type="submit" value="aaa">
-    </form>
+    </form> --}}
     <regist-step-component
-    :categories="{{ $categories }}"
-    :times="{{ $times }}"></regist-step-component>
+    :categories="{{ $categories }}"></regist-step-component>
  @endsection

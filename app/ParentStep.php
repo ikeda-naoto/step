@@ -19,4 +19,8 @@ class ParentStep extends Model
     {
         return $this->hasMany('App\ChildStep');
     }
+
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
 }

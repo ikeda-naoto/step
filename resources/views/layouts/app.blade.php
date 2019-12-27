@@ -18,9 +18,13 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Gothic&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        [v-cloak] {opacity: 0;}
+    </style>
 </head>
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -82,7 +86,7 @@
                         </div>
                         <nav class="p-header__nav">
                             <ul class="p-nav l-row">
-                                <li class="p-nav__item"><a href="#" class="p-nav__link">STEP一覧</a></li>
+                                <li class="p-nav__item"><a href="{{ route('steps.index') }}" class="p-nav__link">STEP一覧</a></li>
                                 @guest
                                     <li class="p-nav__item"><a href="{{ route('login') }}" class="p-nav__link">ログイン</a></li>
                                     @if (Route::has('register'))
@@ -117,15 +121,16 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
-    <footer class="l-footer">
-        <div class="p-footer">
-            <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
-            <div class="p-footer__logo">
-                <img src="{{ asset('images/logo.png') }}" alt="">
+        <footer class="l-footer">
+            <div class="p-footer">
+                <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
+                <div class="p-footer__logo">
+                    <img src="{{ asset('images/logo.png') }}" alt="">
+                </div>
+                <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
             </div>
-            <small class="p-footer__copyright">Copyright ©︎ STEP All Rights Reserved.</small>
-        </div>
-    </footer>
+        </footer>
+    </div>
+
 </body>
 </html>

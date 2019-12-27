@@ -59,7 +59,6 @@
 
     }
     &__list-item {
-        padding: $space_l $space_m;
         margin-bottom: $space_l;
         border-radius: 5px;
         border: $border_m dashed $background-color_base;
@@ -72,7 +71,13 @@
     &__list-item:hover {
         opacity: 0.7;
     }
-
+    &__label {
+        display: block;
+        padding: $space_l $space_m;
+    }
+    &__radio {
+        display: none;
+    }
     &__btn {
         &--full {
             width: 100%;

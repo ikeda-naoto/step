@@ -64,8 +64,7 @@
                         <registChildStepComponent
                         :key="uuid[index]"
                         :index="index"
-                        v-model="childSteps[index]"
-                        :times="times"></registChildStepComponent>
+                        v-model="childSteps[index]"></registChildStepComponent>
                     </template>
 
                     <div class="l-row l-row--between c-form__group">
@@ -110,7 +109,7 @@
                 childSteps: [
                     {
                         child_title: '',
-                        time_id: '',
+                        time: 0,
                         child_content: '',
                     },
                 ],
@@ -171,7 +170,7 @@
                 this.childSteps.push(
                     {
                         child_title: '',
-                        time_id: '',
+                        time: 0,
                         child_content: '',
                     }
                 )

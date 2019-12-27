@@ -7,15 +7,11 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-import VeeValidate, { Validator } from'vee-validate'
-import ja from 'vee-validate/dist/locale/ja'
-
-Vue.use(VeeValidate);
-Validator.localize('ja', ja);
 
 import UUID from 'vue-uuid';
- 
 Vue.use(UUID);
+
+import store from './store'
 
 /**
  * The following block of code may be used to automatically register your
@@ -28,9 +24,11 @@ Vue.use(UUID);
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
 Vue.component('prof-edit-component', require('./components/profEditComponent.vue').default);
 Vue.component('regist-step-component', require('./components/registStepComponent.vue').default);
+Vue.component('step-list-component', require('./components/stepListComponent.vue').default);
+Vue.component('parent-step-detail-component', require('./components/parentStepDetail/parentStepDetailComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -39,4 +37,5 @@ Vue.component('regist-step-component', require('./components/registStepComponent
 
 const app = new Vue({
     el: '#app',
+    store,
 });

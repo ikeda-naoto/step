@@ -14,10 +14,19 @@ class StepsController extends Controller
 {
     public function index()
     {
-        $steps = DB::table('parent_steps')
-                ->leftJoin('categories', 'parent_steps.category_id', '=', 'categories.id')
-                ->get();
+        $steps = ParentStep::all();
+    
 
+        foreach ($steps as $step) {
+            // 各親STEPのカテゴリーを取得し、連想配列に追加
+            $step->categoryName = $step->category->getData();
+            // 各親STEPに紐づいている子STEPを取得
+            $childSteps = $step->children;
+            // 各子STEPの終了目安時間の合計を連想配列に追加
+            $step->time = $childSteps->where('parent_step_id', $step->id)->sum('time');
+            // 各親STEPに紐づく子STEPの数の合計を連想配列に追加
+            $step->sumChildNum = $childSteps->count();
+        }
         $categories = Category::all();
         return view('steps.stepList', compact('steps', 'categories'));
     }
@@ -25,9 +34,8 @@ class StepsController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $times = Time::all();
 
-        return view('steps.registStep', compact('categories', 'times'));
+        return view('steps.registStep', compact('categories'));
     }
 
     public function store(Request $request)
@@ -39,7 +47,7 @@ class StepsController extends Controller
             'parent_content' => 'required|max:20000',
             'file' => 'nullable|file|image',
             'child_title.*' => 'required|max:20',
-            'time_id.*' => 'required|integer',
+            'time.*' => 'required|integer',
             'child_content.*' => 'required|max:20000',
         ]);
         
@@ -60,13 +68,13 @@ class StepsController extends Controller
         
         // 子STEPの内容の配列をそれぞれの変数に代入
         $childTitle = $request->input('child_title');
-        $timeId = $request->input('time_id');
+        $time = $request->input('time');
         $childContent = $request->input('child_content');
         // 子STEPを一つ一つDBに保存
         for ($i = 0; $i < count($childTitle); $i++) { // 子STEPのタイトルの配列の要素数でループの回数を決定。タイトルは必須項目なので、少なくとも一つはある
             $data = array(
                 'child_title' => $childTitle[$i],
-                'time_id' => $timeId[$i],
+                'time' => $time[$i],
                 'child_content' => $childContent[$i],
                 'num' => $i+1,
             );
@@ -78,5 +86,20 @@ class StepsController extends Controller
         return response()->json(['flg'=> true]);
     }
 
+    public function show($id) {
+
+        if(!ctype_digit($id)) {
+            return redirect('/steps');
+        }
+
+        $parentStep = ParentStep::find($id);
+        $parentStep->categoryName = $parentStep->category->getData();
+        if(!$parentStep) {
+            return redirect('/steps');
+        }
+        $childSteps = $parentStep->children;
+        $parentStep->time = $childSteps->where('parent_step_id', $parentStep->id)->sum('time');
+        return view('steps.parentStepDetail', compact('parentStep', 'childSteps'));
+    }
 
 }

@@ -36,9 +36,8 @@
                 <label for="img" class="p-prof-edit__label">終了目安時間</label>
             </div>
             <div class="l-row__col08-pc">
-                <select name="" id="" class="c-select c-select--half" v-model="time_id">
-                    <option value="">選択してください</option>
-                    <option v-for="time in times" :key="time.id" :value="time.id">{{ time.time }}</option>
+                <select name="" id="" class="c-select c-select--half" v-model="time_value">
+                    <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
                 </select>
             </div>
         </div>
@@ -62,24 +61,47 @@
         //         type: Object,
         //     required: true,
         // },
-        props: ['index', 'value', 'times'],
+        props: ['index', 'value'],
         data: function() {
             return {
                 title: '',
-                time_id: '',
+                time_value: 0,
                 content: '',
-                
+                times: [
+                    { minute: 0, text: '選択してください' },
+                    { minute: 15, text: '15分' },
+                    { minute: 30, text: '30分' },
+                    { minute: 60, text: '1時間' },
+                    { minute: 90, text: '1時間半' },
+                    { minute: 120, text: '2時間' },
+                    { minute: 150, text: '2時間半' },
+                    { minute: 180, text: '3時間' },
+                    { minute: 210, text: '3時間半' },
+                    { minute: 240, text: '4時間' },
+                    { minute: 270, text: '4時間半' },
+                    { minute: 300, text: '5時間' },
+                    { minute: 330, text: '5時間半' },
+                    { minute: 360, text: '6時間' },
+                    { minute: 390, text: '6時間半' },
+                    { minute: 420, text: '7時間' },
+                    { minute: 450, text: '7時間半' },
+                    { minute: 480, text: '8時間' },
+                    { minute: 510, text: '8時間半' },
+                    { minute: 540, text: '9時間' },
+                    { minute: 570, text: '9時間半' },
+                    { minute: 600, text: '10時間' },
+                ]
             }
         },
         mounted: function() {
              this.title = this.value.child_title;
-             this.time_id   = this.value.time_id;
+             this.time_value = this.value.time;
              this.content = this.value.child_content;
         },
         updated: function() {
             this.$emit('input', {
                 child_title: this.title,
-                time_id: this.time_id,
+                time: this.time_value,
                 child_content: this.content
             });
         },
