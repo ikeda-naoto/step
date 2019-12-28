@@ -3,10 +3,10 @@
                     <h1 class="c-title--normal u-mb-5l">STEP一覧</h1>
                     <!-- <div class="l-row  p-step-list"> -->
                         <transition-group tag="div" class="l-row  p-step-list v-move">
-                            <template v-for="step in steps">
+                            <template v-for="parentStep in parentSteps">
                                 <stepPanelComponent
-                                :key="step.id"
-                                :step="step"></stepPanelComponent>
+                                :key="parentStep.id"
+                                :parentStep="parentStep"></stepPanelComponent>
                             </template>
                         </transition-group>
 
@@ -111,7 +111,7 @@
         components: {
             stepPanelComponent
         },
-        props: ['steps']
+        props: ['parentSteps']
     }
 </script>
 

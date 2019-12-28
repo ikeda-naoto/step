@@ -8,11 +8,14 @@
                             </div>
                             
                             <figure class="p-parent__img">
-                                <img src="img/promon_img.png" alt="">
+                                <img :src="showStepImg" alt="">
                             </figure>
                             <!-- <div class="p-parent__sharebtn">
                                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false" data-lang="ja">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div> -->
+                            <div class="p-share">
+                                <button class="c-btn c-btn--twitter p-share__btn" @click="onClickTwitterShare"><i class="fab fa-twitter p-share__icn"></i>ツイート</button>
+                            </div>
                             <div class="p-parent__body">
                                 <div class="p-parent__textarea">
                                     {{ parentStep.parent_content }}
@@ -22,18 +25,30 @@
                             <div class="p-parent__foot">
                                 <p class="p-parent__time">終了目安：{{ parentStep.time / 60 }}時間</p>
                             </div>
-                            <challengeBtnComponent></challengeBtnComponent>
+                            <challengeBtnComponent
+                            :parentStepId="parentStep.id"
+                            :user="user"
+                            :challengeFlg="challengeFlg"></challengeBtnComponent>
                         </div>
                     </div>
 </div>
 </template>
 
 <script>
-import challengeBtnComponent from '../parentStepDetail/challengeBtnComponent';
+    import Mixin from '../mixins/mixin';
+    import challengeBtnComponent from '../parentStepDetail/challengeBtnComponent';
     export default {
-        props: ['parentStep'],
+        props: ['user', 'parentStep', 'challengeFlg'],
+        methods: {
+            onClickTwitterShare: function() {
+                // ツイッターシェアするときのタイトル
+                let shareTitle = this.parentStep.parent_title;
+                this.twitterShare(shareTitle);
+            }
+        },
         components: {
             challengeBtnComponent
-        }
+        },
+        mixins: [Mixin],
     }
 </script>

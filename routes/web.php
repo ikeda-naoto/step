@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('users', 'UsersController' ,['only' => ['edit', 'update']]); 
     Route::get('/steps/create', 'StepsController@create')->name('steps.create');
     Route::post('/steps', 'StepsController@store')->name('steps.store');
+    Route::post('/challenge', 'ChallengeController@challenge');
 });
 Route::get('/steps', 'StepsController@index')->name('steps.index');
 Route::get('/steps/{id}', 'StepsController@show')->name('steps.show');

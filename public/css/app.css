@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/* http://meyerweb.com/eric/tools/css/reset/ 
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -321,6 +323,11 @@ button:focus {
 .c-btn--goast {
   color: #4d4d4d;
   border: 1px solid #4d4d4d;
+}
+
+.c-btn--twitter {
+  color: #fff;
+  background-color: #1b95e0;
 }
 
 .c-panel {
@@ -934,18 +941,24 @@ button:focus {
   padding: 0 15px;
 }
 
-.p-bread-crumbs {
+.p-breadcrumbs {
   height: 40px;
   position: relative;
   box-shadow: 0 3px 5px 0px #333;
 }
 
-.p-bread-crumbs__icn {
-  margin: 0 10px;
+.p-breadcrumbs__item::after {
+  content: ">";
+  padding: 0 5px;
 }
 
-.p-bread-crumbs__link:hover {
+.p-breadcrumbs__item:last-child::after {
+  content: "";
+}
+
+.p-breadcrumbs__link:hover {
   opacity: 0.7;
+  text-decoration: underline;
 }
 
 .p-step-list {
@@ -1328,13 +1341,13 @@ button:focus {
   font-size: 16px;
 }
 
-.p-child-index {
+.p-child-index__list {
   margin-top: 15px;
+  position: relative;
 }
 
 .p-child-index__item {
-  margin-bottom: 20px;
-  box-shadow: 0px 2px 5px #4d4d4d;
+  margin-bottom: 60px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1343,6 +1356,23 @@ button:focus {
 .p-child-index__item:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+
+.p-child-index__item::after {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border: 20px solid transparent;
+  border-top: 20px solid #4d4d4d;
+}
+
+.p-child-index__item:last-child::after {
+  display: none;
 }
 
 .p-child-index__left-container {
@@ -1371,12 +1401,12 @@ button:focus {
   padding: 0 15px;
 }
 
-.p-child-index__triangle {
-  width: 0;
-  height: 0;
-  margin: 0 auto;
-  border: 20px solid transparent;
-  border-top: 20px solid #4d4d4d;
+.p-share__btn {
+  padding: 5px;
+}
+
+.p-share__icn {
+  margin-right: 5px;
 }
 
 .u-bg-light {

@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\ParentStep');
     }
+
+    public function challenges()
+    {
+        return $this->hasMany('App\ChallengeStep');
+    }
 }

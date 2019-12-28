@@ -1,11 +1,18 @@
-.p-bread-crumbs {
+.p-breadcrumbs {
     height: 40px;
     position:relative;
     box-shadow: 0 3px 5px 0px $shadow-color_dark;
-    &__icn {
-        margin: 0 $space_m;
+    // &__icn {
+    //     margin: 0 $space_m;
+    // }
+    &__item::after {
+        content: '>';
+        padding: 0 $space_s;
+    }&__item:last-child::after {
+        content: '';
     }
     &__link:hover {
         opacity: 0.7;
+        text-decoration: underline;
     }
 }

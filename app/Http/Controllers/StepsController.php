@@ -9,26 +9,27 @@ use App\ParentStep;
 use App\ChildStep;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\ChallengeStep;
 
 class StepsController extends Controller
 {
     public function index()
     {
-        $steps = ParentStep::all();
+        $parentSteps = ParentStep::all();
     
 
-        foreach ($steps as $step) {
+        foreach ($parentSteps as $parentStep) {
             // 各親STEPのカテゴリーを取得し、連想配列に追加
-            $step->categoryName = $step->category->getData();
+            $parentStep->categoryName = $parentStep->category->getData();
             // 各親STEPに紐づいている子STEPを取得
-            $childSteps = $step->children;
+            $childSteps = $parentStep->children;
             // 各子STEPの終了目安時間の合計を連想配列に追加
-            $step->time = $childSteps->where('parent_step_id', $step->id)->sum('time');
+            $parentStep->time = $childSteps->where('parent_step_id', $parentStep->id)->sum('time');
             // 各親STEPに紐づく子STEPの数の合計を連想配列に追加
-            $step->sumChildNum = $childSteps->count();
+            $parentStep->sumChildNum = $childSteps->count();
         }
         $categories = Category::all();
-        return view('steps.stepList', compact('steps', 'categories'));
+        return view('steps.stepList', compact('parentSteps', 'categories'));
     }
 
     public function create()
@@ -87,19 +88,37 @@ class StepsController extends Controller
     }
 
     public function show($id) {
-
+        // GETパラメータが数字かどうかチェック
         if(!ctype_digit($id)) {
             return redirect('/steps');
         }
 
+        // GETパラメータより親STEPの情報を取得
         $parentStep = ParentStep::find($id);
-        $parentStep->categoryName = $parentStep->category->getData();
+        // GETパラメータが改ざんされていないかチェック
         if(!$parentStep) {
             return redirect('/steps');
         }
+
+        // 親STEPに紐づいているカテゴリ名を取得し、オブジェクトに追加
+        $parentStep->categoryName = $parentStep->category->getData();
+        // 親STEPに紐づいている子STEPを取得
         $childSteps = $parentStep->children;
+        // 
         $parentStep->time = $childSteps->where('parent_step_id', $parentStep->id)->sum('time');
-        return view('steps.parentStepDetail', compact('parentStep', 'childSteps'));
+
+        // すでにチャレンジしているSTEPかを判定するフラグ
+        $challengeFlg = 0;
+        // ログインしていてかつチャレンジしている場合
+        if(Auth::check() && Auth::user()->challenges()->where('parent_step_id', $id)->exists()) {
+            // フラグをtrueに
+            $challengeFlg = 1;
+        }
+
+        // このSTEPを作ったユーザの情報を取得
+        $createUser = $parentStep->user;
+        
+        return view('steps.parentStepDetail', compact('parentStep', 'childSteps', 'createUser', 'challengeFlg'));
     }
 
 }

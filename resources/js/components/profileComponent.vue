@@ -1,0 +1,29 @@
+<template>
+    <div class="c-sidebar__group">
+        <h2 class="c-sidebar__head"><span class="c-sidebar__title"><i class="fas fa-user-alt c-sidebar__icn"></i>{{ title }}</span></h2>
+        <div class="c-sidebar__body">
+            <div class="c-sidebar__prof-img">
+                <img class="" :src="showImg" alt="">
+            </div>
+            <h3 class="c-sidebar__prof-name">{{ user.name }}</h3>
+            <div class="c-sidebar__prof-intro">
+                {{ user.introduction }}
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        props: ['user', 'title'],
+        computed: {
+            showImg: function() {
+                if(!this.user.pic) {
+                    return '/images/unknown.png';
+                }
+                return '/storage/img/' + this.user.pic;
+            }
+        }
+    }
+    
+</script>

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('breadcrumbs', Breadcrumbs::render('steps'))
+
 @section('content')
     <step-list-component
-    :steps="{{ $steps }}"
+    :parent-steps="{{ $parentSteps }}"
     :categories="{{ $categories }}"></step-list-component>
 @endsection

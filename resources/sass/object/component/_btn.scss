@@ -46,7 +46,8 @@
     //     }
         
     // }
-    // &__twitter {
-    //     background-color: #1b95e0;
-    // }
+    &--twitter {
+        color: $font-color_light;
+        background-color: #1b95e0;
+    }
 }

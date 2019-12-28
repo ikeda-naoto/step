@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
+@section('breadcrumbs', Breadcrumbs::render('showParentStep', $parentStep))
+
 @section('content')
     <parent-step-detail-component
     :parent-step="{{ $parentStep }}"
-    :child-steps="{{ $childSteps }}"></parent-step-detail-component>
+    :child-steps="{{ $childSteps }}"
+    @if ($user) 
+        :user="{{ $user }}"
+    @else
+        :user=null
+    @endif
+    :create-User="{{ $createUser }}"
+    :challenge-flg="{{ $challengeFlg }}"></parent-step-detail-component>
 @endsection
