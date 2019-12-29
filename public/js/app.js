@@ -2086,6 +2086,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2097,7 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
     challengeBtnComponent: _challengeBtnComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
     parentStepDetailSidebarComponent: _parentStepDetailSidebarComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  props: ['parentStep', 'childSteps', 'user', 'createUser', 'challengeFlg']
+  props: ['parentStep', 'user', 'createUser', 'challengeFlg']
 });
 
 /***/ }),
@@ -2113,10 +2122,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 /* harmony import */ var _parentStepDetail_challengeBtnComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../parentStepDetail/challengeBtnComponent */ "./resources/js/components/parentStepDetail/challengeBtnComponent.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -2277,7 +2282,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2294,7 +2298,8 @@ __webpack_require__.r(__webpack_exports__);
       pic: this.user.pic,
       file: null,
       email: this.user.email,
-      errMsgs: []
+      errMsgs: [],
+      isPush: false
     };
   },
   methods: {
@@ -2302,6 +2307,7 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit() {
       var _this = this;
 
+      this.isPush = !this.isPush;
       var data = new FormData(); // 各データを格納
 
       data.append('name', this.name);
@@ -2324,10 +2330,18 @@ __webpack_require__.r(__webpack_exports__);
         location.href = '/users/mypage';
       })["catch"](function (error) {
         // 通信失敗の場合
-        // エラーメッセージを変数に格納し、モーダルで表示する
-        for (var key in error.response.data.errors) {
-          _this.errMsgs.push(error.response.data.errors[key][0]);
-        }
+        // バリデーション引っかかった場合
+        if (error.response.data.errors) {
+          // エラーメッセージを変数に格納し、モーダルで表示する
+          for (var key in error.response.data.errors) {
+            _this.errMsgs.push(error.response.data.errors[key][0]);
+          }
+        } // それ以外のエラーの場合
+        else {
+            alert('しばらく時間をおいてから再度登録をしてください');
+          }
+
+        _this.isPush = !_this.isPush;
       }); // });
     },
     // 変数が存在するかをチェックするためのメソッド
@@ -3119,7 +3133,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['parentStep'],
-  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_1__["default"]]
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  data: function data() {
+    return {
+      page: ''
+    };
+  },
+  created: function created() {
+    var url = location.href.split('/');
+    this.page = url[3];
+    console.log(this.page);
+  }
 });
 
 /***/ }),
@@ -39871,11 +39895,25 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _c("childStepIndexComponent", {
-              attrs: { childSteps: _vm.childSteps }
+            _c("challengeBtnComponent", {
+              attrs: {
+                parentStepId: _vm.parentStep.id,
+                user: _vm.user,
+                challengeFlg: _vm.challengeFlg
+              }
             }),
             _vm._v(" "),
-            _c("challengeBtnComponent")
+            _c("childStepIndexComponent", {
+              attrs: { childSteps: _vm.parentStep.child_steps }
+            }),
+            _vm._v(" "),
+            _c("challengeBtnComponent", {
+              attrs: {
+                parentStepId: _vm.parentStep.id,
+                user: _vm.user,
+                challengeFlg: _vm.challengeFlg
+              }
+            })
           ],
           1
         ),
@@ -39912,64 +39950,51 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "c-panel__category p-parent__category" }, [
-      _vm._v(_vm._s(_vm.parentStep.categoryName))
+      _vm._v(_vm._s(_vm.parentStep.category.name))
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "p-parent__outer" }, [
-      _c(
-        "div",
-        { staticClass: "p-parent__inner" },
-        [
-          _c("div", { staticClass: "p-parent__head" }, [
-            _c("h1", { staticClass: "p-parent__title" }, [
-              _vm._v("「" + _vm._s(_vm.parentStep.parent_title) + "」")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("figure", { staticClass: "p-parent__img" }, [
-            _c("img", { attrs: { src: _vm.showStepImg, alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-share" }, [
-            _c(
-              "button",
-              {
-                staticClass: "c-btn c-btn--twitter p-share__btn",
-                on: { click: _vm.onClickTwitterShare }
-              },
-              [
-                _c("i", { staticClass: "fab fa-twitter p-share__icn" }),
-                _vm._v("ツイート")
-              ]
+      _c("div", { staticClass: "p-parent__inner" }, [
+        _c("div", { staticClass: "p-parent__head" }, [
+          _c("h1", { staticClass: "p-parent__title" }, [
+            _vm._v("「" + _vm._s(_vm.parentStep.parent_title) + "」")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("figure", { staticClass: "p-parent__img" }, [
+          _c("img", { attrs: { src: _vm.showStepImg, alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-share" }, [
+          _c(
+            "button",
+            {
+              staticClass: "c-btn c-btn--twitter p-share__btn",
+              on: { click: _vm.onClickTwitterShare }
+            },
+            [
+              _c("i", { staticClass: "fab fa-twitter p-share__icn" }),
+              _vm._v("ツイート")
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-parent__body" }, [
+          _c("div", { staticClass: "p-parent__textarea" }, [
+            _vm._v(
+              "\n                                    " +
+                _vm._s(_vm.parentStep.parent_content) +
+                "\n                                "
             )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-parent__body" }, [
-            _c("div", { staticClass: "p-parent__textarea" }, [
-              _vm._v(
-                "\n                                    " +
-                  _vm._s(_vm.parentStep.parent_content) +
-                  "\n                                "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-parent__foot" }, [
-            _c("p", { staticClass: "p-parent__time" }, [
-              _vm._v("終了目安：" + _vm._s(_vm.parentStep.time / 60) + "時間")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("challengeBtnComponent", {
-            attrs: {
-              parentStepId: _vm.parentStep.id,
-              user: _vm.user,
-              challengeFlg: _vm.challengeFlg
-            }
-          })
-        ],
-        1
-      )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-parent__foot" }, [
+          _c("p", { staticClass: "p-parent__time" }, [
+            _vm._v("終了目安：" + _vm._s(_vm.showTotalTime) + "時間")
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -40046,8 +40071,7 @@ var render = function() {
             expression: "errMsgs.length"
           }
         ],
-        attrs: { errMsgs: _vm.errMsgs },
-        on: { flashErrMsgs: _vm.flashErrMsgs }
+        attrs: { errMsgs: _vm.errMsgs }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "l-container u-bg-light" }, [
@@ -40161,7 +40185,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "c-btn c-btn--success p-prof-edit__btn",
-                      attrs: { type: "button" },
+                      attrs: { type: "button", disabled: _vm.isPush },
                       on: { click: _vm.onSubmit }
                     },
                     [_vm._v("編集する")]
@@ -41138,7 +41162,7 @@ var render = function() {
           _c(
             "div",
             { staticClass: "c-panel__category p-step-list__category" },
-            [_vm._v(_vm._s(_vm.parentStep.categoryName))]
+            [_vm._v(_vm._s(_vm.parentStep.category.name))]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "c-panel__img p-step-list__img" }, [
@@ -41159,11 +41183,13 @@ var render = function() {
             },
             [
               _c("p", { staticClass: "p-step-list__time" }, [
-                _vm._v("終了目安：" + _vm._s(_vm.parentStep.time / 60) + "時間")
+                _vm._v("終了目安：" + _vm._s(_vm.totalTime) + "時間")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "p-step-list__sum" }, [
-                _vm._v("全" + _vm._s(_vm.parentStep.sumChildNum) + "STEP")
+                _vm._v(
+                  "全" + _vm._s(_vm.parentStep.child_steps.length) + "STEP"
+                )
               ])
             ]
           )
@@ -54491,6 +54517,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./asset/jquery */ "./resources/js/asset/jquery.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 Vue.use(vue_uuid__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -54518,6 +54546,36 @@ Vue.component('parent-step-detail-component', __webpack_require__(/*! ./componen
 var app = new Vue({
   el: '#app',
   store: _store__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/asset/jquery.js":
+/*!**************************************!*\
+  !*** ./resources/js/asset/jquery.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  var jsScrollTop = $('.js-scroll-top'); // ボタンを隠す
+
+  jsScrollTop.hide(); //スクロールが100に達したらボタン表示
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      jsScrollTop.fadeIn();
+    } else {
+      jsScrollTop.fadeOut();
+    }
+  }); //スクロールしてトップ
+
+  jsScrollTop.click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 500);
+    return false;
+  });
 });
 
 /***/ }),
@@ -54663,6 +54721,13 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return '/storage/img/' + this.parentStep.pic;
+    },
+    showTotalTime: function showTotalTime() {
+      var totalTime = 0;
+      this.parentStep.child_steps.forEach(function (child) {
+        totalTime += child.time;
+      });
+      return totalTime / 60;
     }
   }
 });

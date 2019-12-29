@@ -1,15 +1,8 @@
 @extends('layouts.app')
+{{-- パンくずリスト --}}
+@section('breadcrumbs', Breadcrumbs::render('mypage'))
 
 @section('content')
-    <!-- パンくずリスト -->
-    <div class="l-bread-crumbs">
-        <div class="p-bread-crumbs l-row  l-row--middle">
-            <ul class="l-site-width l-row p-bread-crumbs__list">
-                <li><a href="" class="p-bread-crumbs__link">ホーム</a><i class="fas fa-angle-right p-bread-crumbs__icn"></i></li>
-                <li>マイページ</li>
-            </ul>
-        </div>
-    </div>
     <!-- メインコンテンツ -->
     <div class="l-container u-bg-light">
         <div class="l-row l-site-width">
@@ -17,22 +10,24 @@
             <div class="l-row__col12 l-row__col08-pc p-mypage">
                     <section class="p-registed-step u-mb-l">
                         <h2 class="c-title--type01">登録したSTEP</h2>
+                        @foreach ($registSteps as $registStep)
                         <div class="c-panel p-registed-step__panel">
-                            <h3 class="c-panel__title p-registed-step__title">ああああああああああああああああああああ</h3>
-                            <p class="p-registed-step__sum">全10STEP</p>
+                            <h3 class="c-panel__title p-registed-step__title">{{ $registStep->parent_title }}</h3>
+                            <p class="p-registed-step__sum">全{{ $registStep->sumChildNum }}STEP</p>
                             <div class="l-row">
                                 <div class="l-row__col12 l-row__col04-pc c-panel__img p-registed-step__img">
-                                    <img src="img/trouble_person.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="l-row__col12 l-row__col08-pc">
                                     <p class="p-registed-step__content">
-                                        テキストテキストテキストテキストテキストテキストテキスト
-                                        テキストテキストテキストテキストテキテキストテキストテキスト
+                                        {{ $registStep->parent_content }}
                                     </p>
                                 </div>
                             </div>
                             <a href="" class="c-btn c-btn--primary p-registed-step__btn">編集する</a>
                         </div>
+                        @endforeach
+                        
                             <!--  -->
                     </section>
                 <section class="p-challenge-step">

@@ -37,13 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function steps()
+    public function parentSteps()
     {
         return $this->hasMany('App\ParentStep');
     }
 
     public function challenges()
     {
-        return $this->hasMany('App\ChallengeStep');
+        return $this->hasMany('App\Challenge');
     }
 }

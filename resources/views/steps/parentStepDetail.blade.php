@@ -5,7 +5,6 @@
 @section('content')
     <parent-step-detail-component
     :parent-step="{{ $parentStep }}"
-    :child-steps="{{ $childSteps }}"
     @if ($user) 
         :user="{{ $user }}"
     @else

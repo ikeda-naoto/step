@@ -125,7 +125,6 @@
         </main>
         <footer class="l-footer">
             <div class="p-footer">
-                <a href="" class="p-footer__pageTop"><i class="fas fa-angle-double-up"></i></a>
                 <div class="p-footer__logo">
                     <img src="{{ asset('images/logo.png') }}" alt="">
                 </div>

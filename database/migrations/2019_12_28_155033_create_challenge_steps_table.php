@@ -13,7 +13,7 @@ class CreateChallengeStepsTable extends Migration
      */
     public function up()
     {
-        Schema::create('challenge_steps', function (Blueprint $table) {
+        Schema::create('challenges', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('parent_step_id');
             $table->foreign('parent_step_id')->references('id')->on('parent_steps');

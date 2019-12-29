@@ -301,6 +301,11 @@ button:focus {
   box-sizing: border-box;
 }
 
+.c-btn:disabled {
+  background: #bebebe;
+  cursor: not-allowed;
+}
+
 .c-btn:hover {
   opacity: 0.8;
 }
@@ -323,6 +328,25 @@ button:focus {
 .c-btn--goast {
   color: #4d4d4d;
   border: 1px solid #4d4d4d;
+}
+
+.c-btn--pageTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  color: #fff;
+  border-radius: 100%;
+  background: #0057a3;
+  line-height: 40px;
+  text-align: center;
+}
+
+.c-btn--pageTop:hover {
+  opacity: 0.8;
 }
 
 .c-btn--twitter {
@@ -909,21 +933,6 @@ button:focus {
 .p-footer {
   padding: 40px;
   text-align: center;
-}
-
-.p-footer__pageTop {
-  display: block;
-  width: 40px;
-  height: 40px;
-  margin: auto;
-  color: #fff;
-  border-radius: 100%;
-  background: #0057a3;
-  line-height: 40px;
-}
-
-.p-footer__pageTop:hover {
-  opacity: 0.8;
 }
 
 .p-footer__logo {

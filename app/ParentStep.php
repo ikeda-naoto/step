@@ -15,7 +15,7 @@ class ParentStep extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function children()
+    public function childSteps()
     {
         return $this->hasMany('App\ChildStep');
     }
@@ -26,6 +26,7 @@ class ParentStep extends Model
 
     public function challenges()
     {
-        return $this->hasMany('App\ChildStep');
+        return $this->hasMany('App\Challenge');
     }
+    
 }

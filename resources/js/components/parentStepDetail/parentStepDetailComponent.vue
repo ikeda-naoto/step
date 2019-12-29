@@ -11,10 +11,19 @@
                     :parentStep="parentStep"
                     :challengeFlg="challengeFlg"></parentStepDetailMainComponent>
                 </section>
+                <!-- チャレンジボタン -->
+                <challengeBtnComponent
+                            :parentStepId="parentStep.id"
+                            :user="user"
+                            :challengeFlg="challengeFlg"></challengeBtnComponent>
                 <!-- 子STEPインデックス -->
                 <childStepIndexComponent
-                :childSteps="childSteps"></childStepIndexComponent>
-                <challengeBtnComponent></challengeBtnComponent>
+                :childSteps="parentStep.child_steps"></childStepIndexComponent>
+                <!-- チャレンジボタン -->
+                <challengeBtnComponent
+                :parentStepId="parentStep.id"
+                :user="user"
+                :challengeFlg="challengeFlg"></challengeBtnComponent>
             </div>
             <!-- サブカラム（サイドバー） -->
             <parentStepDetailSidebarComponent
@@ -35,6 +44,6 @@
             challengeBtnComponent,
             parentStepDetailSidebarComponent
         },
-        props: ['parentStep', 'childSteps', 'user', 'createUser', 'challengeFlg'],
+        props: ['parentStep', 'user', 'createUser', 'challengeFlg'],
     }
 </script>

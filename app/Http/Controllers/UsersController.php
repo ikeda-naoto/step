@@ -3,61 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
-use App\Rules\AlphaNumHalf;
-use Intervention\Image\Image;
+use App\User;
+use App\lib\Common;
+use App\Challenge;
+use App\ChildStep;
+use App\ParentStep;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         // GETパラメータが数字かどうかチェック
@@ -68,13 +23,6 @@ class UsersController extends Controller
         return view('steps.profEdit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         // logger($request);
@@ -108,19 +56,61 @@ class UsersController extends Controller
         return response()->json(['flg'=> true]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function mypage()
     {
-        return view('steps.mypage');
+
+        $registSteps = Auth::user()->parentSteps;
+
+        foreach ($registSteps as $registStep) {
+            Common::relationCategoryAndChildSteps($registStep);
+        }
+        
+        logger($registSteps);
+        
+        $challengeSteps = Auth::user()->challenges;
+
+        foreach ($challengeSteps as $challengeStep) {
+            $challengeStep->parentStep;
+            // logger($challengeStep->parentStep);
+            Common::relationCategoryAndChildSteps($challengeStep->parentStep);
+        }
+        
+
+        logger($challengeSteps);
+
+
+
+
+        // $challengeSteps->parent->id;
+        
+        // $parentSteps = ParentStep::all();
+        // foreach ($parentSteps as $parentStep) {
+        //     $parentStep->challenges;
+        // }
+        // logger($parentSteps);
+        // $challengeSteps  = DB::table('parent_steps')
+        //                     ->join('challenges', 'parent_steps.id', '=', 'challenges.parent_step_id')
+        //                     //->join('orders', 'users.id', '=', 'orders.user_id')
+        //                     ->select('parent_steps.*', 'challenges.clear_num')
+        //                     ->where('challenges.user_id', Auth::user()->id)
+        //                     ->get();
+        // logger($challengeSteps);
+        // foreach ($challengeSteps as $challengeStep) {
+        //     // $childSteps = ChildStep::where('parent_step_id', $challengeStep->id)->get();
+        //     $childSteps = $challengeStep->children;
+        //     logger($childSteps);
+        // }
+        
+        
+        // foreach ($challengeSteps as $challengeStep) {
+        //     logger($challengeStep->parent);
+        //     logger($challengeStep);
+        //     //  logger(ParentStep::find($challengeStep->parent_step_id));
+        //}
+        // logger($challengeSteps);
+
+        // $challengeSteps = Common::addParentStepInfo($challengeSteps);
+
+        return view('steps.mypage', compact('registSteps'));
     }
 }

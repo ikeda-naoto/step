@@ -1,7 +1,7 @@
 <template>
 <div class="l-row__col12 l-row__col06-pc p-step-list__panel-container">
     <a :href="/steps/ + parentStep.id" class="c-panel p-step-list__panel">
-        <div class="c-panel__category p-step-list__category">{{ parentStep.categoryName }}</div>
+        <div class="c-panel__category p-step-list__category">{{ parentStep.category.name }}</div>
         <div class="c-panel__img p-step-list__img">
             <img :src="showStepImg" alt="">
         </div>
@@ -9,8 +9,8 @@
             <h3 class="c-panel__title p-step-list__title">{{ parentStep.parent_title }}</h3>
         </div>
         <div class="l-row l-row--between l-row--center p-step-list__body">
-            <p class="p-step-list__time">終了目安：{{ parentStep.time / 60  }}時間</p>
-            <p class="p-step-list__sum">全{{ parentStep.sumChildNum }}STEP</p>
+            <p class="p-step-list__time">終了目安：{{ totalTime }}時間</p>
+            <p class="p-step-list__sum">全{{ parentStep.child_steps.length }}STEP</p>
         </div>
     </a>
 </div>
@@ -22,6 +22,16 @@
     export default {
         props: ['parentStep'],
         mixins: [Mixin],
+        data: function() {
+            return {
+                page: '',
+            }
+        },
+        created: function() {
+            let url = location.href.split('/');
+            this.page = url[3];
+            console.log(this.page);
+        },
     }
     
 </script>

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- トップへのスクロールボタン --}}
+    <a href="" class="c-btn--pageTop js-scroll-top"><i class="fas fa-angle-double-up"></i></a>
     <div class="l-container p-lp u-p-0">
         <section class="p-baner l-row l-row--middle l-row--center">
             <h1 class="p-baner__phrase ">
@@ -77,20 +79,21 @@
                     会員登録不要でSTEPを見ることができます。<br>
                     STEPの登録・チャレンジには会員登録（無料）が必要です。
                 </p>
-                <div class="l-row  p-step-list">
-                    @foreach ($steps as $step)
-                        <a href="{{ route('steps.show', $step->id) }}" class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
+                <div class="l-row p-step-list">
+                    @foreach ($parentSteps as $parentStep)
+                        <a href="{{ route('steps.show', $parentStep->id) }}" class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
                             <div class="c-panel p-step-list__panel">
-                                <div class="c-panel__category p-step-list__category">{{ $step->categoryName }}</div>
+                                <div class="c-panel__category p-step-list__category">{{ $parentStep->category->name }}</div>
                                 <div class="c-panel__img p-step-list__img">
                                     <img src="img/trouble_person.jpg" alt="">
                                 </div>
                                 <div class="l-row l-row--between p-step-list__head">
-                                    <h3 class="c-panel__title p-step-list__title">{{ $step->parent_title }}</h3>
+                                    <h3 class="c-panel__title p-step-list__title">{{ $parentStep->parent_title }}</h3>
                                 </div>
                                 <div class="l-row l-row--between l-row--center p-step-list__body">
-                                    <p class="p-step-list__time">終了目安：{{ $step->time / 60}}時間</p>
-                                    <p class="p-step-list__sum">全{{ $step->sumChildNum }}STEP</p>
+                                    <p class="p-step-list__time">終了目安：{{ $parentStep->time / 60}}
+                                        時間</p>
+                                    <p class="p-step-list__sum">全{{ $parentStep->sumChildNum }}STEP</p>
                                 </div>
                             </div>
                         </a>

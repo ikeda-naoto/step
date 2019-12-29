@@ -13,8 +13,7 @@
         <!-- エラーメッセージがある時に表示 -->
         <modalComponent
         v-show="errMsgs.length" 
-        :errMsgs="errMsgs"
-        @flashErrMsgs ="flashErrMsgs"></modalComponent>
+        :errMsgs="errMsgs"></modalComponent>
         <!-- メインコンテンツ -->
         <div class="l-container u-bg-light">
             <div class="l-row l-row--center l-site-width">
@@ -54,7 +53,7 @@
                         </div>
                         <!-- 送信ボタン -->
                         <div class="l-row c-form__group">
-                            <button type="button" class="c-btn c-btn--success p-prof-edit__btn" @click="onSubmit">編集する</button>
+                            <button type="button" class="c-btn c-btn--success p-prof-edit__btn" @click="onSubmit" :disabled="isPush">編集する</button>
                         </div>
                     </div>
                 </div>
@@ -81,11 +80,13 @@
                 file: null,
                 email: this.user.email,
                 errMsgs: [],
+                isPush: false
             }
         },
         methods : {
             // axios通信用メソッド
             onSubmit : function() {
+                this.isPush = !this.isPush;
                 let data = new FormData();
                 // 各データを格納
                 data.append('name', this.name);
@@ -110,10 +111,18 @@
                  })
                 .catch(error => {
                     // 通信失敗の場合
-                    // エラーメッセージを変数に格納し、モーダルで表示する
-                    for (let key in error.response.data.errors) {
-                        this.errMsgs.push(error.response.data.errors[key][0]);
+                    // バリデーション引っかかった場合
+                    if(error.response.data.errors) { 
+                        // エラーメッセージを変数に格納し、モーダルで表示する
+                        for (let key in error.response.data.errors) {
+                            this.errMsgs.push(error.response.data.errors[key][0]);
+                        }
                     }
+                    // それ以外のエラーの場合
+                    else {
+                        alert('しばらく時間をおいてから再度登録をしてください');
+                    }
+                    this.isPush = !this.isPush;
                 });
              // });
             },

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ChallengeStep;
+use App\Challenge;
 use Illuminate\Support\Facades\Auth;
 
 class ChallengeController extends Controller
@@ -15,7 +15,7 @@ class ChallengeController extends Controller
             'clear_num' => 'required',
         ]);
         
-        $challenge = new ChallengeStep;
+        $challenge = new Challenge;
         //logger($request);
 
         

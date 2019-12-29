@@ -15,6 +15,13 @@ export default {
                 return '/images/no-img.png'
             }
             return '/storage/img/' + this.parentStep.pic;
+        },
+        showTotalTime: function() {
+            let totalTime = 0;
+            this.parentStep.child_steps.forEach(child => {
+                totalTime += child.time;
+            });
+            return totalTime / 60;
         }
     }
 }

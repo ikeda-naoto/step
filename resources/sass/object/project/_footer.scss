@@ -1,20 +1,6 @@
 .p-footer {
     padding: $space_3l;
     text-align: center;
-    &__pageTop {
-        display: block;
-        width: 40px;
-        height: 40px;
-        margin: auto;
-        color: $font-color_light;
-        border-radius: 100%;
-        background: $background-color_base;
-        
-        line-height: 40px;
-    }
-    &__pageTop:hover {
-        opacity: 0.8;
-    }
     &__logo {
         width: 200px;
         margin: $space_l auto;

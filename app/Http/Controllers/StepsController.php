@@ -10,6 +10,7 @@ use App\ChildStep;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\ChallengeStep;
+use App\lib\Common;
 
 class StepsController extends Controller
 {
@@ -17,18 +18,13 @@ class StepsController extends Controller
     {
         $parentSteps = ParentStep::all();
     
-
+        // それぞれの親STEPに紐づくカテゴリーと子STEPデータを取得
         foreach ($parentSteps as $parentStep) {
-            // 各親STEPのカテゴリーを取得し、連想配列に追加
-            $parentStep->categoryName = $parentStep->category->getData();
-            // 各親STEPに紐づいている子STEPを取得
-            $childSteps = $parentStep->children;
-            // 各子STEPの終了目安時間の合計を連想配列に追加
-            $parentStep->time = $childSteps->where('parent_step_id', $parentStep->id)->sum('time');
-            // 各親STEPに紐づく子STEPの数の合計を連想配列に追加
-            $parentStep->sumChildNum = $childSteps->count();
+            Common::relationCategoryAndChildSteps($parentStep);
         }
+
         $categories = Category::all();
+
         return view('steps.stepList', compact('parentSteps', 'categories'));
     }
 
@@ -41,7 +37,6 @@ class StepsController extends Controller
 
     public function store(Request $request)
     {
-        logger($request->input('child_title'));
         $request->validate([
             'parent_title' => 'required|max:20',
             'category_id' => 'required|integer',
@@ -61,11 +56,9 @@ class StepsController extends Controller
             $request->merge(['pic' => basename($path)]);
         }
 
-
-
         $parentStep = new ParentStep;
 
-        Auth::user()->steps()->save($parentStep->fill($request->all()));
+        Auth::user()->parentSteps()->save($parentStep->fill($request->all()));
         
         // 子STEPの内容の配列をそれぞれの変数に代入
         $childTitle = $request->input('child_title');
@@ -93,19 +86,18 @@ class StepsController extends Controller
             return redirect('/steps');
         }
 
-        // GETパラメータより親STEPの情報を取得
         $parentStep = ParentStep::find($id);
+
         // GETパラメータが改ざんされていないかチェック
         if(!$parentStep) {
             return redirect('/steps');
         }
 
-        // 親STEPに紐づいているカテゴリ名を取得し、オブジェクトに追加
-        $parentStep->categoryName = $parentStep->category->getData();
-        // 親STEPに紐づいている子STEPを取得
-        $childSteps = $parentStep->children;
-        // 
-        $parentStep->time = $childSteps->where('parent_step_id', $parentStep->id)->sum('time');
+        // 親STEPに紐づくカテゴリーと子STEPデータを取得
+        Common::relationCategoryAndChildSteps($parentStep);
+
+        // このSTEPを作ったユーザの情報を取得
+        $createUser = $parentStep->user;
 
         // すでにチャレンジしているSTEPかを判定するフラグ
         $challengeFlg = 0;
@@ -115,10 +107,7 @@ class StepsController extends Controller
             $challengeFlg = 1;
         }
 
-        // このSTEPを作ったユーザの情報を取得
-        $createUser = $parentStep->user;
-        
-        return view('steps.parentStepDetail', compact('parentStep', 'childSteps', 'createUser', 'challengeFlg'));
+        return view('steps.parentStepDetail', compact('parentStep', 'createUser', 'challengeFlg'));
     }
 
 }

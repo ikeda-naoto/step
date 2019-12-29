@@ -17,6 +17,11 @@ Breadcrumbs::for('showParentStep', function ($trail, $parentStep) {
     $trail->push($parentStep->parent_title, url('/steps/' . $parentStep->id));
 });
 
+Breadcrumbs::for('mypage', function ($trail) {
+    $trail->parent('home');
+    $trail->push('マイページ', url('/users/mypage'));
+});
+
 // // ホーム > 本の一覧 >  [Title]
 // Breadcrumbs::for('showBook', function ($trail, $book) {
 //     $trail->parent('books');

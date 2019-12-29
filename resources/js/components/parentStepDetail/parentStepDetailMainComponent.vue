@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="c-panel__category p-parent__category">{{ parentStep.categoryName }}</div>
+    <div class="c-panel__category p-parent__category">{{ parentStep.category.name }}</div>
                     <div class="p-parent__outer">
                         <div class="p-parent__inner">
                             <div class="p-parent__head">    
@@ -23,12 +23,8 @@
                             </div>
                             
                             <div class="p-parent__foot">
-                                <p class="p-parent__time">終了目安：{{ parentStep.time / 60 }}時間</p>
+                                <p class="p-parent__time">終了目安：{{ showTotalTime }}時間</p>
                             </div>
-                            <challengeBtnComponent
-                            :parentStepId="parentStep.id"
-                            :user="user"
-                            :challengeFlg="challengeFlg"></challengeBtnComponent>
                         </div>
                     </div>
 </div>
