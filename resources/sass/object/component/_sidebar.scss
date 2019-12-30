@@ -59,6 +59,7 @@
 
     }
     &__list-item {
+        padding: $space_l $space_m;
         margin-bottom: $space_l;
         border-radius: 5px;
         border: $border_m dashed $background-color_base;
@@ -73,7 +74,6 @@
     }
     &__label {
         display: block;
-        padding: $space_l $space_m;
     }
     &__radio {
         display: none;
@@ -117,7 +117,7 @@
     &__prof-name {
         text-align: center;
         font-size: $font-size_l;
-        margin-bottom: $space_m;
+        margin: $space_m;
     }
     &__prof-intro {
         background: $background-color_light;

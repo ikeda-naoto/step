@@ -11,17 +11,21 @@ export default {
     },
     computed: {
         showStepImg: function() {
-            if(this.parentStep.pic === null) {
-                return '/images/no-img.png'
+            return function(path) {
+                if(path === null) {
+                    return '/images/no-img.png'
+                }
+                return '/storage/img/' + path;
             }
-            return '/storage/img/' + this.parentStep.pic;
         },
         showTotalTime: function() {
-            let totalTime = 0;
-            this.parentStep.child_steps.forEach(child => {
-                totalTime += child.time;
-            });
-            return totalTime / 60;
+            return function(childStep) {
+                let totalTime = 0;
+                childStep.forEach(child => {
+                    totalTime += child.time;
+                });
+                return totalTime / 60;
+            }
         }
     }
 }

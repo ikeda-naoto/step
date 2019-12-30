@@ -86,29 +86,61 @@
                         </div>
                         <nav class="p-header__nav">
                             <ul class="p-nav l-row">
-                                <li class="p-nav__item"><a href="{{ route('steps.index') }}" class="p-nav__link">STEP一覧</a></li>
+                                <li class="p-nav__item"><a href="{{ route('steps.index') }}" class="p-nav__link">
+                                    <div class="p-nav__text">STEP一覧</div></a></li>
                                 @guest
-                                    <li class="p-nav__item"><a href="{{ route('login') }}" class="p-nav__link">ログイン</a></li>
+                                    <li class="p-nav__item"><a href="{{ route('login') }}" class="p-nav__link"><p class="p-nav__text">ログイン</p></a></li>
                                     @if (Route::has('register'))
-                                        <li class="p-nav__item"><a href="{{ route('register') }}" class="p-nav__link">新規会員登録</a></li>
+                                        <li class="p-nav__item"><a href="{{ route('register') }}" class="p-nav__link"><div class="p-nav__text">新規会員登録</div></a></li>
                                     @endif
                                 @else
-                                    <li class="p-nav__item">
+                                    {{-- <li class="p-nav__item">
                                         <a class="p-nav__link" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                          ログアウト
                                         </a>
-                                    </li>
+                                    </li> --}}
                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    <li class="p-nav__item">
-                                        <a href="{{ route('mypage') }}" class="p-nav__link">
-                                            <div class="p-nav__img">
-                                                <img src="{{ asset('storage/img/'.$user->pic) }}" alt="">
+                                    <li class="p-nav__item p-dropdown">
+                                        <div class="p-nav__link">
+                                            <div class="p-nav__text">
+                                                <div class="p-nav__img">
+                                                    <img src="{{ asset('storage/img/'.$user->pic) }}" alt="">
+                                                </div>
+                                                <p class="p-nav__name">なおちん</p>
                                             </div>
-                                            <p class="p-nav__name">なおちん</p>
-                                        </a>
+                                        </div>
+                                        <div class="p-dropdown__menu">
+                                            <ul class="p-dropdown__list">
+                                                <li class="p-dropdown__item">
+                                                    <a href="{{ route('mypage') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                        <span>マイページ</span><i class="fas fa-angle-right fa-lg"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="p-dropdown__item">
+                                                    <a href="{{ route('users.edit', $user->id) }}" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                        <span>プロフィール変更</span><i class="fas fa-angle-right fa-lg"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="p-dropdown__item">
+                                                    <a class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                        <span>パスワード変更</span><i class="fas fa-angle-right fa-lg"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="p-dropdown__item">
+                                                    <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                        <span>ログアウト</span><i class="fas fa-angle-right fa-lg"></i>
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                 @endguest
                             </ul>

@@ -8,7 +8,7 @@
                             </div>
                             
                             <figure class="p-parent__img">
-                                <img :src="showStepImg" alt="">
+                                <img :src="showStepImg(parentStep.pic)" alt="">
                             </figure>
                             <!-- <div class="p-parent__sharebtn">
                                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false" data-lang="ja">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -23,7 +23,7 @@
                             </div>
                             
                             <div class="p-parent__foot">
-                                <p class="p-parent__time">終了目安：{{ showTotalTime }}時間</p>
+                                <p class="p-parent__time">終了目安：{{ showTotalTime(parentStep.child_steps) }}時間</p>
                             </div>
                         </div>
                     </div>

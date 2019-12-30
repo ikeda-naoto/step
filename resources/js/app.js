@@ -30,6 +30,8 @@ Vue.component('prof-edit-component', require('./components/profEditComponent.vue
 Vue.component('regist-step-component', require('./components/registStepComponent.vue').default);
 Vue.component('step-list-component', require('./components/stepListComponent.vue').default);
 Vue.component('parent-step-detail-component', require('./components/parentStepDetail/parentStepDetailComponent.vue').default);
+Vue.component('mypage-component', require('./components/mypage/mypageComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

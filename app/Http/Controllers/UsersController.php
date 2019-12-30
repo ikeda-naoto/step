@@ -111,6 +111,6 @@ class UsersController extends Controller
 
         // $challengeSteps = Common::addParentStepInfo($challengeSteps);
 
-        return view('steps.mypage', compact('registSteps'));
+        return view('steps.mypage', compact('registSteps', 'challengeSteps'));
     }
 }
