@@ -330,6 +330,11 @@ button:focus {
   border: 1px solid #4d4d4d;
 }
 
+.c-btn--disabled {
+  background: #bebebe;
+  cursor: not-allowed;
+}
+
 .c-btn--pageTop {
   position: fixed;
   right: 20px;
@@ -722,6 +727,30 @@ button:focus {
   padding: 15px 0;
   margin-left: auto;
   font-size: 16px;
+}
+
+.c-flash-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 40%;
+  height: 150px;
+  z-index: 2;
+  box-shadow: 0 0 30px 0 #8cd7fa;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.c-flash-message__text {
+  line-height: 150px;
+  text-align: center;
+  color: #0057a3;
 }
 
 .p-header {

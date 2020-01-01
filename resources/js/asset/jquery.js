@@ -1,4 +1,7 @@
 $(function() {
+
+    
+
     let jsScrollTop = $('.js-scroll-top');  
     // ボタンを隠す
     jsScrollTop.hide()  
@@ -17,4 +20,14 @@ $(function() {
         }, 500);
         return false;
     });
+
+    // フラッシュメッセージ表示
+    $jsFlashMessage = $('.js-flash-message');
+    if ($jsFlashMessage.children().text().replace(/\s+/g, '').length > 0) {
+        $jsFlashMessage.fadeIn(2000);
+        setTimeout(function () {
+            $jsFlashMessage.fadeOut(2000);
+        }, 3000);
+    }
+    
 });

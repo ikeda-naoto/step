@@ -10,6 +10,7 @@ export default {
         }
     },
     computed: {
+        // STEPのアイキャッチ画像を返す
         showStepImg: function() {
             return function(path) {
                 if(path === null) {
@@ -18,6 +19,7 @@ export default {
                 return '/storage/img/' + path;
             }
         },
+        // STEPの終了目安時間を計算して返す
         showTotalTime: function() {
             return function(childStep) {
                 let totalTime = 0;
@@ -25,6 +27,16 @@ export default {
                     totalTime += child.time;
                 });
                 return totalTime / 60;
+            }
+        },
+    },
+    methods: {
+        // 引数が存在するかを判定する
+        isset: function(data) {
+            if(data === "" || data === null || data === undefined){
+                return false;
+            } else{
+                return true;
             }
         }
     }

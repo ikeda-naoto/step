@@ -2502,6 +2502,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inputFileComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inputFileComponent */ "./resources/js/components/inputFileComponent.vue");
 /* harmony import */ var _modalComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalComponent */ "./resources/js/components/modalComponent.vue");
+/* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 //
 //
 //
@@ -2566,6 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2586,6 +2588,7 @@ __webpack_require__.r(__webpack_exports__);
       isPush: false
     };
   },
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   methods: {
     // axios通信用メソッド
     onSubmit: function onSubmit() {
@@ -2627,14 +2630,6 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.isPush = !_this.isPush;
       }); // });
-    },
-    // 変数が存在するかをチェックするためのメソッド
-    isset: function isset(data) {
-      if (data === "" || data === null || data === undefined) {
-        return false;
-      } else {
-        return true;
-      }
     }
   }
 });
@@ -2650,6 +2645,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 //
 //
 //
@@ -2665,6 +2661,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'title'],
   computed: {
@@ -2675,7 +2672,8 @@ __webpack_require__.r(__webpack_exports__);
 
       return '/storage/img/' + this.user.pic;
     }
-  }
+  },
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -2882,7 +2880,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inputFileComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inputFileComponent */ "./resources/js/components/inputFileComponent.vue");
 /* harmony import */ var _modalComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalComponent */ "./resources/js/components/modalComponent.vue");
 /* harmony import */ var _registChildStepComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./registChildStepComponent */ "./resources/js/components/registChildStepComponent.vue");
-/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/vue-uuid.es.js");
+/* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mixins/mixin */ "./resources/js/components/mixins/mixin.js");
+/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/vue-uuid.es.js");
 //
 //
 //
@@ -2963,6 +2962,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
  //import registParentStepComponent from './registParentStep';
@@ -2986,21 +2986,24 @@ __webpack_require__.r(__webpack_exports__);
       },
       file: '',
       // リストレンダリング時のキーを保存しておく配列（こうしないとフォーム入力バインディング時に、フォーカスが外れてしまうため）
-      uuid: [vue_uuid__WEBPACK_IMPORTED_MODULE_3__["uuid"].v1()],
+      uuid: [vue_uuid__WEBPACK_IMPORTED_MODULE_4__["uuid"].v1()],
       // 子STEPの情報を保存しておく配列
       childSteps: [{
         child_title: '',
         time: 0,
         child_content: ''
       }],
-      errMsgs: []
+      errMsgs: [],
+      isPush: false
     };
   },
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
   methods: {
     // axios通信用メソッド
     onSubmit: function onSubmit() {
       var _this = this;
 
+      this.isPush = !this.isPush;
       console.log(this.parentStep);
       var data = new FormData(); // 各データを格納
 
@@ -3037,19 +3040,13 @@ __webpack_require__.r(__webpack_exports__);
         for (var _key in error.response.data.errors) {
           _this.errMsgs.push(error.response.data.errors[_key][0]);
         }
+
+        _this.isPush = !_this.isPush;
       });
-    },
-    // 変数が存在するかをチェックするためのメソッド
-    isset: function isset(data) {
-      if (data === "" || data === null || data === undefined) {
-        return false;
-      } else {
-        return true;
-      }
     },
     // 子STEP追加用メソッド
     addChildStep: function addChildStep() {
-      this.uuid.push(vue_uuid__WEBPACK_IMPORTED_MODULE_3__["uuid"].v1());
+      this.uuid.push(vue_uuid__WEBPACK_IMPORTED_MODULE_4__["uuid"].v1());
       this.childSteps.push({
         child_title: '',
         time: 0,
@@ -40971,7 +40968,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("h3", { staticClass: "c-sidebar__prof-name" }, [
-        _vm._v(_vm._s(_vm.user.name))
+        _vm._v(_vm._s(_vm.isset(_vm.user.name) ? _vm.user.name : "名無しさん"))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "c-sidebar__prof-intro" }, [
@@ -41415,6 +41412,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "c-btn c-btn--warning p-regist-step__btn",
+                        attrs: { disabled: _vm.isPush },
                         on: { click: _vm.onSubmit }
                       },
                       [_vm._v("登録する")]
@@ -55199,7 +55197,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./asset/jquery */ "./resources/js/asset/jquery.js");
+__webpack_require__(/*! ./asset/jquery */ "./resources/js/asset/jquery.js"); // require('./asset/function');
+
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
@@ -55258,7 +55257,16 @@ $(function () {
       scrollTop: 0
     }, 500);
     return false;
-  });
+  }); // フラッシュメッセージ表示
+
+  $jsFlashMessage = $('.js-flash-message');
+
+  if ($jsFlashMessage.children().text().replace(/\s+/g, '').length > 0) {
+    $jsFlashMessage.fadeIn(2000);
+    setTimeout(function () {
+      $jsFlashMessage.fadeOut(2000);
+    }, 3000);
+  }
 });
 
 /***/ }),
@@ -55386,7 +55394,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   methods: {
     twitterShare: function twitterShare(shareTitle) {
       var url = encodeURIComponent(location.href);
@@ -55398,6 +55408,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    // STEPのアイキャッチ画像を返す
     showStepImg: function showStepImg() {
       return function (path) {
         if (path === null) {
@@ -55407,6 +55418,7 @@ __webpack_require__.r(__webpack_exports__);
         return '/storage/img/' + path;
       };
     },
+    // STEPの終了目安時間を計算して返す
     showTotalTime: function showTotalTime() {
       return function (childStep) {
         var totalTime = 0;
@@ -55417,7 +55429,16 @@ __webpack_require__.r(__webpack_exports__);
       };
     }
   }
-});
+}, "methods", {
+  // 引数が存在するかを判定する
+  isset: function isset(data) {
+    if (data === "" || data === null || data === undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}));
 
 /***/ }),
 

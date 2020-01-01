@@ -69,7 +69,7 @@
 
                     <div class="l-row l-row--between c-form__group">
                         <button class="c-btn c-btn--success p-regist-step__btn" @click="addChildStep"><i class="fas fa-plus u-mr-s"></i>STEPを追加</button>
-                        <button class="c-btn c-btn--warning p-regist-step__btn" @click="onSubmit">登録する</button>
+                        <button class="c-btn c-btn--warning p-regist-step__btn" @click="onSubmit" :disabled="isPush">登録する</button>
                     </div>
                 </div>
             </div>
@@ -82,6 +82,7 @@
     import inputFileComponent from './inputFileComponent';
     import modalComponent from './modalComponent';
     import registChildStepComponent from './registChildStepComponent';
+    import Mixin from './mixins/mixin';
     //import registParentStepComponent from './registParentStep';
     import { uuid } from 'vue-uuid';
     export default {
@@ -114,11 +115,14 @@
                     },
                 ],
                 errMsgs: [],
+                isPush: false,
             }
         },
+        mixins: [Mixin],
         methods : {
             // axios通信用メソッド
             onSubmit : function() {
+                this.isPush = !this.isPush;
                 console.log(this.parentStep)
                 let data = new FormData();
                 // 各データを格納
@@ -154,15 +158,8 @@
                     for (let key in error.response.data.errors) {
                         this.errMsgs.push(error.response.data.errors[key][0]);
                     }
+                    this.isPush = !this.isPush;
                 });
-            },
-            // 変数が存在するかをチェックするためのメソッド
-            isset: function(data) {
-                if(data === "" || data === null || data === undefined){
-                    return false;
-                } else{
-                    return true;
-                }
             },
             // 子STEP追加用メソッド
             addChildStep: function() {

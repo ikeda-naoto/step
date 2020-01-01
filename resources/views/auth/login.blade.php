@@ -89,15 +89,18 @@
                 @csrf
                 <h1 class="c-title--normal u-mb-5l">ログイン</h1>
                 <div class="c-form__group">
+                    @error('common')
+                        <span class="u-fontcolor--err">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="c-form__group">
+                    <input type="email" name="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="email" name="email" class="c-input c-input--full" placeholder="メールアドレス" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                </div>
-                <div class="c-form__group">
-                    <input type="password" name="password" class="c-input c-input--full" placeholder="パスワード" required autocomplete="current-password">
+                    <input type="password" name="password" class="c-input c-input--full @error('password') c-input--err @enderror" placeholder="パスワード" required autocomplete="current-password">
                     @error('password')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
@@ -110,7 +113,7 @@
                 </div>
                 @if (Route::has('password.request'))
                     <div class="c-form__group">
-                        <input type="submit" value="ログイン" class="c-btn c-btn--primary p-auth__btn">
+                        <input type="submit" value="ログイン" class="c-btn c-btn--primary p-auth__btn" onclick="disabledButton(this);">
                         <div class="p-auth__help">
                             <a href="{{ route('password.request') }}" >パスワードを忘れた方はコチラ</a>
                         </div>

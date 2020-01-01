@@ -65,6 +65,7 @@
 <script>
     import inputFileComponent from './inputFileComponent';
     import modalComponent from './modalComponent';
+    import Mixin from './mixins/mixin';
     export default {
         components: {
             inputFileComponent,
@@ -83,6 +84,7 @@
                 isPush: false
             }
         },
+        mixins: [Mixin],
         methods : {
             // axios通信用メソッド
             onSubmit : function() {
@@ -125,14 +127,6 @@
                     this.isPush = !this.isPush;
                 });
              // });
-            },
-            // 変数が存在するかをチェックするためのメソッド
-            isset: function(data) {
-                if(data === "" || data === null || data === undefined){
-                    return false;
-                } else{
-                    return true;
-                }
             },
         }
     }

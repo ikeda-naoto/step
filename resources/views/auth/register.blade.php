@@ -100,19 +100,19 @@
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="password" class="c-input c-input--full" placeholder="パスワード" name="password" required autocomplete="new-password">
+                    <input type="password" class="c-input c-input--full @error('password') c-input--err @enderror" placeholder="パスワード" name="password" required autocomplete="new-password">
                     @error('password')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="c-form__group">
                     <input type="password" class="c-input c-input--full" placeholder="パスワード（再入力）" name="password_confirmation" required autocomplete="new-password">
-                    @error('password_confirmation')
+                    {{-- @error('password_confirmation')
                         <span class="u-fontcolor--err">{{ $message }}</span>
-                    @enderror
+                    @enderror --}}
                 </div>
                 <div class="c-form__group">
-                    <input type="submit" value="新規会員登録" class="c-btn c-btn--success p-auth__btn">
+                    <input type="submit" value="新規会員登録" class="c-btn c-btn--success p-auth__btn" onclick="disabledButton(this);">
                 </div>
                 <div class="c-form__group">
                     <p class="l-row l-row--middle p-auth__lead">すでに登録している方はコチラ</p>

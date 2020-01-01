@@ -5,7 +5,7 @@
             <div class="c-sidebar__prof-img">
                 <img class="" :src="showImg" alt="">
             </div>
-            <h3 class="c-sidebar__prof-name">{{ user.name }}</h3>
+            <h3 class="c-sidebar__prof-name">{{ isset(user.name) ? user.name : '名無しさん' }}</h3>
             <div class="c-sidebar__prof-intro">
                 {{ user.introduction }}
             </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+    import Mixin from './mixins/mixin';
     export default {
         props: ['user', 'title'],
         computed: {
@@ -23,7 +24,8 @@
                 }
                 return '/storage/img/' + this.user.pic;
             }
-        }
+        },
+        mixins: [Mixin],
     }
     
 </script>

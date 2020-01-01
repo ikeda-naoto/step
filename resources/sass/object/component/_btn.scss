@@ -41,7 +41,10 @@
         color: $font-color_default;
         border: $border_s solid $border-color_dark;
     }
-
+    &--disabled {
+        background: $btn-color_disabled;
+        cursor: not-allowed;
+    }
     &--pageTop {
         position: fixed;
         right: 20px;

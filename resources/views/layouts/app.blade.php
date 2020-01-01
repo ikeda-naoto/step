@@ -107,7 +107,7 @@
                                         <div class="p-nav__link">
                                             <div class="p-nav__text">
                                                 <div class="p-nav__img">
-                                                    <img src="{{ asset('storage/img/'.$user->pic) }}" alt="">
+                                                    <img src="{{ $user->pic ? asset('storage/img/'.$user->pic) : asset('images/unknown.png')}}" alt="">
                                                 </div>
                                                 <p class="p-nav__name">なおちん</p>
                                             </div>
@@ -150,6 +150,11 @@
             </div>
         </header>
 
+        
+        <div class="c-flash-message js-flash-message">
+            <p class="c-flash-message__text">{{ session('status') }}</p>
+        </div>
+
         @yield('breadcrumbs')
         
         <main class="py-4">
@@ -165,5 +170,12 @@
         </footer>
     </div>
 
+<script>
+    function disabledButton(obj) {
+        obj.disabled = true;
+        // obj.value = ‘処理中’;
+        obj.form.submit();
+    }
+</script>
 </body>
 </html>
