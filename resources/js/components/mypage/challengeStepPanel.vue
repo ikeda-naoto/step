@@ -28,7 +28,7 @@
         mixins: [Mixin],
         computed: {
             calcClearPercentage: function(){
-                return this.challengeStep.clear_num / this.challengeStep.parent_step.child_steps.length
+                return Math.round((this.challengeStep.clear_num / this.challengeStep.parent_step.child_steps.length) * 100);
             }
         }
     }

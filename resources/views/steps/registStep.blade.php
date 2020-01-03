@@ -24,6 +24,15 @@
         <input type="text" name="a[]">
         <input type="submit" value="aaa">
     </form> --}}
-    <regist-step-component
-    :categories="{{ $categories }}"></regist-step-component>
+    <regist-step
+        :categories="{{ $categories }}"
+        :edit-flg="{{ $editFlg }}"
+        @if ($editFlg)
+            :parent-step-data="{{ $parentStep }}"
+            :child-steps-data="{{ $childSteps }}"
+        @else
+            :parent-step-data="null"
+            :child-steps-data="null"
+        @endif
+    ></regist-step>
  @endsection

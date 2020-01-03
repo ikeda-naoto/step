@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <prof-edit-component
+    <prof-edit
         :user="{{ $user }}"
-    ></prof-edit-component>
+    ></prof-edit>
 @endsection

@@ -37,22 +37,21 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'max:20',
             'introduction' => 'max:400',
-            'file' => 'nullable|file|image',
+            'pic' => 'nullable|file|image',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
         ]);
 
-        // ファイルが送信されていれば、そのパスを保存し、
-        if($request->file){
-            logger('aaa');
-            // $file = $request->file('file');
-            // $fileName = $file->hashName();
-            // \Image::make($file)->resize('300', '300')->save(public_path('/images/'.$fileName) );
-            $path = $request->file->store('public/img');
-            $request->merge(['pic' => basename($path)]);
-        }
+        
 
         $user = User::find($id);
-        $user->fill($request->all())->save();
+        $user->fill($request->all());
+        // ファイルが送信されていれば、そのパスを保存し、
+        if(!empty($request->pic)){
+            $path = $request->pic->store('public/img');
+            $user->pic = basename($path);
+        }
+        $user->save();
+
         return response()->json(['flg'=> true]);
     }
 
@@ -65,7 +64,7 @@ class UsersController extends Controller
             Common::relationCategoryAndChildSteps($registStep);
         }
         
-        logger($registSteps);
+        // logger($registSteps);
         
         $challengeSteps = Auth::user()->challenges;
 
@@ -76,7 +75,7 @@ class UsersController extends Controller
         }
         
 
-        logger($challengeSteps);
+        // logger($challengeSteps);
 
 
 

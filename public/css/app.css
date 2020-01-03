@@ -407,7 +407,7 @@ button:focus {
 
 .c-panel__title {
   color: #333;
-  font-family: "Sawarabi Gothic", sans-serif;
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
   font-weight: bold;
 }
 
@@ -664,14 +664,14 @@ button:focus {
 
 .c-title--small {
   text-align: center;
-  font-family: "Sawarabi Gothic", sans-serif;
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
   font-size: 22px;
   font-weight: bold;
 }
 
 .c-title--normal {
   text-align: center;
-  font-family: "Sawarabi Gothic", sans-serif;
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
   font-size: 36px;
   font-weight: bold;
 }
@@ -784,9 +784,11 @@ button:focus {
 
 .p-nav__text {
   position: relative;
+  min-width: 80px;
   height: 35px;
   line-height: 35px;
   padding: 0 5px;
+  text-align: center;
 }
 
 .p-nav__text::after {
@@ -872,7 +874,7 @@ button:focus {
 .p-baner__phrase {
   color: #fff;
   font-size: 48px;
-  font-family: "Sawarabi Gothic", sans-serif;
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
 }
 
 @media screen and (max-width: 414px) {
@@ -1055,6 +1057,11 @@ button:focus {
   z-index: 1;
 }
 
+.p-registed-step__list {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
 .p-registed-step__panel {
   padding: 15px 20px;
   border-radius: 0px;
@@ -1062,13 +1069,8 @@ button:focus {
   border-bottom: 1px solid #bebebe;
 }
 
-.p-registed-step__panel:first-of-type {
-  border-radius: 5px 5px 0 0;
-}
-
-.p-registed-step__panel:last-of-type {
+.p-registed-step__panel:last-child {
   border-bottom: none;
-  border-radius: 0 0 5px 5px;
 }
 
 .p-registed-step__title {
@@ -1209,7 +1211,7 @@ button:focus {
 .p-parent__title {
   text-align: center;
   font-size: 30px;
-  font-family: "Sawarabi Gothic", sans-serif;
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
   font-weight: bold;
 }
 
@@ -1287,7 +1289,7 @@ button:focus {
 .p-child__content {
   padding: 10px;
   margin-top: 40px;
-  border: 1px solid #bebebe;
+  background: #e4e4e4;
   min-height: 120px;
   box-sizing: border-box;
 }
@@ -1421,6 +1423,7 @@ button:focus {
 }
 
 .p-child-index__item {
+  position: relative;
   margin-bottom: 60px;
   border-radius: 10px;
   -webkit-border-radius: 10px;

@@ -1,0 +1,169 @@
+<template>
+
+<div>
+    <modal
+        v-show="errMsgs.length" 
+        :errMsgs="errMsgs"
+    ></modal>
+    <!-- メインコンテンツ -->
+    <div class="l-container u-bg-light">
+        <div class="l-row l-row--center l-site-width">
+            <!-- メインカラム -->
+            <div class="l-row l-row--center l-row__col10-pc">
+                <div class="c-form p-regist-step u-bg-light">
+                    <h1 class="c-title--normal u-mb-5l">STEP {{ !editFlg ? '登録' : '編集' }}</h1>
+                    <registParentStep
+                        :categories="categories"
+                        v-model="parentStep"
+                    ></registParentStep>
+                    <!-- 親STEP登録フォーム -->
+                    
+                    <!-- 子STEP登録フォーム -->
+                    <template v-for="(childStep, index) in childSteps"> 
+                    <registChildStep
+                        :key="uuid[index]"
+                        :index="index"
+                        v-model="childSteps[index]"
+                    ></registChildStep>
+                    </template>
+
+                    <div class="l-row l-row--between c-form__group">
+                        <button class="c-btn c-btn--success p-regist-step__btn" @click="addChildStep"><i class="fas fa-plus u-mr-s"></i>STEPを追加</button>
+                        <button class="c-btn c-btn--warning p-regist-step__btn" @click="onSubmit" :disabled="isPush">登録する</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+    import inputFile from '../inputFile';
+    import modal from '../modal';
+    import registChildStep from './registChildStep';
+    import Mixin from '../mixins/mixin';
+    import registParentStep from './registParentStep';
+    import { uuid } from 'vue-uuid';
+    export default {
+        components: {
+            inputFile,
+            modal,
+            registParentStep,
+            registChildStep,
+        },
+        props: ['parentStepData', 'childStepsData', 'categories', 'times', 'editFlg', 'a'],
+        mixins: [Mixin],
+        data: function() {
+            return {
+                // 親STEPの情婦を格納する連想配列
+                parentStep: {
+                    parent_title: '',
+                    category_id: '',
+                    parent_content: '',
+                    pic: '',
+                },
+                // リストレンダリング時のキーを保存しておく配列（こうしないとフォーム入力バインディング時に、フォーカスが外れてしまうため）
+                uuid: [],
+                // 子STEPの情報を保存しておく配列
+                childSteps: [],
+                errMsgs: [],
+                isPush: false,
+            }
+        },
+        created: function() {
+            if(this.editFlg) {
+                for (let key in this.parentStep) {
+                    this.parentStep[key] = this.parentStepData[key];
+                }
+                this.childStepsData.forEach(element => {
+                    this.childSteps.push(element);
+                    this.uuid.push(uuid.v1());
+                });
+            }else {
+                this.childSteps.push(
+                    {
+                        child_title: '',
+                        time: 0,
+                        child_content: '',
+                    },
+                );
+                this.uuid.push(uuid.v1());
+            }
+        },
+        methods : {
+            // axios通信用メソッド
+            onSubmit : function() {
+                this.isPush = !this.isPush;
+                console.log(this.parentStep)
+                let data = new FormData();
+                // 各データを格納
+                for (let key in this.parentStep) { // 親STEPの情報をDBのカラム名に紐付けてそれぞれ保存
+                    
+                    if(key === 'pic') { // keyがpicのとき
+                        !(typeof this.parentStep[key] === 'string' || this.parentStep[key] instanceof String) ? data.append(key, this.parentStep[key]) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
+                    }else { // それ以外の時
+                        data.append(key, this.parentStep[key]);
+                    }
+                }
+                // 子STEPの情報をDBのカラム名に紐付けて配列にして保存
+                for(let key1 in this.childSteps) {
+                    for (let key2 in this.childSteps[key1]) {
+                        //console.log(this.childSteps[key1]);
+                        data.append(key2 + '[]', this.childSteps[key1][key2]);
+                    }
+                }
+                let config = {
+                    headers: {
+                        'content-type': 'multipart/form-data',
+                    },
+                };
+                let url = '';
+                if(this.editFlg) {
+                    url = '/steps/' + this.parentStepData.id;
+                    config.headers['X-HTTP-Method-Override'] = 'PUT';
+                }else {
+                    url = '/steps'
+                }
+
+                // axios通信
+                axios.post(url, data, config)
+                .then(res => {
+                    // 通信成功の場合
+                    console.log(res.data);
+                    // マイページへ遷移
+                    location.href = '/users/mypage';
+                 })
+                .catch(error => {
+                    // 通信失敗の場合
+                    // バリデーション引っかかった場合
+                    if(error.response.data.errors) { 
+                        // エラーメッセージを変数に格納し、モーダルで表示する
+                        for (let key in error.response.data.errors) {
+                            this.errMsgs.push(error.response.data.errors[key][0]);
+                        }
+                    }
+                    // それ以外のエラーの場合
+                    else {
+                        alert('しばらく時間をおいてから再度試してください');
+                    }
+                    this.isPush = !this.isPush;
+                });
+            },
+            // 子STEP追加用メソッド
+            addChildStep: function() {
+                this.uuid.push(uuid.v1());
+                this.childSteps.push(
+                    {
+                        child_title: '',
+                        time: 0,
+                        child_content: '',
+                    }
+                )
+            },
+            changeFile: function(file) {
+                this.parentStep.file = file;
+            }
+        }
+    }
+</script>

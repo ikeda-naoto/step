@@ -3,7 +3,8 @@
 @section('breadcrumbs', Breadcrumbs::render('steps'))
 
 @section('content')
-    <step-list-component
-    :parent-steps="{{ $parentSteps }}"
-    :categories="{{ $categories }}"></step-list-component>
+    <step-list
+        :parent-steps="{{ $parentSteps }}"
+        :categories="{{ $categories }}"
+    ></step-list>
 @endsection

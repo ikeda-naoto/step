@@ -9,7 +9,7 @@
         <!-- <p class="p-registed-step__sum">全{{ registStep.child_steps.length }}STEP</p> -->
             </div>
             <div class="l-row__col12 l-row__col04-pc">
-<a href="" class="c-btn c-btn--primary p-registed-step__btn">編集する</a>
+                <a :href="'/steps/' + registStep.id + '/edit'" class="c-btn c-btn--primary p-registed-step__btn">編集する</a>
             </div>
         </div>
         

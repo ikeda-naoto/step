@@ -26,9 +26,11 @@
     }
     &__text {
         position: relative;
+        min-width: 80px;
         height: 35px;
         line-height: 35px;
         padding: 0 $space_s;
+        text-align: center;
         &::after {
             background: $border-color_base;
             bottom: 0;

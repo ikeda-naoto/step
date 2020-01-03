@@ -4,9 +4,10 @@
                     <!-- <div class="l-row  p-step-list"> -->
                         <transition-group tag="div" class="l-row  p-step-list v-move">
                             <template v-for="parentStep in parentSteps">
-                                <stepPanelComponent
-                                :key="parentStep.id"
-                                :parentStep="parentStep"></stepPanelComponent>
+                                <stepListPanel
+                                    :key="parentStep.id"
+                                    :parentStep="parentStep"
+                                ></stepListPanel>
                             </template>
                         </transition-group>
 
@@ -106,10 +107,10 @@
 </template>
 
 <script>
-    import stepPanelComponent from './stepPanelComponent';
+    import stepListPanel from './stepListPanel';
     export default {
         components: {
-            stepPanelComponent
+            stepListPanel
         },
         props: ['parentSteps']
     }

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<!-- パンくずリスト -->
+@section('breadcrumbs', Breadcrumbs::render('login'))
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -72,14 +75,7 @@
 </div> --}}
 
 <!-- パンくずリスト -->
-<div class="l-bread-crumbs">
-    <div class="p-bread-crumbs l-row  l-row--middle">
-        <ul class="l-site-width l-row p-bread-crumbs__list">
-            <li><a href="" class="p-bread-crumbs__link">ホーム</a><i class="fas fa-angle-right p-bread-crumbs__icn"></i></li>
-            <li>ログイン</li>
-        </ul>
-    </div>
-</div>
+
 <!-- メインコンテンツ -->
 <div class="l-container u-bg-light">
     <div class="l-row l-row--center l-site-width">

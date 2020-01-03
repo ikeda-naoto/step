@@ -17,6 +17,7 @@
     import Mixin from './mixins/mixin';
     export default {
         props: ['user', 'title'],
+        mixins: [Mixin],
         computed: {
             showImg: function() {
                 if(!this.user.pic) {
@@ -25,7 +26,6 @@
                 return '/storage/img/' + this.user.pic;
             }
         },
-        mixins: [Mixin],
     }
     
 </script>

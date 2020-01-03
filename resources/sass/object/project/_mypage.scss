@@ -1,15 +1,15 @@
 .p-registed-step {
+    &__list {
+        overflow: hidden;
+        border-radius: $border-radius_m; 
+    }
     &__panel {
         padding: $space_l $space_xl;
         border-radius: 0px;
         margin-bottom: 0;
         border-bottom: 1px solid $border-color_light;
-        &:first-of-type {
-            border-radius: $border-radius_m $border-radius_m 0 0; 
-        }
-        &:last-of-type {
+        &:last-child {
             border-bottom: none;
-            border-radius: 0 0 $border-radius_m $border-radius_m; 
         }
     }
     &__title {

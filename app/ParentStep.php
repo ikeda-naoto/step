@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ParentStep extends Model
 {
     protected $fillable = [
-        'parent_title', 'category_id', 'parent_content', 'pic'
+        'parent_title', 'category_id', 'parent_content',
     ];
 
     public function user()

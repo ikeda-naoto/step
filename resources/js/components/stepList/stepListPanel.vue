@@ -18,7 +18,7 @@
 
 <script>
     import { mapState, mapMutations } from 'vuex'
-    import Mixin from './mixins/mixin';
+    import Mixin from '../mixins/mixin';
     export default {
         props: ['parentStep'],
         mixins: [Mixin],

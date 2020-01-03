@@ -27,11 +27,12 @@ import store from './store'
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 
-Vue.component('prof-edit-component', require('./components/profEditComponent.vue').default);
-Vue.component('regist-step-component', require('./components/registStepComponent.vue').default);
-Vue.component('step-list-component', require('./components/stepListComponent.vue').default);
-Vue.component('parent-step-detail-component', require('./components/parentStepDetail/parentStepDetailComponent.vue').default);
-Vue.component('mypage-component', require('./components/mypage/mypageComponent.vue').default);
+Vue.component('prof-edit', require('./components/profEdit.vue').default);
+Vue.component('regist-step', require('./components/registStep/registStep.vue').default);
+Vue.component('step-list', require('./components/stepList/stepList.vue').default);
+Vue.component('parent-step-detail', require('./components/parentStepDetail/parentStepDetail.vue').default);
+Vue.component('my-page', require('./components/mypage/mypage.vue').default);
+Vue.component('child-step-detail', require('./components/childStepDetail/childStepDetail.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -4,8 +4,9 @@
 
 @section('content')
     <!-- メインコンテンツ -->
-    <mypage-component
-    :regist-steps="{{ $registSteps }}"
-    :challenge-steps="{{ $challengeSteps }}"
-    :user="{{ $user }}"></mypage-component>
+    <my-page
+        :regist-steps="{{ $registSteps }}"
+        :challenge-steps="{{ $challengeSteps }}"
+        :user="{{ $user }}"
+    ></my-page>
 @endsection

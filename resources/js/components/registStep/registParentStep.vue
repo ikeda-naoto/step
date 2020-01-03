@@ -14,9 +14,11 @@
                     <label for="intro" class="p-prof-edit__label">カテゴリー</label>
                 </div>
                 <div class="l-row__col08-pc">
-                    <select name="" id="" class="c-select c-select--half"  v-model="category_id">
-                        <option value="">プログラミング</option>
-                        <option value="">英語</option>
+                    <select name="" id="" class="c-select c-select--half" v-model="category_id">
+                        <option value="">選択してください</option>
+                        <option v-for="category in categories" :key="category.id" :value="category.id">
+                            {{ category.name }}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -28,45 +30,51 @@
                     <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
                 </div>
             </div>
-             <inputFileComponent></inputFileComponent>
+            <inputFile
+                :pic="pic"
+                @updatePic="updatePic"
+            ></inputFile>
         </div>
     </div>
 </template>
 <script>
-    import inputFileComponent from './inputFileComponent';
+    import inputFile from '../inputFile';
     export default {
         components: {
-            inputFileComponent,
+            inputFile,
         },
-        //props: ['index', 'childStep'],
-        // props: {
-        //         value: {
-        //         type: Object,
-        //     required: true,
-        // },
         props: ['value', 'categories'],
         data: function() {
             return {
                 title: '',
                 category_id: 0,
                 content: '',
-                file: ''
+                pic: ''
             }
         },
         mounted: function() {
-             this.title = this.value.title;
+             this.title = this.value.parent_title;
              this.category_id = this.value.category_id;
-             this.content = this.value.content;
+             this.content = this.value.parent_title;
+             this.pic = this.value.pic;
         },
         updated: function() {
-            this.$emit('input', {
-                title: this.title,
-                category_id: this.category_id,
-                content: this.content,
-            });
-           
-            //console.log('as')
+            this.updateParentData();
         },
+        methods: {
+            updateParentData: function() {
+                this.$emit('input', {
+                    parent_title: this.title,
+                    category_id: this.category_id,
+                    parent_content: this.content,
+                    pic: this.pic
+                });
+            },
+            updatePic: function(val) {
+                this.pic = val;
+                this.updateParentData();
+            }
+        }
         // computed: {
         //     changeFile: function() {
         //         //this.file = val;

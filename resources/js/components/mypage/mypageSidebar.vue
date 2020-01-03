@@ -2,7 +2,7 @@
     <!-- サブカラム（サイドバー） -->
     <div class="l-row__col12 l-row__col04-pc">
         <div class=" c-sidebar">
-            <registStepBtnComponent></registStepBtnComponent>
+            <registStepBtn></registStepBtn>
             <!-- <div class="c-sidebar__group">
                 <h2 class="c-sidebar__head"><span class="c-sidebar__title"><i class="fas fa-user-alt c-sidebar__icn"></i>マイページ</span></h2>
                 <div class="c-sidebar__body">
@@ -16,20 +16,21 @@
                     
                 </div>
             </div> -->
-            <profileComponent
-            :user="user"
-            title="マイページ"></profileComponent>
+            <profile
+                :user="user"
+                title="マイページ"
+            ></profile>
         </div>
     </div>
 </template>
 
 <script>
-    import registStepBtnComponent from '../registStepBtnComponent';
-    import profileComponent from '../profileComponent';
+    import registStepBtn from '../registStepBtn';
+    import profile from '../profile';
     export default {
         components: {
-            registStepBtnComponent,
-            profileComponent
+            registStepBtn,
+            profile
         },
         props: ['user']
     }

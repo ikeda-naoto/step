@@ -3,24 +3,26 @@
     <div class="l-container u-bg-light">
         <div class="l-row l-site-width">
             <!-- メインカラム -->
-            <stepListMainComponent
-            :parentSteps="filteredList"></stepListMainComponent>
+            <stepListItem
+                :parentSteps="filteredList"
+            ></stepListItem>
             <!-- サブカラム（サイドバー） -->
-            <stepListSubComponent
-            :categories="categories"></stepListSubComponent>
+            <stepListSidebar
+                :categories="categories"
+            ></stepListSidebar>
         </div>
     </div>
 </template>
 
 <script>
-    import stepListMainComponent from './stepListMainComponent';
-    import stepListSubComponent from './stepListSubComponent';
+    import stepListItem from './stepListItem';
+    import stepListSidebar from './stepListSidebar';
     //import store from './store/index';
     import { mapState, mapMutations } from 'vuex'
     export default {
         components: {
-            stepListMainComponent,
-            stepListSubComponent
+            stepListItem,
+            stepListSidebar
         },
         props: ['parentSteps', 'categories'],
         computed: {

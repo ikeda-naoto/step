@@ -81,7 +81,7 @@
                 </p>
                 <div class="l-row p-step-list">
                     @foreach ($parentSteps as $parentStep)
-                        <a href="{{ route('steps.show', $parentStep->id) }}" class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
+                        <a href="{{ route('steps.showParent', $parentStep->id) }}" class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
                             <div class="c-panel p-step-list__panel">
                                 <div class="c-panel__category p-step-list__category">{{ $parentStep->category->name }}</div>
                                 <div class="c-panel__img p-step-list__img">

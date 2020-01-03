@@ -15,12 +15,6 @@ const store = new Vuex.Store({
     updateSelectCategory (store, newValue) {
       store.selectCategory = parseInt(newValue);
     },
-    showStepImg (store, path) {
-      if(path === null) {
-          return '/images/no-img.png'
-      }
-      return '/storage/img/' + path;
-    }
   },
   actions: {
 

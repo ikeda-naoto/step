@@ -18,8 +18,10 @@
 </template>
 
 <script>
+    import Mixin from './mixins/mixin';
     export default {
-        props: ['img'],
+        props: ['pic'],
+        mixins: [Mixin],
         data: function() {
             return {
                 uploadedImg: '',
@@ -34,8 +36,8 @@
             showImg: function(){
                 if(this.uploadedImg !== '') {
                     return this.uploadedImg;
-                }else if(this.uploadedImg === '' && this.img !== undefined) {
-                    return '/storage/img/' + this.img;
+                }else if(this.uploadedImg === '' && this.isset(this.pic)) {
+                    return '/storage/img/' + this.pic;
                 }else {
                     return '';
                 }
@@ -44,8 +46,8 @@
         methods: {
             onFileChange: function(e) {
                 let files = e.target.files || e.dataTransfer.files;
-                this.$parent.file = files[0];
-                //this.$emit('changeFile', files[0]);
+                // this.$parent.file = files[0];
+                this.$emit('updatePic', files[0]);
                 this.createImg(files[0]);
             },
             createImg: function(file) {

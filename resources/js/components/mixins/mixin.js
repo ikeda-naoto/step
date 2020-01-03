@@ -6,8 +6,16 @@ export default {
             //シェアする画面を設定
             let shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,共有,学習,手順';
             //シェア用の画面へ移行
-            location.href = shareUrl
-        }
+            location.href = shareUrl;
+        },
+        // 引数が存在するかを判定する
+        isset: function(data) {
+            if(data === "" || data === null || data === undefined){
+                return false;
+            } else{
+                return true;
+            }
+        },
     },
     computed: {
         // STEPのアイキャッチ画像を返す
@@ -30,14 +38,4 @@ export default {
             }
         },
     },
-    methods: {
-        // 引数が存在するかを判定する
-        isset: function(data) {
-            if(data === "" || data === null || data === undefined){
-                return false;
-            } else{
-                return true;
-            }
-        }
-    }
 }

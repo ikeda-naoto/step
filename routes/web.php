@@ -39,17 +39,20 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('users/{id}/edit', 'UsersController@edit')->name('users.edit');
-    Route::put('users/{id}', 'UsersController@update')->name('users.update');
-    Route::get('users/mypage', 'UsersController@mypage')->name('mypage');
+    Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit');
+    Route::put('/users/{id}', 'UsersController@update')->name('users.update');
+    Route::get('/users/mypage', 'UsersController@mypage')->name('mypage');
     Route::get('/steps/create', 'StepsController@create')->name('steps.create');
     Route::get('/steps/{id}/edit', 'StepsController@edit')->name('steps.edit');
+    Route::put('/steps/{id}', 'StepsController@update')->name('steps.update');
     Route::post('/steps', 'StepsController@store')->name('steps.store');
     Route::post('/challenge', 'ChallengeController@challenge');
+    Route::post('/challenge/{id}/clear', 'ChallengeController@clear');
 });
 
 Route::get('/steps', 'StepsController@index')->name('steps.index');
-Route::get('/steps/{id}', 'StepsController@show')->name('steps.show');
+Route::get('/steps/{id}', 'StepsController@showParent')->name('steps.showParent');
+Route::get('/steps/{parent_id}/{child_id}', 'StepsController@showChild')->name('steps.showChild');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

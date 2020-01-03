@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<!-- パンくずリスト -->
+@section('breadcrumbs', Breadcrumbs::render('register'))
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -76,14 +79,6 @@
 </div> --}}
 
 <!-- パンくずリスト -->
-<div class="l-bread-crumbs">
-    <div class="p-bread-crumbs l-row  l-row--middle">
-        <ul class="l-site-width l-row p-bread-crumbs__list">
-            <li><a href="" class="p-bread-crumbs__link">ホーム</a><i class="fas fa-angle-right p-bread-crumbs__icn"></i></li>
-            <li>新規会員登録</li>
-        </ul>
-    </div>
-</div>
 <!-- メインコンテンツ -->
 <div class="l-container u-bg-light">
     <div class="l-row l-row--center l-site-width">
@@ -116,7 +111,7 @@
                 </div>
                 <div class="c-form__group">
                     <p class="l-row l-row--middle p-auth__lead">すでに登録している方はコチラ</p>
-                    <a href="" class="c-btn c-btn--goast p-auth__btn">ログイン</a>
+                    <a href="{{ route('login') }}" class="c-btn c-btn--goast p-auth__btn">ログイン</a>
                 </div>
             </form>
         </div>

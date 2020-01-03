@@ -107,9 +107,11 @@
                                         <div class="p-nav__link">
                                             <div class="p-nav__text">
                                                 <div class="p-nav__img">
-                                                    <img src="{{ $user->pic ? asset('storage/img/'.$user->pic) : asset('images/unknown.png')}}" alt="">
+                                                    <img src="{{ isset($user->pic) ? asset('storage/img/'.$user->pic) : asset('images/unknown.png')}}" alt="">
                                                 </div>
-                                                <p class="p-nav__name">なおちん</p>
+                                                <p class="p-nav__name">
+                                                    {{ isset($user->name) ? $user->name : '名無しさん'}}
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="p-dropdown__menu">

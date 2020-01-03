@@ -2,11 +2,11 @@
     <section class="p-challenge-step">
         <h2 class="c-title--type01 u-mb-3l">チャレンジ中のSTEP</h2>
         <div class="l-row">
-            <template v-for="challengeStep in challengeSteps">
-                <challengeStepPanelComponent
+            <challengeStepPanel
+                v-for="challengeStep in challengeSteps"
                 :key="challengeStep.id"
-                :challengeStep="challengeStep"></challengeStepPanelComponent>
-            </template>
+                :challengeStep="challengeStep"
+            ></challengeStepPanel>
             
             <!-- <div class="l-row__col12 l-row__col06-pc p-challenge-step__panel-container">
                 <a class="c-panel p-challenge-step__panel">
@@ -31,10 +31,10 @@
     </section>
 </template>
 <script>
-    import challengeStepPanelComponent from './challengeStepPanelComponent';
+    import challengeStepPanel from './challengeStepPanel';
     export default {
         components: {
-            challengeStepPanelComponent
+            challengeStepPanel
         },
         props: ['challengeSteps']
     }

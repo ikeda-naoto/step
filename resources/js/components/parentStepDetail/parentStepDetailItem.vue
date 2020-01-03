@@ -32,9 +32,9 @@
 
 <script>
     import Mixin from '../mixins/mixin';
-    import challengeBtnComponent from '../parentStepDetail/challengeBtnComponent';
     export default {
         props: ['user', 'parentStep', 'challengeFlg'],
+        mixins: [Mixin],
         methods: {
             onClickTwitterShare: function() {
                 // ツイッターシェアするときのタイトル
@@ -42,9 +42,5 @@
                 this.twitterShare(shareTitle);
             }
         },
-        components: {
-            challengeBtnComponent
-        },
-        mixins: [Mixin],
     }
 </script>

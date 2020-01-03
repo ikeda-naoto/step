@@ -22,6 +22,16 @@ Breadcrumbs::for('mypage', function ($trail) {
     $trail->push('マイページ', url('/users/mypage'));
 });
 
+Breadcrumbs::for('login', function ($trail) {
+    $trail->parent('home');
+    $trail->push('ログイン', url('/login'));
+});
+
+Breadcrumbs::for('register', function ($trail) {
+    $trail->parent('home');
+    $trail->push('会員登録', url('/register'));
+});
+
 // // ホーム > 本の一覧 >  [Title]
 // Breadcrumbs::for('showBook', function ($trail, $book) {
 //     $trail->parent('books');

@@ -29,7 +29,7 @@
     &__content {
         padding: $space_m;
         margin-top: $space_3l;
-        border: $border_s solid $border-color_light;
+        background: $background-color_step-content;
         min-height: 120px;
         box-sizing: border-box;
     }

@@ -75,6 +75,9 @@
                 <div class="c-form__group">
                     <p>新しいパスワードを設定してください。</p>
                 </div>
+                @error('common')
+                    <span class="u-fontcolor--err">{{ $message }}</span>
+                @enderror
                 <div class="c-form__group">
                     <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                     @error('email')

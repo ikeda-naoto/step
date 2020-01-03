@@ -11,9 +11,10 @@
         </div>
         <!-- モーダル -->
         <!-- エラーメッセージがある時に表示 -->
-        <modalComponent
-        v-show="errMsgs.length" 
-        :errMsgs="errMsgs"></modalComponent>
+        <modal
+            v-show="errMsgs.length" 
+            :errMsgs="errMsgs"
+        ></modal>
         <!-- メインコンテンツ -->
         <div class="l-container u-bg-light">
             <div class="l-row l-row--center l-site-width">
@@ -40,8 +41,10 @@
                             </div>
                         </div>
                         <!-- プロフィール画像 -->
-                        <inputFileComponent
-                        :img="pic"></inputFileComponent>
+                        <inputFile
+                            :pic="user.pic"
+                            @updatePic="updatePic"
+                        ></inputFile>
                         <!-- メールアドレス入力欄 -->
                         <div class="l-row c-form__group">
                             <div class="l-row__col04-pc">
@@ -63,22 +66,21 @@
 </template>
 
 <script>
-    import inputFileComponent from './inputFileComponent';
-    import modalComponent from './modalComponent';
+    import inputFile from './inputFile';
+    import modal from './modal';
     import Mixin from './mixins/mixin';
     export default {
         components: {
-            inputFileComponent,
-            modalComponent
+            inputFile,
+            modal
         },
         props: ['user'],
         data: function() {
             return {
                 id: this.user.id,
-                name: this.user.name,
-                introduction: this.user.introduction,
-                pic: this.user.pic,
-                file: null,
+                name: this.isset(this.user.name) ? this.user.name : '',
+                introduction: this.isset(this.user.introduction) ? this.user.introduction : '',
+                pic: this.isset(this.user.pic) ? this.user.pic : '',
                 email: this.user.email,
                 errMsgs: [],
                 isPush: false
@@ -93,7 +95,7 @@
                 // 各データを格納
                 data.append('name', this.name);
                 data.append('introduction', this.introduction);
-                this.isset(this.file) ? data.append('file', this.file) : false; // nullなどで送るとバリデーションにひっかかってしまうため
+                !(typeof this.pic === 'string' || this.pic instanceof String) ? data.append('pic', this.pic) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
                 data.append('email', this.email)
                 let config = {
                     headers: {
@@ -122,12 +124,14 @@
                     }
                     // それ以外のエラーの場合
                     else {
-                        alert('しばらく時間をおいてから再度登録をしてください');
+                        alert('しばらく時間をおいてから再度試してください');
                     }
                     this.isPush = !this.isPush;
                 });
-             // });
             },
+            updatePic: function(val) {
+                this.pic = val;
+            }
         }
     }
 </script>
