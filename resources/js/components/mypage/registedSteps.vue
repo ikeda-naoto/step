@@ -7,6 +7,11 @@
                 :key="registStep.id"
                 :registStep="registStep"
             ></registedStepPanel>
+            <div v-if="registSteps.length === 0" class="l-row l-row--center">
+                 <p class="u-fontsize--l">
+                    登録したSTEPがありません
+                 </p>
+            </div>
         </div>
     </section>
 </template>

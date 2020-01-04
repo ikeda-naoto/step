@@ -15,6 +15,8 @@
         }
     }
     &--type01 {
+        font-family: $font-family_gothic;
+        font-weight: bold;
         font-size: $font-size_xxl;
         //margin-bottom: $space_3l;
         padding: $space_xl $space_xl;

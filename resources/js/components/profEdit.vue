@@ -100,6 +100,7 @@
                 let config = {
                     headers: {
                         'content-type': 'multipart/form-data',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                 };
 

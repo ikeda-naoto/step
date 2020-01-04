@@ -9,8 +9,7 @@
                         </h1>
                     </div>
                     <div class="p-child__body">
-                        <div class="p-child__content">
-                            {{ childStep.child_content }}
+                        <div class="p-child__content" v-html="$sanitize(nl2br(childStep.child_content))">
                         </div>
                     </div>
                     <div class="p-share">

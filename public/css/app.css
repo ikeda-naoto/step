@@ -455,29 +455,36 @@ button:focus {
   box-sizing: border-box;
 }
 
-.c-sidebar__list-item {
-  padding: 15px 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 2px dashed #0057a3;
+.c-sidebar__list {
   background: #fff;
-  cursor: pointer;
 }
 
 .c-sidebar__list-item--active {
-  background: #f8ebd5;
+  background: #e4e4e4;
+  color: #0057a3;
 }
 
 .c-sidebar__list-item:hover {
-  opacity: 0.7;
+  background: #e4e4e4;
 }
 
 .c-sidebar__label {
+  cursor: pointer;
   display: block;
+  padding: 15px 10px;
 }
 
 .c-sidebar__radio {
   display: none;
+}
+
+.c-sidebar__input {
+  width: 100%;
+  height: 36px;
+  font-size: 16px;
+  background: #fff;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .c-sidebar__btn--full {
@@ -683,6 +690,8 @@ button:focus {
 }
 
 .c-title--type01 {
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
+  font-weight: bold;
   font-size: 30px;
   padding: 20px 20px;
   border-left: solid 5px #0057a3;
@@ -1022,6 +1031,10 @@ button:focus {
   margin: 15px 0;
 }
 
+.p-step-list__panel:hover {
+  opacity: 0.8;
+}
+
 .p-step-list__img {
   height: 214px;
   margin-bottom: 10px;
@@ -1070,7 +1083,7 @@ button:focus {
 }
 
 .p-registed-step__panel:last-child {
-  border-bottom: none;
+  border: none;
 }
 
 .p-registed-step__title {
@@ -1510,7 +1523,7 @@ button:focus {
 }
 
 .p-dropdown__item:hover {
-  background: #f8ebd5;
+  background: #e4e4e4;
 }
 
 .p-dropdown__link {

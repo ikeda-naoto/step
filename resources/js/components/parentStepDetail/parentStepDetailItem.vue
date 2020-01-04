@@ -17,8 +17,7 @@
                                 <button class="c-btn c-btn--twitter p-share__btn" @click="onClickTwitterShare"><i class="fab fa-twitter p-share__icn"></i>ツイート</button>
                             </div>
                             <div class="p-parent__body">
-                                <div class="p-parent__textarea">
-                                    {{ parentStep.parent_content }}
+                                <div class="p-parent__textarea" v-html="$sanitize(nl2br(parentStep.parent_content))">
                                 </div>
                             </div>
                             

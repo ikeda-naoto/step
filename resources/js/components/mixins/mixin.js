@@ -37,5 +37,10 @@ export default {
                 return totalTime / 60;
             }
         },
+        nl2br: function() {
+            return function(text) {
+                return text.replace(/\n/g, '<br/>');
+            }
+        }
     },
 }

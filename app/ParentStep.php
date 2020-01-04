@@ -28,5 +28,4 @@ class ParentStep extends Model
     {
         return $this->hasMany('App\Challenge');
     }
-    
 }

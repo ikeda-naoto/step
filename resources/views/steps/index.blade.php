@@ -85,15 +85,15 @@
                             <div class="c-panel p-step-list__panel">
                                 <div class="c-panel__category p-step-list__category">{{ $parentStep->category->name }}</div>
                                 <div class="c-panel__img p-step-list__img">
-                                    <img src="img/trouble_person.jpg" alt="">
+                                    <img src="{{ !empty($parentStep->pic) ? asset('/storage/img/'.$parentStep->pic) : asset('/images/unknown.png') }}" alt="">
                                 </div>
                                 <div class="l-row l-row--between p-step-list__head">
                                     <h3 class="c-panel__title p-step-list__title">{{ $parentStep->parent_title }}</h3>
                                 </div>
                                 <div class="l-row l-row--between l-row--center p-step-list__body">
-                                    <p class="p-step-list__time">終了目安：{{ $parentStep->time / 60}}
+                                    <p class="p-step-list__time">終了目安：{{ $parentStep->time}}
                                         時間</p>
-                                    <p class="p-step-list__sum">全{{ $parentStep->sumChildNum }}STEP</p>
+                                    <p class="p-step-list__sum">全{{ count($parentStep->childSteps)  }}STEP</p>
                                 </div>
                             </div>
                         </a>

@@ -16,21 +16,22 @@ class UsersController extends Controller
     public function edit($id)
     {
         // GETパラメータが数字かどうかチェック
+        Common::validNumber($id, '/users/mypage');
         // GETパラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
-        if(!ctype_digit($id) || (int)$id !== Auth::id()) {
-            return redirect('/');
+        if((int)$id !== Auth::id()) {
+            return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
         }
+
         return view('steps.profEdit');
     }
 
     public function update(Request $request, $id)
     {
-        // logger($request);
-
-        // パラメータが数字かどうかチェック
-        // パラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
-        if(!ctype_digit($id) || (int)$id !== Auth::id()) {
-            return redirect('/');
+        // GETパラメータが数字かどうかチェック
+        Common::validNumber($id, '/users/mypage');
+        // GETパラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
+        if((int)$id !== Auth::id()) {
+            return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
         }
 
         // バリデーション 
@@ -46,10 +47,11 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->fill($request->all());
         // ファイルが送信されていれば、そのパスを保存し、
-        if(!empty($request->pic)){
-            $path = $request->pic->store('public/img');
-            $user->pic = basename($path);
-        }
+        // if(!empty($request->pic)){
+        //     $path = $request->pic->store('public/img');
+        //     $user->pic = basename($path);
+        // }
+        Common::storePic($user, $request->pic);
         $user->save();
 
         return response()->json(['flg'=> true]);
@@ -58,7 +60,7 @@ class UsersController extends Controller
     public function mypage()
     {
 
-        $registSteps = Auth::user()->parentSteps;
+        $registSteps = Auth::user()->parentSteps()->latest()->get();
 
         foreach ($registSteps as $registStep) {
             Common::relationCategoryAndChildSteps($registStep);
@@ -66,49 +68,13 @@ class UsersController extends Controller
         
         // logger($registSteps);
         
-        $challengeSteps = Auth::user()->challenges;
+        $challengeSteps = Auth::user()->challenges()->latest()->get();
 
         foreach ($challengeSteps as $challengeStep) {
             $challengeStep->parentStep;
             // logger($challengeStep->parentStep);
             Common::relationCategoryAndChildSteps($challengeStep->parentStep);
         }
-        
-
-        // logger($challengeSteps);
-
-
-
-
-        // $challengeSteps->parent->id;
-        
-        // $parentSteps = ParentStep::all();
-        // foreach ($parentSteps as $parentStep) {
-        //     $parentStep->challenges;
-        // }
-        // logger($parentSteps);
-        // $challengeSteps  = DB::table('parent_steps')
-        //                     ->join('challenges', 'parent_steps.id', '=', 'challenges.parent_step_id')
-        //                     //->join('orders', 'users.id', '=', 'orders.user_id')
-        //                     ->select('parent_steps.*', 'challenges.clear_num')
-        //                     ->where('challenges.user_id', Auth::user()->id)
-        //                     ->get();
-        // logger($challengeSteps);
-        // foreach ($challengeSteps as $challengeStep) {
-        //     // $childSteps = ChildStep::where('parent_step_id', $challengeStep->id)->get();
-        //     $childSteps = $challengeStep->children;
-        //     logger($childSteps);
-        // }
-        
-        
-        // foreach ($challengeSteps as $challengeStep) {
-        //     logger($challengeStep->parent);
-        //     logger($challengeStep);
-        //     //  logger(ParentStep::find($challengeStep->parent_step_id));
-        //}
-        // logger($challengeSteps);
-
-        // $challengeSteps = Common::addParentStepInfo($challengeSteps);
 
         return view('steps.mypage', compact('registSteps', 'challengeSteps'));
     }

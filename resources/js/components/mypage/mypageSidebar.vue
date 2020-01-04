@@ -20,6 +20,9 @@
                 :user="user"
                 title="マイページ"
             ></profile>
+            <mypageSidebarMenu
+                :user="user"
+            ></mypageSidebarMenu>
         </div>
     </div>
 </template>
@@ -27,11 +30,13 @@
 <script>
     import registStepBtn from '../registStepBtn';
     import profile from '../profile';
+    import mypageSidebarMenu from './mypageSidebarMenu';
     export default {
         components: {
             registStepBtn,
-            profile
+            profile,
+            mypageSidebarMenu
         },
-        props: ['user']
+        props: ['user'],
     }
 </script>

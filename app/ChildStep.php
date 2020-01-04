@@ -19,5 +19,9 @@ class ChildStep extends Model
     {
         return $this->belongsTo('App\Time');
     }
+
+    public function getData() {
+        
+    }
     
 }

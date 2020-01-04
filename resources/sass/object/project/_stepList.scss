@@ -4,6 +4,9 @@
         padding: 0 $space_l;
         margin: $space_l 0;
     }
+    &__panel:hover {
+        opacity: 0.8;
+    }
     &__img {
         height: 214px;
         margin-bottom: $space_m;

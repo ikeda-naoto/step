@@ -7,9 +7,9 @@
         padding: $space_l $space_xl;
         border-radius: 0px;
         margin-bottom: 0;
-        border-bottom: 1px solid $border-color_light;
+        border-bottom: $border_s solid $border-color_light;
         &:last-child {
-            border-bottom: none;
+            border: none;
         }
     }
     &__title {
@@ -26,7 +26,6 @@
         }
     }
     &__content {
-        // width: 65%;
         height: 100px;
         background: $background-color_step-content;
         padding: $space_m $space_l; 
@@ -39,7 +38,6 @@
     &__btn {
         width: 150px;
         padding: $space_m 0;
-        // margin-top: $space_xl;
         margin-left: auto;
         @include sm() {
             width: 100px

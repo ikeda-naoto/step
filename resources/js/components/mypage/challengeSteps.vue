@@ -1,12 +1,18 @@
 <template>
     <section class="p-challenge-step">
         <h2 class="c-title--type01 u-mb-3l">チャレンジ中のSTEP</h2>
-        <div class="l-row">
+        <div class="l-row" :class="[challengeSteps.length === 0 ? 'l-row--center' : '' ]">
             <challengeStepPanel
                 v-for="challengeStep in challengeSteps"
                 :key="challengeStep.id"
                 :challengeStep="challengeStep"
             ></challengeStepPanel>
+
+             <div v-if="challengeSteps.length === 0" class="l-row">
+                 <p class="u-fontsize--l">
+                    チャレンジ中のSTEPがありません
+                 </p>
+             </div>
             
             <!-- <div class="l-row__col12 l-row__col06-pc p-challenge-step__panel-container">
                 <a class="c-panel p-challenge-step__panel">

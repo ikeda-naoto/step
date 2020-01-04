@@ -25,15 +25,19 @@ Route::get('/', function () {
     // ->select('parent_steps.*', 'categories.name')
     // ->Join('categories', 'parent_steps.category_id', '=', 'categories.id')
     // ->orderBy('id', 'DESC')->take(6)->get();
-    $parentSteps = ParentStep::orderBy('id', 'DESC')->take(6)->get();
+    $parentSteps = ParentStep::latest()->take(6)->get();
 
     //  logger($steps);
     // $categories = Category::all();
 
     foreach ($parentSteps as $parentStep) {
         Common::relationCategoryAndChildSteps($parentStep);
+        $time = 0;
+        foreach ($parentStep->childSteps as $childStep) {
+            $time += $childStep->time;
+        }
+        $parentStep->time = $time / 60;
     }
-    //$steps = ParentStep::orderBy('id', 'DESC')->take(6)->get();
     return view('steps.index', compact('parentSteps'));
     
 });
