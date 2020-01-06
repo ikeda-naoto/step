@@ -20,7 +20,7 @@ return [
     'alpha'                => ':attributeは英字のみにしてください。',
     'alpha_dash'           => ':attributeは英数字とハイフンのみにしてください。',
     'alpha_num'            => ':attributeは英数字のみにしてください。',
-    'alpha_num_half'       => ':attributeは半角英数字で入力してください',
+    'alpha_num_half'       => ':attributeは半角英数字で入力してください。',
     'array'                => ':attributeは配列にしてください。',
     'before'               => ':attributeは:date以前の日付にしてください。',
     'before_or_equal'      => ':attributeは:date以前の日付にしてください。',          // 追加
@@ -31,7 +31,7 @@ return [
         'array'   => ':attributeは:min?:max個までにしてください。',
     ],
     'boolean'              => ':attributeはtrueかfalseにしてください。',
-    'confirmed'            => ':attributeは確認用項目と一致していません。',
+    'confirmed'            => 'パスワードとパスワード（再入力）の内容が一致しません。',
     'date'                 => ':attributeは正しい日付ではありません。',
     'date_format'          => ':attributeは":format"書式と一致していません。',
     'different'            => ':attributeは:otherと違うものにしてください。',
@@ -39,7 +39,7 @@ return [
     'digits_between'       => ':attributeは:min?:max桁にしてください。',
     'dimensions'           => ':attributeは画像サイズが不正です。',                   // 追加
     'distinct'             => ':attributeは重複しています。',                         // 追加
-    'email'                => ':attributeを正しいメールアドレスにしてください。',
+    'email'                => 'メールアドレスの形式で入力してください。',
     'exists'               => '選択された:attributeは正しくありません。',
     'file'                 => ':attributeはファイルにしてください。',                 // 追加
     'filled'               => ':attributeは必須です。',
@@ -84,7 +84,7 @@ return [
     'mimes'                => ':attributeは:valuesタイプのファイルにしてください。',
     'mimetypes'            => ':attributeは:valuesタイプのファイルにしてください。',  // 追加
     'min'                  => [
-        'numeric' => ':attributeは:min以上にしてください。',
+        'numeric' => ':attributeは:min以上で入力してください。',
         'file'    => ':attributeは:min KB以上のファイルにしてください。.',
         'string'  => ':attributeは:min文字以上にしてください。',
         'array'   => ':attributeは:min個以上にしてください。',
@@ -110,7 +110,7 @@ return [
     ],
     'string'               => ':attributeは文字列にしてください。',
     'timezone'             => ':attributeは正しいタイムゾーンを指定してください。',
-    'unique'               => ':attributeは既に存在します。',
+    'unique'               => 'すでに使用されている:attributeです。',
     'uploaded'             => ':attributeのアップロードに失敗しました。',             // 追加
     'url'                  => ':attributeを正しい書式にしてください。',
 
@@ -142,6 +142,6 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => ['email' => 'メールアドレス', 'password' => 'パスワード'],
 
 ];

@@ -2,80 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\lib\Common;
-use App\Challenge;
-use App\ChildStep;
-use App\ParentStep;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UpdateUserRequest;
 
 class UsersController extends Controller
 {
-    public function edit($id)
+    public function edit()
     {
-        // GETパラメータが数字かどうかチェック
-        Common::validNumber($id, '/users/mypage');
-        // GETパラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
-        if((int)$id !== Auth::id()) {
-            return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
-        }
-
         return view('steps.profEdit');
     }
 
-    public function update(Request $request, $id)
-    {
-        // GETパラメータが数字かどうかチェック
-        Common::validNumber($id, '/users/mypage');
-        // GETパラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
-        if((int)$id !== Auth::id()) {
-            return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
-        }
-
-        // バリデーション 
-        $request->validate([
-            'name' => 'max:20',
-            'introduction' => 'max:400',
-            'pic' => 'nullable|file|image',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
-        ]);
-
-        
-
-        $user = User::find($id);
+    public function update(UpdateUserRequest $request)
+    {        
+        // ログイン中のユーザーの情報をレコードを取得
+        $user = User::find(Auth::user()->id);
+        // データをDBに保存
         $user->fill($request->all());
-        // ファイルが送信されていれば、そのパスを保存し、
-        // if(!empty($request->pic)){
-        //     $path = $request->pic->store('public/img');
-        //     $user->pic = basename($path);
-        // }
+        // 画像の送信があった場合は画像のデータも保存する
         Common::storePic($user, $request->pic);
         $user->save();
+
+        // フラッシュメッセージを保存
+        session()->flash('status', 'プロフィールを編集しました。');
 
         return response()->json(['flg'=> true]);
     }
 
     public function mypage()
     {
-
+        // ログイン中のユーザーが登録した親STEPのレコードを取得
         $registSteps = Auth::user()->parentSteps()->latest()->get();
-
+        // 子STEPとカテゴリーの情報を付与する
         foreach ($registSteps as $registStep) {
             Common::relationCategoryAndChildSteps($registStep);
         }
         
-        // logger($registSteps);
-        
+        // ログイン中のユーザーがチャレンジ情報を取得
         $challengeSteps = Auth::user()->challenges()->latest()->get();
-
         foreach ($challengeSteps as $challengeStep) {
+            // 親STEPの情報を付与する
             $challengeStep->parentStep;
-            // logger($challengeStep->parentStep);
+            // 子STEPとカテゴリーの情報を付与する
             Common::relationCategoryAndChildSteps($challengeStep->parentStep);
         }
 
         return view('steps.mypage', compact('registSteps', 'challengeSteps'));
     }
+
+
 }

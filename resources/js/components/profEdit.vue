@@ -105,9 +105,9 @@
                 };
 
                 // PUT で上書く
-                config.headers['X-HTTP-Method-Override'] = 'PUT';
+                config.headers['X-HTTP-Method-Override'] = 'PATCH';
                 // axios通信
-                axios.post('/users/' +　this.id, data, config,)
+                axios.post('/users', data, config,)
                 .then(res => {
                     // 通信成功の場合
                     console.log(res.data);

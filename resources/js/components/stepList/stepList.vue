@@ -3,13 +3,9 @@
     <div class="l-container u-bg-light">
         <div class="l-row l-site-width">
             <!-- メインカラム -->
-            <stepListItem
-                :parentSteps="filteredList"
-            ></stepListItem>
+            <stepListItem></stepListItem>
             <!-- サブカラム（サイドバー） -->
-            <stepListSidebar
-                :categories="categories"
-            ></stepListSidebar>
+            <stepListSidebar></stepListSidebar>
         </div>
     </div>
 </template>
@@ -18,39 +14,22 @@
     import stepListItem from './stepListItem';
     import stepListSidebar from './stepListSidebar';
     //import store from './store/index';
-    import { mapState, mapMutations } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
     export default {
         components: {
             stepListItem,
-            stepListSidebar
+            stepListSidebar,
         },
-        props: ['parentSteps', 'categories'],
-        computed: {
-            ...mapState([
-                'searchText', // => `this.count` が `store.state.count` にマッピングされる
-                'selectCategory'
-            ]),
-            filteredList: function() {
-                let newList = this.parentSteps;
-                if(this.searchText) {
-                    newList = newList.filter(this.filterText);
-                }
-                if(this.selectCategory) {
-                    newList = newList.filter(this.filterCategory);
-                }
-                
-                return newList;
-            },
+        mounted() {
+            this.load(1)
         },
         methods: {
-            filterText: function(elm) {
-                const regexp = new RegExp('^' + this.searchText, 'i');
-                return (elm.parent_title.match(regexp));
-            },
-            filterCategory: function(elm) {
-                return elm.category_id === this.selectCategory;
-            },
-
+            ...mapActions([
+                'getPaginationData',
+            ]),
+            load(page) {
+                this.getPaginationData(page);
+            }
         }   
     }
 </script>

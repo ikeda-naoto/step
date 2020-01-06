@@ -27,7 +27,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composers([
-            UserComposer::class    => ['layouts.*', 'steps.*']
+            UserComposer::class    => ['layouts.*', 'steps.*', 'auth.passEdit']
         ]);
     }
 }

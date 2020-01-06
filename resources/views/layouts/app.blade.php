@@ -122,12 +122,12 @@
                                                     </a>
                                                 </li>
                                                 <li class="p-dropdown__item">
-                                                    <a href="{{ route('users.edit', $user->id) }}" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                    <a href="{{ route('users.edit') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
                                                         <span>プロフィール変更</span><i class="fas fa-angle-right fa-lg"></i>
                                                     </a>
                                                 </li>
                                                 <li class="p-dropdown__item">
-                                                    <a class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                    <a href="{{ route('password.edit', $user->id) }}" class="l-row l-row--between l-row--middle p-dropdown__link">
                                                         <span>パスワード変更</span><i class="fas fa-angle-right fa-lg"></i>
                                                     </a>
                                                 </li>

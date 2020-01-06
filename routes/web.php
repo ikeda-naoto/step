@@ -43,12 +43,14 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit');
-    Route::put('/users/{id}', 'UsersController@update')->name('users.update');
+    Route::get('/users/edit', 'UsersController@edit')->name('users.edit');
+    Route::patch('/users', 'UsersController@update')->name('users.update');
     Route::get('/users/mypage', 'UsersController@mypage')->name('mypage');
+    Route::get('/password/edit', 'EditPasswordController@edit')->name('password.edit');
+    Route::patch('/password', 'EditPasswordController@update')->name('password.update');
     Route::get('/steps/create', 'StepsController@create')->name('steps.create');
     Route::get('/steps/{id}/edit', 'StepsController@edit')->name('steps.edit');
-    Route::put('/steps/{id}', 'StepsController@update')->name('steps.update');
+    Route::patch('/steps/{id}', 'StepsController@update')->name('steps.update');
     Route::post('/steps', 'StepsController@store')->name('steps.store');
     Route::post('/challenge', 'ChallengeController@challenge');
     Route::post('/challenge/{id}/clear', 'ChallengeController@clear');

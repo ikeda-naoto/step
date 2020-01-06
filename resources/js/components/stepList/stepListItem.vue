@@ -1,16 +1,20 @@
 <template>
 <div class="l-row__col12 l-row__col08-pc">
                     <h1 class="c-title--normal u-mb-5l">STEP一覧</h1>
-                    <!-- <div class="l-row  p-step-list"> -->
-                        <transition-group tag="div" class="l-row  p-step-list v-move">
+                    <!-- STEP一覧 -->
+                    <div class="l-row  p-step-list">
+                        <!-- <transition-group tag="div" class="l-row  p-step-list v-move"> -->
                             <template v-for="parentStep in parentSteps">
                                 <stepListPanel
                                     :key="parentStep.id"
                                     :parentStep="parentStep"
                                 ></stepListPanel>
                             </template>
-                        </transition-group>
-
+                        <!-- </transition-group> -->
+                        
+                    </div>
+                        <!-- ページネーション  -->
+                        <pagination></pagination>
                         <!-- <div class="l-row__col12 l-row__col06-pc p-step-list__panel-container">
                             <a class="c-panel p-step-list__panel">
                                 <div class="c-panel__category p-step-list__category">カテゴリー</div>
@@ -107,12 +111,20 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     import stepListPanel from './stepListPanel';
+    import pagination from './pagination';
     export default {
         components: {
-            stepListPanel
+            stepListPanel,
+            pagination
         },
-        props: ['parentSteps']
+        computed: {
+            ...mapState([
+                'parentSteps'
+            ])
+        }
+
     }
 </script>
 

@@ -1,0 +1,20 @@
+.c-pagination {
+    &__num {
+        display: block;
+        padding: $space_m $space_l;
+        background: $background-color_light;
+        border: $border_s solid $border-color_light;
+        border-radius: $border-radius_s;
+        -webkit-border-radius: $border-radius_s;
+        -moz-border-radius: $border-radius_s;
+        &:hover {
+            color: $font-color_light;
+            background: $background-color_base;
+        }
+        &--active {
+            color: $font-color_light;
+            background: $background-color_base;
+
+        }
+    }
+}

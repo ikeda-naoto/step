@@ -4,8 +4,5 @@
 
 @section('content')
     {{-- {{ $parentSteps }} --}}
-    <step-list
-        :parent-steps="{{ $parentSteps }}"
-        :categories="{{ $categories }}"
-    ></step-list>
+    <step-list></step-list>
 @endsection

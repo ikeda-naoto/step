@@ -13,41 +13,23 @@ use Illuminate\Support\Facades\DB;
 use App\ChallengeStep;
 use App\lib\Common;
 use App\User;
+use App\Http\Requests\CreateStepRequest;
 
 class StepsController extends Controller
 {
     public function index()
     {
-        $parentSteps = ParentStep::latest()->get();
-
-        logger($parentSteps);
-    
-        // それぞれの親STEPに紐づくカテゴリーと子STEPデータを取得
-        foreach ($parentSteps as $parentStep) {
-            Common::relationCategoryAndChildSteps($parentStep);
-        }
-
-        $categories = Category::all();
-
-        return view('steps.stepList', compact('parentSteps', 'categories'));
+        return view('steps.stepList');
     }
 
     public function showParent($id) {
         // GETパラメータが数字かどうかチェック
-        // if(!ctype_digit($id)) {
-        //     return redirect('/steps');
-        // }
-
         Common::validNumber($id, '/steps');
-        // if(!Common::validNumber($id)) {
-        //     return redirect('/steps')->with('status', '不正な値が入力されました。');
-        // }
 
+        // GETパラメータから親STEPのレコードを取得
         $parentStep = ParentStep::find($id);
-        // GETパラメータが改ざんされていないかチェック
-        // if(empty($parentStep)) {
-        //     return redirect('/steps');
-        // }
+        
+        // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/steps');
 
         // 親STEPに紐づくカテゴリーと子STEPデータを取得
@@ -69,24 +51,16 @@ class StepsController extends Controller
 
     public function create()
     {
+        // カテゴリーデータを取得
         $categories = Category::all();
+        // 編集フラグをfalseに
         $editFlg = 0;
 
         return view('steps.registStep', compact('categories', 'editFlg'));
     }
 
-    public function store(Request $request)
+    public function store(CreateStepRequest $request)
     {
-        $request->validate([
-            'parent_title' => 'required|max:20',
-            'category_id' => 'required|integer',
-            'parent_content' => 'required|max:20000',
-            'pic' => 'nullable|file|image',
-            'child_title.*' => 'required|max:20',
-            'time.*' => 'required|integer',
-            'child_content.*' => 'required|max:20000',
-        ]);
-
         $parentStep = new ParentStep;
         
         Common::storePic($parentStep, $request->pic);
@@ -116,18 +90,7 @@ class StepsController extends Controller
         return view('steps.registStep', compact('parentStep', 'childSteps', 'categories', 'editFlg'));
     }
 
-    public function update(Request $request, $id) {
-        logger($request);
-
-        $request->validate([
-            'parent_title' => 'required|max:20',
-            'category_id' => 'required|integer',
-            'parent_content' => 'required|max:20000',
-            'pic' => 'nullable|file|image',
-            'child_title.*' => 'required|max:20',
-            'time.*' => 'required|integer',
-            'child_content.*' => 'required|max:20000',
-        ]);
+    public function update(CreateStepRequest $request, $id) {
 
         $data = $request->all();
 

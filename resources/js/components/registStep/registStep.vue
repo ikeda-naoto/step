@@ -74,7 +74,11 @@
         created: function() {
             if(this.editFlg) {
                 for (let key in this.parentStep) {
-                    this.parentStep[key] = this.parentStepData[key];
+                    if(key === 'pic') {
+                        this.parentStepData[key] !== null ? this.parentStepData[key] : '';
+                    }else {
+                        this.parentStep[key] = this.parentStepData[key];
+                    }
                 }
                 this.childStepsData.forEach(element => {
                     this.childSteps.push(element);
@@ -122,7 +126,7 @@
                 let url = '';
                 if(this.editFlg) {
                     url = '/steps/' + this.parentStepData.id;
-                    config.headers['X-HTTP-Method-Override'] = 'PUT';
+                    config.headers['X-HTTP-Method-Override'] = 'PATCH';
                 }else {
                     url = '/steps'
                 }
@@ -143,6 +147,7 @@
                         for (let key in error.response.data.errors) {
                             this.errMsgs.push(error.response.data.errors[key][0]);
                         }
+                        console.log(this.errMsgs);
                     }
                     // それ以外のエラーの場合
                     else {

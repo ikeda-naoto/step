@@ -2,6 +2,7 @@
 namespace App\lib;
 
 use App\ChildStep;
+use Illuminate\Pagination\LengthAwarePaginator;
  
 class Common {
 
@@ -60,5 +61,15 @@ class Common {
     }else {
       session()->flash('status', $parentStep->parent_title . 'を編集しました。');
     }
+  }
+
+  public static function createPaginationData ($obj, $request) {
+    return new LengthAwarePaginator(
+      $obj->forPage($request->page, 5),
+      count($obj),
+      5,
+      $request->page,
+      array('path' => $request->url())
+  );
   }
 }

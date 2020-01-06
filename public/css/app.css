@@ -762,6 +762,26 @@ button:focus {
   color: #0057a3;
 }
 
+.c-pagination__num {
+  display: block;
+  padding: 10px 15px;
+  background: #fff;
+  border: 1px solid #bebebe;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.c-pagination__num:hover {
+  color: #fff;
+  background: #0057a3;
+}
+
+.c-pagination__num--active {
+  color: #fff;
+  background: #0057a3;
+}
+
 .p-header {
   border-bottom: 3px solid #0057a3;
 }
