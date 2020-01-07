@@ -1,7 +1,10 @@
 <template>
-    <button v-if="user && !challengeFlg" class="c-btn c-btn--warning p-parent__btn p-parent__btn u-mt-5l" @click="onClickChallengeBtn">チャレンジする</button>
-    <div v-else-if="!user">ログインして</div>
-    <div v-else>チャレンジ済み</div>
+    <div class="l-row">
+        <button v-if="user && !challengeFlg" class="c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l" @click="onClickChallengeBtn">チャレンジ！</button>
+        <a href="/register" v-else-if="!user" class="c-btn c-btn--small c-btn--success c-btn--right">無料会員登録をしてチャレンジ</a>
+        <div v-else class="c-btn c-btn--small c-btn--secondary c-btn--right">チャレンジ中</div>
+    </div>
+
 </template>
 
 <script>
@@ -15,7 +18,8 @@
         methods: {
             onClickChallengeBtn: function() {
                 this.isPush = !this.isPush
-                let data = {
+                let data = { 
+                    _token: $('meta[name="csrf-token"]').attr('content'),　// csrfトークンを保存
                     parent_step_id : this.parentStepId,
                     clear_num: 0
                 }

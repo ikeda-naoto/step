@@ -295,10 +295,17 @@ button:focus {
 .c-btn {
   display: block;
   text-align: center;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
+  font-size: 14px;
+  padding: 10px 40px;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 414px) {
+  .c-btn {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .c-btn:disabled {
@@ -308,6 +315,32 @@ button:focus {
 
 .c-btn:hover {
   opacity: 0.8;
+}
+
+.c-btn--small {
+  min-width: 150px;
+}
+
+.c-btn--medium {
+  min-width: 300px;
+  padding: 15px 40px;
+}
+
+.c-btn--big {
+  min-width: 400px;
+}
+
+.c-btn--full {
+  width: 100%;
+}
+
+.c-btn--right {
+  margin-left: auto;
+}
+
+.c-btn--center {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .c-btn--primary {
@@ -325,12 +358,27 @@ button:focus {
   background: #c7ba00ef;
 }
 
+.c-btn--secondary {
+  color: #fff;
+  background: #bebebe;
+}
+
+.c-btn--secondary:hover {
+  opacity: 1;
+}
+
+.c-btn--clear {
+  background: #c7ba00ef;
+  opacity: 0.5;
+}
+
 .c-btn--goast {
   color: #4d4d4d;
   border: 1px solid #4d4d4d;
 }
 
 .c-btn--disabled {
+  color: #fff;
   background: #bebebe;
   cursor: not-allowed;
 }
@@ -1139,12 +1187,6 @@ button:focus {
   text-align: right;
 }
 
-.p-registed-step__btn {
-  width: 150px;
-  padding: 10px 0;
-  margin-left: auto;
-}
-
 @media screen and (max-width: 414px) {
   .p-registed-step__btn {
     width: 100px;
@@ -1211,12 +1253,12 @@ button:focus {
 .p-parent {
   position: relative;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .p-parent__outer {
   width: 100%;
   padding: 40px 0;
-  margin-bottom: 60px;
   background: #fff;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -1268,19 +1310,6 @@ button:focus {
 .p-parent__time {
   text-align: right;
   margin-bottom: 30px;
-}
-
-.p-parent__btn {
-  width: 220px;
-  font-size: 18px;
-  margin-left: auto;
-  padding: 15px 0;
-}
-
-@media screen and (max-width: 414px) {
-  .p-parent__btn {
-    margin: 0 auto;
-  }
 }
 
 .p-child {
@@ -1440,14 +1469,8 @@ button:focus {
   margin: 40px 0;
 }
 
-.p-regist-step__btn {
-  padding: 15px 0;
-  width: 130px;
-  font-size: 16px;
-}
-
 .p-child-index {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .p-child-index__list {
@@ -1471,7 +1494,7 @@ button:focus {
 .p-child-index__item::after {
   content: "";
   position: absolute;
-  top: 100px;
+  top: 90px;
   left: 0;
   right: 0;
   width: 0;

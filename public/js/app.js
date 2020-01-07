@@ -2080,9 +2080,13 @@ __webpack_require__.r(__webpack_exports__);
     onClickChallengeBtn: function onClickChallengeBtn() {
       var _this = this;
 
-      this.isPush = !this.isPush; // axios通信
+      this.isPush = !this.isPush; // csrfトークンを保存
 
-      axios.post('/challenge/' + this.parentStepId + '/clear').then(function (res) {
+      var data = {
+        _token: $('meta[name="csrf-token"]').attr('content')
+      }; // axios通信
+
+      axios.post('/challenge/' + this.parentStepId + '/clear', data).then(function (res) {
         // 通信成功の場合
         // 次のSTEPがない場合
         if (res.data.nextStepId === null) {
@@ -2687,6 +2691,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['parentStepId', 'childStepId', 'user', 'challengeFlg'],
   data: function data() {
@@ -2700,6 +2707,8 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isPush = !this.isPush;
       var data = {
+        _token: $('meta[name="csrf-token"]').attr('content'),
+        // csrfトークンを保存
         parent_step_id: this.parentStepId,
         clear_num: 0
       }; // axios通信
@@ -2996,7 +3005,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isPush = !this.isPush;
       var data = new FormData(); // 各データを格納
+      // csrfトークンを保存
 
+      data.append('_token', $('meta[name="csrf-token"]').attr('content'));
       data.append('name', this.name);
       data.append('introduction', this.introduction);
       !(typeof this.pic === 'string' || this.pic instanceof String) ? data.append('pic', this.pic) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
@@ -3489,6 +3500,9 @@ __webpack_require__.r(__webpack_exports__);
       this.isPush = !this.isPush;
       console.log(this.parentStep);
       var data = new FormData(); // 各データを格納
+      // csrfトークンを保存
+
+      data.append('_token', $('meta[name="csrf-token"]').attr('content'));
 
       for (var key in this.parentStep) {
         // 親STEPの情報をDBのカラム名に紐付けてそれぞれ保存
@@ -3511,8 +3525,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var config = {
         headers: {
-          'content-type': 'multipart/form-data',
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          'content-type': 'multipart/form-data'
         }
       };
       var url = '';
@@ -62984,15 +62997,34 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.user === null
-    ? _c("div", [_vm._v("ログインして")])
-    : _vm.clearNum >= _vm.childStep.num
-    ? _c("div", [_vm._v("クリア済み")])
+    ? _c(
+        "a",
+        {
+          staticClass: "c-btn c-btn--small c-btn--success c-btn--right",
+          attrs: { href: "/register" }
+        },
+        [_vm._v("無料会員登録をしてチャレンジ")]
+      )
+    : _vm.clearNum === _vm.childStep.num
+    ? _c(
+        "div",
+        { staticClass: "c-btn c-btn--small c-btn--secondary c-btn--right" },
+        [_vm._v("クリア済み")]
+      )
     : !_vm.challengeFlg || _vm.clearNum + 1 < _vm.childStep.num
-    ? _c("div", [_vm._v("クリアで解放")])
+    ? _c(
+        "div",
+        {
+          staticClass:
+            "c-btn c-btn--small c-btn--clear c-btn--right u-pt-l u-pb-l"
+        },
+        [_vm._v("クリアで解放")]
+      )
     : _c(
         "button",
         {
-          staticClass: "c-btn c-btn--warning p-child__btn",
+          staticClass:
+            "c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l",
           attrs: { disabled: _vm.isPush },
           on: { click: _vm.onClickChallengeBtn }
         },
@@ -63072,7 +63104,7 @@ var render = function() {
               "l-row l-row--middle l-row__col02-pc p-child-index__left-container"
           },
           [
-            _c("p", { staticClass: "p-child-index__num u-mt-l u-mb-l" }, [
+            _c("p", { staticClass: "p-child-index__num u-mt-m u-mb-m" }, [
               _vm._v("\n                STEP"),
               _c("br"),
               _vm._v(" "),
@@ -63716,16 +63748,15 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
-        _c(
-          "a",
-          {
-            staticClass: "c-btn c-btn--primary p-registed-step__btn",
-            attrs: { href: "/steps/" + _vm.registStep.id + "/edit" }
-          },
-          [_vm._v("編集する")]
-        )
-      ])
+      _c(
+        "a",
+        {
+          staticClass:
+            "c-btn c-btn--primary c-btn--right c-btn--small p-registed-step__btn",
+          attrs: { href: "/steps/" + _vm.registStep.id + "/edit" }
+        },
+        [_vm._v("編集する")]
+      )
     ])
   ])
 }
@@ -63803,19 +63834,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.user && !_vm.challengeFlg
-    ? _c(
-        "button",
-        {
-          staticClass:
-            "c-btn c-btn--warning p-parent__btn p-parent__btn u-mt-5l",
-          on: { click: _vm.onClickChallengeBtn }
-        },
-        [_vm._v("チャレンジする")]
-      )
-    : !_vm.user
-    ? _c("div", [_vm._v("ログインして")])
-    : _c("div", [_vm._v("チャレンジ済み")])
+  return _c("div", { staticClass: "l-row" }, [
+    _vm.user && !_vm.challengeFlg
+      ? _c(
+          "button",
+          {
+            staticClass:
+              "c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l",
+            on: { click: _vm.onClickChallengeBtn }
+          },
+          [_vm._v("チャレンジ！")]
+        )
+      : !_vm.user
+      ? _c(
+          "a",
+          {
+            staticClass: "c-btn c-btn--small c-btn--success c-btn--right",
+            attrs: { href: "/register" }
+          },
+          [_vm._v("無料会員登録をしてチャレンジ")]
+        )
+      : _c(
+          "div",
+          { staticClass: "c-btn c-btn--small c-btn--secondary c-btn--right" },
+          [_vm._v("チャレンジ中")]
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -64162,7 +64206,8 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "c-btn c-btn--success p-prof-edit__btn",
+                      staticClass:
+                        "c-btn c-btn--success c-btn--right c-btn--small",
                       attrs: { type: "button", disabled: _vm.isPush },
                       on: { click: _vm.onSubmit }
                     },
@@ -64721,19 +64766,19 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "c-btn c-btn--success p-regist-step__btn",
+                        staticClass: "c-btn c-btn--success c-btn--small",
                         on: { click: _vm.addChildStep }
                       },
                       [
                         _c("i", { staticClass: "fas fa-plus u-mr-s" }),
-                        _vm._v("STEPを追加")
+                        _vm._v("追加")
                       ]
                     ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
-                        staticClass: "c-btn c-btn--warning p-regist-step__btn",
+                        staticClass: "c-btn c-btn--warning c-btn--small",
                         attrs: { disabled: _vm.isPush },
                         on: { click: _vm.onSubmit }
                       },
@@ -64784,7 +64829,7 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "c-btn c-btn--warning c-sidebar__btn--full",
+          staticClass: "c-btn c-btn--warning c-btn--full",
           attrs: { href: "/steps/create" }
         },
         [_vm._v("STEPを作る")]

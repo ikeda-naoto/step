@@ -30,7 +30,7 @@
                         <input type="password" name="password_new_confirmation" class="c-input c-input--full" placeholder="新しいパスワード（再入力）" required autocomplete="new-password">
                     </div>
                     <div class="c-form__group">
-                        <input type="submit" value="更新する" class="c-btn c-btn--primary p-auth__btn">
+                        <input type="submit" value="更新する" class="c-btn c-btn--primary c-btn--center c-btn--medium">
                     </div>
                 </form>
             </div>

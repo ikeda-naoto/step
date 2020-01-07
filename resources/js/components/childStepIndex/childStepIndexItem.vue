@@ -2,7 +2,7 @@
 <li class="p-child-index__item">
     <a :href="'/steps/' + childStep.parent_step_id + '/' + childStep.id" class="l-row l-row--stretch">
         <div class="l-row l-row--middle l-row__col02-pc p-child-index__left-container">
-            <p class="p-child-index__num u-mt-l u-mb-l">
+            <p class="p-child-index__num u-mt-m u-mb-m">
                 STEP<br>
                 <span class="u-fontsize--xl">{{ childStep.num }}</span>
             </p>

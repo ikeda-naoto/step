@@ -107,11 +107,14 @@
                     @enderror --}}
                 </div>
                 <div class="c-form__group">
-                    <input type="submit" value="新規会員登録" class="c-btn c-btn--success p-auth__btn" onclick="disabledButton(this);">
+                    <input type="submit" value="新規会員登録" class="c-btn c-btn--medium c-btn--success c-btn--center" onclick="disabledButton(this);">
                 </div>
                 <div class="c-form__group">
                     <p class="l-row l-row--middle p-auth__lead">すでに登録している方はコチラ</p>
-                    <a href="{{ route('login') }}" class="c-btn c-btn--goast p-auth__btn">ログイン</a>
+                    <div class="l-row">
+                        <a href="{{ route('login') }}" class="c-btn c-btn--medium c-btn--goast c-btn--center">ログイン</a>
+                    </div>
+                    
                 </div>
             </form>
         </div>

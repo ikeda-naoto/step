@@ -28,8 +28,8 @@
                     </template>
 
                     <div class="l-row l-row--between c-form__group">
-                        <button class="c-btn c-btn--success p-regist-step__btn" @click="addChildStep"><i class="fas fa-plus u-mr-s"></i>STEPを追加</button>
-                        <button class="c-btn c-btn--warning p-regist-step__btn" @click="onSubmit" :disabled="isPush">登録する</button>
+                        <button class="c-btn c-btn--success c-btn--small" @click="addChildStep"><i class="fas fa-plus u-mr-s"></i>追加</button>
+                        <button class="c-btn c-btn--warning c-btn--small" @click="onSubmit" :disabled="isPush">登録する</button>
                     </div>
                 </div>
             </div>
@@ -102,8 +102,9 @@
                 console.log(this.parentStep)
                 let data = new FormData();
                 // 各データを格納
+                // csrfトークンを保存
+                data.append('_token', $('meta[name="csrf-token"]').attr('content'));
                 for (let key in this.parentStep) { // 親STEPの情報をDBのカラム名に紐付けてそれぞれ保存
-                    
                     if(key === 'pic') { // keyがpicのとき
                         !(typeof this.parentStep[key] === 'string' || this.parentStep[key] instanceof String) ? data.append(key, this.parentStep[key]) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
                     }else { // それ以外の時
@@ -120,7 +121,6 @@
                 let config = {
                     headers: {
                         'content-type': 'multipart/form-data',
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                 };
                 let url = '';

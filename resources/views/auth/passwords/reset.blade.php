@@ -96,7 +96,7 @@
                     {{-- <span class="u-fontcolor--err">エラーメッセージ</span> --}}
                 </div>
                 <div class="c-form__group">
-                    <input type="submit" value="更新する" class="c-btn c-btn--primary p-auth__btn" onclick="disabledButton(this);">
+                    <input type="submit" value="更新する" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
                 </div>
             </form>
         </div>

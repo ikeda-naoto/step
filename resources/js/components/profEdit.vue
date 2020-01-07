@@ -56,7 +56,7 @@
                         </div>
                         <!-- 送信ボタン -->
                         <div class="l-row c-form__group">
-                            <button type="button" class="c-btn c-btn--success p-prof-edit__btn" @click="onSubmit" :disabled="isPush">編集する</button>
+                            <button type="button" class="c-btn c-btn--success c-btn--right c-btn--small" @click="onSubmit" :disabled="isPush">編集する</button>
                         </div>
                     </div>
                 </div>
@@ -93,6 +93,8 @@
                 this.isPush = !this.isPush;
                 let data = new FormData();
                 // 各データを格納
+                // csrfトークンを保存
+                data.append('_token', $('meta[name="csrf-token"]').attr('content'))
                 data.append('name', this.name);
                 data.append('introduction', this.introduction);
                 !(typeof this.pic === 'string' || this.pic instanceof String) ? data.append('pic', this.pic) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。

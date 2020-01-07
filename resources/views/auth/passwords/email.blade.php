@@ -79,7 +79,7 @@
                         
                     </div>
                     <div class="c-form__group">
-                        <input type="submit" value="送信" class="c-btn c-btn--primary p-auth__btn" required autocomplete="email" autofocus onclick="disabledButton(this);">
+                        <input type="submit" value="送信" class="c-btn c-btn--medium c-btn--primary c-btn--center" required autocomplete="email" autofocus onclick="disabledButton(this);">
                     </div>
                     <!-- <div class="c-form__group">
                         <div class="l-row l-row--center">

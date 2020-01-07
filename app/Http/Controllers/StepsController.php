@@ -67,6 +67,8 @@ class StepsController extends Controller
         Auth::user()->parentSteps()->save($parentStep->fill($request->all()));
 
         Common::storeStep($request->input('child_title'), $request->input('time'), $request->input('child_content'), false, $parentStep);
+
+        $request->session()->regenerateToken();
         
         return response()->json(['flg'=> true]);
     }
@@ -109,6 +111,10 @@ class StepsController extends Controller
         $childSteps = $parentStep->childSteps;
 
         Common::storeStep($request->input('child_title'), $request->input('time'), $request->input('child_content'), true, $parentStep, $childSteps);
+
+        $request->session()->regenerateToken();
+
+        return response()->json(['flg'=> true]);
 
     }
 

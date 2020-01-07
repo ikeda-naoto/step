@@ -26,6 +26,8 @@ class UsersController extends Controller
 
         // フラッシュメッセージを保存
         session()->flash('status', 'プロフィールを編集しました。');
+        logger($request);
+        $request->session()->regenerateToken();
 
         return response()->json(['flg'=> true]);
     }

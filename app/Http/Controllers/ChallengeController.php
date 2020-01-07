@@ -22,11 +22,13 @@ class ChallengeController extends Controller
         
         Auth::user()->challenges()->save($challenge ->fill($request->all()));
 
+        $request->session()->regenerateToken();
+
         return response()->json(['flg'=> true]);
 
     }
 
-    public function clear($id)
+    public function clear(Request $request, $id)
     {
         // GETパラメータが数字かどうかチェック
         if(!ctype_digit($id)) {
@@ -50,6 +52,8 @@ class ChallengeController extends Controller
             $nextStepId = null;
             session()->flash('status', 'おめでとうございます！' . $challenge->parentStep->parent_title . 'の全てのSTEPをクリアしました。');
         }
+
+        $request->session()->regenerateToken();
 
         return response()->json(['flg'=> true, 'nextStepId' => $nextStepId]);
 

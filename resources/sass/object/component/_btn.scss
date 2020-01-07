@@ -1,16 +1,19 @@
 .c-btn {
     display: block;
     text-align: center;
-    border-radius: $border-radius_s;
-	-webkit-border-radius: $border-radius_s;
-    -moz-border-radius: $border-radius_s;
-    //box-shadow: 1px 1px 3px 0px $shadow-color_dark;
+    // border-radius: $border-radius_s;
+	// -webkit-border-radius: $border-radius_s;
+    // -moz-border-radius: $border-radius_s;
+    font-size: $font-size_m;
+    padding: $space_m $space_3l;
+    // margin-top: $space_3l;
+    // margin-bottom: $space_3l;
     box-sizing: border-box;
-    // &:active {
-    //     transform: translateY(1px);
-    //     -webkit-transform: translateY(1px);
-    //     box-shadow: none;
-    // }
+    @include sm() {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
     &:disabled {
         background: $btn-color_disabled;
         cursor: not-allowed;
@@ -18,13 +21,26 @@
     &:hover {
         opacity: 0.8;
     }
-    // &--center {
-    //      margin-left: auto;
-    //      margin-right: auto;
-    // }
-    // &--right {
-    //     margin-left: auto;
-    // }
+    &--small {
+        min-width: 150px;
+    }
+    &--medium {
+        min-width: 300px;
+        padding: $space_l $space_3l;
+    }
+    &--big {
+        min-width: 400px;
+    }
+    &--full {
+        width: 100%;
+    }
+    &--right {
+        margin-left: auto;
+    }
+    &--center {
+        margin-right: auto;
+        margin-left: auto;
+    }
     &--primary {
         color: $font-color_light;
         background: $btn-color_primary;
@@ -37,11 +53,23 @@
         color: $font-color_light;
         background: $btn-color_warning;
     }
+    &--secondary {
+        color: $font-color_light;
+        background: $btn-color_secondary;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &--clear {
+        background: $btn-color_warning;
+        opacity: 0.5;
+    }
     &--goast {
         color: $font-color_default;
         border: $border_s solid $border-color_dark;
     }
     &--disabled {
+        color: $font-color_light;
         background: $btn-color_disabled;
         cursor: not-allowed;
     }

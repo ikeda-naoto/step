@@ -32,6 +32,7 @@ class EditPasswordController extends Controller
         //     return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
         // }
         
+        
         $user = Auth::user();
 
         if (!Hash::check($request->input('password_old'), $user->password)) {
@@ -41,6 +42,8 @@ class EditPasswordController extends Controller
         $user = User::find($user->id);
         $user->password = Hash::make($request->get('password_new'));
         $user->save();
+
+        $request->session()->regenerateToken();
 
         return redirect('/users/mypage')->with('status', 'パスワードを変更しました。');
     }

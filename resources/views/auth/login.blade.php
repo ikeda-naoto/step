@@ -109,7 +109,7 @@
                 </div>
                 @if (Route::has('password.request'))
                     <div class="c-form__group">
-                        <input type="submit" value="ログイン" class="c-btn c-btn--primary p-auth__btn" onclick="disabledButton(this);">
+                        <input type="submit" value="ログイン" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
                         <div class="p-auth__help">
                             <a href="{{ route('password.request') }}" >パスワードを忘れた方はコチラ</a>
                         </div>
@@ -117,7 +117,10 @@
                 @endif
                 <div class="c-form__group">
                     <p class="l-row l-row--middle p-auth__lead">初めての方はコチラ</p>
-                    <a href="{{ route('register') }}" class="c-btn c-btn--success p-auth__btn">新規会員登録</a>
+                    <div class="l-row">
+                        <a href="{{ route('register') }}" class="c-btn c-btn--medium c-btn--success c-btn--center">新規会員登録</a>
+                    </div>
+
                 </div>
             </form>
         </div>

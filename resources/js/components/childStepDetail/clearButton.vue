@@ -1,12 +1,12 @@
 <template>
     <!-- ログインしていなかったら -->
-    <div v-if="user===null">ログインして</div>
+    <a href="/register" v-if="user===null" class="c-btn c-btn--small c-btn--success c-btn--right">無料会員登録をしてチャレンジ</a>
     <!-- すでにクリアしていたら -->
-    <div v-else-if="clearNum >= childStep.num">クリア済み</div>
+    <div v-else-if="clearNum===childStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right">クリア済み</div>
     <!-- チャレンジしていないまたは前のSTEPをクリアしていなかったら -->
-    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num">クリアで解放</div>
+    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num" class="c-btn c-btn--small c-btn--clear c-btn--right u-pt-l u-pb-l">クリアで解放</div>
     <!-- チャレンジしていて前のSTEPをクリアしていたら -->
-    <button v-else class="c-btn c-btn--warning p-child__btn" @click="onClickChallengeBtn" :disabled="isPush">クリア！</button>
+    <button v-else class="c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l" @click="onClickChallengeBtn" :disabled="isPush">クリア！</button>
 </template>
 
 <script>
@@ -20,8 +20,10 @@
         methods: {
             onClickChallengeBtn: function() {
                 this.isPush = !this.isPush;
+                // csrfトークンを保存
+                let data = { _token: $('meta[name="csrf-token"]').attr('content')}
                 // axios通信
-                axios.post('/challenge/' + this.parentStepId + '/clear')
+                axios.post('/challenge/' + this.parentStepId + '/clear', data)
                 .then(res => {
                     // 通信成功の場合
                     // 次のSTEPがない場合

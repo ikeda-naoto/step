@@ -36,9 +36,6 @@
         text-align: right;
     }
     &__btn {
-        width: 150px;
-        padding: $space_m 0;
-        margin-left: auto;
         @include sm() {
             width: 100px
         }
