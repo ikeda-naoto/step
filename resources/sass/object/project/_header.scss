@@ -3,16 +3,62 @@
 // ==============================
 .p-header {
     border-bottom: $border_l solid $border-color_base;
+    @include sm() {
+        padding: $space_m;
+    }
     &__logo {
         width: 200px;
+        @include sm() {
+            width: 150px;
+        }
+    }
+    &__nav {
+        @include sm(){
+            display: block;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            padding-top: $space_5l;
+            bottom: 100%;
+            left: 0;
+            text-align: center;
+            transition: .5s;
+            &--active{
+                transition: .5s;
+                transform: translateY(100%);
+                z-index: 2;
+            }
+        }
     }
 }
 .p-nav {
+    @include sm() {
+        display: block;
+    }
     &__item {
         border-left: $border_s solid $border-color_light;
-    }
-    &__item:last-child {
-        border-right: $border_s solid $border-color_light;
+        @include sm() {
+            height: 70px;
+            font-size: $font-size_xl;
+            padding: $space_m $space_s;
+            margin: 0;
+            transition: .5s;
+            
+        }
+        &:last-child{
+            border-right: $border_s solid $border-color_light;
+            @include sm() {
+                display: none;
+            }
+
+        }
+        &:nth-of-type(3), &:nth-of-type(4) {
+            display: none;
+            @include sm() {
+                display: block;
+            }
+        }
     }
     &__item:hover &__text::after{
         width: 100%;
@@ -23,6 +69,10 @@
         &:hover {
             opacity: 0.8;
         }
+        // @include sm() {
+        //     color: $font-color_default;
+            
+        // }
     }
     &__text {
         position: relative;
@@ -41,6 +91,9 @@
             position: absolute;
             transition: .5s all;
             width: 0;
+            @include sm() {
+                display: none;
+            }
         }
     }
     &__img {

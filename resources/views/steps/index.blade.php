@@ -3,13 +3,13 @@
 @section('content')
     {{-- トップへのスクロールボタン --}}
     <a href="" class="c-btn--pageTop js-scroll-top"><i class="fas fa-angle-double-up"></i></a>
-    <div class="l-container p-lp u-p-0">
+    <div class="l-container p-lp u-p--0">
         <section class="p-baner l-row l-row--middle l-row--center">
             <h1 class="p-baner__phrase ">
                 あなたの人生のSTEPを共有しよう
             </h1>
         </section>
-        <section class="l-container p-trouble u-bg-light">
+        <section class="l-container p-trouble u-bg--light">
             <div class="l-site-width">
                 <h2 class="p-lp__title">学習するとき<br>こんなことで悩んでいませんか？</h2>
                 <div class="l-row l-row--between p-trouble__head">
@@ -33,7 +33,7 @@
                 <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success p-lp__btn">今すぐ無料会員登録</a>
             </div>
         </section>
-        <section class="l-container p-intro u-bg-dark">
+        <section class="l-container p-intro u-bg--dark">
             <div class="l-site-width">
                 <h2 class="p-lp__title">STEPとは？</h2>
                 <div class="p-intro__body">
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </section>
-        <section class="l-container p-merit u-bg-light">
+        <section class="l-container p-merit u-bg--light">
             <div class="l-site-width">
                 <h2 class="p-lp__title">STEPで学習すると...</h2>
                 <div class="l-row l-row--between p-merit__body">
@@ -72,9 +72,9 @@
                 </div>
             </div>
         </section>
-        <section class="l-container p-browse u-bg-dark">
+        <section class="l-container p-browse u-bg--dark">
             <div class="l-site-width">
-                <h2 class="p-lp__title u-mb-0">STEPを見る</h2>
+                <h2 class="p-lp__title u-mb--0">STEPを見る</h2>
                 <p class="p-browse__head">
                     会員登録不要でSTEPを見ることができます。<br>
                     STEPの登録・チャレンジには会員登録（無料）が必要です。

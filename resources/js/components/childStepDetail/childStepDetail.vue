@@ -1,6 +1,6 @@
 <template>
     <!-- メインコンテンツ -->
-    <div class="l-container u-bg-light">
+    <div class="l-container u-bg--light">
         <div class="l-row l-site-width">
             <!-- メインカラム -->
             <childStepDetailItem

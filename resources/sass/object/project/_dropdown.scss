@@ -1,5 +1,8 @@
 .p-dropdown {
     position: relative;
+    @include sm() {
+        display: none;
+    }
     &:hover &__menu {
         display: block;
     }
@@ -18,9 +21,12 @@
         font-size: $font-size_m;
         &:hover {
             background: $background-color_active;
+            
         }
     }
     &__link {
+        position: relative;
+        display: block;
         padding: $space_m;
     }
 }

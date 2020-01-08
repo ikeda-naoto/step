@@ -64,10 +64,11 @@ class Common {
   }
 
   public static function createPaginationData ($obj, $request) {
+    $perPage = 10;
     return new LengthAwarePaginator(
-      $obj->forPage($request->page, 5),
+      $obj->forPage($request->page, $perPage),
       count($obj),
-      5,
+      $perPage,
       $request->page,
       array('path' => $request->url())
   );

@@ -1,6 +1,6 @@
 <template>
     <div class="l-row">
-        <button v-if="user && !challengeFlg" class="c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l" @click="onClickChallengeBtn">チャレンジ！</button>
+        <button v-if="user && !challengeFlg" class="c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickChallengeBtn">チャレンジ！</button>
         <a href="/register" v-else-if="!user" class="c-btn c-btn--small c-btn--success c-btn--right">無料会員登録をしてチャレンジ</a>
         <div v-else class="c-btn c-btn--small c-btn--secondary c-btn--right">チャレンジ中</div>
     </div>

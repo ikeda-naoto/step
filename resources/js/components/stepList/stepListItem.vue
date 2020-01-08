@@ -1,6 +1,6 @@
 <template>
 <div class="l-row__col12 l-row__col08-pc">
-                    <h1 class="c-title--normal u-mb-5l">STEP一覧</h1>
+                    <h1 class="c-title--normal u-mb--5l">STEP一覧</h1>
                     <!-- STEP一覧 -->
                     <div class="l-row  p-step-list">
                         <!-- <transition-group tag="div" class="l-row  p-step-list v-move"> -->

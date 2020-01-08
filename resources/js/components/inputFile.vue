@@ -1,10 +1,10 @@
 <template>
     <div class="l-row c-form__group">
-        <div class="l-row__col04-pc">
+        <div class="l-row__col12 l-row__col04-pc">
             <label for="img" class="p-prof-edit__label" v-if="page==='users'">プロフィール画像</label>
             <label for="img" class="p-prof-edit__label" v-else>STEP画像</label>
         </div>
-        <div class="l-row__col08-pc">
+        <div class="l-row__col12 l-row__col08-pc">
             <div class="l-row l-row--middle l-row--center c-file-upload">
                 <img class="c-file-upload__img" :src="showImg" alt="">
                 <div>

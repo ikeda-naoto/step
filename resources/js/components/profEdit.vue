@@ -16,27 +16,27 @@
             :errMsgs="errMsgs"
         ></modal>
         <!-- メインコンテンツ -->
-        <div class="l-container u-bg-light">
+        <div class="l-container u-bg--light">
             <div class="l-row l-row--center l-site-width">
                 <!-- メインカラム -->
-                <div class="l-row l-row--center l-row__col10-pc">
+                <div class="l-row l-row--center l-row__col12 l-row__col10-pc">
                     <div class="c-form p-prof-edit">
-                        <h1 class="c-title--normal u-mb-5l">プロフィール編集</h1>
+                        <h1 class="c-title--normal u-mb--5l">プロフィール編集</h1>
                         <!-- ニックネーム入力欄 -->
                         <div class="l-row c-form__group">
-                            <div class="l-row__col04-pc">
+                            <div class="l-row__col12 l-row__col04-pc">
                                 <label for="name" class="p-prof-edit__label">ニックネーム</label>
                             </div>
-                            <div class="l-row__col08-pc">
+                            <div class="l-row__col12 l-row__col08-pc">
                                 <input v-model="name" id="name" name="name" type="text" class="c-input c-input--full">
                             </div>
                         </div>
                         <!-- 自己紹介入力欄 -->
                         <div class="l-row c-form__group">
-                            <div class="l-row__col04-pc">
+                            <div class="l-row__col12 l-row__col04-pc">
                                 <label for="intro" class="p-prof-edit__label">自己紹介</label>
                             </div>
-                            <div class="l-row__col08-pc">
+                            <div class="l-row__col12 l-row__col08-pc">
                                 <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--high c-textarea--full" id="intro"></textarea>
                             </div>
                         </div>
@@ -47,10 +47,10 @@
                         ></inputFile>
                         <!-- メールアドレス入力欄 -->
                         <div class="l-row c-form__group">
-                            <div class="l-row__col04-pc">
+                            <div class="l-row__col12 l-row__col04-pc">
                                 <label for="email" class="p-prof-edit__label">メールアドレス</label>
                             </div>
-                            <div class="l-row__col08-pc">
+                            <div class="l-row__col12 l-row__col08-pc">
                                 <input v-model="email" name="email" id="email" type="email" class="c-input c-input--full" value="email" required autocomplete="email" autofocus>
                             </div>
                         </div>

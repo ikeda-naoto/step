@@ -1,6 +1,6 @@
 <template>
     <section class="p-challenge-step">
-        <h2 class="c-title--type01 u-mb-3l">チャレンジ中のSTEP</h2>
+        <h2 class="c-title--type01 u-mb--3l">チャレンジ中のSTEP</h2>
         <div class="l-row" :class="[challengeSteps.length === 0 ? 'l-row--center' : '' ]">
             <challengeStepPanel
                 v-for="challengeStep in challengeSteps"
@@ -23,7 +23,7 @@
                         <h3 class="c-panel__title p-challenge-step__title">「入門」</h3>
                     </div>
                     <div class="l-row l-row--between p-challenge-step__body">
-                        <p class="p-challenge-step__finish-num">進捗状況<span class="u-fontsize-l u-ml-s u-mr-s">10/20</span>STEP</p>
+                        <p class="p-challenge-step__finish-num">進捗状況<span class="u-fontsize-l u-ml--s u-mr--s">10/20</span>STEP</p>
                         <p class="c-panel__time">終了目安：10時間</p>
                         <div class="p-challenge-step__progress">
                             <div class="p-challenge-step__progress--bar">

@@ -29,5 +29,11 @@ $(function() {
             $jsFlashMessage.fadeOut(2000);
         }, 3000);
     }
+
+    $('.js-toggle-sp-menu').on('click', function () {
+        $(this).toggleClass('c-btn--trigger--active');
+        $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
+        $('html').toggleClass('u-position--fixed');
+    });
     
 });

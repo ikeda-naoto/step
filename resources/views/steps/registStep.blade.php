@@ -7,7 +7,7 @@
     <div class="l-row l-row--middle l-row--center c-modal">
         <div class="c-modal__container">
             <div class="c-modal__group">
-                <p class="u-text-center">エラーメッセージ</p>
+                <p class="u-text--center">エラーメッセージ</p>
             </div>
             <div class="c-modal__group">
                 <button class="c-btn c-btn--primary c-modal__btn">OK</button>

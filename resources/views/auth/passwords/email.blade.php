@@ -45,7 +45,7 @@
     </div>
 </div> --}}
 <!-- メインコンテンツ -->
-<div class="l-container u-bg-light">
+<div class="l-container u-bg--light">
     <div class="l-row l-row--center l-site-width">
         <!-- メインカラム -->
         <div class="l-row l-row--center l-row__col12 l-row__col08-pc">
@@ -56,18 +56,18 @@
                         <div class="l-row l-row--center">
                             <i class="fas fa-paper-plane fa-7x c-form__icn--send"></i>
                         </div>
-                        <h1 class="c-title--small u-mt-3l">パスワードリセット用メールを送信しました。</h1>
-                        <p class="c-form__explain u-mt-xxl">
+                        <h1 class="c-title--small u-mt--3l">パスワードリセット用メールを送信しました。</h1>
+                        <p class="c-form__explain u-mt--xxl">
                             ご入力頂いたメールアドレス宛にメールを送信しました。メールの指示に従ってパスワードを変更してください。
                         </p>
                 </div>
                 @else
-                    <h1 class="c-title--normal u-mb-5l">パスワードをお忘れですか？</h1>
+                    <h1 class="c-title--normal u-mb--5l">パスワードをお忘れですか？</h1>
                     <div class="c-form__group">
-                        <p class="u-text-center u-mb-m">
+                        <p class="u-text--center u-mb--m">
                             STEPに登録しているメールアドレスを入力してください。
                         </p>
-                        <p class="u-text-center">
+                        <p class="u-text--center">
                             入力されたメールアドレス宛にパスワードリセット用のリンクをお送りします。
                         </p>
                     </div>
@@ -85,8 +85,8 @@
                         <div class="l-row l-row--center">
                             <i class="fas fa-paper-plane fa-7x c-form__icn--send"></i>
                         </div>
-                        <h1 class="c-title--small u-mt-3l">パスワードリセット用メールを送信しました。</h1>
-                        <p class="c-form__explain u-mt-xxl">
+                        <h1 class="c-title--small u-mt--3l">パスワードリセット用メールを送信しました。</h1>
+                        <p class="c-form__explain u-mt--xxl">
                         ご入力頂いたメールアドレス宛にメールを送信しました。メールの指示に従ってパスワードを変更してください。
                         </p>
                     </div> -->

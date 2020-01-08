@@ -62816,7 +62816,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-container u-bg-light" }, [
+  return _c("div", { staticClass: "l-container u-bg--light" }, [
     _c(
       "div",
       { staticClass: "l-row l-site-width" },
@@ -62955,7 +62955,7 @@ var render = function() {
   return _c("div", { staticClass: "l-row__col04-pc" }, [
     _c(
       "div",
-      { staticClass: "c-sidebar u-mt-0" },
+      { staticClass: "c-sidebar u-mt--0" },
       [
         _vm._m(0),
         _vm._v(" "),
@@ -63016,7 +63016,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "c-btn c-btn--small c-btn--clear c-btn--right u-pt-l u-pb-l"
+            "c-btn c-btn--small c-btn--clear c-btn--right u-pt--l u-pb--l"
         },
         [_vm._v("クリアで解放")]
       )
@@ -63024,7 +63024,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l",
+            "c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l",
           attrs: { disabled: _vm.isPush },
           on: { click: _vm.onClickChallengeBtn }
         },
@@ -63104,7 +63104,7 @@ var render = function() {
               "l-row l-row--middle l-row__col02-pc p-child-index__left-container"
           },
           [
-            _c("p", { staticClass: "p-child-index__num u-mt-m u-mb-m" }, [
+            _c("p", { staticClass: "p-child-index__num u-mt--m u-mb--m" }, [
               _vm._v("\n                STEP"),
               _c("br"),
               _vm._v(" "),
@@ -63188,7 +63188,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-row c-form__group" }, [
-    _c("div", { staticClass: "l-row__col04-pc" }, [
+    _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _vm.page === "users"
         ? _c(
             "label",
@@ -63202,7 +63202,7 @@ var render = function() {
           )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "l-row__col08-pc" }, [
+    _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
       _c(
         "div",
         { staticClass: "l-row l-row--middle l-row--center c-file-upload" },
@@ -63272,7 +63272,7 @@ var render = function() {
           "div",
           { staticClass: "c-modal__group" },
           _vm._l(_vm.errMsgs, function(errMsg) {
-            return _c("p", { staticClass: "u-text-center" }, [
+            return _c("p", { staticClass: "u-text--center" }, [
               _vm._v(_vm._s(errMsg))
             ])
           }),
@@ -63358,7 +63358,7 @@ var render = function() {
             [
               _c("p", { staticClass: "p-challenge-step__finish-num" }, [
                 _vm._v("進捗状況"),
-                _c("span", { staticClass: "u-fontsize-l u-ml-s u-mr-s" }, [
+                _c("span", { staticClass: "u-fontsize-l u-ml--s u-mr--s" }, [
                   _vm._v(
                     _vm._s(_vm.challengeStep.clear_num) +
                       "/" +
@@ -63436,7 +63436,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "p-challenge-step" }, [
-    _c("h2", { staticClass: "c-title--type01 u-mb-3l" }, [
+    _c("h2", { staticClass: "c-title--type01 u-mb--3l" }, [
       _vm._v("チャレンジ中のSTEP")
     ]),
     _vm._v(" "),
@@ -63490,7 +63490,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-container u-bg-light" }, [
+  return _c("div", { staticClass: "l-container u-bg--light" }, [
     _c(
       "div",
       { staticClass: "l-row l-site-width" },
@@ -63782,8 +63782,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "p-registed-step u-mb-l" }, [
-    _c("h2", { staticClass: "c-title--type01 u-mb-3l" }, [
+  return _c("section", { staticClass: "p-registed-step u-mb--l" }, [
+    _c("h2", { staticClass: "c-title--type01 u-mb--3l" }, [
       _vm._v("登録したSTEP")
     ]),
     _vm._v(" "),
@@ -63840,7 +63840,7 @@ var render = function() {
           "button",
           {
             staticClass:
-              "c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l",
+              "c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l",
             on: { click: _vm.onClickChallengeBtn }
           },
           [_vm._v("チャレンジ！")]
@@ -63883,7 +63883,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-container u-bg-light" }, [
+  return _c("div", { staticClass: "l-container u-bg--light" }, [
     _c(
       "div",
       { staticClass: "l-row l-site-width" },
@@ -64093,131 +64093,135 @@ var render = function() {
         attrs: { errMsgs: _vm.errMsgs }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "l-container u-bg-light" }, [
+      _c("div", { staticClass: "l-container u-bg--light" }, [
         _c("div", { staticClass: "l-row l-row--center l-site-width" }, [
-          _c("div", { staticClass: "l-row l-row--center l-row__col10-pc" }, [
-            _c(
-              "div",
-              { staticClass: "c-form p-prof-edit" },
-              [
-                _c("h1", { staticClass: "c-title--normal u-mb-5l" }, [
-                  _vm._v("プロフィール編集")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "l-row c-form__group" }, [
-                  _vm._m(1),
+          _c(
+            "div",
+            { staticClass: "l-row l-row--center l-row__col12 l-row__col10-pc" },
+            [
+              _c(
+                "div",
+                { staticClass: "c-form p-prof-edit" },
+                [
+                  _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
+                    _vm._v("プロフィール編集")
+                  ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "l-row__col08-pc" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.name,
-                          expression: "name"
-                        }
-                      ],
-                      staticClass: "c-input c-input--full",
-                      attrs: { id: "name", name: "name", type: "text" },
-                      domProps: { value: _vm.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                  _c("div", { staticClass: "l-row c-form__group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.name,
+                            expression: "name"
                           }
-                          _vm.name = $event.target.value
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "l-row c-form__group" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "l-row__col08-pc" }, [
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.introduction,
-                          expression: "introduction"
-                        }
-                      ],
-                      staticClass:
-                        "c-textarea c-textarea--high c-textarea--full",
-                      attrs: { name: "introduction", id: "intro" },
-                      domProps: { value: _vm.introduction },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        ],
+                        staticClass: "c-input c-input--full",
+                        attrs: { id: "name", name: "name", type: "text" },
+                        domProps: { value: _vm.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.name = $event.target.value
                           }
-                          _vm.introduction = $event.target.value
                         }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("inputFile", {
-                  attrs: { pic: _vm.user.pic },
-                  on: { updatePic: _vm.updatePic }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "l-row c-form__group" }, [
-                  _vm._m(3),
+                      })
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "l-row__col08-pc" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.email,
-                          expression: "email"
+                  _c("div", { staticClass: "l-row c-form__group" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.introduction,
+                            expression: "introduction"
+                          }
+                        ],
+                        staticClass:
+                          "c-textarea c-textarea--high c-textarea--full",
+                        attrs: { name: "introduction", id: "intro" },
+                        domProps: { value: _vm.introduction },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.introduction = $event.target.value
+                          }
                         }
-                      ],
-                      staticClass: "c-input c-input--full",
-                      attrs: {
-                        name: "email",
-                        id: "email",
-                        type: "email",
-                        value: "email",
-                        required: "",
-                        autocomplete: "email",
-                        autofocus: ""
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("inputFile", {
+                    attrs: { pic: _vm.user.pic },
+                    on: { updatePic: _vm.updatePic }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "l-row c-form__group" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.email,
+                            expression: "email"
+                          }
+                        ],
+                        staticClass: "c-input c-input--full",
+                        attrs: {
+                          name: "email",
+                          id: "email",
+                          type: "email",
+                          value: "email",
+                          required: "",
+                          autocomplete: "email",
+                          autofocus: ""
+                        },
+                        domProps: { value: _vm.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.email = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "l-row c-form__group" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "c-btn c-btn--success c-btn--right c-btn--small",
+                        attrs: { type: "button", disabled: _vm.isPush },
+                        on: { click: _vm.onSubmit }
                       },
-                      domProps: { value: _vm.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.email = $event.target.value
-                        }
-                      }
-                    })
+                      [_vm._v("編集する")]
+                    )
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "l-row c-form__group" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "c-btn c-btn--success c-btn--right c-btn--small",
-                      attrs: { type: "button", disabled: _vm.isPush },
-                      on: { click: _vm.onSubmit }
-                    },
-                    [_vm._v("編集する")]
-                  )
-                ])
-              ],
-              1
-            )
-          ])
+                ],
+                1
+              )
+            ]
+          )
         ])
       ])
     ],
@@ -64250,7 +64254,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "name" } },
@@ -64262,7 +64266,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "intro" } },
@@ -64274,7 +64278,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "email" } },
@@ -64721,14 +64725,14 @@ var render = function() {
         attrs: { errMsgs: _vm.errMsgs }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "l-container u-bg-light" }, [
+      _c("div", { staticClass: "l-container u-bg--light" }, [
         _c("div", { staticClass: "l-row l-row--center l-site-width" }, [
           _c("div", { staticClass: "l-row l-row--center l-row__col10-pc" }, [
             _c(
               "div",
-              { staticClass: "c-form p-regist-step u-bg-light" },
+              { staticClass: "c-form p-regist-step u-bg--light" },
               [
-                _c("h1", { staticClass: "c-title--normal u-mb-5l" }, [
+                _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
                   _vm._v("STEP " + _vm._s(!_vm.editFlg ? "登録" : "編集"))
                 ]),
                 _vm._v(" "),
@@ -64770,7 +64774,7 @@ var render = function() {
                         on: { click: _vm.addChildStep }
                       },
                       [
-                        _c("i", { staticClass: "fas fa-plus u-mr-s" }),
+                        _c("i", { staticClass: "fas fa-plus u-mr--s" }),
                         _vm._v("追加")
                       ]
                     ),
@@ -65132,7 +65136,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-container u-bg-light" }, [
+  return _c("div", { staticClass: "l-container u-bg--light" }, [
     _c(
       "div",
       { staticClass: "l-row l-site-width" },
@@ -65167,7 +65171,7 @@ var render = function() {
     "div",
     { staticClass: "l-row__col12 l-row__col08-pc" },
     [
-      _c("h1", { staticClass: "c-title--normal u-mb-5l" }, [
+      _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
         _vm._v("STEP一覧")
       ]),
       _vm._v(" "),
@@ -78736,6 +78740,12 @@ $(function () {
       $jsFlashMessage.fadeOut(2000);
     }, 3000);
   }
+
+  $('.js-toggle-sp-menu').on('click', function () {
+    $(this).toggleClass('c-btn--trigger--active');
+    $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
+    $('html').toggleClass('u-position--fixed');
+  });
 });
 
 /***/ }),

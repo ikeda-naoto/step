@@ -77,13 +77,13 @@
 <!-- パンくずリスト -->
 
 <!-- メインコンテンツ -->
-<div class="l-container u-bg-light">
+<div class="l-container u-bg--light">
     <div class="l-row l-row--center l-site-width">
         <!-- メインカラム -->
         <div class="l-row l-row--center l-row__col12 l-row__col08-pc">
             <form method="POST" action="{{ route('login') }}" class="c-form p-auth">
                 @csrf
-                <h1 class="c-title--normal u-mb-5l">ログイン</h1>
+                <h1 class="c-title--normal u-mb--5l">ログイン</h1>
                 <div class="c-form__group">
                     @error('common')
                         <span class="u-fontcolor--err">{{ $message }}</span>

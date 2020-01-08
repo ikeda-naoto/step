@@ -2,6 +2,9 @@
     height: 40px;
     position:relative;
     box-shadow: 0 3px 5px 0px $shadow-color_dark;
+    @include sm() {
+        padding-left: $space_m;
+    }
     // &__icn {
     //     margin: 0 $space_m;
     // }

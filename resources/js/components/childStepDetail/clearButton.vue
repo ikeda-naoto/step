@@ -4,9 +4,9 @@
     <!-- すでにクリアしていたら -->
     <div v-else-if="clearNum===childStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right">クリア済み</div>
     <!-- チャレンジしていないまたは前のSTEPをクリアしていなかったら -->
-    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num" class="c-btn c-btn--small c-btn--clear c-btn--right u-pt-l u-pb-l">クリアで解放</div>
+    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num" class="c-btn c-btn--small c-btn--clear c-btn--right u-pt--l u-pb--l">クリアで解放</div>
     <!-- チャレンジしていて前のSTEPをクリアしていたら -->
-    <button v-else class="c-btn c-btn--small c-btn--warning c-btn--right u-pt-l u-pb-l" @click="onClickChallengeBtn" :disabled="isPush">クリア！</button>
+    <button v-else class="c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickChallengeBtn" :disabled="isPush">クリア！</button>
 </template>
 
 <script>

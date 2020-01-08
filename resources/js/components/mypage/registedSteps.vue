@@ -1,6 +1,6 @@
 <template>
-    <section class="p-registed-step u-mb-l">
-        <h2 class="c-title--type01 u-mb-3l">登録したSTEP</h2>
+    <section class="p-registed-step u-mb--l">
+        <h2 class="c-title--type01 u-mb--3l">登録したSTEP</h2>
         <div class="p-registed-step__list">
             <registedStepPanel
                 v-for="registStep in registSteps"
