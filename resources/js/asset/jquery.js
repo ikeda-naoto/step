@@ -32,8 +32,16 @@ $(function() {
 
     $('.js-toggle-sp-menu').on('click', function () {
         $(this).toggleClass('c-btn--trigger--active');
-        $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
+        // $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
         $('html').toggleClass('u-position--fixed');
+        // $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
+        $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
+        if($jsToggleSpMenuTarget.css('transform') === 'none') {
+            $jsToggleSpMenuTarget.css('transform', 'translateX(-250px)');
+            
+        }else {
+            $jsToggleSpMenuTarget.css('transform', '');
+        }
     });
     
 });

@@ -81,24 +81,9 @@
         margin-bottom: $space_m;
     }
     &__prof-img {
-        position: relative;
         width: 140px;
         height: 140px;
-        border-radius: 100%;
         margin: 0 auto;
-        overflow: hidden;
-        img {
-            width: auto;
-            height: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%,-50%);
-            -moz-transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-            -o-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
-        }
     }
     &__prof-name {
         text-align: center;

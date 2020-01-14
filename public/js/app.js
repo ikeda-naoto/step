@@ -63208,7 +63208,7 @@ var render = function() {
         { staticClass: "l-row l-row--middle l-row--center c-file-upload" },
         [
           _c("img", {
-            staticClass: "c-file-upload__img",
+            staticClass: "c-img__item--center c-file-upload__img",
             attrs: { src: _vm.showImg, alt: "" }
           }),
           _vm._v(" "),
@@ -63329,8 +63329,9 @@ var render = function() {
           attrs: { href: "/steps/" + _vm.challengeStep.parent_step.id }
         },
         [
-          _c("div", { staticClass: "c-panel__img p-challenge-step__img" }, [
+          _c("div", { staticClass: "c-img p-challenge-step__img" }, [
             _c("img", {
+              staticClass: "c-img__item--center",
               attrs: {
                 src: _vm.showStepImg(_vm.challengeStep.parent_step.pic),
                 alt: ""
@@ -63575,9 +63576,7 @@ var render = function() {
       [
         _c("registStepBtn"),
         _vm._v(" "),
-        _c("profile", { attrs: { user: _vm.user, title: "マイページ" } }),
-        _vm._v(" "),
-        _c("mypageSidebarMenu", { attrs: { user: _vm.user } })
+        _c("profile", { attrs: { user: _vm.user, title: "マイページ" } })
       ],
       1
     )
@@ -63732,11 +63731,11 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass:
-            "l-row__col12 l-row__col02-pc c-panel__img p-registed-step__img"
+          staticClass: "l-row__col12 l-row__col02-pc c-img p-registed-step__img"
         },
         [
           _c("img", {
+            staticClass: "c-img__item--center",
             attrs: { src: _vm.showStepImg(_vm.registStep.pic), alt: "" }
           })
         ]
@@ -64317,8 +64316,11 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "c-sidebar__body" }, [
-      _c("div", { staticClass: "c-sidebar__prof-img" }, [
-        _c("img", { attrs: { src: _vm.showImg, alt: "" } })
+      _c("div", { staticClass: "c-img c-img--circle c-sidebar__prof-img" }, [
+        _c("img", {
+          staticClass: "c-img__item--center",
+          attrs: { src: _vm.showImg, alt: "" }
+        })
       ]),
       _vm._v(" "),
       _c("h3", { staticClass: "c-sidebar__prof-name" }, [
@@ -65237,8 +65239,9 @@ var render = function() {
             [_vm._v(_vm._s(_vm.parentStep.category.name))]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "c-panel__img p-step-list__img" }, [
+          _c("div", { staticClass: "c-img p-step-list__img" }, [
             _c("img", {
+              staticClass: "c-img__item--center",
               attrs: { src: _vm.showStepImg(_vm.parentStep.pic), alt: "" }
             })
           ]),
@@ -78742,9 +78745,17 @@ $(function () {
   }
 
   $('.js-toggle-sp-menu').on('click', function () {
-    $(this).toggleClass('c-btn--trigger--active');
-    $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
-    $('html').toggleClass('u-position--fixed');
+    $(this).toggleClass('c-btn--trigger--active'); // $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
+
+    $('html').toggleClass('u-position--fixed'); // $('.js-toggle-sp-menu-target').toggleClass('p-header__nav--active');
+
+    $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
+
+    if ($jsToggleSpMenuTarget.css('transform') === 'none') {
+      $jsToggleSpMenuTarget.css('transform', 'translateX(-250px)');
+    } else {
+      $jsToggleSpMenuTarget.css('transform', '');
+    }
   });
 });
 

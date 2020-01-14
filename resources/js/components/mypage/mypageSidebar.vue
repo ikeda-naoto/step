@@ -20,9 +20,9 @@
                 :user="user"
                 title="マイページ"
             ></profile>
-            <mypageSidebarMenu
+            <!-- <mypageSidebarMenu
                 :user="user"
-            ></mypageSidebarMenu>
+            ></mypageSidebarMenu> -->
         </div>
     </div>
 </template>

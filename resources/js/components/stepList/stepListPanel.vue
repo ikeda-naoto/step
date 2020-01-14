@@ -2,8 +2,8 @@
 <div class="l-row__col12 l-row__col06-pc p-step-list__panel-container">
     <a :href="/steps/ + parentStep.id" class="c-panel p-step-list__panel">
         <div class="c-panel__category p-step-list__category">{{ parentStep.category.name }}</div>
-        <div class="c-panel__img p-step-list__img">
-            <img :src="showStepImg(parentStep.pic)" alt="">
+        <div class="c-img p-step-list__img">
+            <img class="c-img__item--center" :src="showStepImg(parentStep.pic)" alt="">
         </div>
         <div class="l-row l-row--between p-step-list__head">
             <h3 class="c-panel__title p-step-list__title">{{ parentStep.parent_title }}</h3>

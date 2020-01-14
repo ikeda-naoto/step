@@ -144,6 +144,7 @@ body{
     margin: 0;
     line-height: 150%;
     font-family: $font-family_default;
+    transition: all .5s;
     @include sm() {
       font-size: $font-size_m;
     }

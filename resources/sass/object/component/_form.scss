@@ -87,17 +87,9 @@
     border: $border-m dashed $border-color_base; 
     background-color: $background-color_form-item;
     font-size: $font-size_s;
-    img {
+    &__img {
         width: auto;
         height: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%,-50%);
-        -moz-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        -o-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
     }
     &--done {
         border: none;

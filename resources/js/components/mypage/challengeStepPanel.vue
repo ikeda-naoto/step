@@ -1,8 +1,8 @@
 <template>
     <div class="l-row__col12 l-row__col06-pc p-challenge-step__panel-container">
         <a :href="'/steps/' + challengeStep.parent_step.id" class="c-panel p-challenge-step__panel">
-            <div class="c-panel__img p-challenge-step__img">
-                <img :src="showStepImg(challengeStep.parent_step.pic)" alt="">
+            <div class="c-img p-challenge-step__img">
+                <img class="c-img__item--center" :src="showStepImg(challengeStep.parent_step.pic)" alt="">
             </div>
             <div class="p-challenge-step__head">
                 <h3 class="c-panel__title p-challenge-step__title">「{{ challengeStep.parent_step.parent_title }}」</h3>

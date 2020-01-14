@@ -6,7 +6,7 @@
         </div>
         <div class="l-row__col12 l-row__col08-pc">
             <div class="l-row l-row--middle l-row--center c-file-upload">
-                <img class="c-file-upload__img" :src="showImg" alt="">
+                <img class="c-img__item--center c-file-upload__img" :src="showImg" alt="">
                 <div>
                     <input type="file" id="img" class="c-file-upload__input-file" accept="" @change="onFileChange">
                     <p class="c-file-upload__lead">画像をここにドラッグ&ドロップ<br>または</p>

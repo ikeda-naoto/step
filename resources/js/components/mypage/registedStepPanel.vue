@@ -1,8 +1,8 @@
 <template>
     <div class="l-row c-panel p-registed-step__panel">
         <div class="l-row l-row--middle">
-            <div class="l-row__col12 l-row__col02-pc c-panel__img p-registed-step__img">
-                <img :src="showStepImg(registStep.pic)" alt="">
+            <div class="l-row__col12 l-row__col02-pc c-img p-registed-step__img">
+                <img class="c-img__item--center" :src="showStepImg(registStep.pic)" alt="">
             </div>
             <div class="l-row__col12 l-row__col06-pc">
                         <h3 class="c-panel__title p-registed-step__title">{{ registStep.parent_title }}</h3>
