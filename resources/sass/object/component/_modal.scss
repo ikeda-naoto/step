@@ -19,6 +19,9 @@
         box-sizing: border-box;
         padding: $space_l;
         background: $background-color_light;
+        @include sm() {
+            width: 90%;
+        }
     }
     &__group {
         margin: $space_3l 0;
@@ -29,7 +32,9 @@
     &__btn {
         width: 100px;
         padding: $space_l 0;
-        margin-left: auto;
         font-size: $font-size_default;
+        @include sm() {
+            width: 100%;
+        }
     }
 }

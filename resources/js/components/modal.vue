@@ -7,7 +7,7 @@
                 <p class="u-text--center" v-for="errMsg in errMsgs">{{ errMsg }}</p>
             </div>
             <div class="c-modal__group">
-                <button class="c-btn c-btn--primary c-modal__btn" @click="flashErrMsgs">OK</button>
+                <button class="c-btn c-btn--right c-btn--primary c-modal__btn" @click="flashErrMsgs">OK</button>
             </div>
         </div>
     </div>

@@ -27,15 +27,8 @@
             childStepDetailSidebar
         },
         computed: {
-            showChildStep: function() {
-                for (let i = 0; i < this.childSteps.length; i++) {
-                    if(this.childSteps[i]['id'] === this.childId) {
-                        return this.childSteps[i];
-                    }
-                }
-            }
             
         },
-        props: ['parentStep', 'childSteps', 'childId', 'clearNum', 'user', 'challengeFlg']
+        props: ['parentStep', 'childSteps', 'showChildStep', 'clearNum', 'user', 'challengeFlg']
     }
 </script>

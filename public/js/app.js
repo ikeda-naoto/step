@@ -1942,16 +1942,8 @@ __webpack_require__.r(__webpack_exports__);
     childStepDetailItem: _childStepDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"],
     childStepDetailSidebar: _childStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  computed: {
-    showChildStep: function showChildStep() {
-      for (var i = 0; i < this.childSteps.length; i++) {
-        if (this.childSteps[i]['id'] === this.childId) {
-          return this.childSteps[i];
-        }
-      }
-    }
-  },
-  props: ['parentStep', 'childSteps', 'childId', 'clearNum', 'user', 'challengeFlg']
+  computed: {},
+  props: ['parentStep', 'childSteps', 'showChildStep', 'clearNum', 'user', 'challengeFlg']
 });
 
 /***/ }),
@@ -2968,15 +2960,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3394,6 +3377,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 /* harmony import */ var _registParentStep__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./registParentStep */ "./resources/js/components/registStep/registParentStep.vue");
 /* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/vue-uuid.es.js");
+//
+//
+//
 //
 //
 //
@@ -62859,7 +62845,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-row__col08-pc" }, [
+  return _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
     _c("section", { staticClass: "p-child" }, [
       _c("div", { staticClass: "p-child__inner" }, [
         _c("div", { staticClass: "p-child__head" }, [
@@ -62952,7 +62938,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-row__col04-pc" }, [
+  return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
     _c(
       "div",
       { staticClass: "c-sidebar u-mt--0" },
@@ -63283,7 +63269,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "c-btn c-btn--primary c-modal__btn",
+              staticClass: "c-btn c-btn--right c-btn--primary c-modal__btn",
               on: { click: _vm.flashErrMsgs }
             },
             [_vm._v("OK")]
@@ -64078,8 +64064,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._m(0),
-      _vm._v(" "),
       _c("modal", {
         directives: [
           {
@@ -64107,7 +64091,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "l-row c-form__group" }, [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
                       _c("input", {
@@ -64135,7 +64119,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "l-row c-form__group" }, [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
                       _c("textarea", {
@@ -64169,7 +64153,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "l-row c-form__group" }, [
-                    _vm._m(3),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
                       _c("input", {
@@ -64228,27 +64212,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-bread-crumbs" }, [
-      _c("div", { staticClass: "p-bread-crumbs l-row  l-row--middle" }, [
-        _c("ul", { staticClass: "l-site-width l-row p-bread-crumbs__list" }, [
-          _c("li", [
-            _c(
-              "a",
-              { staticClass: "p-bread-crumbs__link", attrs: { href: "" } },
-              [_vm._v("ホーム")]
-            ),
-            _c("i", { staticClass: "fas fa-angle-right p-bread-crumbs__icn" })
-          ]),
-          _vm._v(" "),
-          _c("li", [_vm._v("マイページ")])
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -64367,7 +64330,7 @@ var render = function() {
       _c("div", { staticClass: "l-row c-form__group" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "l-row__col08-pc" }, [
+        _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
           _c("input", {
             directives: [
               {
@@ -64395,7 +64358,7 @@ var render = function() {
       _c("div", { staticClass: "l-row c-form__group" }, [
         _vm._m(1),
         _vm._v(" "),
-        _c("div", { staticClass: "l-row__col08-pc" }, [
+        _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
           _c(
             "select",
             {
@@ -64440,7 +64403,7 @@ var render = function() {
       _c("div", { staticClass: "l-row c-form__group" }, [
         _vm._m(2),
         _vm._v(" "),
-        _c("div", { staticClass: "l-row__col08-pc" }, [
+        _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
           _c("textarea", {
             directives: [
               {
@@ -64472,7 +64435,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "name" } },
@@ -64484,7 +64447,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "img" } },
@@ -64496,7 +64459,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "email" } },
@@ -64534,7 +64497,7 @@ var render = function() {
         _c("div", { staticClass: "l-row c-form__group" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "l-row__col08-pc" }, [
+          _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
             _c("input", {
               directives: [
                 {
@@ -64562,7 +64525,7 @@ var render = function() {
         _c("div", { staticClass: "l-row c-form__group" }, [
           _vm._m(1),
           _vm._v(" "),
-          _c("div", { staticClass: "l-row__col08-pc" }, [
+          _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
             _c(
               "select",
               {
@@ -64619,7 +64582,7 @@ var render = function() {
         _c("div", { staticClass: "l-row c-form__group" }, [
           _vm._m(2),
           _vm._v(" "),
-          _c("div", { staticClass: "l-row__col08-pc" }, [
+          _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
             _c("textarea", {
               directives: [
                 {
@@ -64658,7 +64621,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "name" } },
@@ -64670,7 +64633,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "intro" } },
@@ -64682,7 +64645,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "l-row__col04-pc" }, [
+    return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
         { staticClass: "p-prof-edit__label", attrs: { for: "email" } },
@@ -64729,46 +64692,46 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "l-container u-bg--light" }, [
         _c("div", { staticClass: "l-row l-row--center l-site-width" }, [
-          _c("div", { staticClass: "l-row l-row--center l-row__col10-pc" }, [
-            _c(
-              "div",
-              { staticClass: "c-form p-regist-step u-bg--light" },
-              [
-                _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
-                  _vm._v("STEP " + _vm._s(!_vm.editFlg ? "登録" : "編集"))
-                ]),
-                _vm._v(" "),
-                _c("registParentStep", {
-                  attrs: { categories: _vm.categories },
-                  model: {
-                    value: _vm.parentStep,
-                    callback: function($$v) {
-                      _vm.parentStep = $$v
-                    },
-                    expression: "parentStep"
-                  }
-                }),
-                _vm._v(" "),
-                _vm._l(_vm.childSteps, function(childStep, index) {
-                  return [
-                    _c("registChildStep", {
-                      key: _vm.uuid[index],
-                      attrs: { index: index },
-                      model: {
-                        value: _vm.childSteps[index],
-                        callback: function($$v) {
-                          _vm.$set(_vm.childSteps, index, $$v)
-                        },
-                        expression: "childSteps[index]"
-                      }
-                    })
-                  ]
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "l-row l-row--between c-form__group" },
-                  [
+          _c(
+            "div",
+            { staticClass: "l-row l-row--center l-row__col12 l-row__col10-pc" },
+            [
+              _c(
+                "div",
+                { staticClass: "c-form p-regist-step u-bg--light" },
+                [
+                  _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
+                    _vm._v("STEP " + _vm._s(!_vm.editFlg ? "登録" : "編集"))
+                  ]),
+                  _vm._v(" "),
+                  _c("registParentStep", {
+                    attrs: { categories: _vm.categories },
+                    model: {
+                      value: _vm.parentStep,
+                      callback: function($$v) {
+                        _vm.parentStep = $$v
+                      },
+                      expression: "parentStep"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm._l(_vm.childSteps, function(childStep, index) {
+                    return [
+                      _c("registChildStep", {
+                        key: _vm.uuid[index],
+                        attrs: { index: index },
+                        model: {
+                          value: _vm.childSteps[index],
+                          callback: function($$v) {
+                            _vm.$set(_vm.childSteps, index, $$v)
+                          },
+                          expression: "childSteps[index]"
+                        }
+                      })
+                    ]
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "u-mt--xxl" }, [
                     _c(
                       "button",
                       {
@@ -64777,25 +64740,28 @@ var render = function() {
                       },
                       [
                         _c("i", { staticClass: "fas fa-plus u-mr--s" }),
-                        _vm._v("追加")
+                        _vm._v("STEPを追加")
                       ]
-                    ),
-                    _vm._v(" "),
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "u-mt--5l" }, [
                     _c(
                       "button",
                       {
-                        staticClass: "c-btn c-btn--warning c-btn--small",
+                        staticClass:
+                          "c-btn c-btn--center c-btn--warning c-btn--medium",
                         attrs: { disabled: _vm.isPush },
                         on: { click: _vm.onSubmit }
                       },
                       [_vm._v("登録する")]
                     )
-                  ]
-                )
-              ],
-              2
-            )
-          ])
+                  ])
+                ],
+                2
+              )
+            ]
+          )
         ])
       ])
     ],

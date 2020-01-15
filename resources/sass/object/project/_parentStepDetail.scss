@@ -4,16 +4,15 @@
     margin-bottom: $space_3l;
     &__outer {
         width: 100%;
-        padding: $space_3l 0;
+        padding: $space_3l $space_7l;
         background: $background-color_light;
         border-radius: $border-radius_s;
         -webkit-border-radius: $border-radius_s;
         -moz-border-radius: $border-radius_s;
         box-sizing: border-box;
-    }
-    &__inner {
-        width: 70%;
-        margin: 0 auto;
+        @include sm() {
+            padding: $space_3l $space_xxl;
+        }
     }
     &__category {
         width: 180px;

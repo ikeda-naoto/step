@@ -83,7 +83,7 @@
 <div class="l-container u-bg--light">
     <div class="l-row l-row--center l-site-width">
         <!-- メインカラム -->
-        <div class="l-row l-row--center l-row__col08-pc">
+        <div class="l-row l-row--center l-row__col12 l-row__col08-pc">
             <form method="POST" action="{{ route('register') }}" class="c-form p-auth">
                 @csrf
                 <h1 class="c-title--normal u-mb--5l">新規会員登録</h1>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="c-form__group">
                     <p class="l-row l-row--middle p-auth__lead">すでに登録している方はコチラ</p>
-                    <div class="l-row">
+                    <div class="l-row u-position--relative">
                         <a href="{{ route('login') }}" class="c-btn c-btn--medium c-btn--goast c-btn--center">ログイン</a>
                     </div>
                     

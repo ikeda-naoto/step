@@ -130,6 +130,8 @@ class StepsController extends Controller
         $parentStep = ParentStep::find($parent_id);
         $parentStep->childSteps;
 
+        $showChildStep = ChildStep::find($child_id);
+
         // ユーザーがログインしているるとき
         if(Auth::user()) {
             // ログインユーザーがこの子STEPの親STEPをチャレンジしている場合変数にそのレコードを代入
@@ -145,7 +147,7 @@ class StepsController extends Controller
             $clear_num = $challengeStep->clear_num;
         }
 
-        return view('steps.childStepDetail', compact('parentStep', 'child_id', 'clear_num', 'challengeFlg'));
+        return view('steps.childStepDetail', compact('parentStep', 'showChildStep', 'clear_num', 'challengeFlg'));
     }
 
 }

@@ -213,7 +213,11 @@
                                         </li>
                                     @endif
                                 @else
-                               
+                                <li class="p-global-sidebar__item">
+                                    <a href="{{ route('steps.create') }}" class="p-global-sidebar__link">
+                                        <p class="p-global-sidebar__text">STEPを作る</p>
+                                    </a>
+                                </li>
                                 <li class="p-global-sidebar__item">
                                     <a href="{{ route('mypage') }}" class="p-global-sidebar__link">
                                         <p class="p-global-sidebar__text">マイページ</p>

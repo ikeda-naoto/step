@@ -381,6 +381,16 @@ button:focus {
 .c-btn--goast {
   color: #4d4d4d;
   border: 1px solid #4d4d4d;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c-btn--goast:hover {
+  border: none;
+  color: #fff;
+  background: #3ba7da;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .c-btn--disabled {
@@ -799,6 +809,12 @@ button:focus {
   background: #fff;
 }
 
+@media screen and (max-width: 414px) {
+  .c-modal__container {
+    width: 90%;
+  }
+}
+
 .c-modal__group {
   margin: 40px 0;
 }
@@ -810,8 +826,13 @@ button:focus {
 .c-modal__btn {
   width: 100px;
   padding: 15px 0;
-  margin-left: auto;
   font-size: 16px;
+}
+
+@media screen and (max-width: 414px) {
+  .c-modal__btn {
+    width: 100%;
+  }
 }
 
 .c-flash-message {
@@ -830,6 +851,12 @@ button:focus {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+}
+
+@media screen and (max-width: 414px) {
+  .c-flash-message {
+    width: 90%;
+  }
 }
 
 .c-flash-message__text {
@@ -1360,7 +1387,7 @@ button:focus {
 
 .p-parent__outer {
   width: 100%;
-  padding: 40px 0;
+  padding: 40px 80px;
   background: #fff;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -1368,9 +1395,10 @@ button:focus {
   box-sizing: border-box;
 }
 
-.p-parent__inner {
-  width: 70%;
-  margin: 0 auto;
+@media screen and (max-width: 414px) {
+  .p-parent__outer {
+    padding: 40px 30px;
+  }
 }
 
 .p-parent__category {
@@ -1417,6 +1445,12 @@ button:focus {
 .p-child {
   background: #fff;
   padding: 70px;
+}
+
+@media screen and (max-width: 414px) {
+  .p-child {
+    padding: 70px 30px;
+  }
 }
 
 .p-child__outer {
@@ -1576,6 +1610,12 @@ button:focus {
   background: #fff;
 }
 
+@media screen and (max-width: 414px) {
+  .p-regist-step__group {
+    padding: 40px 30px;
+  }
+}
+
 .p-regist-step__num {
   color: #fff;
   background: #0057a3;
@@ -1653,6 +1693,14 @@ button:focus {
   padding: 5px;
 }
 
+@media screen and (max-width: 414px) {
+  .p-share__btn {
+    width: 100px;
+    margin-right: auto;
+    margin-left: 0;
+  }
+}
+
 .p-share__icn {
   margin-right: 5px;
 }
@@ -1707,15 +1755,15 @@ button:focus {
   margin-right: auto;
 }
 
-.u-mt-0 {
+.u-mt--0 {
   margin-top: 0;
 }
 
-.u-mt-s {
+.u-mt--s {
   margin-top: 5px;
 }
 
-.u-mt-m {
+.u-mt--m {
   margin-top: 10px;
 }
 

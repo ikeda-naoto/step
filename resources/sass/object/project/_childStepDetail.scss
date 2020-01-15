@@ -1,6 +1,9 @@
 .p-child {
     background: $background-color_light;
     padding: $space_6l;
+    @include sm() {
+        padding: $space_6l $space_xxl;
+    }
     &__outer {
         background: $background-color_light;
     }

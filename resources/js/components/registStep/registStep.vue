@@ -9,7 +9,7 @@
     <div class="l-container u-bg--light">
         <div class="l-row l-row--center l-site-width">
             <!-- メインカラム -->
-            <div class="l-row l-row--center l-row__col10-pc">
+            <div class="l-row l-row--center l-row__col12 l-row__col10-pc">
                 <div class="c-form p-regist-step u-bg--light">
                     <h1 class="c-title--normal u-mb--5l">STEP {{ !editFlg ? '登録' : '編集' }}</h1>
                     <registParentStep
@@ -27,10 +27,13 @@
                     ></registChildStep>
                     </template>
 
-                    <div class="l-row l-row--between c-form__group">
-                        <button class="c-btn c-btn--success c-btn--small" @click="addChildStep"><i class="fas fa-plus u-mr--s"></i>追加</button>
-                        <button class="c-btn c-btn--warning c-btn--small" @click="onSubmit" :disabled="isPush">登録する</button>
+                    <div class="u-mt--xxl"> 
+                        <button class="c-btn c-btn--success c-btn--small" @click="addChildStep"><i class="fas fa-plus u-mr--s"></i>STEPを追加</button>
                     </div>
+                    <div class="u-mt--5l">
+                        <button class="c-btn c-btn--center c-btn--warning c-btn--medium" @click="onSubmit" :disabled="isPush">登録する</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -4,10 +4,10 @@
     <div class="p-regist-step__group">
         <!-- 子STEPタイトル -->
         <div class="l-row c-form__group">
-            <div class="l-row__col04-pc">
+            <div class="l-row__col12 l-row__col04-pc">
                 <label for="name" class="p-prof-edit__label">タイトル</label>
             </div>
-            <div class="l-row__col08-pc">
+            <div class="l-row__col12 l-row__col08-pc">
                 <input id="name" type="text" class="c-input c-input--full" v-model="title">
             </div>
         </div>
@@ -32,10 +32,10 @@
         </div> --}} -->
         <!-- 子STEP終了時間 -->
         <div class="l-row c-form__group">
-            <div class="l-row__col04-pc">
+            <div class="l-row__col12 l-row__col04-pc">
                 <label for="img" class="p-prof-edit__label">終了目安時間</label>
             </div>
-            <div class="l-row__col08-pc">
+            <div class="l-row__col12 l-row__col08-pc">
                 <select name="" id="" class="c-select c-select--half" v-model="time_value">
                     <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
                 </select>
@@ -43,10 +43,10 @@
         </div>
         <!-- 子STEP内容 -->
         <div class="l-row c-form__group">
-            <div class="l-row__col04-pc">
+            <div class="l-row__col12 l-row__col04-pc">
                 <label for="email" class="p-prof-edit__label">STEP1の内容</label>
             </div>
-            <div class="l-row__col08-pc">
+            <div class="l-row__col12 l-row__col08-pc">
                 <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
             </div>
         </div>

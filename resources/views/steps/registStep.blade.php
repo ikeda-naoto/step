@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('breadcrumbs', Breadcrumbs::render('registStep', $editFlg))
+
 @section('content')
 
     {{-- <!-- モーダル -->

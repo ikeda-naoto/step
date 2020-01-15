@@ -14,6 +14,9 @@
     border-radius: $border-radius_m;
 	-webkit-border-radius: $border-radius_m;
     -moz-border-radius: $border-radius_m;
+    @include sm() {
+        width: 90%;
+    }
     &__text {
         line-height: 150px;
         text-align: center;

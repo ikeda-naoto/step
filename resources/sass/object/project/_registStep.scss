@@ -2,6 +2,9 @@
     &__group {
         padding: $space_xxl $space_7l;
         background: $background-color_light;
+        @include sm() {
+            padding: $space_3l $space_xxl
+        }
     }
     &__num {
         color: $font-color_light;

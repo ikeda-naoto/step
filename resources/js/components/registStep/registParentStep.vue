@@ -2,18 +2,18 @@
     <div class="p-regist-step__parent">
         <div class="p-regist-step__group">
             <div class="l-row c-form__group">
-                <div class="l-row__col04-pc">
+                <div class="l-row__col12 l-row__col04-pc">
                     <label for="name" class="p-prof-edit__label">タイトル</label>
                 </div>
-                <div class="l-row__col08-pc">
+                <div class="l-row__col12 l-row__col08-pc">
                     <input id="name" type="text" class="c-input c-input--full" v-model="title">
                 </div>
             </div>
             <div class="l-row c-form__group">
-                <div class="l-row__col04-pc">
+                <div class="l-row__col12 l-row__col04-pc">
                     <label for="intro" class="p-prof-edit__label">カテゴリー</label>
                 </div>
-                <div class="l-row__col08-pc">
+                <div class="l-row__col12 l-row__col08-pc">
                     <select name="" id="" class="c-select c-select--half" v-model="category_id">
                         <option value="">選択してください</option>
                         <option v-for="category in categories" :key="category.id" :value="category.id">
@@ -23,10 +23,10 @@
                 </div>
             </div>
             <div class="l-row c-form__group">
-                <div class="l-row__col04-pc">
+                <div class="l-row__col12 l-row__col04-pc">
                     <label for="email" class="p-prof-edit__label">STEPの内容</label>
                 </div>
-                <div class="l-row__col08-pc">
+                <div class="l-row__col12 l-row__col08-pc">
                     <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
                 </div>
             </div>

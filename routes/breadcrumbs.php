@@ -17,6 +17,11 @@ Breadcrumbs::for('showParentStep', function ($trail, $parentStep) {
     $trail->push($parentStep->parent_title, url('/steps/' . $parentStep->id));
 });
 
+Breadcrumbs::for('showChildStep', function ($trail, $parentStep, $childStep) {
+    $trail->parent('showParentStep', $parentStep);
+    $trail->push($childStep->child_title, url('/steps/' . $parentStep->id . '/' . $childStep->id));
+});
+
 Breadcrumbs::for('mypage', function ($trail) {
     $trail->parent('home');
     $trail->push('マイページ', url('/users/mypage'));
@@ -30,6 +35,16 @@ Breadcrumbs::for('login', function ($trail) {
 Breadcrumbs::for('register', function ($trail) {
     $trail->parent('home');
     $trail->push('会員登録', url('/register'));
+});
+
+Breadcrumbs::for('registStep', function ($trail, $editFlg) {
+    $trail->parent('home');
+    $trail->push($editFlg ? 'STEP編集' : 'STEP登録', url('/steps/cteate'));
+});
+
+Breadcrumbs::for('profEdit', function ($trail) {
+    $trail->parent('home');
+    $trail->push('プロフィール編集', url('/users/edit'));
 });
 
 // // ホーム > 本の一覧 >  [Title]

@@ -67,6 +67,13 @@
     &--goast {
         color: $font-color_default;
         border: $border_s solid $border-color_dark;
+        transition: all .5s;
+        &:hover {
+            border: none;
+            color: $font-color_light;
+            background: $btn-color_primary;
+            transition: all .5s;
+        }
     }
     &--disabled {
         color: $font-color_light;

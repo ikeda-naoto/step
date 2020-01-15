@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
+@section('breadcrumbs', Breadcrumbs::render('showChildStep', $parentStep, $showChildStep))
+
 @section('content')
     <child-step-detail
         :parent-step="{{ $parentStep }}"
         :child-steps="{{ $parentStep->childSteps }}"
-        :child-id="{{ $child_id }}"
+        :show-child-step="{{ $showChildStep }}"
         :clear-num="{{ $clear_num }}"
         :challenge-flg="{{ $challengeFlg }}"
         @if (isset($user)) 

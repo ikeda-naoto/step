@@ -1,6 +1,11 @@
 .p-share {
     &__btn {
         padding:　$space_s;
+        @include sm() {
+            width: 100px;
+            margin-right: auto;
+            margin-left: 0;
+        }
     }
     &__icn {
         margin-right: $space_s;
