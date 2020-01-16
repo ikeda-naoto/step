@@ -1,7 +1,10 @@
 export default {
     methods: {
+        // ツイッターシェア処理
         twitterShare: function(shareTitle) {
+            // 現在のURLを取得
             let url = encodeURIComponent(location.href);
+            // ツイッターに投稿する内容を変数に代入
             let text = encodeURIComponent(shareTitle + ' | あなたの人生の「STEP」を共有しよう')
             //シェアする画面を設定
             let shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,共有,学習,手順';
@@ -37,6 +40,7 @@ export default {
                 return totalTime / 60;
             }
         },
+        // ¥nを改行コード<br>へ変換
         nl2br: function() {
             return function(text) {
                 return text.replace(/\n/g, '<br/>');

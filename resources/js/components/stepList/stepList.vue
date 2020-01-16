@@ -27,6 +27,7 @@
             ...mapActions([
                 'getPaginationData',
             ]),
+            // 表示するページのデータ取得
             load(page) {
                 this.getPaginationData(page);
             }

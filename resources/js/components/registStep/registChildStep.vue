@@ -6,34 +6,17 @@
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
                 <label for="name" class="p-prof-edit__label">タイトル</label>
+                <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
                 <input id="name" type="text" class="c-input c-input--full" v-model="title">
             </div>
         </div>
-        <!-- {{-- <div class="l-row c-form__group">
-            <div class="l-row__col04-pc">
-                <label for="intro" class="p-prof-edit__label">難易度</label>
-            </div>
-            <div class="l-row__col08-pc">
-                <select name="" id="" class="c-select c-select--half">
-                    <option value="">入門</option>
-                    <option value="">基礎</option>
-                </select>
-            </div>
-        </div>
-        <div class="l-row c-form__group">
-            <div class="l-row__col04-pc">
-                <label for="img" class="p-prof-edit__label">クリア条件</label>
-            </div>
-            <div class="l-row__col08-pc">
-                <input id="name" type="text" class="c-input c-input--full">
-            </div>
-        </div> --}} -->
         <!-- 子STEP終了時間 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
                 <label for="img" class="p-prof-edit__label">終了目安時間</label>
+                <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
                 <select name="" id="" class="c-select c-select--half" v-model="time_value">
@@ -45,6 +28,7 @@
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
                 <label for="email" class="p-prof-edit__label">STEP1の内容</label>
+                <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
                 <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
@@ -55,12 +39,6 @@
 </template>
 <script>
     export default {
-        //props: ['index', 'childStep'],
-        // props: {
-        //         value: {
-        //         type: Object,
-        //     required: true,
-        // },
         props: ['index', 'value'],
         data: function() {
             return {
@@ -104,18 +82,7 @@
                 time: this.time_value,
                 child_content: this.content
             });
-        },
-        
-        // props: [
-        //     'index',
-        //     {
-        //         value: {
-        //             type: Object,
-        //             required: true,
-        //         },
-        //     },
-        // ]
-        
+        },        
     }
 
 </script>

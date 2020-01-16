@@ -4,6 +4,7 @@
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
                     <label for="name" class="p-prof-edit__label">タイトル</label>
+                    <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
                     <input id="name" type="text" class="c-input c-input--full" v-model="title">
@@ -12,6 +13,7 @@
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
                     <label for="intro" class="p-prof-edit__label">カテゴリー</label>
+                    <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
                     <select name="" id="" class="c-select c-select--half" v-model="category_id">
@@ -25,12 +27,14 @@
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
                     <label for="email" class="p-prof-edit__label">STEPの内容</label>
+                    <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
                     <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
                 </div>
             </div>
             <inputFile
+                text="STEP画像"
                 :pic="pic"
                 @updatePic="updatePic"
             ></inputFile>
@@ -58,10 +62,12 @@
              this.content = this.value.parent_title;
              this.pic = this.value.pic;
         },
+        // 親STEPの情報が入力されたら
         updated: function() {
             this.updateParentData();
         },
         methods: {
+            // 親ステップの各情報を更新する（v-modelと同じ動き）
             updateParentData: function() {
                 this.$emit('input', {
                     parent_title: this.title,
@@ -70,40 +76,12 @@
                     pic: this.pic
                 });
             },
+            // 画像情報が入力されたら（画像はフォームバインディングできないため別途で行う）
             updatePic: function(val) {
                 this.pic = val;
                 this.updateParentData();
             }
         }
-        // computed: {
-        //     changeFile: function() {
-        //         //this.file = val;
-        //         console.log('aaa')
-        //         this.$emit('changeFile', this.file);
-        //     }
-        // }
-        // computed: {
-        //     a: function() {
-        //         console.log('as')
-                 
-                
-        //     }
-        // }
-        // watch: {
-        //     a: function() {
-        //         this.$parent.file = this.file;
-        //     }
-        // }
-        // props: [
-        //     'index',
-        //     {
-        //         value: {
-        //             type: Object,
-        //             required: true,
-        //         },
-        //     },
-        // ]
-        
     }
 
 </script>

@@ -1,16 +1,16 @@
 <template>
     <div class="l-row l-row--center c-pagination" v-if="parentSteps.length !== 0">
         <ul class="l-row c-pagination__list">
-            <!-- 現在のページが1の時は表示しない -->
+            <!-- 1ページ目へ戻るボタン。現在のページが1の時は表示しない -->
             <li class="" v-if="current_page !== 1"><a class="c-pagination__num" href="" @click.prevent.stop="changePage(1)">&laquo;</a></li>
+            <!-- 各ページのボタン -->
             <li v-for="page in pages" :key="page" :class="{active: page === current_page}">
                 <a href="" class="c-pagination__num" :class="{'c-pagination__num--active': page === current_page}" @click.prevent.stop="changePage(page)">{{page}}</a>
             </li>
-            <!-- 現在のページが最後のページの時は表示しない -->
+            <!-- 最後のページへ進むボタン。現在のページが最後のページの時は表示しない -->
             <li v-if="current_page !== last_page"><a href="" class="c-pagination__num" @click.prevent.stop="changePage(last_page)">&raquo;</a></li>
         </ul>
     </div>
-  
 </template>
 
 <script>
@@ -33,6 +33,7 @@
             ...mapActions([
                 'getPaginationData',
             ]),
+            // 表示するページを変更するメソッド
             changePage(page) {
                 if (page >= 1 && page <= this.last_page) {
                     this.getPaginationData(page);

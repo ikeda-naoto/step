@@ -2,11 +2,13 @@
     <section class="p-registed-step u-mb--l">
         <h2 class="c-title--type01 u-mb--3l">登録したSTEP</h2>
         <div class="p-registed-step__list">
+            <!-- 登録したSTEP一覧 -->
             <registedStepPanel
                 v-for="registStep in registSteps"
                 :key="registStep.id"
                 :registStep="registStep"
             ></registedStepPanel>
+            <!-- 登録したSTEPがない場合 -->
             <div v-if="registSteps.length === 0" class="l-row l-row--center">
                  <p class="u-fontsize--l">
                     登録したSTEPがありません

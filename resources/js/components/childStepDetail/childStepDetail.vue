@@ -26,9 +26,6 @@
             childStepDetailItem,
             childStepDetailSidebar
         },
-        computed: {
-            
-        },
         props: ['parentStep', 'childSteps', 'showChildStep', 'clearNum', 'user', 'challengeFlg']
     }
 </script>

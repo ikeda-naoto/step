@@ -11,6 +11,22 @@
     &__icn--send {
         color: $icn-color_success;
     }
+    &__require {
+        padding: $space_s;
+        margin-left: $space_m;
+        color: $font-color_light;
+        font-size: $font-size_s;
+        background: $background-color_form-require;
+        vertical-align: top;
+    }
+    &__option {
+        padding: $space_s;
+        margin-left: $space_m;
+        color: $font-color_light;
+        font-size: $font-size_s;
+        background: $background-color_form-option;
+        vertical-align: top;
+    }
 }
 
 .c-input {

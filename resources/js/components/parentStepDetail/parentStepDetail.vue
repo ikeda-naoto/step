@@ -4,14 +4,12 @@
         <div class="l-row l-site-width">
             <!-- メインカラム -->
             <div class="l-row__col12 l-row__col08-pc">
-                <section class="p-parent">
-                    <!-- 親STEP詳細 -->
-                    <parentStepDetailItem
-                        :user="user"
-                        :parentStep="parentStep"
-                        :challengeFlg="challengeFlg"
-                    ></parentStepDetailItem>
-                </section>
+                <!-- 親STEP詳細 -->
+                <parentStepDetailItem
+                    :user="user"
+                    :parentStep="parentStep"
+                    :challengeFlg="challengeFlg"
+                ></parentStepDetailItem>
                 <!-- チャレンジボタン -->
                 <challengeBtn
                     :parentStepId="parentStep.id"

@@ -4,19 +4,17 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import store from './store';
+import sanitizeHTML from 'sanitize-html';
+import UUID from 'vue-uuid';
+
 require('./bootstrap');
 require('./asset/jquery');
-// require('./asset/function');
 
 window.Vue = require('vue');
 
-import UUID from 'vue-uuid';
-Vue.use(UUID);
-
-import store from './store'
-
-import sanitizeHTML from 'sanitize-html';
 Vue.prototype.$sanitize = sanitizeHTML;
+Vue.use(UUID);
 
 /**
  * The following block of code may be used to automatically register your
@@ -43,7 +41,7 @@ Vue.component('child-step-detail', require('./components/childStepDetail/childSt
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
+// サニタイズ
 Vue.filter('nl2br', function (text) {
     return text.replace(/\n/g, '<br/>');
 })

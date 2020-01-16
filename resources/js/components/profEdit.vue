@@ -17,6 +17,7 @@
                         <div class="l-row c-form__group">
                             <div class="l-row__col12 l-row__col04-pc">
                                 <label for="name" class="p-prof-edit__label">ニックネーム</label>
+                                <span class="c-form__option">任意</span>
                             </div>
                             <div class="l-row__col12 l-row__col08-pc">
                                 <input v-model="name" id="name" name="name" type="text" class="c-input c-input--full">
@@ -26,6 +27,7 @@
                         <div class="l-row c-form__group">
                             <div class="l-row__col12 l-row__col04-pc">
                                 <label for="intro" class="p-prof-edit__label">自己紹介</label>
+                                <span class="c-form__option">任意</span>
                             </div>
                             <div class="l-row__col12 l-row__col08-pc">
                                 <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--high c-textarea--full" id="intro"></textarea>
@@ -33,6 +35,7 @@
                         </div>
                         <!-- プロフィール画像 -->
                         <inputFile
+                            text="プロフィール画像"
                             :pic="user.pic"
                             @updatePic="updatePic"
                         ></inputFile>
@@ -40,6 +43,7 @@
                         <div class="l-row c-form__group">
                             <div class="l-row__col12 l-row__col04-pc">
                                 <label for="email" class="p-prof-edit__label">メールアドレス</label>
+                                <span class="c-form__require">必須</span>
                             </div>
                             <div class="l-row__col12 l-row__col08-pc">
                                 <input v-model="email" name="email" id="email" type="email" class="c-input c-input--full" value="email" required autocomplete="email" autofocus>
@@ -48,6 +52,9 @@
                         <!-- 送信ボタン -->
                         <div class="l-row c-form__group">
                             <button type="button" class="c-btn c-btn--success c-btn--right c-btn--small" @click="onSubmit" :disabled="isPush">編集する</button>
+                        </div>
+                        <div class="c-form__group p-prof-edit__help">
+                            <a href="/password/edit">パスワードの変更はコチラ</a>
                         </div>
                     </div>
                 </div>
@@ -93,12 +100,9 @@
                 let config = {
                     headers: {
                         'content-type': 'multipart/form-data',
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        'X-HTTP-Method-Override': 'PATCH'
                     },
                 };
-
-                // PUT で上書く
-                config.headers['X-HTTP-Method-Override'] = 'PATCH';
                 // axios通信
                 axios.post('/users', data, config,)
                 .then(res => {

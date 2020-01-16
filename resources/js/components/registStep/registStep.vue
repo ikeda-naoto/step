@@ -12,28 +12,30 @@
             <div class="l-row l-row--center l-row__col12 l-row__col10-pc">
                 <div class="c-form p-regist-step u-bg--light">
                     <h1 class="c-title--normal u-mb--5l">STEP {{ !editFlg ? '登録' : '編集' }}</h1>
+                    <!-- 親STEP登録フォーム -->
                     <registParentStep
                         :categories="categories"
                         v-model="parentStep"
-                    ></registParentStep>
-                    <!-- 親STEP登録フォーム -->
-                    
+                    ></registParentStep>                    
                     <!-- 子STEP登録フォーム -->
-                    <template v-for="(childStep, index) in childSteps"> 
                     <registChildStep
+                        v-for="(childStep, index) in childSteps"
                         :key="uuid[index]"
                         :index="index"
                         v-model="childSteps[index]"
                     ></registChildStep>
-                    </template>
 
                     <div class="u-mt--xxl"> 
-                        <button class="c-btn c-btn--success c-btn--small" @click="addChildStep"><i class="fas fa-plus u-mr--s"></i>STEPを追加</button>
+                        <button class="c-btn c-btn--success c-btn--small" @click="addChildStep">
+                            <i class="fas fa-plus u-mr--s"></i>
+                            STEPを追加
+                        </button>
                     </div>
                     <div class="u-mt--5l">
-                        <button class="c-btn c-btn--center c-btn--warning c-btn--medium" @click="onSubmit" :disabled="isPush">登録する</button>
+                        <button class="c-btn c-btn--center c-btn--warning c-btn--medium" @click="onSubmit" :disabled="isPush">
+                            {{ !editFlg ? '登録する' : '編集する' }}
+                        </button>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -75,19 +77,24 @@
             }
         },
         created: function() {
-            if(this.editFlg) {
-                for (let key in this.parentStep) {
-                    if(key === 'pic') {
-                        this.parentStepData[key] !== null ? this.parentStepData[key] : '';
-                    }else {
+            // 
+            if(this.editFlg) { // STEP編集の場合
+                for (let key in this.parentStep) { // 親STEPの各データについてループ
+                    if(key === 'pic') { // keyがpicのとき
+                        // propsデータに画像のパスがあればオブジェクトへ代入
+                        this.parentStep[key] = this.parentStepData[key] !== null ? this.parentStepData[key] : false;
+                    }else { // それ以外
+                        // 親ステップの各プロパティをオブジェクトへ代入
                         this.parentStep[key] = this.parentStepData[key];
                     }
                 }
+                // 各子STEPのオブジェクトをそれぞれ配列へ代入
                 this.childStepsData.forEach(element => {
                     this.childSteps.push(element);
                     this.uuid.push(uuid.v1());
                 });
-            }else {
+            }else { // STEP登録の場合
+                // 配列へ子STEP1のオブジェクトを代入
                 this.childSteps.push(
                     {
                         child_title: '',
@@ -95,6 +102,7 @@
                         child_content: '',
                     },
                 );
+                // オブジェクトに対応する一意のキーを配列へ代入
                 this.uuid.push(uuid.v1());
             }
         },
@@ -102,9 +110,8 @@
             // axios通信用メソッド
             onSubmit : function() {
                 this.isPush = !this.isPush;
-                console.log(this.parentStep)
-                let data = new FormData();
                 // 各データを格納
+                let data = new FormData();
                 // csrfトークンを保存
                 data.append('_token', $('meta[name="csrf-token"]').attr('content'));
                 for (let key in this.parentStep) { // 親STEPの情報をDBのカラム名に紐付けてそれぞれ保存
@@ -161,7 +168,6 @@
             },
             // 子STEP追加用メソッド
             addChildStep: function() {
-                this.uuid.push(uuid.v1());
                 this.childSteps.push(
                     {
                         child_title: '',
@@ -169,10 +175,8 @@
                         child_content: '',
                     }
                 )
+                this.uuid.push(uuid.v1());
             },
-            changeFile: function(file) {
-                this.parentStep.file = file;
-            }
         }
     }
 </script>

@@ -5,14 +5,12 @@
                 <img class="c-img__item--center" :src="showStepImg(registStep.pic)" alt="">
             </div>
             <div class="l-row__col12 l-row__col06-pc">
-                        <h3 class="c-panel__title p-registed-step__title">{{ registStep.parent_title }}</h3>
-        <!-- <p class="p-registed-step__sum">全{{ registStep.child_steps.length }}STEP</p> -->
+                <h3 class="c-panel__title p-registed-step__title">{{ registStep.parent_title }}</h3>
             </div>
-            <!-- <div class="l-row__col12 l-row__col04-pc"> -->
-                <a :href="'/steps/' + registStep.id + '/edit'" class="c-btn c-btn--primary c-btn--right c-btn--small p-registed-step__btn">編集する</a>
-            <!-- </div> -->
+            <a :href="'/steps/' + registStep.id + '/edit'" class="c-btn c-btn--primary c-btn--right c-btn--small p-registed-step__btn">
+                編集する
+            </a>
         </div>
-        
     </div>
 </template>
 

@@ -648,6 +648,24 @@ button:focus {
   color: #1aa125;
 }
 
+.c-form__require {
+  padding: 5px;
+  margin-left: 10px;
+  color: #fff;
+  font-size: 12px;
+  background: #fd6363;
+  vertical-align: top;
+}
+
+.c-form__option {
+  padding: 5px;
+  margin-left: 10px;
+  color: #fff;
+  font-size: 12px;
+  background: #bebebe;
+  vertical-align: top;
+}
+
 .c-input {
   height: 50px;
   background: #ebebeb;
@@ -1054,37 +1072,29 @@ button:focus {
 }
 
 .p-lp__btn {
-  width: 400px;
   padding: 20px;
   margin: 15px auto;
 }
 
-@media screen and (max-width: 414px) {
-  .p-lp__btn {
-    width: 100%;
-  }
-}
-
 .p-baner {
+  position: relative;
   width: 100%;
-  height: 600px;
+  padding-top: 66.7%;
   background-image: url(/images/baner.jpg?661dd39bd873fb0ce2c20e3c0c05c1de);
-  background-attachment: fixed;
-  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-}
-
-@media screen and (max-width: 414px) {
-  .p-baner {
-    height: 300px;
-  }
 }
 
 .p-baner__phrase {
+  width: 100%;
+  text-align: center;
   color: #fff;
   font-size: 48px;
   font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 414px) {
@@ -1171,16 +1181,7 @@ button:focus {
 }
 
 .p-browse__btn {
-  width: 180px;
-  padding: 15px;
-  margin-left: auto;
   margin-right: 15px;
-}
-
-@media screen and (max-width: 414px) {
-  .p-browse__btn {
-    width: 140px;
-  }
 }
 
 .p-footer {
@@ -1603,6 +1604,15 @@ button:focus {
   margin-top: 40px;
   margin-left: auto;
   font-size: 16px;
+}
+
+.p-prof-edit__help {
+  font-size: 14px;
+}
+
+.p-prof-edit__help a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .p-regist-step__group {
@@ -2035,7 +2045,7 @@ button:focus {
   color: #fd6363;
 }
 
-.u-text-left {
+.u-text--left {
   text-align: left;
 }
 

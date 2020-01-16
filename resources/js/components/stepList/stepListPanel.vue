@@ -22,16 +22,6 @@
     export default {
         props: ['parentStep'],
         mixins: [Mixin],
-        data: function() {
-            return {
-                page: '',
-            }
-        },
-        created: function() {
-            let url = location.href.split('/');
-            this.page = url[3];
-            console.log(this.page);
-        },
     }
     
 </script>

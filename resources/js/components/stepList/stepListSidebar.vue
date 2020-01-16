@@ -1,15 +1,14 @@
 <template>
-<div class="l-row__col12 l-row__col04-pc">
-                <div class="c-sidebar">
-                        <registStepBtn></registStepBtn>
-                        
-                        <searchText></searchText>
-
-                        <searchCategory
-                            :categories="categories"
-                        ></searchCategory>
-                </div>
-            </div>
+    <div class="l-row__col12 l-row__col04-pc">
+        <div class="c-sidebar">
+            <!-- STEP登録ボタン -->
+            <registStepBtn></registStepBtn>
+            <!-- キーワード検索欄 -->
+            <searchText></searchText>
+            <!-- カテゴリー検索欄 -->
+            <searchCategory></searchCategory>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -22,6 +21,5 @@
             searchCategory,
             registStepBtn
         },
-        props: ['categories'],
     }
 </script>

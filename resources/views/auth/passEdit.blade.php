@@ -9,7 +9,7 @@
                 <form method="POST" action="/password" class="c-form p-auth">
                     @csrf
                     @method('PATCH')
-                    <h1 class="c-title--normal u-mb--5l">パスワードリセット</h1>
+                    <h1 class="c-title--normal u-mb--5l">パスワード変更</h1>
                     <div class="c-form__group">
                         <p>新しいパスワードを設定してください。</p>
                     </div>

@@ -4,7 +4,7 @@
     {{-- トップへのスクロールボタン --}}
     <a href="" class="c-btn--pageTop js-scroll-top"><i class="fas fa-angle-double-up"></i></a>
     <div class="l-container p-lp u-p--0">
-        <section class="p-baner l-row l-row--middle l-row--center">
+        <section class="p-baner">
             <h1 class="p-baner__phrase ">
                 あなたの人生のSTEPを共有しよう
             </h1>
@@ -30,7 +30,10 @@
                     「STEP」なら、そのお悩み解決できます。<br>
                     しかも、無料で。
                 </h3>
-                <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success p-lp__btn">今すぐ無料会員登録</a>
+                <div class="l-row">
+                    <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success c-btn--big p-lp__btn">今すぐ無料会員登録</a>
+                </div>
+                
             </div>
         </section>
         <section class="l-container p-intro u-bg--dark">
@@ -84,8 +87,8 @@
                         <a href="{{ route('steps.showParent', $parentStep->id) }}" class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
                             <div class="c-panel p-step-list__panel">
                                 <div class="c-panel__category p-step-list__category">{{ $parentStep->category->name }}</div>
-                                <div class="c-panel__img p-step-list__img">
-                                    <img src="{{ !empty($parentStep->pic) ? asset('/storage/img/'.$parentStep->pic) : asset('/images/unknown.png') }}" alt="">
+                                <div class="c-img p-step-list__img">
+                                    <img class="c-img__item--center" src="{{ !empty($parentStep->pic) ? asset('/storage/img/'.$parentStep->pic) : asset('/images/unknown.png') }}" alt="">
                                 </div>
                                 <div class="l-row l-row--between p-step-list__head">
                                     <h3 class="c-panel__title p-step-list__title">{{ $parentStep->parent_title }}</h3>
@@ -98,99 +101,14 @@
                             </div>
                         </a>
                     @endforeach
-                    {{-- <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
-                        <div class="c-panel p-step-list__panel">
-                            <div class="c-panel__category p-step-list__category">カテゴリー</div>
-                            <div class="c-panel__img p-step-list__img">
-                                <img src="img/trouble_person.jpg" alt="">
-                            </div>
-                            <div class="l-row l-row--between p-step-list__head">
-                                <h3 class="c-panel__title p-step-list__title">親STEPタイトル</h3>
-                            </div>
-                            <div class="l-row l-row--between l-row--center p-step-list__body">
-                                <p class="p-step-list__time">終了目安：1時間</p>
-                                <p class="p-step-list__sum">全10STEP</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
-                        <div class="c-panel p-step-list__panel">
-                            <div class="c-panel__category p-step-list__category">カテゴリー</div>
-                            <div class="c-panel__img p-step-list__img">
-                                <img src="img/trouble_person.jpg" alt="">
-                            </div>
-                            <div class="l-row l-row--between p-step-list__head">
-                                <h3 class="c-panel__title p-step-list__title">親STEPタイトル</h3>
-                            </div>
-                            <div class="l-row l-row--between l-row--center p-step-list__body">
-                                <p class="p-step-list__time">終了目安：1時間</p>
-                                <p class="p-step-list__sum">全10STEP</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
-                        <div class="c-panel p-step-list__panel">
-                            <div class="c-panel__category p-step-list__category">カテゴリー</div>
-                            <div class="c-panel__img p-step-list__img">
-                                <img src="img/trouble_person.jpg" alt="">
-                            </div>
-                            <div class="l-row l-row--between p-step-list__head">
-                                <h3 class="c-panel__title p-step-list__title">親STEPタイトル</h3>
-                            </div>
-                            <div class="l-row l-row--between l-row--center p-step-list__body">
-                                <p class="p-step-list__time">終了目安：1時間</p>
-                                <p class="p-step-list__sum">全10STEP</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
-                        <div class="c-panel p-step-list__panel">
-                            <div class="c-panel__category p-step-list__category">カテゴリー</div>
-                            <div class="c-panel__img p-step-list__img">
-                                <img src="img/trouble_person.jpg" alt="">
-                            </div>
-                            <div class="l-row l-row--between p-step-list__head">
-                                <h3 class="c-panel__title p-step-list__title">親STEPタイトル</h3>
-                            </div>
-                            <div class="l-row l-row--between l-row--center p-step-list__body">
-                                <p class="p-step-list__time">終了目安：1時間</p>
-                                <p class="p-step-list__sum">全10STEP</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
-                        <div class="c-panel p-step-list__panel">
-                            <div class="c-panel__category p-step-list__category">カテゴリー</div>
-                            <div class="c-panel__img p-step-list__img">
-                                <img src="img/trouble_person.jpg" alt="">
-                            </div>
-                            <div class="l-row l-row--between p-step-list__head">
-                                <h3 class="c-panel__title p-step-list__title">親STEPタイトル</h3>
-                            </div>
-                            <div class="l-row l-row--between l-row--center p-step-list__body">
-                                <p class="p-step-list__time">終了目安：1時間</p>
-                                <p class="p-step-list__sum">全10STEP</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="l-row__col12 l-row__col04-pc p-step-list__panel-container">
-                        <div class="c-panel p-step-list__panel">
-                            <div class="c-panel__category p-step-list__category">カテゴリー</div>
-                            <div class="c-panel__img p-step-list__img">
-                                <img src="img/trouble_person.jpg" alt="">
-                            </div>
-                            <div class="l-row l-row--between p-step-list__head">
-                                <h3 class="c-panel__title p-step-list__title">親STEPタイトル</h3>
-                            </div>
-                            <div class="l-row l-row--between l-row--center p-step-list__body">
-                                <p class="p-step-list__time">終了目安：1時間</p>
-                                <p class="p-step-list__sum">全10STEP</p>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
-                    <a href="{{ route('steps.create') }}" class="c-btn c-btn--warning p-browse__btn">他のSTEPを見る</a>
-                    <a href="{{ route('register') }}" class="c-btn c-btn--success p-lp__btn">今すぐ無料会員登録</a>
+                    <div class="l-row u-pl--l">
+                        <a href="{{ route('steps.index') }}" class="c-btn c-btn--medium c-btn--right c-btn--warning p-browse__btn">他のSTEPを見る</a>
+                    </div>
+                    <div class="l-row u-mt--5l">
+                        <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success c-btn--big p-lp__btn">今すぐ無料会員登録</a>
+                    </div>
+                    
             </div>
         </section>
     </div>
