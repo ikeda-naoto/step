@@ -8,7 +8,7 @@
         クリア済み
     </div>
     <!-- チャレンジしていないまたは前のSTEPをクリアしていなかったら -->
-    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num" class="c-btn c-btn--small c-btn--clear c-btn--right u-pt--l u-pb--l">
+    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num" class="c-btn c-btn--small c-btn--warning c-btn--right c-btn--pale u-pt--l u-pb--l">
         クリアで解放
     </div>
     <!-- チャレンジしていて前のSTEPをクリアしていたら -->

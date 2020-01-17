@@ -373,8 +373,7 @@ button:focus {
   opacity: 1;
 }
 
-.c-btn--clear {
-  background: #c7ba00ef;
+.c-btn--pale {
   opacity: 0.5;
 }
 

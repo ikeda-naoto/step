@@ -62226,7 +62226,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "c-btn c-btn--small c-btn--clear c-btn--right u-pt--l u-pb--l"
+            "c-btn c-btn--small c-btn--warning c-btn--right c-btn--pale u-pt--l u-pb--l"
         },
         [_vm._v("\n    クリアで解放\n")]
       )
