@@ -12,7 +12,7 @@ class ChallengeController extends Controller
 {
     public function challenge(Request $request)
     {
-        // 通常であれば引っかからないが念のためバリデーション 
+        // 通常であれば引っかからないが念のためバリデーション
         $request->validate([
             'parent_step_id' => 'required|integer',
             'clear_num' => 'required',
