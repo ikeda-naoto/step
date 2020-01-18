@@ -63989,7 +63989,7 @@ var render = function() {
                       [
                         _c("i", { staticClass: "fas fa-plus u-mr--s" }),
                         _vm._v(
-                          "\n                            STEPを追加\n                        "
+                          "\n                            追加\n                        "
                         )
                       ]
                     )

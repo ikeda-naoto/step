@@ -28,7 +28,7 @@
                     <div class="u-mt--xxl"> 
                         <button class="c-btn c-btn--success c-btn--small" @click="addChildStep">
                             <i class="fas fa-plus u-mr--s"></i>
-                            STEPを追加
+                            追加
                         </button>
                     </div>
                     <div class="u-mt--5l">
