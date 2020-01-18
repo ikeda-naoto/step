@@ -1079,6 +1079,12 @@ button:focus {
   margin: 15px auto;
 }
 
+@media screen and (max-width: 414px) {
+  .p-lp__btn {
+    min-width: 100%;
+  }
+}
+
 .p-baner {
   position: relative;
   width: 100%;
@@ -1773,6 +1779,10 @@ button:focus {
 .u-mrl--auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.u-m--0 {
+  margin: 0;
 }
 
 .u-mt--0 {
