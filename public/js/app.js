@@ -62210,7 +62210,7 @@ var render = function() {
     ? _c(
         "a",
         {
-          staticClass: "c-btn c-btn--small c-btn--success c-btn--right",
+          staticClass: "c-btn c-btn--medium c-btn--success c-btn--right",
           attrs: { href: "/register" }
         },
         [_vm._v("\n    無料会員登録をしてチャレンジ\n")]
@@ -63057,7 +63057,7 @@ var render = function() {
       ? _c(
           "a",
           {
-            staticClass: "c-btn c-btn--small c-btn--success c-btn--right",
+            staticClass: "c-btn c-btn--medium c-btn--success c-btn--right",
             attrs: { href: "/register" }
           },
           [_vm._v("\n        無料会員登録をしてチャレンジ\n    ")]

@@ -14,9 +14,9 @@
     &__btn {
         padding: $space_xl;
         margin: $space_l auto;
-        @include sm() {
-            min-width: 100%;
-        }
+        // @include sm() {
+        //     min-width: 100%;
+        // }
     }
 }
 

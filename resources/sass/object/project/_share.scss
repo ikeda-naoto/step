@@ -2,7 +2,7 @@
     &__btn {
         padding:　$space_s;
         @include sm() {
-            min-width: 100px;
+            max-width: 100px;
             margin-right: auto;
             margin-left: 0;
         }

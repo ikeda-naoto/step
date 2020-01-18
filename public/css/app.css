@@ -327,16 +327,16 @@ button:focus {
 }
 
 .c-btn--small {
-  min-width: 150px;
+  width: 150px;
 }
 
 .c-btn--medium {
-  min-width: 300px;
+  width: 300px;
   padding: 15px 40px;
 }
 
 .c-btn--big {
-  min-width: 400px;
+  width: 400px;
 }
 
 .c-btn--full {
@@ -1079,12 +1079,6 @@ button:focus {
   margin: 15px auto;
 }
 
-@media screen and (max-width: 414px) {
-  .p-lp__btn {
-    min-width: 100%;
-  }
-}
-
 .p-baner {
   position: relative;
   width: 100%;
@@ -1716,7 +1710,7 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .p-share__btn {
-    min-width: 100px;
+    max-width: 100px;
     margin-right: auto;
     margin-left: 0;
   }

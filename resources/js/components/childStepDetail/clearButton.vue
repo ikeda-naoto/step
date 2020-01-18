@@ -1,6 +1,6 @@
 <template>
     <!-- ログインしていなかったら -->
-    <a href="/register" v-if="user===null" class="c-btn c-btn--small c-btn--success c-btn--right">
+    <a href="/register" v-if="user===null" class="c-btn c-btn--medium c-btn--success c-btn--right">
         無料会員登録をしてチャレンジ
     </a>
     <!-- すでにクリアしていたら -->
