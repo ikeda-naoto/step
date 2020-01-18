@@ -3,6 +3,8 @@
 <!-- パンくずリスト -->
 @section('breadcrumbs', Breadcrumbs::render('register'))
 
+@section('title', '新規会員登録')
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">

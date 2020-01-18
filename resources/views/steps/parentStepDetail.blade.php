@@ -2,6 +2,8 @@
 
 @section('breadcrumbs', Breadcrumbs::render('showParentStep', $parentStep))
 
+@section('title', $parentStep->parent_title)
+
 @section('content')
     <parent-step-detail
         :parent-step="{{ $parentStep }}"

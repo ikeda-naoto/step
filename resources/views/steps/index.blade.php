@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'ホーム')
+
 @section('content')
     {{-- トップへのスクロールボタン --}}
     <a href="" class="c-btn--pageTop js-scroll-top"><i class="fas fa-angle-double-up"></i></a>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'パスワード変更')
+
 @section('content')
     <!-- メインコンテンツ -->
     <div class="l-container u-bg--light">

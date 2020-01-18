@@ -2,6 +2,8 @@
 {{-- パンくずリスト --}}
 @section('breadcrumbs', Breadcrumbs::render('mypage'))
 
+@section('title', 'マイページ')
+
 @section('content')
     <!-- メインコンテンツ -->
     <my-page

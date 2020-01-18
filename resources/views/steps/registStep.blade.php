@@ -2,6 +2,8 @@
 
 @section('breadcrumbs', Breadcrumbs::render('registStep', $editFlg))
 
+@section('title', 'STEP登録')
+
 @section('content')
 
     {{-- <!-- モーダル -->
