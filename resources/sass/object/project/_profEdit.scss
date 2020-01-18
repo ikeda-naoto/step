@@ -7,7 +7,7 @@
         font-size: $font-size_l;
         font-weight: bold;
         @include sm() {
-            display: block;
+            display: inline-block;
             margin-bottom: $space_m;
         }
     }

@@ -19,7 +19,7 @@
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
-                <select name="" id="" class="c-select c-select--half" v-model="time_value">
+                <select name="" id="" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
                     <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
                 </select>
             </div>

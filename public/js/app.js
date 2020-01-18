@@ -63608,7 +63608,7 @@ var render = function() {
                   expression: "time_value"
                 }
               ],
-              staticClass: "c-select c-select--half",
+              staticClass: "c-select c-select--half-pc c-select--full-sm",
               attrs: { name: "", id: "" },
               on: {
                 change: function($event) {
@@ -63781,7 +63781,7 @@ var render = function() {
                     expression: "category_id"
                   }
                 ],
-                staticClass: "c-select c-select--half",
+                staticClass: "c-select c-select--half-pc c-select--full-sm",
                 attrs: { name: "", id: "" },
                 on: {
                   change: function($event) {

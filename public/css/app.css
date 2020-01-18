@@ -722,12 +722,18 @@ button:focus {
   -moz-border-radius: 3px;
 }
 
-.c-select--half {
+.c-select--half-pc {
   width: 50%;
 }
 
-.c-select--full {
+.c-select--full-pc {
   width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+  .c-select--full-sm {
+    width: 100%;
+  }
 }
 
 .c-file-upload {
@@ -1592,7 +1598,7 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .p-prof-edit__label {
-    display: block;
+    display: inline-block;
     margin-bottom: 10px;
   }
 }
