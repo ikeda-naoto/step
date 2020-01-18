@@ -306,11 +306,12 @@ button:focus {
   box-sizing: border-box;
   -webkit-appearance: none;
   border-radius: 0;
+  border: none;
 }
 
 @media screen and (max-width: 414px) {
   .c-btn {
-    min-width: 100% !important;
+    min-width: 100%;
     margin-right: auto;
     margin-left: auto;
   }
@@ -473,11 +474,6 @@ button:focus {
 
 .c-btn--pageTop:hover {
   opacity: 0.8;
-}
-
-.c-btn--twitter {
-  color: #fff;
-  background-color: #1b95e0;
 }
 
 .c-panel {
@@ -1181,6 +1177,12 @@ button:focus {
   margin-bottom: 40px;
 }
 
+@media screen and (max-width: 414px) {
+  .p-browse__btn {
+    min-width: 100%;
+  }
+}
+
 .p-footer {
   padding: 40px;
   text-align: center;
@@ -1702,10 +1704,15 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .p-share__btn {
-    width: 100px;
+    min-width: 100px;
     margin-right: auto;
     margin-left: 0;
   }
+}
+
+.p-share__btn--twitter {
+  color: #fff;
+  background-color: #1b95e0;
 }
 
 .p-share__icn {

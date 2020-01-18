@@ -62095,7 +62095,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "c-btn c-btn--twitter p-share__btn",
+              staticClass: "c-btn p-share__btn p-share__btn--twitter",
               on: { click: _vm.onClickTwitterShare }
             },
             [
@@ -63184,7 +63184,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "c-btn c-btn--twitter p-share__btn",
+              staticClass: "c-btn p-share__btn p-share__btn--twitter",
               on: { click: _vm.onClickTwitterShare }
             },
             [

@@ -16,7 +16,7 @@
                     </div>
                     <!-- ツイッターシェアボタン -->
                     <div class="p-share">
-                        <button class="c-btn c-btn--twitter p-share__btn" @click="onClickTwitterShare">
+                        <button class="c-btn p-share__btn p-share__btn--twitter" @click="onClickTwitterShare">
                             <i class="fab fa-twitter p-share__icn"></i>ツイート
                         </button>
                     </div>

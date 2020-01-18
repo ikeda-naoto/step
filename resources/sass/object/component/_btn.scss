@@ -6,8 +6,9 @@
     box-sizing: border-box;
     -webkit-appearance: none;
     border-radius: 0;
+    border: none;
     @include sm() {
-        min-width: 100% !important;
+        min-width: 100%;
         margin-right: auto;
         margin-left: auto;
     }
@@ -138,9 +139,5 @@
             opacity: 0.8;
         }
     }
-        
-    &--twitter {
-        color: $font-color_light;
-        background-color: #1b95e0;
-    }
+    
 }

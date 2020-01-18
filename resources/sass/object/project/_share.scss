@@ -2,9 +2,13 @@
     &__btn {
         padding:　$space_s;
         @include sm() {
-            width: 100px;
+            min-width: 100px;
             margin-right: auto;
             margin-left: 0;
+        }
+        &--twitter {
+            color: $font-color_light;
+            background-color: #1b95e0;
         }
     }
     &__icn {

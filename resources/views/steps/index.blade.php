@@ -103,7 +103,7 @@
                     @endforeach
                 </div>
                     <div class="l-row u-pl--l u-pr--l">
-                        <a href="{{ route('steps.index') }}" class="c-btn c-btn--medium c-btn--right c-btn--warning">他のSTEPを見る</a>
+                        <a href="{{ route('steps.index') }}" class="c-btn c-btn--medium c-btn--right c-btn--warning p-browse__btn">他のSTEPを見る</a>
                     </div>
                     <div class="l-row u-mt--5l">
                         <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success c-btn--big p-lp__btn">今すぐ無料会員登録</a>
