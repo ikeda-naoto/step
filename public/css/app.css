@@ -310,7 +310,7 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .c-btn {
-    min-width: 100%;
+    min-width: 100% !important;
     margin-right: auto;
     margin-left: auto;
   }

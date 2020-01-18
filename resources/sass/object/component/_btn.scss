@@ -7,7 +7,7 @@
     -webkit-appearance: none;
     border-radius: 0;
     @include sm() {
-        min-width: 100%;
+        min-width: 100% !important;
         margin-right: auto;
         margin-left: auto;
     }
