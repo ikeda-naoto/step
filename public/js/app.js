@@ -78639,7 +78639,7 @@ __webpack_require__.r(__webpack_exports__);
     // ¥nを改行コード<br>へ変換
     nl2br: function nl2br() {
       return function (text) {
-        return text.replace(/\n/g, '<br/>');
+        if (this.isset(text)) return text.replace(/\n/g, '<br/>');
       };
     }
   }
