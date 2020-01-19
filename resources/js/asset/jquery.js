@@ -64,10 +64,10 @@ $(function() {
     $('.js-toggle-sp-menu').on('click', function () {
         // メニューバーをacriveに
         $(this).toggleClass('c-btn--trigger--active');
-        // メニュー 表示時、背景がスクロールしないように固定
-        $('html').toggleClass('u-position--fixed');
         // メニューバーをクリックした時に動かす要素のDOMを取得
         $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
+        // メニュー 表示時、背景がスクロールしないように固定
+        $jsToggleSpMenuTarget.toggleClass('u-position--fixed');
         if($jsToggleSpMenuTarget.css('transform') === 'none') { // transformプロパティが設定されていなかったら
             // 250px分左へ移動する
             $jsToggleSpMenuTarget.css('transform', 'translateX(-250px)');
