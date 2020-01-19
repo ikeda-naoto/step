@@ -55,6 +55,9 @@
 .p-trouble {
     &__head {
         margin-bottom: $space_3l;
+        @include sm() {
+            padding: 0 $space_m;
+        }
     }
     &__img {
         padding-right: $space_5l;
@@ -91,7 +94,7 @@
     &__body {
         padding: 0 $space_7l;
         @include sm() {
-            padding: 0;
+            padding: 0 $space_m;
         }
     }
     &__list {
