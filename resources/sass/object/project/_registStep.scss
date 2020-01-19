@@ -1,11 +1,5 @@
 .p-regist-step {
-    &__group {
-        padding: $space_xxl $space_7l;
-        background: $background-color_light;
-        @include sm() {
-            padding: $space_3l $space_xxl
-        }
-    }
+    width: 100%;
     &__num {
         color: $font-color_light;
         background: $background-color_base;

@@ -1,7 +1,7 @@
 <template>
     <div class="l-row c-form__group">
         <div class="l-row__col12 l-row__col04-pc">
-            <label for="img" class="p-prof-edit__label">{{ text }}</label>
+            <label for="img" class="c-form__label">{{ text }}</label>
             <span class="c-form__option">任意</span>
         </div>
         <div class="l-row__col12 l-row__col08-pc">

@@ -1,9 +1,10 @@
 <template>
     <div class="p-regist-step__parent">
-        <div class="p-regist-step__group">
+        <div class="c-form">
+            <h1 class="c-title--normal u-mb--5l">STEP {{ !editFlg ? '登録' : '編集' }}</h1>
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
-                    <label for="parent_title" class="p-prof-edit__label">タイトル</label>
+                    <label for="parent_title" class="c-form__label">タイトル</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
@@ -12,7 +13,7 @@
             </div>
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
-                    <label for="category" class="p-prof-edit__label">カテゴリー</label>
+                    <label for="category" class="c-form__label">カテゴリー</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
@@ -26,7 +27,7 @@
             </div>
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
-                    <label for="parent_title" class="p-prof-edit__label">STEPの内容</label>
+                    <label for="parent_title" class="c-form__label">STEPの内容</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
@@ -47,7 +48,7 @@
         components: {
             inputFile,
         },
-        props: ['value', 'categories'],
+        props: ['value', 'categories', 'editFlg'],
         data: function() {
             return {
                 title: '',

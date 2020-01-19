@@ -1,8 +1,4 @@
 .p-auth {
-    padding: $space_7l;
-    @include sm() {
-        padding: $space_7l $space_l;
-    }
     &__btn {
         width: 300px;
         font-size: $font-size_default;

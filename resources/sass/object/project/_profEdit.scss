@@ -1,16 +1,4 @@
 .p-prof-edit {
-    padding: $space_7l;
-    @include sm() {
-        padding: $space_3l $space_xxl;
-    }
-    &__label {
-        font-size: $font-size_l;
-        font-weight: bold;
-        @include sm() {
-            display: inline-block;
-            margin-bottom: $space_m;
-        }
-    }
     &__btn {
         width: 200px;
         padding: $space_l 0;

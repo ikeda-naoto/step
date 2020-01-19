@@ -3301,12 +3301,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     inputFile: _inputFile__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['value', 'categories'],
+  props: ['value', 'categories', 'editFlg'],
   data: function data() {
     return {
       title: '',
@@ -3418,7 +3419,7 @@ __webpack_require__.r(__webpack_exports__);
     registParentStep: _registParentStep__WEBPACK_IMPORTED_MODULE_4__["default"],
     registChildStep: _registChildStep__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  props: ['parentStepData', 'childStepsData', 'categories', 'times', 'editFlg', 'a'],
+  props: ['parentStepData', 'childStepsData', 'categories', 'editFlg'],
   mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
   data: function data() {
     return {
@@ -62433,11 +62434,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-row c-form__group" }, [
     _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
-      _c(
-        "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "img" } },
-        [_vm._v(_vm._s(_vm.text))]
-      ),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "img" } }, [
+        _vm._v(_vm._s(_vm.text))
+      ]),
       _vm._v(" "),
       _c("span", { staticClass: "c-form__option" }, [_vm._v("任意")])
     ]),
@@ -63460,7 +63459,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "c-btn c-btn--success c-btn--right c-btn--small",
+                          "c-btn c-btn--success c-btn--right c-btn--small u-mt--l",
                         attrs: { type: "button", disabled: _vm.isPush },
                         on: { click: _vm.onSubmit }
                       },
@@ -63486,11 +63485,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
-      _c(
-        "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "name" } },
-        [_vm._v("ニックネーム")]
-      ),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "name" } }, [
+        _vm._v("ニックネーム")
+      ]),
       _vm._v(" "),
       _c("span", { staticClass: "c-form__option" }, [_vm._v("任意")])
     ])
@@ -63500,11 +63497,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
-      _c(
-        "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "intro" } },
-        [_vm._v("自己紹介")]
-      ),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "intro" } }, [
+        _vm._v("自己紹介")
+      ]),
       _vm._v(" "),
       _c("span", { staticClass: "c-form__option" }, [_vm._v("任意")])
     ])
@@ -63514,11 +63509,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
-      _c(
-        "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "email" } },
-        [_vm._v("メールアドレス")]
-      ),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "email" } }, [
+        _vm._v("メールアドレス")
+      ]),
       _vm._v(" "),
       _c("span", { staticClass: "c-form__require" }, [_vm._v("必須")])
     ])
@@ -63615,7 +63608,7 @@ var render = function() {
       _vm._v("STEP" + _vm._s(_vm.index + 1))
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-regist-step__group" }, [
+    _c("div", { staticClass: "c-form" }, [
       _c("div", { staticClass: "l-row c-form__group" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -63727,7 +63720,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "child_title" } },
+        { staticClass: "c-form__label", attrs: { for: "child_title" } },
         [_vm._v("タイトル")]
       ),
       _vm._v(" "),
@@ -63739,11 +63732,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
-      _c(
-        "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "time" } },
-        [_vm._v("目安達成時間")]
-      ),
+      _c("label", { staticClass: "c-form__label", attrs: { for: "time" } }, [
+        _vm._v("目安達成時間")
+      ]),
       _vm._v(" "),
       _c("span", { staticClass: "c-form__require" }, [_vm._v("必須")])
     ])
@@ -63755,7 +63746,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "child_content" } },
+        { staticClass: "c-form__labell", attrs: { for: "child_content" } },
         [_vm._v("STEP1の内容")]
       ),
       _vm._v(" "),
@@ -63787,8 +63778,12 @@ var render = function() {
   return _c("div", { staticClass: "p-regist-step__parent" }, [
     _c(
       "div",
-      { staticClass: "p-regist-step__group" },
+      { staticClass: "c-form" },
       [
+        _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
+          _vm._v("STEP " + _vm._s(!_vm.editFlg ? "登録" : "編集"))
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "l-row c-form__group" }, [
           _vm._m(0),
           _vm._v(" "),
@@ -63919,7 +63914,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "parent_title" } },
+        { staticClass: "c-form__label", attrs: { for: "parent_title" } },
         [_vm._v("タイトル")]
       ),
       _vm._v(" "),
@@ -63933,7 +63928,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "category" } },
+        { staticClass: "c-form__label", attrs: { for: "category" } },
         [_vm._v("カテゴリー")]
       ),
       _vm._v(" "),
@@ -63947,7 +63942,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
-        { staticClass: "p-prof-edit__label", attrs: { for: "parent_title" } },
+        { staticClass: "c-form__label", attrs: { for: "parent_title" } },
         [_vm._v("STEPの内容")]
       ),
       _vm._v(" "),
@@ -63999,14 +63994,10 @@ var render = function() {
             [
               _c(
                 "div",
-                { staticClass: "c-form p-regist-step u-bg--light" },
+                { staticClass: "p-regist-step" },
                 [
-                  _c("h1", { staticClass: "c-title--normal u-mb--5l" }, [
-                    _vm._v("STEP " + _vm._s(!_vm.editFlg ? "登録" : "編集"))
-                  ]),
-                  _vm._v(" "),
                   _c("registParentStep", {
-                    attrs: { categories: _vm.categories },
+                    attrs: { categories: _vm.categories, editFlg: _vm.editFlg },
                     model: {
                       value: _vm.parentStep,
                       callback: function($$v) {
@@ -78065,18 +78056,20 @@ $(function () {
   var $jsAnimateFadeInTop = $('.js-animate-fadeIn-top');
   $jsAnimateFadeInTop.css('opacity', 0);
   $(window).scroll(function () {
-    var elemPos = $jsAnimateFadeInTop.eq(0).offset().top,
-        scroll = $(window).scrollTop(),
-        windowHeight = $(window).height();
+    if ($jsAnimateFadeInTop.length !== 0) {
+      var elemPos = $jsAnimateFadeInTop.eq(0).offset().top,
+          scroll = $(window).scrollTop(),
+          windowHeight = $(window).height();
 
-    if (scroll > elemPos - windowHeight + 100) {
-      var delaySpeed = 400,
-          fadeSpeed = 2000;
-      $jsAnimateFadeInTop.each(function (i) {
-        $(this).delay(i * delaySpeed).animate({
-          opacity: 1
-        }, fadeSpeed);
-      });
+      if (scroll > elemPos - windowHeight + 100) {
+        var delaySpeed = 400,
+            fadeSpeed = 2000;
+        $jsAnimateFadeInTop.each(function (i) {
+          $(this).delay(i * delaySpeed).animate({
+            opacity: 1
+          }, fadeSpeed);
+        });
+      }
     }
   }); // フラッシュメッセージ表示
 

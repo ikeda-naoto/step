@@ -631,6 +631,7 @@ button:focus {
 
 .c-form {
   width: 100%;
+  padding: 80px;
   background: #fff;
   box-sizing: border-box;
   border-radius: 3px;
@@ -638,8 +639,27 @@ button:focus {
   -moz-border-radius: 3px;
 }
 
+@media screen and (max-width: 414px) {
+  .c-form {
+    padding: 80px 15px;
+  }
+}
+
 .c-form__group {
   margin: 40px 0;
+}
+
+.c-form__label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 414px) {
+  .c-form__label {
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
 }
 
 .c-form__icn--send {
@@ -1464,16 +1484,6 @@ button:focus {
   -moz-border-radius: 3px;
 }
 
-.p-auth {
-  padding: 80px;
-}
-
-@media screen and (max-width: 414px) {
-  .p-auth {
-    padding: 80px 15px;
-  }
-}
-
 .p-auth__btn {
   width: 300px;
   font-size: 16px;
@@ -1516,28 +1526,6 @@ button:focus {
   text-decoration: underline;
 }
 
-.p-prof-edit {
-  padding: 80px;
-}
-
-@media screen and (max-width: 414px) {
-  .p-prof-edit {
-    padding: 40px 30px;
-  }
-}
-
-.p-prof-edit__label {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-@media screen and (max-width: 414px) {
-  .p-prof-edit__label {
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-}
-
 .p-prof-edit__btn {
   width: 200px;
   padding: 15px 0;
@@ -1555,15 +1543,8 @@ button:focus {
   text-decoration: underline;
 }
 
-.p-regist-step__group {
-  padding: 30px 80px;
-  background: #fff;
-}
-
-@media screen and (max-width: 414px) {
-  .p-regist-step__group {
-    padding: 40px 30px;
-  }
+.p-regist-step {
+  width: 100%;
 }
 
 .p-regist-step__num {

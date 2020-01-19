@@ -1,11 +1,11 @@
 <template>
 <div class="p-regist-step__child">
     <h2 class="p-regist-step__num">STEP{{ index + 1 }}</h2>
-    <div class="p-regist-step__group">
+    <div class="c-form">
         <!-- 子STEPタイトル -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
-                <label for="child_title" class="p-prof-edit__label">タイトル</label>
+                <label for="child_title" class="c-form__label">タイトル</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
@@ -15,7 +15,7 @@
         <!-- 子STEP終了時間 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
-                <label for="time" class="p-prof-edit__label">目安達成時間</label>
+                <label for="time" class="c-form__label">目安達成時間</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
@@ -27,7 +27,7 @@
         <!-- 子STEP内容 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
-                <label for="child_content" class="p-prof-edit__label">STEP1の内容</label>
+                <label for="child_content" class="c-form__labell">STEP1の内容</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">

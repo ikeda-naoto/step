@@ -10,12 +10,12 @@
         <div class="l-row l-row--center l-site-width">
             <!-- メインカラム -->
             <div class="l-row l-row--center l-row__col12 l-row__col10-pc">
-                <div class="c-form p-regist-step u-bg--light">
-                    <h1 class="c-title--normal u-mb--5l">STEP {{ !editFlg ? '登録' : '編集' }}</h1>
+                <div class="p-regist-step">
                     <!-- 親STEP登録フォーム -->
                     <registParentStep
                         :categories="categories"
                         v-model="parentStep"
+                        :editFlg="editFlg"
                     ></registParentStep>                    
                     <!-- 子STEP登録フォーム -->
                     <registChildStep
@@ -57,7 +57,7 @@
             registParentStep,
             registChildStep,
         },
-        props: ['parentStepData', 'childStepsData', 'categories', 'times', 'editFlg', 'a'],
+        props: ['parentStepData', 'childStepsData', 'categories', 'editFlg'],
         mixins: [Mixin],
         data: function() {
             return {
