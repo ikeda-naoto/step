@@ -5,7 +5,7 @@
             <span class="c-form__option">任意</span>
         </div>
         <div class="l-row__col12 l-row__col08-pc">
-            <div class="l-row l-row--middle l-row--center c-file-upload">
+            <div class="l-row l-row--middle l-row--center c-file-upload" :class="isset(showImg) ? 'c-file-upload--active' : false">
                 <img class="c-img__item--center c-file-upload__img" :src="showImg" alt="">
                 <div>
                     <input type="file" id="img" class="c-file-upload__input-file" accept="" @change="onFileChange" accept="image/*">

@@ -749,6 +749,10 @@ button:focus {
   font-size: 12px;
 }
 
+.c-file-upload--active {
+  border: none;
+}
+
 .c-file-upload__img {
   width: auto;
   height: 100%;
@@ -1062,6 +1066,10 @@ button:focus {
   color: #fff;
 }
 
+.p-lp {
+  font-size: 18px;
+}
+
 .p-lp__title {
   font-size: 36px;
   text-align: center;
@@ -1083,9 +1091,18 @@ button:focus {
 .p-baner {
   position: relative;
   width: 100%;
-  padding-top: 66.7%;
+  height: 600px;
   background-image: url(/images/baner.jpg?661dd39bd873fb0ce2c20e3c0c05c1de);
   background-size: cover;
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 414px) {
+  .p-baner {
+    height: 0;
+    padding-top: 66.7%;
+    background-attachment: unset;
+  }
 }
 
 .p-baner__phrase {
@@ -1149,7 +1166,7 @@ button:focus {
 }
 
 .p-intro__text {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .p-merit__body {

@@ -108,6 +108,9 @@
     border: $border-m dashed $border-color_base; 
     background-color: $background-color_form-item;
     font-size: $font-size_s;
+    &--active {
+        border: none;
+    }
     &__img {
         width: auto;
         height: 100%;

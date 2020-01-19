@@ -77,7 +77,7 @@
             }
         },
         created: function() {
-            // 
+            // データの初期化
             if(this.editFlg) { // STEP編集の場合
                 for (let key in this.parentStep) { // 親STEPの各データについてループ
                     if(key === 'pic') { // keyがpicのとき
@@ -157,7 +157,6 @@
                         for (let key in error.response.data.errors) {
                             this.errMsgs.push(error.response.data.errors[key][0]);
                         }
-                        console.log(this.errMsgs);
                     }
                     // それ以外のエラーの場合
                     else {

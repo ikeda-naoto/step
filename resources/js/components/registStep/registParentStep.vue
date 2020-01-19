@@ -3,20 +3,20 @@
         <div class="p-regist-step__group">
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
-                    <label for="name" class="p-prof-edit__label">タイトル</label>
+                    <label for="parent_title" class="p-prof-edit__label">タイトル</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
-                    <input id="name" type="text" class="c-input c-input--full" v-model="title">
+                    <input id="parent_title" type="text" class="c-input c-input--full" v-model="title">
                 </div>
             </div>
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
-                    <label for="intro" class="p-prof-edit__label">カテゴリー</label>
+                    <label for="category" class="p-prof-edit__label">カテゴリー</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
-                    <select name="" id="" class="c-select c-select--half-pc c-select--full-sm" v-model="category_id">
+                    <select name="" id="category" class="c-select c-select--half-pc c-select--full-sm" v-model="category_id">
                         <option value="">選択してください</option>
                         <option v-for="category in categories" :key="category.id" :value="category.id">
                             {{ category.name }}
@@ -26,11 +26,11 @@
             </div>
             <div class="l-row c-form__group">
                 <div class="l-row__col12 l-row__col04-pc">
-                    <label for="email" class="p-prof-edit__label">STEPの内容</label>
+                    <label for="parent_title" class="p-prof-edit__label">STEPの内容</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12 l-row__col08-pc">
-                    <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
+                    <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="parent_title" v-model="content"></textarea>
                 </div>
             </div>
             <inputFile

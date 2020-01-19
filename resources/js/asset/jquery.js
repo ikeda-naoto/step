@@ -19,8 +19,38 @@ $(function() {
         return false;
     });
 
+    // LPページフェードイン
+    let $jsAnimateFadeIn = $('.js-animate-fadeIn');
+    $jsAnimateFadeIn.css('opacity', 0);
+    $(window).scroll(function (){
+        let fadeSpeed = 2500;
+        $jsAnimateFadeIn.each(function(){
+        let elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+        if (scroll > elemPos - windowHeight + 100){
+            $(this).animate({opacity:1}, fadeSpeed);
+        }
+        });
+    });
+
+    let $jsAnimateFadeInTop = $('.js-animate-fadeIn-top');
+    $jsAnimateFadeInTop.css('opacity', 0)
+    $(window).scroll(function(){
+        let elemPos = $jsAnimateFadeInTop.eq(0).offset().top,
+        scroll = $(window).scrollTop(),
+        windowHeight = $(window).height();
+        if(scroll > elemPos - windowHeight + 100) {
+            let delaySpeed = 400,
+                fadeSpeed = 2500;
+            $jsAnimateFadeInTop.each(function(i){
+                $(this).delay(i*(delaySpeed)).animate({opacity:1},fadeSpeed);
+            });
+        }
+    });
+
     // フラッシュメッセージ表示
-    $jsFlashMessage = $('.js-flash-message');
+    let $jsFlashMessage = $('.js-flash-message');
     if ($jsFlashMessage.children().text().replace(/\s+/g, '').length > 0) {
         $jsFlashMessage.fadeIn(2000);
         setTimeout(function () {

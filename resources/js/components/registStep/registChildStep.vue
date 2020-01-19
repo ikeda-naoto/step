@@ -5,21 +5,21 @@
         <!-- 子STEPタイトル -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
-                <label for="name" class="p-prof-edit__label">タイトル</label>
+                <label for="child_title" class="p-prof-edit__label">タイトル</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
-                <input id="name" type="text" class="c-input c-input--full" v-model="title">
+                <input id="child_title" type="text" class="c-input c-input--full" v-model="title">
             </div>
         </div>
         <!-- 子STEP終了時間 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
-                <label for="img" class="p-prof-edit__label">終了目安時間</label>
+                <label for="time" class="p-prof-edit__label">目安達成時間</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
-                <select name="" id="" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
+                <select name="" id="time" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
                     <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
                 </select>
             </div>
@@ -27,11 +27,11 @@
         <!-- 子STEP内容 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12 l-row__col04-pc">
-                <label for="email" class="p-prof-edit__label">STEP1の内容</label>
+                <label for="child_content" class="p-prof-edit__label">STEP1の内容</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12 l-row__col08-pc">
-                <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="intro" v-model="content"></textarea>
+                <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="child_content" v-model="content"></textarea>
             </div>
         </div>
     </div>
@@ -76,6 +76,7 @@
              this.time_value = this.value.time;
              this.content = this.value.child_content;
         },
+        // 親コンポーネントのデータを更新する
         updated: function() {
             this.$emit('input', {
                 child_title: this.title,

@@ -3,13 +3,13 @@
     <div class="l-container u-bg--light">
         <div class="l-row l-site-width">
             <!-- メインカラム -->
-            <childStepDetailItem
+            <childStepDetailMainColumn
                 :parentStep="parentStep"
                 :childStep="showChildStep"
                 :clearNum="clearNum"
                 :user="user"
                 :challengeFlg="challengeFlg"
-            ></childStepDetailItem>
+            ></childStepDetailMainColumn>
             <!-- サブカラム（サイドバー） -->
             <childStepDetailSidebar
                 :childSteps="childSteps"
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-    import childStepDetailItem from './childStepDetailItem';
+    import childStepDetailMainColumn from './childStepDetailMainColumn';
     import childStepDetailSidebar from './childStepDetailSidebar';
     export default {
         components: {
-            childStepDetailItem,
+            childStepDetailMainColumn,
             childStepDetailSidebar
         },
         props: ['parentStep', 'childSteps', 'showChildStep', 'clearNum', 'user', 'challengeFlg']

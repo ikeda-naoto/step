@@ -33,7 +33,7 @@
             ...mapActions([
                 'getPaginationData',
             ]),
-            // 表示するページを変更するメソッド
+            // 表示するページを変更する
             changePage(page) {
                 if (page >= 1 && page <= this.last_page) {
                     this.getPaginationData(page);

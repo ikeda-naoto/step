@@ -15,11 +15,9 @@
                     </div>
                 </div>
                 <!-- ツイッターシェアボタン -->
-                <div class="p-share">
-                    <button class="c-btn p-share__btn p-share__btn--twitter" @click="onClickTwitterShare">
-                        <i class="fab fa-twitter p-share__icn"></i>ツイート
-                    </button>
-                </div>
+                <twitterShare
+                    @onClickTwitterShare="onClickTwitterShare"
+                ></twitterShare>
                 <div class="l-row p-step-detail__foot">
                     <!-- クリアボタン -->
                     <clearButton
@@ -37,10 +35,12 @@
 
 <script>
     import clearButton from './clearButton';
+    import twitterShare from '../twitterShare';
     import Mixin from '../mixins/mixin';
     export default {
         components: {
-            clearButton
+            clearButton,
+            twitterShare
         },
         props: ['parentStep', 'childStep', 'clearNum', 'user', 'challengeFlg'],
         mixins: [Mixin],

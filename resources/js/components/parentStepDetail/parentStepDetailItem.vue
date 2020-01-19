@@ -8,17 +8,15 @@
             <div class="p-step-detail__img">
                 <img :src="showStepImg(parentStep.pic)" alt="">
             </div>
-            <div class="p-share">
-                <button class="c-btn p-share__btn p-share__btn--twitter" @click="onClickTwitterShare">
-                    <i class="fab fa-twitter p-share__icn"></i>ツイート
-                </button>
-            </div>
+            <twitterShare
+                @onClickTwitterShare="onClickTwitterShare"
+            ></twitterShare>
             <div class="p-step-detail__body">
                 <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(parentStep.parent_content))">
                 </div>
             </div>       
             <div class="p-step-detail__foot">
-                <p class="u-text--right">終了目安：{{ showTotalTime(parentStep.child_steps) }}時間</p>
+                <p class="u-text--right">終了目安時間：{{ showTotalTime(parentStep.child_steps) }}時間</p>
             </div>
         </div>
     </section>
@@ -26,9 +24,13 @@
 
 <script>
     import Mixin from '../mixins/mixin';
+    import twitterShare from '../twitterShare';
     export default {
         props: ['user', 'parentStep', 'challengeFlg'],
         mixins: [Mixin],
+        components: {
+            twitterShare
+        },
         methods: {
             // ツイッターシェア処理
             onClickTwitterShare: function() {
