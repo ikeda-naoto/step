@@ -63746,7 +63746,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l-row__col12 l-row__col04-pc" }, [
       _c(
         "label",
-        { staticClass: "c-form__labell", attrs: { for: "child_content" } },
+        { staticClass: "c-form__label", attrs: { for: "child_content" } },
         [_vm._v("STEP1の内容")]
       ),
       _vm._v(" "),

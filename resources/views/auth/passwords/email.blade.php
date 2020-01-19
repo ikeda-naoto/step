@@ -74,7 +74,7 @@
                         </p>
                     </div>
                     <div class="c-form__group">
-                        <input type="email" class="c-input c-input--full @error('email') c-input__err @enderror" placeholder="メールアドレス" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                             <span class="u-fontcolor--err">{{ $message }}</span>
                         @enderror

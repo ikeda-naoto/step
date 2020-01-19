@@ -808,6 +808,12 @@ button:focus {
   font-weight: bold;
 }
 
+@media screen and (max-width: 414px) {
+  .c-title--small {
+    font-size: 18px;
+  }
+}
+
 .c-title--normal {
   text-align: center;
   font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
@@ -827,6 +833,12 @@ button:focus {
   font-size: 30px;
   padding: 20px 20px;
   border-left: solid 5px #0057a3;
+}
+
+@media screen and (max-width: 414px) {
+  .c-title--type01 {
+    font-size: 22px;
+  }
 }
 
 .c-overview {

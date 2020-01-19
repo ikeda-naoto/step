@@ -4,6 +4,9 @@
         font-family: $font-family_gothic;
         font-size: $font-size_xl;
         font-weight: bold;
+        @include sm() {
+            font-size: $font-size_l;
+        }
     }
     &--normal {
         text-align: center;
@@ -18,9 +21,10 @@
         font-family: $font-family_gothic;
         font-weight: bold;
         font-size: $font-size_xxl;
-        //margin-bottom: $space_3l;
         padding: $space_xl $space_xl;
         border-left: solid $border_xxl $border-color_base;
-        //background: $background-color_dark;
+        @include sm() {
+            font-size: $font-size_xl;
+        }
     }
 }
