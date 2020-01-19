@@ -78085,11 +78085,14 @@ $(function () {
 
   $('.js-toggle-sp-menu').on('click', function () {
     // メニューバーをacriveに
-    $(this).toggleClass('c-btn--trigger--active'); // メニューバーをクリックした時に動かす要素のDOMを取得
+    $(this).toggleClass('c-btn--trigger--active'); // メニュー 表示時、背景がスクロールしないように固定
 
-    $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target'); // メニュー 表示時、背景がスクロールしないように固定
+    $('html').css({
+      'overflow': 'hidden',
+      'height': '100%'
+    }); // メニューバーをクリックした時に動かす要素のDOMを取得
 
-    $jsToggleSpMenuTarget.toggleClass('u-position--fixed');
+    $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
 
     if ($jsToggleSpMenuTarget.css('transform') === 'none') {
       // transformプロパティが設定されていなかったら
