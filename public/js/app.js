@@ -78102,6 +78102,10 @@ $(function () {
       // transformプロパティが設定されていたら
       // 元に戻す
       $jsToggleSpMenuTarget.css('transform', '');
+      $('html').css({
+        'overflow': '',
+        'height': ''
+      });
     }
   });
 });
