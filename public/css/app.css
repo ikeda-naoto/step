@@ -1125,9 +1125,17 @@ button:focus {
 .p-baner {
   position: relative;
   width: 100%;
-  padding-top: 66.7%;
+  height: 600px;
   background-image: url(/images/baner.jpg?661dd39bd873fb0ce2c20e3c0c05c1de);
   background-size: cover;
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 414px) {
+  .p-baner {
+    height: 230px;
+    background-attachment: unset;
+  }
 }
 
 .p-baner__phrase {
