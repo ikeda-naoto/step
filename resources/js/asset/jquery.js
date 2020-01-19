@@ -23,7 +23,7 @@ $(function() {
     let $jsAnimateFadeIn = $('.js-animate-fadeIn');
     $jsAnimateFadeIn.css('opacity', 0);
     $(window).scroll(function (){
-        let fadeSpeed = 2500;
+        let fadeSpeed = 2000;
         $jsAnimateFadeIn.each(function(){
         let elemPos = $(this).offset().top,
             scroll = $(window).scrollTop(),
@@ -42,7 +42,7 @@ $(function() {
         windowHeight = $(window).height();
         if(scroll > elemPos - windowHeight + 100) {
             let delaySpeed = 400,
-                fadeSpeed = 2500;
+                fadeSpeed = 2000;
             $jsAnimateFadeInTop.each(function(i){
                 $(this).delay(i*(delaySpeed)).animate({opacity:1},fadeSpeed);
             });

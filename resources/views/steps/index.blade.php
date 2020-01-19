@@ -69,29 +69,40 @@
                     <div class="l-row l-row--between p-merit__body">
                         <ul class="l-row__col12 l-row__col06-pc">
                             <li class="p-merit__list">
-                                <i class="fas fa-check-square p-merit__icn fa-2x"></i>
-                                学習方法になやまない
+                                <p class="p-merit__text">
+                                    <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                                    学習方法になやまない
+                                </p>
                             </li>
                             <li class="p-merit__list">
-                                <i class="fas fa-check-square p-merit__icn fa-2x"></i>
-                                新しいスキルを簡単に身に付けることができる
+                                <p class="p-merit__text">
+                                    <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                                    新しいスキルを簡単に身に付けることができる
+                                </p>
                             </li>
                             <li class="p-merit__list">
-                                <i class="fas fa-check-square p-merit__icn fa-2x"></i>
-                                他の人の学習方法を見ることができる
+                                <p class="p-merit__text">
+                                    <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                                    他の人の学習方法を見ることができる
+                                </p>
                             </li>
                             <li class="p-merit__list">
-                                <i class="fas fa-check-square p-merit__icn fa-2x"></i>
-                                新しい学習方法を発見できる
+                                <p class="p-merit__text">
+                                    <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                                    新しい学習方法を発見できる
+                                </p>
                             </li>
                             <li class="p-merit__list">
-                                <i class="fas fa-check-square p-merit__icn fa-2x"></i>
-                                良い方法と手順で最短ルートの学習ができる
-                                
+                                <p class="p-merit__text">
+                                    <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                                    良い方法と手順で最短ルートの学習ができる
+                                </p>        
                             </li>
                             <li class="p-merit__list">
-                                <i class="fas fa-check-square p-merit__icn fa-2x"></i>
-                                進捗が見えるのでモチベーションが高くなる
+                                <p class="p-merit__text">
+                                    <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                                    進捗が見えるのでモチベーションが高くなる
+                                </p>
                             </li>
                         </ul>
                         <div class="l-row__col12 l-row__col06-pc p-merit__img">
