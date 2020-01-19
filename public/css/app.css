@@ -327,7 +327,7 @@ button:focus {
 }
 
 .c-btn--small {
-  width: 150px;
+  width: 180px;
 }
 
 .c-btn--medium {
@@ -510,6 +510,7 @@ button:focus {
   color: #333;
   font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .c-sidebar {
@@ -1162,7 +1163,6 @@ button:focus {
 }
 
 .p-merit__list {
-  text-align: center;
   margin-bottom: 30px;
 }
 
@@ -1181,12 +1181,6 @@ button:focus {
 .p-browse__head {
   text-align: center;
   margin-bottom: 40px;
-}
-
-@media screen and (max-width: 414px) {
-  .p-browse__btn {
-    min-width: 100%;
-  }
 }
 
 .p-footer {
@@ -1342,11 +1336,11 @@ button:focus {
 
 .p-challenge-step__img {
   width: 100%;
-  height: 200px;
+  height: 214px;
 }
 
 .p-challenge-step__head {
-  margin: 20px 0;
+  margin: 5px 0;
 }
 
 .p-challenge-step__body {
@@ -1385,15 +1379,14 @@ button:focus {
   font-size: 12px;
 }
 
-.p-parent {
+.p-step-detail {
   position: relative;
-  width: 100%;
   margin-bottom: 40px;
 }
 
-.p-parent__outer {
+.p-step-detail__inner {
   width: 100%;
-  padding: 40px 80px;
+  padding: 60px 70px;
   background: #fff;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -1402,12 +1395,12 @@ button:focus {
 }
 
 @media screen and (max-width: 414px) {
-  .p-parent__outer {
-    padding: 40px 30px;
+  .p-step-detail__inner {
+    padding: 30px 15px;
   }
 }
 
-.p-parent__category {
+.p-step-detail__category {
   width: 180px;
   height: 50px;
   top: -25px;
@@ -1415,23 +1408,20 @@ button:focus {
   line-height: 50px;
 }
 
-.p-parent__head {
-  margin: 20px 0;
+.p-step-detail__head {
+  margin: 30px 0;
 }
 
-.p-parent__title {
-  text-align: center;
-  font-size: 30px;
-  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
-  font-weight: bold;
+.p-step-detail__title {
+  line-height: 150%;
 }
 
-.p-parent__img {
+.p-step-detail__img {
   width: 100%;
   margin-bottom: 15px;
 }
 
-.p-parent__body {
+.p-step-detail__body {
   width: 100%;
   min-height: 90px;
   padding: 10px;
@@ -1441,92 +1431,6 @@ button:focus {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-}
-
-.p-parent__time {
-  text-align: right;
-  margin-bottom: 30px;
-}
-
-.p-child {
-  background: #fff;
-  padding: 70px;
-}
-
-@media screen and (max-width: 414px) {
-  .p-child {
-    padding: 70px 30px;
-  }
-}
-
-.p-child__outer {
-  background: #fff;
-}
-
-.p-child__inner {
-  width: 100%;
-}
-
-.p-child__head {
-  margin-bottom: 40px;
-}
-
-.p-child__title {
-  font-size: 30px;
-  text-align: center;
-  line-height: 200%;
-}
-
-.p-child__body {
-  margin-bottom: 10px;
-}
-
-.p-child__outline {
-  padding: 10px;
-  background: #e4e4e4;
-  min-height: 70px;
-  box-sizing: border-box;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.p-child__content {
-  padding: 10px;
-  margin-top: 40px;
-  background: #e4e4e4;
-  min-height: 120px;
-  box-sizing: border-box;
-}
-
-.p-child__criterion {
-  width: 50%;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  background: #f4f0e9;
-  border: 2px solid #4d4d4d;
-  color: black;
-  margin: 40px auto;
-}
-
-.p-child__btn {
-  width: 140px;
-  padding: 15px;
-  margin-left: auto;
-  font-size: 16px;
-}
-
-.p-child__foot {
-  margin-top: 40px;
-}
-
-.p-child__lead {
-  cursor: pointer;
-}
-
-.p-child__lead:hover {
-  opacity: 0.7;
-  text-decoration: underline;
 }
 
 .p-auth {
@@ -1704,13 +1608,17 @@ button:focus {
   padding: 0 15px;
 }
 
+.p-share {
+  margin: 10px 0;
+}
+
 .p-share__btn {
   padding: 5px;
 }
 
 @media screen and (max-width: 414px) {
   .p-share__btn {
-    max-width: 100px;
+    min-width: 100px;
     margin-right: auto;
     margin-left: 0;
   }

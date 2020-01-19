@@ -63,13 +63,32 @@
             <div class="l-site-width">
                 <h2 class="p-lp__title">STEPで学習すると...</h2>
                 <div class="l-row l-row--between p-merit__body">
-                    <ul class="l-row__col12 l-row__col04-pc">
-                        <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
-                        <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
-                        <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
-                        <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
-                        <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
-                        <li class="p-merit__list"><i class="fas fa-check-square p-merit__icn fa-2x"></i>学習方法になやまない</li>
+                    <ul class="l-row__col12 l-row__col06-pc">
+                        <li class="p-merit__list">
+                            <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                            学習方法になやまない
+                        </li>
+                        <li class="p-merit__list">
+                            <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                            新しいスキルを簡単に身に付けることができる
+                        </li>
+                        <li class="p-merit__list">
+                            <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                            他の人の学習方法を見ることができる
+                        </li>
+                        <li class="p-merit__list">
+                            <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                            新しい学習方法を発見できる
+                        </li>
+                        <li class="p-merit__list">
+                            <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                            良い方法と手順で最短ルートの学習ができる
+                            
+                        </li>
+                        <li class="p-merit__list">
+                            <i class="fas fa-check-square p-merit__icn fa-2x"></i>
+                            進捗が見えるのでモチベーションが高くなる
+                        </li>
                     </ul>
                     <div class="l-row__col12 l-row__col06-pc p-merit__img">
                         <img src="{{ asset('images/step_block.jpg') }}" alt="">
@@ -105,7 +124,7 @@
                     @endforeach
                 </div>
                     <div class="l-row u-pl--l u-pr--l">
-                        <a href="{{ route('steps.index') }}" class="c-btn c-btn--medium c-btn--right c-btn--warning p-browse__btn">他のSTEPを見る</a>
+                        <a href="{{ route('steps.index') }}" class="c-btn c-btn--medium c-btn--right c-btn--warning">他のSTEPを見る</a>
                     </div>
                     <div class="l-row u-mt--5l">
                         <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success c-btn--big p-lp__btn">今すぐ無料会員登録</a>

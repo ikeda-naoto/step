@@ -3,32 +3,11 @@
     <div class="l-container u-bg--light">
         <div class="l-row l-site-width">
             <!-- メインカラム -->
-            <div class="l-row__col12 l-row__col08-pc">
-                <!-- 親STEP詳細 -->
-                <parentStepDetailItem
-                    :user="user"
-                    :parentStep="parentStep"
-                    :challengeFlg="challengeFlg"
-                ></parentStepDetailItem>
-                <!-- チャレンジボタン -->
-                <challengeBtn
-                    :parentStepId="parentStep.id"
-                    :childStepId="parentStep.child_steps[0]['id']"
-                    :user="user"
-                    :challengeFlg="challengeFlg"
-                ></challengeBtn>
-                <!-- 子STEPインデックス -->
-                <childStepIndex
-                    :childSteps="parentStep.child_steps"
-                ></childStepIndex>
-                <!-- チャレンジボタン -->
-                <challengeBtn
-                    :parentStepId="parentStep.id"
-                    :childStepId="parentStep.child_steps[0]['id']"
-                    :user="user"
-                    :challengeFlg="challengeFlg"
-                ></challengeBtn>
-            </div>
+            <parentStepDetailMainColumn
+                :parentStep="parentStep"
+                :user="user"
+                :challengeFlg="challengeFlg"
+            ></parentStepDetailMainColumn>
             <!-- サブカラム（サイドバー） -->
             <parentStepDetailSidebar
                 :createUser="createUser"
@@ -38,15 +17,11 @@
 </template>
 
 <script>
-    import parentStepDetailItem from './parentStepDetailItem';
-    import childStepIndex from '../childStepIndex/childStepIndex';
-    import challengeBtn from './challengeBtn';
+    import parentStepDetailMainColumn from './parentStepDetailMainColumn';
     import parentStepDetailSidebar from './parentStepDetailSidebar';
     export default {
         components: {
-            parentStepDetailItem,
-            childStepIndex,
-            challengeBtn,
+            parentStepDetailMainColumn,
             parentStepDetailSidebar
         },
         props: ['parentStep', 'user', 'createUser', 'challengeFlg'],

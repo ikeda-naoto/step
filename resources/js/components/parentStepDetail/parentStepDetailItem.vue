@@ -1,26 +1,24 @@
 <template>
-    <section class="p-parent">
-        <div class="c-panel__category p-parent__category">{{ parentStep.category.name }}</div>
-        <div class="p-parent__outer">
-            <div class="p-parent__inner">
-                <div class="p-parent__head">    
-                    <h1 class="p-parent__title">「{{ parentStep.parent_title }}」</h1>
-                </div>    
-                <div class="p-parent__img">
-                    <img :src="showStepImg(parentStep.pic)" alt="">
+    <section class="p-step-detail">
+        <div class="c-panel__category p-step-detail__category">{{ parentStep.category.name }}</div>
+        <div class="p-step-detail__inner">
+            <div class="p-step-detail__head">    
+                <h1 class="c-title--normal p-step-detail__title">「{{ parentStep.parent_title }}」</h1>
+            </div>    
+            <div class="p-step-detail__img">
+                <img :src="showStepImg(parentStep.pic)" alt="">
+            </div>
+            <div class="p-share">
+                <button class="c-btn p-share__btn p-share__btn--twitter" @click="onClickTwitterShare">
+                    <i class="fab fa-twitter p-share__icn"></i>ツイート
+                </button>
+            </div>
+            <div class="p-step-detail__body">
+                <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(parentStep.parent_content))">
                 </div>
-                <div class="p-share">
-                    <button class="c-btn p-share__btn p-share__btn--twitter" @click="onClickTwitterShare">
-                        <i class="fab fa-twitter p-share__icn"></i>ツイート
-                    </button>
-                </div>
-                <div class="p-parent__body">
-                    <div class="p-parent__textarea" v-html="$sanitize(nl2br(parentStep.parent_content))">
-                    </div>
-                </div>       
-                <div class="p-parent__foot">
-                    <p class="p-parent__time">終了目安：{{ showTotalTime(parentStep.child_steps) }}時間</p>
-                </div>
+            </div>       
+            <div class="p-step-detail__foot">
+                <p class="u-text--right">終了目安：{{ showTotalTime(parentStep.child_steps) }}時間</p>
             </div>
         </div>
     </section>

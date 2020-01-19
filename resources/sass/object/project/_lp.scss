@@ -89,7 +89,6 @@
         }
     }
     &__list {
-        text-align: center;
         margin-bottom: $space_xxl;
     }
     &__icn {
@@ -107,10 +106,5 @@
     &__head {
         text-align: center;
         margin-bottom: $space_3l;
-    }
-    &__btn {
-        @include sm() {
-            min-width: 100%;
-        }
     }
 }

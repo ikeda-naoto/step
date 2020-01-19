@@ -1995,10 +1995,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2011,7 +2007,7 @@ __webpack_require__.r(__webpack_exports__);
     // ツイッターにSTEP情報をシェアする
     onClickTwitterShare: function onClickTwitterShare() {
       // ツイッターシェアするときのタイトル
-      var shareTitle = '- ' + this.parentStep.parent_title + ' STEP' + this.childStep.num + ' | ' + this.childStep.child_title + ' -';
+      var shareTitle = '- ' + this.parentStep.parent_title + ' STEP' + this.childStep.num + ' ' + this.childStep.child_title + ' -';
       this.twitterShare(shareTitle);
     }
   }
@@ -2739,10 +2735,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _parentStepDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parentStepDetailItem */ "./resources/js/components/parentStepDetail/parentStepDetailItem.vue");
-/* harmony import */ var _childStepIndex_childStepIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../childStepIndex/childStepIndex */ "./resources/js/components/childStepIndex/childStepIndex.vue");
-/* harmony import */ var _challengeBtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./challengeBtn */ "./resources/js/components/parentStepDetail/challengeBtn.vue");
-/* harmony import */ var _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parentStepDetailSidebar */ "./resources/js/components/parentStepDetail/parentStepDetailSidebar.vue");
+/* harmony import */ var _parentStepDetailMainColumn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parentStepDetailMainColumn */ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue");
+/* harmony import */ var _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parentStepDetailSidebar */ "./resources/js/components/parentStepDetail/parentStepDetailSidebar.vue");
 //
 //
 //
@@ -2761,37 +2755,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    parentStepDetailItem: _parentStepDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"],
-    childStepIndex: _childStepIndex_childStepIndex__WEBPACK_IMPORTED_MODULE_1__["default"],
-    challengeBtn: _challengeBtn__WEBPACK_IMPORTED_MODULE_2__["default"],
-    parentStepDetailSidebar: _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_3__["default"]
+    parentStepDetailMainColumn: _parentStepDetailMainColumn__WEBPACK_IMPORTED_MODULE_0__["default"],
+    parentStepDetailSidebar: _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: ['parentStep', 'user', 'createUser', 'challengeFlg']
 });
@@ -2834,8 +2803,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'parentStep', 'challengeFlg'],
@@ -2848,6 +2815,61 @@ __webpack_require__.r(__webpack_exports__);
       this.twitterShare(shareTitle);
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _parentStepDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parentStepDetailItem */ "./resources/js/components/parentStepDetail/parentStepDetailItem.vue");
+/* harmony import */ var _childStepIndex_childStepIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../childStepIndex/childStepIndex */ "./resources/js/components/childStepIndex/childStepIndex.vue");
+/* harmony import */ var _challengeBtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./challengeBtn */ "./resources/js/components/parentStepDetail/challengeBtn.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    parentStepDetailItem: _parentStepDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"],
+    childStepIndex: _childStepIndex_childStepIndex__WEBPACK_IMPORTED_MODULE_1__["default"],
+    challengeBtn: _challengeBtn__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  props: ['parentStep', 'user', 'challengeFlg']
 });
 
 /***/ }),
@@ -62063,82 +62085,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-row__col12 l-row__col08-pc" }, [
-    _c("section", { staticClass: "p-child" }, [
-      _c("div", { staticClass: "p-child__inner" }, [
-        _c("div", { staticClass: "p-child__head" }, [
-          _c("h1", { staticClass: "c-title--normal p-child__title" }, [
-            _vm._v(
-              "\n                        STEP" + _vm._s(_vm.childStep.num)
-            ),
-            _c("br"),
-            _vm._v(
-              "\n                        「" +
-                _vm._s(_vm.childStep.child_title) +
-                "」\n                    "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-child__body" }, [
-          _c("div", {
-            staticClass: "p-child__content",
-            domProps: {
-              innerHTML: _vm._s(
-                _vm.$sanitize(_vm.nl2br(_vm.childStep.child_content))
+  return _c(
+    "div",
+    { staticClass: "l-row__col12 l-row__col08-pc u-pr--l u-pl--l" },
+    [
+      _c("section", { staticClass: "p-step-detail" }, [
+        _c("div", { staticClass: "p-step-detail__inner" }, [
+          _c("div", { staticClass: "p-step-detail__head" }, [
+            _c("h1", { staticClass: "c-title--normal p-step-detail__title" }, [
+              _vm._v("\n                    STEP" + _vm._s(_vm.childStep.num)),
+              _c("br"),
+              _vm._v(
+                "\n                    「" +
+                  _vm._s(_vm.childStep.child_title) +
+                  "」\n                "
               )
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-share" }, [
-          _c(
-            "button",
-            {
-              staticClass: "c-btn p-share__btn p-share__btn--twitter",
-              on: { click: _vm.onClickTwitterShare }
-            },
-            [
-              _c("i", { staticClass: "fab fa-twitter p-share__icn" }),
-              _vm._v("ツイート\n                    ")
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "l-row l-row--between p-child__foot" },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "p-child__lead",
-                attrs: { href: "/steps/" + _vm.parentStep.id }
-              },
-              [
-                _vm._v(
-                  "\n                        < " +
-                    _vm._s(_vm.parentStep.parent_title) +
-                    "へ\n                    "
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-step-detail__body" }, [
+            _c("div", {
+              staticClass: "p-step-detail__textarea",
+              domProps: {
+                innerHTML: _vm._s(
+                  _vm.$sanitize(_vm.nl2br(_vm.childStep.child_content))
                 )
-              ]
-            ),
-            _vm._v(" "),
-            _c("clearButton", {
-              attrs: {
-                parentStepId: _vm.parentStep.id,
-                childStep: _vm.childStep,
-                clearNum: _vm.clearNum,
-                user: _vm.user,
-                challengeFlg: _vm.challengeFlg
               }
             })
-          ],
-          1
-        )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-share" }, [
+            _c(
+              "button",
+              {
+                staticClass: "c-btn p-share__btn p-share__btn--twitter",
+                on: { click: _vm.onClickTwitterShare }
+              },
+              [
+                _c("i", { staticClass: "fab fa-twitter p-share__icn" }),
+                _vm._v("ツイート\n                ")
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "l-row p-step-detail__foot" },
+            [
+              _c("clearButton", {
+                attrs: {
+                  parentStepId: _vm.parentStep.id,
+                  childStep: _vm.childStep,
+                  clearNum: _vm.clearNum,
+                  user: _vm.user,
+                  challengeFlg: _vm.challengeFlg
+                }
+              })
+            ],
+            1
+          )
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -62551,9 +62560,9 @@ var render = function() {
               { staticClass: "c-panel__title p-challenge-step__title" },
               [
                 _vm._v(
-                  "\n                「" +
+                  "\n                " +
                     _vm._s(_vm.challengeStep.parent_step.parent_title) +
-                    "」\n            "
+                    "\n            "
                 )
               ]
             )
@@ -63096,42 +63105,13 @@ var render = function() {
       "div",
       { staticClass: "l-row l-site-width" },
       [
-        _c(
-          "div",
-          { staticClass: "l-row__col12 l-row__col08-pc" },
-          [
-            _c("parentStepDetailItem", {
-              attrs: {
-                user: _vm.user,
-                parentStep: _vm.parentStep,
-                challengeFlg: _vm.challengeFlg
-              }
-            }),
-            _vm._v(" "),
-            _c("challengeBtn", {
-              attrs: {
-                parentStepId: _vm.parentStep.id,
-                childStepId: _vm.parentStep.child_steps[0]["id"],
-                user: _vm.user,
-                challengeFlg: _vm.challengeFlg
-              }
-            }),
-            _vm._v(" "),
-            _c("childStepIndex", {
-              attrs: { childSteps: _vm.parentStep.child_steps }
-            }),
-            _vm._v(" "),
-            _c("challengeBtn", {
-              attrs: {
-                parentStepId: _vm.parentStep.id,
-                childStepId: _vm.parentStep.child_steps[0]["id"],
-                user: _vm.user,
-                challengeFlg: _vm.challengeFlg
-              }
-            })
-          ],
-          1
-        ),
+        _c("parentStepDetailMainColumn", {
+          attrs: {
+            parentStep: _vm.parentStep,
+            user: _vm.user,
+            challengeFlg: _vm.challengeFlg
+          }
+        }),
         _vm._v(" "),
         _c("parentStepDetailSidebar", { attrs: { createUser: _vm.createUser } })
       ],
@@ -63161,62 +63141,110 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "p-parent" }, [
-    _c("div", { staticClass: "c-panel__category p-parent__category" }, [
+  return _c("section", { staticClass: "p-step-detail" }, [
+    _c("div", { staticClass: "c-panel__category p-step-detail__category" }, [
       _vm._v(_vm._s(_vm.parentStep.category.name))
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-parent__outer" }, [
-      _c("div", { staticClass: "p-parent__inner" }, [
-        _c("div", { staticClass: "p-parent__head" }, [
-          _c("h1", { staticClass: "p-parent__title" }, [
-            _vm._v("「" + _vm._s(_vm.parentStep.parent_title) + "」")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-parent__img" }, [
-          _c("img", {
-            attrs: { src: _vm.showStepImg(_vm.parentStep.pic), alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-share" }, [
-          _c(
-            "button",
-            {
-              staticClass: "c-btn p-share__btn p-share__btn--twitter",
-              on: { click: _vm.onClickTwitterShare }
-            },
-            [
-              _c("i", { staticClass: "fab fa-twitter p-share__icn" }),
-              _vm._v("ツイート\n                ")
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-parent__body" }, [
-          _c("div", {
-            staticClass: "p-parent__textarea",
-            domProps: {
-              innerHTML: _vm._s(
-                _vm.$sanitize(_vm.nl2br(_vm.parentStep.parent_content))
-              )
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-parent__foot" }, [
-          _c("p", { staticClass: "p-parent__time" }, [
-            _vm._v(
-              "終了目安：" +
-                _vm._s(_vm.showTotalTime(_vm.parentStep.child_steps)) +
-                "時間"
+    _c("div", { staticClass: "p-step-detail__inner" }, [
+      _c("div", { staticClass: "p-step-detail__head" }, [
+        _c("h1", { staticClass: "c-title--normal p-step-detail__title" }, [
+          _vm._v("「" + _vm._s(_vm.parentStep.parent_title) + "」")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-step-detail__img" }, [
+        _c("img", {
+          attrs: { src: _vm.showStepImg(_vm.parentStep.pic), alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-share" }, [
+        _c(
+          "button",
+          {
+            staticClass: "c-btn p-share__btn p-share__btn--twitter",
+            on: { click: _vm.onClickTwitterShare }
+          },
+          [
+            _c("i", { staticClass: "fab fa-twitter p-share__icn" }),
+            _vm._v("ツイート\n            ")
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-step-detail__body" }, [
+        _c("div", {
+          staticClass: "p-step-detail__textarea",
+          domProps: {
+            innerHTML: _vm._s(
+              _vm.$sanitize(_vm.nl2br(_vm.parentStep.parent_content))
             )
-          ])
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-step-detail__foot" }, [
+        _c("p", { staticClass: "u-text--right" }, [
+          _vm._v(
+            "終了目安：" +
+              _vm._s(_vm.showTotalTime(_vm.parentStep.child_steps)) +
+              "時間"
+          )
         ])
       ])
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=template&id=0774463a&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=template&id=0774463a& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "l-row__col12 l-row__col08-pc u-pr--l u-pl--l" },
+    [
+      _c("parentStepDetailItem", {
+        attrs: {
+          user: _vm.user,
+          parentStep: _vm.parentStep,
+          challengeFlg: _vm.challengeFlg
+        }
+      }),
+      _vm._v(" "),
+      _c("challengeBtn", {
+        attrs: {
+          parentStepId: _vm.parentStep.id,
+          childStepId: _vm.parentStep.child_steps[0]["id"],
+          user: _vm.user,
+          challengeFlg: _vm.challengeFlg
+        }
+      }),
+      _vm._v(" "),
+      _c("childStepIndex", {
+        attrs: { childSteps: _vm.parentStep.child_steps }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -63989,7 +64017,7 @@ var render = function() {
                       [
                         _c("i", { staticClass: "fas fa-plus u-mr--s" }),
                         _vm._v(
-                          "\n                            追加\n                        "
+                          "\n                            STEPを追加\n                        "
                         )
                       ]
                     )
@@ -78602,7 +78630,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var text = encodeURIComponent(shareTitle + ' | あなたの人生の「STEP」を共有しよう'); //シェアする画面を設定
 
-      var shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,共有,学習,手順'; //シェア用の画面へ移行
+      var shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有'; //シェア用の画面へ移行
 
       location.href = shareUrl;
     },
@@ -79470,6 +79498,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailItem_vue_vue_type_template_id_0cb14487___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailItem_vue_vue_type_template_id_0cb14487___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _parentStepDetailMainColumn_vue_vue_type_template_id_0774463a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parentStepDetailMainColumn.vue?vue&type=template&id=0774463a& */ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=template&id=0774463a&");
+/* harmony import */ var _parentStepDetailMainColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parentStepDetailMainColumn.vue?vue&type=script&lang=js& */ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _parentStepDetailMainColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _parentStepDetailMainColumn_vue_vue_type_template_id_0774463a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _parentStepDetailMainColumn_vue_vue_type_template_id_0774463a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailMainColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./parentStepDetailMainColumn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailMainColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=template&id=0774463a&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=template&id=0774463a& ***!
+  \****************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailMainColumn_vue_vue_type_template_id_0774463a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./parentStepDetailMainColumn.vue?vue&type=template&id=0774463a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue?vue&type=template&id=0774463a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailMainColumn_vue_vue_type_template_id_0774463a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_parentStepDetailMainColumn_vue_vue_type_template_id_0774463a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

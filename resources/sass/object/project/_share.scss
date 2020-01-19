@@ -1,8 +1,9 @@
 .p-share {
+    margin: $space_m 0;
     &__btn {
         padding:　$space_s;
         @include sm() {
-            max-width: 100px;
+            min-width: 100px;
             margin-right: auto;
             margin-left: 0;
         }

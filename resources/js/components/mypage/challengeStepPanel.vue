@@ -6,7 +6,7 @@
             </div>
             <div class="p-challenge-step__head">
                 <h3 class="c-panel__title p-challenge-step__title">
-                    「{{ challengeStep.parent_step.parent_title }}」
+                    {{ challengeStep.parent_step.parent_title }}
                 </h3>
             </div>
             <div class="l-row l-row--between p-challenge-step__body">
