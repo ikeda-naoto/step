@@ -123,14 +123,16 @@
     font-size: $font-size_s;
     &--active {
         border: none;
+        background-color: $background-color_light;
     }
     &__img {
         width: auto;
         height: 100%;
     }
-    &--done {
-        border: none;
-        background-color: $background-color_light;
+    &__droparea {
+        &--active {
+            opacity: 0;
+        }
     }
     &__input-file {
         position: absolute;

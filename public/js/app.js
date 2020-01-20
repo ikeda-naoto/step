@@ -62454,19 +62454,33 @@ var render = function() {
             attrs: { src: _vm.showImg, alt: "" }
           }),
           _vm._v(" "),
-          _c("div", [
-            _c("input", {
-              staticClass: "c-file-upload__input-file",
-              attrs: { type: "file", id: "img", accept: "", accept: "image/*" },
-              on: { change: _vm.onFileChange }
-            }),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "c-file-upload__btn" }, [
-              _vm._v("ファイルを選択")
-            ])
-          ])
+          _c(
+            "div",
+            {
+              staticClass: "c-file-upload__droparea",
+              class: _vm.isset(_vm.showImg)
+                ? "c-file-upload__droparea--active"
+                : false
+            },
+            [
+              _c("input", {
+                staticClass: "c-file-upload__input-file",
+                attrs: {
+                  type: "file",
+                  id: "img",
+                  accept: "",
+                  accept: "image/*"
+                },
+                on: { change: _vm.onFileChange }
+              }),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "c-file-upload__btn" }, [
+                _vm._v("ファイルを選択")
+              ])
+            ]
+          )
         ]
       )
     ])
@@ -78764,7 +78778,11 @@ __webpack_require__.r(__webpack_exports__);
     // ¥nを改行コード<br>へ変換
     nl2br: function nl2br() {
       return function (text) {
-        if (this.isset(text)) return text.replace(/\n/g, '<br/>');
+        if (!this.isset(text)) {
+          return '';
+        }
+
+        return text.replace(/\n/g, '<br/>');
       };
     }
   }

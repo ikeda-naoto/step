@@ -7,7 +7,7 @@
         <div class="l-row__col12 l-row__col08-pc">
             <div class="l-row l-row--middle l-row--center c-file-upload" :class="isset(showImg) ? 'c-file-upload--active' : false">
                 <img class="c-img__item--center c-file-upload__img" :src="showImg" alt="">
-                <div>
+                <div class="c-file-upload__droparea" :class="isset(showImg) ? 'c-file-upload__droparea--active' : false">
                     <input type="file" id="img" class="c-file-upload__input-file" accept="" @change="onFileChange" accept="image/*">
                     <p class="c-file-upload__lead">画像をここにドラッグ&ドロップ<br>または</p>
                     <div class="c-file-upload__btn">ファイルを選択</div>

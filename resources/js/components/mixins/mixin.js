@@ -43,7 +43,10 @@ export default {
         // ¥nを改行コード<br>へ変換
         nl2br: function() {
             return function(text) {
-                if(this.isset(text)) return text.replace(/\n/g, '<br/>');
+                if(!this.isset(text)) {
+                    return '';
+                }
+                return text.replace(/\n/g, '<br/>');
             }
         }
     },

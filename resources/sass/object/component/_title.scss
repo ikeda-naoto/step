@@ -2,7 +2,7 @@
     &--small {
         text-align: center;
         font-family: $font-family_gothic;
-        font-size: $font-size_xl;
+        font-size: $font-size_xxl;
         font-weight: bold;
         @include sm() {
             font-size: $font-size_l;
