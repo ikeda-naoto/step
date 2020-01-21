@@ -78804,9 +78804,9 @@ __webpack_require__.r(__webpack_exports__);
       return function (childStep) {
         var totalTime = 0;
         childStep.forEach(function (child) {
-          totalTime += child.time;
+          totalTime += parseInt(child.time, 10);
         });
-        return totalTime / 60;
+        return totalTime / 60.0;
       };
     },
     // ¥nを改行コード<br>へ変換
