@@ -18,7 +18,7 @@ $palette-yellow: #c7ba00ef;
 $palette-green: #1aa125;
 $palette-beige_base: #f8ebd5;
 $palette-beige_light: #f4f0e9;
-$palette-beige_dark: #c49515;
+$palette-beige_dark: #918241;
 $palette-red_light: #ffecec;
 $palette-red: #fd6363;
 
@@ -30,6 +30,7 @@ $font-color_active: $palette-navy;
 $font-color_err: $palette-red;
 $font-color_success: $palette-navy;
 $font-color_base : $palette-navy;
+$font-color_link: $palette-beige_dark;
 
 // 背景カラー
 $background-color_main-light: $palette-beige_light;

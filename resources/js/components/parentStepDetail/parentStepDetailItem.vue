@@ -12,7 +12,7 @@
                 @onClickTwitterShare="onClickTwitterShare"
             ></twitterShare>
             <div class="p-step-detail__body">
-                <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(parentStep.parent_content))">
+                <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(this.parentStep.parent_content)))">
                 </div>
             </div>       
             <div class="p-step-detail__foot">

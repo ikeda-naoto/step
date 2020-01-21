@@ -30,7 +30,8 @@
                                 <span class="c-form__option">任意</span>
                             </div>
                             <div class="l-row__col12 l-row__col08-pc">
-                                <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--high c-textarea--full" id="intro"></textarea>
+                                <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--low c-textarea--full" id="intro"></textarea>
+                                <div class="u-text--right"><span :class="introduction.length > 400 ? 'u-fontcolor--err' : false">{{ introduction.length }}</span>/400</div>
                             </div>
                         </div>
                         <!-- プロフィール画像 -->
@@ -46,7 +47,7 @@
                                 <span class="c-form__require">必須</span>
                             </div>
                             <div class="l-row__col12 l-row__col08-pc">
-                                <input v-model="email" name="email" id="email" type="email" class="c-input c-input--full" value="email" required autocomplete="email" autofocus>
+                                <input v-model="email" name="email" id="email" type="email" class="c-input c-input--full" value="email" required autocomplete="email">
                             </div>
                         </div>
                         <!-- 送信ボタン -->

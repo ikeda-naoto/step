@@ -11,7 +11,7 @@
                 </div>
                 <!-- 子STEP内容 -->
                 <div class="p-step-detail__body">
-                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(childStep.child_content))">
+                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(childStep.child_content)))">
                     </div>
                 </div>
                 <!-- ツイッターシェアボタン -->

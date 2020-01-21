@@ -724,8 +724,12 @@ button:focus {
   -moz-border-radius: 3px;
 }
 
-.c-textarea--high {
+.c-textarea--low {
   height: 150px;
+}
+
+.c-textarea--high {
+  height: 500px;
 }
 
 .c-textarea--full {
@@ -1668,6 +1672,15 @@ button:focus {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
+}
+
+.p-step-detail__body a {
+  color: #918241;
+}
+
+.p-step-detail__body a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 .p-auth__btn {

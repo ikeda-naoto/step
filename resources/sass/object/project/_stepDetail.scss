@@ -40,5 +40,12 @@
         border-radius: $border-radius_s;
         -webkit-border-radius: $border-radius_s;
         -moz-border-radius: $border-radius_s;
+        & a {
+            color: $font-color_link;
+            &:hover {
+                opacity: 0.8;
+                text-decoration: underline;
+            }
+        }
     } 
 }

@@ -82,7 +82,7 @@
                 for (let key in this.parentStep) { // 親STEPの各データについてループ
                     if(key === 'pic') { // keyがpicのとき
                         // propsデータに画像のパスがあればオブジェクトへ代入
-                        this.parentStep[key] = this.parentStepData[key] !== null ? this.parentStepData[key] : false;
+                        this.parentStep[key] = this.parentStepData[key] !== null ? this.parentStepData[key] : '';
                     }else { // それ以外
                         // 親ステップの各プロパティをオブジェクトへ代入
                         this.parentStep[key] = this.parentStepData[key];

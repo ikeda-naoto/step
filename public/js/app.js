@@ -2992,6 +2992,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3319,7 +3320,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.title = this.value.parent_title;
     this.category_id = this.value.category_id;
-    this.content = this.value.parent_title;
+    this.content = this.value.parent_content;
     this.pic = this.value.pic;
   },
   // 親STEPの情報が入力されたら
@@ -3449,7 +3450,7 @@ __webpack_require__.r(__webpack_exports__);
         if (key === 'pic') {
           // keyがpicのとき
           // propsデータに画像のパスがあればオブジェクトへ代入
-          this.parentStep[key] = this.parentStepData[key] !== null ? this.parentStepData[key] : false;
+          this.parentStep[key] = this.parentStepData[key] !== null ? this.parentStepData[key] : '';
         } else {
           // それ以外
           // 親ステップの各プロパティをオブジェクトへ代入
@@ -62142,7 +62143,9 @@ var render = function() {
                 staticClass: "p-step-detail__textarea",
                 domProps: {
                   innerHTML: _vm._s(
-                    _vm.$sanitize(_vm.nl2br(_vm.childStep.child_content))
+                    _vm.$sanitize(
+                      _vm.nl2br(_vm.autoLink(_vm.childStep.child_content))
+                    )
                   )
                 }
               })
@@ -63212,7 +63215,9 @@ var render = function() {
             staticClass: "p-step-detail__textarea",
             domProps: {
               innerHTML: _vm._s(
-                _vm.$sanitize(_vm.nl2br(_vm.parentStep.parent_content))
+                _vm.$sanitize(
+                  _vm.nl2br(_vm.autoLink(this.parentStep.parent_content))
+                )
               )
             }
           })
@@ -63412,7 +63417,7 @@ var render = function() {
                           }
                         ],
                         staticClass:
-                          "c-textarea c-textarea--high c-textarea--full",
+                          "c-textarea c-textarea--low c-textarea--full",
                         attrs: { name: "introduction", id: "intro" },
                         domProps: { value: _vm.introduction },
                         on: {
@@ -63423,7 +63428,21 @@ var render = function() {
                             _vm.introduction = $event.target.value
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "u-text--right" }, [
+                        _c(
+                          "span",
+                          {
+                            class:
+                              _vm.introduction.length > 400
+                                ? "u-fontcolor--err"
+                                : false
+                          },
+                          [_vm._v(_vm._s(_vm.introduction.length))]
+                        ),
+                        _vm._v("/400")
+                      ])
                     ])
                   ]),
                   _vm._v(" "),
@@ -63452,8 +63471,7 @@ var render = function() {
                           type: "email",
                           value: "email",
                           required: "",
-                          autocomplete: "email",
-                          autofocus: ""
+                          autocomplete: "email"
                         },
                         domProps: { value: _vm.email },
                         on: {
@@ -78752,6 +78770,15 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return true;
       }
+    },
+    autoLink: function autoLink(str) {
+      var regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g; // ']))/;
+
+      var regexp_makeLink = function regexp_makeLink(all, url, h, href) {
+        return '<a href="h' + href + '">' + url + '</a>';
+      };
+
+      return str.replace(regexp_url, regexp_makeLink);
     }
   },
   computed: {

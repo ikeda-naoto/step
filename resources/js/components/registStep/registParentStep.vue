@@ -60,7 +60,7 @@
         mounted: function() {
              this.title = this.value.parent_title;
              this.category_id = this.value.category_id;
-             this.content = this.value.parent_title;
+             this.content = this.value.parent_content;
              this.pic = this.value.pic;
         },
         // 親STEPの情報が入力されたら
