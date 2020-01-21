@@ -46,7 +46,7 @@ export default {
                 childStep.forEach(child => {
                     totalTime += child.time;
                 });
-                return totalTime;
+                return totalTime / 60.0;
             }
         },
         // ¥nを改行コード<br>へ変換
