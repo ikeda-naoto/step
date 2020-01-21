@@ -1637,7 +1637,7 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .p-step-detail__inner {
-    padding: 30px 15px;
+    padding: 40px 10px;
   }
 }
 

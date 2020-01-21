@@ -2025,7 +2025,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _childStepIndex_childStepIndexList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../childStepIndex/childStepIndexList */ "./resources/js/components/childStepIndex/childStepIndexList.vue");
+/* harmony import */ var _registStepBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../registStepBtn */ "./resources/js/components/registStepBtn.vue");
+/* harmony import */ var _childStepIndex_childStepIndexList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../childStepIndex/childStepIndexList */ "./resources/js/components/childStepIndex/childStepIndexList.vue");
+//
 //
 //
 //
@@ -2039,9 +2041,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    childStepIndexList: _childStepIndex_childStepIndexList__WEBPACK_IMPORTED_MODULE_0__["default"]
+    registStepBtn: _registStepBtn__WEBPACK_IMPORTED_MODULE_0__["default"],
+    childStepIndexList: _childStepIndex_childStepIndexList__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: ['childSteps']
 });
@@ -62205,6 +62209,8 @@ var render = function() {
       "div",
       { staticClass: "c-sidebar u-mt--0" },
       [
+        _c("registStepBtn"),
+        _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
         _c("childStepIndexList", { attrs: { childSteps: _vm.childSteps } })
@@ -78771,6 +78777,7 @@ __webpack_require__.r(__webpack_exports__);
         return true;
       }
     },
+    // 文字列の中からURLを探し、リンクへと置換する
     autoLink: function autoLink(str) {
       var regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g; // ']))/;
 

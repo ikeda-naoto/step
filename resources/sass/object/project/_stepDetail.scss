@@ -10,7 +10,7 @@
         -moz-border-radius: $border-radius_s;
         box-sizing: border-box;
         @include sm() {
-            padding: $space_xxl $space_l;
+            padding: $space_3l $space_m;
         }
     }
     &__category {

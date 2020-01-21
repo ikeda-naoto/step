@@ -19,6 +19,7 @@ export default {
                 return true;
             }
         },
+        // 文字列の中からURLを探し、リンクへと置換する
         autoLink: function(str) {
             let regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g; // ']))/;
             let regexp_makeLink = function(all, url, h, href) {
