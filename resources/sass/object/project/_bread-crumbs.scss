@@ -1,13 +1,10 @@
 .p-breadcrumbs {
-    height: 40px;
+    padding: $space_m 0;
     position:relative;
     box-shadow: 0 3px 5px 0px $shadow-color_dark;
     @include sm() {
         padding-left: $space_m;
     }
-    // &__icn {
-    //     margin: 0 $space_m;
-    // }
     &__item::after {
         content: '>';
         padding: 0 $space_s;
