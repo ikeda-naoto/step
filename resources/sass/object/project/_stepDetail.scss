@@ -41,6 +41,8 @@
         -webkit-border-radius: $border-radius_s;
         -moz-border-radius: $border-radius_s;
         & a {
+            display: block;
+            width: 100%;
             color: $font-color_link;
             &:hover {
                 opacity: 0.8;
