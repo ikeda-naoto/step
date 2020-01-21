@@ -57,7 +57,7 @@ class Common {
           $childStep->fill($childStepData)->save();
         }else { // 新たに子STEPを登録する場合
           $childStep = new ChildStep;
-          $parentStep->childSteps()->save($childStep->fill($data));
+          $parentStep->childSteps()->save($childStep->fill($childStepData));
         }
       }
     }
