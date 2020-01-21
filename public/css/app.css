@@ -1675,8 +1675,7 @@ button:focus {
 }
 
 .p-step-detail__body a {
-  display: block;
-  width: 100%;
+  word-break: break-all;
   color: #918241;
 }
 
