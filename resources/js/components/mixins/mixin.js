@@ -46,9 +46,7 @@ export default {
                 childStep.forEach(child => {
                     totalTime += child.time;
                 });
-                console.log(totalTime)
-                console.log(totalTime/60)
-                return totalTime / 60;
+                return totalTime;
             }
         },
         // ¥nを改行コード<br>へ変換
