@@ -1108,21 +1108,36 @@ button:focus {
   }
 }
 
+.p-lp__head {
+  padding-left: 40px;
+}
+
+@media screen and (max-width: 414px) {
+  .p-lp__head {
+    padding: 0 10px;
+  }
+}
+
 .p-lp__title {
   color: #333;
   font-size: 36px;
   font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
   font-weight: 600;
-  padding-left: 40px;
   line-height: 150%;
 }
 
 @media screen and (max-width: 414px) {
   .p-lp__title {
-    text-align: center;
     font-size: 30px;
     padding-left: 0;
   }
+}
+
+.p-lp__title--en {
+  font-size: 16px;
+  font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \30B4\30B7\30C3\30AF", sans-serif;
+  font-weight: bold;
+  color: #0057a3;
 }
 
 .p-lp__inner {
@@ -1192,6 +1207,7 @@ button:focus {
 .p-about {
   position: relative;
   padding-bottom: 60px 0;
+  z-index: 1;
 }
 
 .p-about__title {
@@ -1221,10 +1237,9 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .p-about__img {
-    width: 100%;
-    top: 140px;
-    left: 0;
-    opacity: 0.6;
+    width: 50%;
+    top: -120px;
+    right: 0;
   }
 }
 
@@ -1272,10 +1287,15 @@ button:focus {
 
 @media screen and (max-width: 414px) {
   .p-wall__title {
-    font-size: 22px;
+    font-size: 30px;
     line-height: 150%;
     margin-bottom: 15px;
   }
+}
+
+.p-wall__descript {
+  padding-right: 30px;
+  line-height: 160%;
 }
 
 .p-feature__title {
@@ -1283,13 +1303,13 @@ button:focus {
   background: #0057a3;
   text-align: center;
   font-size: 30px;
-  padding: 40px 0;
+  padding: 50px 0;
   line-height: 150%;
 }
 
 @media screen and (max-width: 414px) {
   .p-feature__title {
-    padding: 30px 0;
+    padding: 40px 0;
     font-size: 18px;
   }
 }
@@ -2164,5 +2184,11 @@ button:focus {
 
 .u-position--absolute {
   position: absolute;
+}
+
+.u-marker--warning {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, transparent), to(#c7ba00ef));
+  background: linear-gradient(transparent 40%, #c7ba00ef);
+  font-weight: bold;
 }
 

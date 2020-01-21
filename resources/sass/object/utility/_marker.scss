@@ -1,0 +1,6 @@
+.u-marker {
+    &--warning {
+        background:linear-gradient(transparent 40%, $marker-color_warnig);
+        font-weight:bold; 
+    }
+}

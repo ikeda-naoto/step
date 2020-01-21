@@ -6,17 +6,28 @@
     @include sm() {
         font-size: $font-size_m;
     }
+    &__head {
+        padding-left: $space_3l;
+        @include sm() {
+            padding: 0 $space_m;
+            // text-align: center;
+        }
+    }
     &__title {
         color: $font-color_dark;
         font-size: $font-size_3l;
         font-family: $font-family_gothic;
         font-weight: 600;
-        padding-left: $space_3l;
         line-height: 150%;
         @include sm() {
-            text-align: center;
             font-size: $font-size_xxl;
             padding-left: 0;
+        }
+        &--en {
+            font-size: $font-size_default;
+            font-family: $font-family_gothic;
+            font-weight: bold;
+            color: $background-color_base;
         }
     }
     &__inner {
@@ -75,6 +86,7 @@
 .p-about {
     position: relative;
     padding-bottom: $space_5l 0;
+    z-index: 1;
     // border-bottom: $border_s solid $border-color_light;
     &__title {
         font-size: $font-size_xl;
@@ -95,10 +107,9 @@
         top: -55px;
         z-index: -1;
         @include sm() {
-            width: 100%;
-            top: 140px;
-            left: 0;
-            opacity: 0.6;
+            width: 50%;
+            top: -120px;
+            right: 0;
         }
     }
 }
@@ -137,10 +148,14 @@
         font-family: $font-family_gothic;
         font-weight: 600;
         @include sm() {
-            font-size: $font-size_xl;
+            font-size: $font-size_xxl;
             line-height: 150%;
             margin-bottom: $space_l;
         }
+    }
+    &__descript {
+        padding-right: $space_xxl;
+        line-height: 160%;
     }
 }
 
@@ -150,10 +165,10 @@
         background: $background-color_base;
         text-align: center;
         font-size: $font-size_xxl;
-        padding: $space_3l 0;
+        padding: $space_4l 0;
         line-height: 150%;
         @include sm() {
-            padding: $space_xxl 0;
+            padding: $space_3l 0;
             font-size: $font-size_l;
         }
     }
