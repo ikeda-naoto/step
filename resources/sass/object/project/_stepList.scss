@@ -11,9 +11,10 @@
         height: 214px;
         margin-bottom: $space_m;
     }
-    &__title {
+    &__head {
         margin-bottom: $space_s;
         padding: 0 $space_s;
+        min-height: 53px;
     }
     &__body {
         padding: 0 $space_s;

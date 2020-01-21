@@ -58,6 +58,7 @@
         height: 214px;
     }
     &__head {
+        min-height: 48px;
         margin: $space_s 0;
     }
     &__body {

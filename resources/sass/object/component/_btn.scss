@@ -135,6 +135,7 @@
         background: $background-color_base;
         line-height: 40px;
         text-align: center;
+        z-index: 2;
         &:hover {
             opacity: 0.8;
         }

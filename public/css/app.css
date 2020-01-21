@@ -470,6 +470,7 @@ button:focus {
   background: #0057a3;
   line-height: 40px;
   text-align: center;
+  z-index: 2;
 }
 
 .c-btn--pageTop:hover {
@@ -1481,9 +1482,10 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.p-step-list__title {
+.p-step-list__head {
   margin-bottom: 5px;
   padding: 0 5px;
+  min-height: 53px;
 }
 
 .p-step-list__body {
@@ -1574,6 +1576,7 @@ button:focus {
 }
 
 .p-challenge-step__head {
+  min-height: 48px;
   margin: 5px 0;
 }
 
