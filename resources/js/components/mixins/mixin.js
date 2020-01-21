@@ -46,6 +46,8 @@ export default {
                 childStep.forEach(child => {
                     totalTime += child.time;
                 });
+                console.log(totalTime)
+                console.log(totalTime/60)
                 return totalTime / 60;
             }
         },
