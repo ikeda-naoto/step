@@ -1,6 +1,8 @@
 .u-marker {
     &--warning {
-        background:linear-gradient(transparent 40%, $marker-color_warnig);
+        background:linear-gradient(rgba(255,255,255,0) 40%, $marker-color_warnig);
+        background: -moz-linear-gradient(rgba(255,255,255,0) 40%, $marker-color_warnig); 
+        background: -webkit-linear-gradient(rgba(255,255,255,0) 40%, $marker-color_warnig); 
         font-weight:bold; 
     }
 }
