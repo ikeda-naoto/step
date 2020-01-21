@@ -44,7 +44,7 @@ export default {
             return function(childStep) {
                 let totalTime = 0;
                 childStep.forEach(child => {
-                    totalTime += child.time;
+                    totalTime += parseInt(child.time,10);
                 });
                 return totalTime / 60.0;
             }
