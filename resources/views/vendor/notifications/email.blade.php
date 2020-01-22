@@ -51,7 +51,7 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "もし \":actionText\" ボタンが動作しない場合は、下記URLをよりパスワードの再設定を行ってください。\n".
+    "もし \":actionText\" ボタンが動作しない場合は、下記URLよりパスワードの再設定を行ってください。\n".
     ': [:actionURL](:actionURL)',
     [
         'actionText' => $actionText,
