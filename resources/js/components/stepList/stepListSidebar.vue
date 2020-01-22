@@ -1,5 +1,5 @@
 <template>
-    <div class="l-row__col12 l-row__col04-pc">
+    <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
         <div class="c-sidebar">
             <!-- STEP登録ボタン -->
             <registStepBtn></registStepBtn>

@@ -15,6 +15,9 @@
         @include sm() {
             padding: $space_3l $space_m;
         }
+        @include tab() {
+            padding: $space_3l $space_l;
+        }
     }
     &__category {
         width: 180px;

@@ -3,20 +3,20 @@
         <div class="c-form">
             <h1 class="c-title--normal u-mb--5l">STEP {{ !editFlg ? '登録' : '編集' }}</h1>
             <div class="l-row c-form__group">
-                <div class="l-row__col12 l-row__col04-pc">
+                <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                     <label for="parent_title" class="c-form__label">タイトル</label>
                     <span class="c-form__require">必須</span>
                 </div>
-                <div class="l-row__col12 l-row__col08-pc">
+                <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                     <input id="parent_title" type="text" class="c-input c-input--full" v-model="title">
                 </div>
             </div>
             <div class="l-row c-form__group">
-                <div class="l-row__col12 l-row__col04-pc">
+                <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                     <label for="category" class="c-form__label">カテゴリー</label>
                     <span class="c-form__require">必須</span>
                 </div>
-                <div class="l-row__col12 l-row__col08-pc">
+                <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                     <select name="" id="category" class="c-select c-select--half-pc c-select--full-sm" v-model="category_id">
                         <option value="">選択してください</option>
                         <option v-for="category in categories" :key="category.id" :value="category.id">
@@ -26,11 +26,11 @@
                 </div>
             </div>
             <div class="l-row c-form__group">
-                <div class="l-row__col12 l-row__col04-pc">
+                <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                     <label for="parent_title" class="c-form__label">STEPの内容</label>
                     <span class="c-form__require">必須</span>
                 </div>
-                <div class="l-row__col12 l-row__col08-pc">
+                <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                     <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="parent_title" v-model="content"></textarea>
                 </div>
             </div>

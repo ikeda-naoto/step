@@ -10,26 +10,26 @@
         <div class="l-container u-bg--light">
             <div class="l-row l-row--center l-site-width">
                 <!-- メインカラム -->
-                <div class="l-row l-row--center l-row__col12 l-row__col10-pc">
+                <div class="l-row l-row--center l-row__col12--sm l-row__col12--tab l-row__col10--pc">
                     <div class="c-form p-prof-edit">
                         <h1 class="c-title--normal u-mb--5l">プロフィール編集</h1>
                         <!-- ニックネーム入力欄 -->
                         <div class="l-row c-form__group">
-                            <div class="l-row__col12 l-row__col04-pc">
+                            <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                                 <label for="name" class="c-form__label">ニックネーム</label>
                                 <span class="c-form__option">任意</span>
                             </div>
-                            <div class="l-row__col12 l-row__col08-pc">
+                            <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                                 <input v-model="name" id="name" name="name" type="text" class="c-input c-input--full">
                             </div>
                         </div>
                         <!-- 自己紹介入力欄 -->
                         <div class="l-row c-form__group">
-                            <div class="l-row__col12 l-row__col04-pc">
+                            <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                                 <label for="intro" class="c-form__label">自己紹介</label>
                                 <span class="c-form__option">任意</span>
                             </div>
-                            <div class="l-row__col12 l-row__col08-pc">
+                            <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                                 <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--low c-textarea--full" id="intro"></textarea>
                                 <div class="u-text--right"><span :class="introduction.length > 400 ? 'u-fontcolor--err' : false">{{ introduction.length }}</span>/400</div>
                             </div>
@@ -42,11 +42,11 @@
                         ></inputFile>
                         <!-- メールアドレス入力欄 -->
                         <div class="l-row c-form__group">
-                            <div class="l-row__col12 l-row__col04-pc">
+                            <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                                 <label for="email" class="c-form__label">メールアドレス</label>
                                 <span class="c-form__require">必須</span>
                             </div>
-                            <div class="l-row__col12 l-row__col08-pc">
+                            <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                                 <input v-model="email" name="email" id="email" type="email" class="c-input c-input--full" value="email" required autocomplete="email">
                             </div>
                         </div>

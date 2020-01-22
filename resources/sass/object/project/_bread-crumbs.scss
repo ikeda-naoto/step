@@ -8,6 +8,9 @@
     @include sm() {
         padding-left: $space_m;
     }
+    @include tab() {
+        padding-left: $space_m;
+    }
     &__item::after {
         content: '>';
         padding: 0 $space_s;

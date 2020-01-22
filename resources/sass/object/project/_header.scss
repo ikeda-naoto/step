@@ -6,14 +6,30 @@
     @include sm() {
         padding: $space_m;
     }
+    @include tab() {
+        padding: 0 $space_l;
+    }
     &__logo {
         width: 200px;
         @include sm() {
             width: 150px;
         }
+        
     }
     &__nav {
         @include sm(){
+            width: 250px;
+            height: 100%;
+            padding-top: 100px;
+            background: $background-color_base;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            transform: translate(250px);
+            transition: all .5s;
+        }
+        @include tab(){
             width: 250px;
             height: 100%;
             padding-top: 100px;
@@ -29,6 +45,9 @@
 }
 .p-nav {
     @include sm() {
+        display: none;
+    }
+    @include tab() {
         display: none;
     }
     &__item {
@@ -77,6 +96,9 @@
     display: none;
     padding: 0 $space_s;
     @include sm() {
+        display: block;
+    }
+    @include tab() {
         display: block;
     }
     &__item {

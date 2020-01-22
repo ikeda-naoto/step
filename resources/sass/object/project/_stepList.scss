@@ -8,6 +8,10 @@
         &-container {
             padding: 0 $space_l;
             margin: $space_l 0;
+            @include tab() {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
         &:hover {
             opacity: 0.8;

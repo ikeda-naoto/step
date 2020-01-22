@@ -1,5 +1,5 @@
 <template>
-    <div class="l-row__col12 l-row__col08-pc u-pr--l u-pl--l">
+    <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc u-pr--l u-pl--l">
         <section class="p-step-detail">
             <div class="p-step-detail__inner">
                 <div class="p-step-detail__head">

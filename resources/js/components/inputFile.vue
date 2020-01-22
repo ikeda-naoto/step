@@ -1,10 +1,10 @@
 <template>
     <div class="l-row c-form__group">
-        <div class="l-row__col12 l-row__col04-pc">
+        <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
             <label for="img" class="c-form__label">{{ text }}</label>
             <span class="c-form__option">任意</span>
         </div>
-        <div class="l-row__col12 l-row__col08-pc">
+        <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
             <div class="l-row l-row--middle l-row--center c-file-upload" :class="isset(showImg) ? 'c-file-upload--active' : false">
                 <img class="c-img__item--center c-file-upload__img" :src="showImg" alt="">
                 <div class="c-file-upload__droparea" :class="isset(showImg) ? 'c-file-upload__droparea--active' : false">

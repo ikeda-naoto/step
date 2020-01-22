@@ -4,9 +4,14 @@
 .c-sidebar {
     width: 80%;
     margin-left: auto;
+    box-sizing: border-box;
     @include sm() {
         width: 100%;
         margin-top: $space_3l;
+    }
+    @include tab() {
+        padding: $space_m;
+        width: 100%;
     }
     &__group {
         margin-bottom: $space_3l;

@@ -9,7 +9,7 @@
     <div class="l-container u-bg--light">
         <div class="l-row l-row--center l-site-width">
             <!-- メインカラム -->
-            <div class="l-row l-row--center l-row__col12 l-row__col10-pc">
+            <div class="l-row l-row--center l-row__col12--sm l-row__col12--tab l-row__col10--pc">
                 <div class="p-regist-step">
                     <!-- 親STEP登録フォーム -->
                     <registParentStep
