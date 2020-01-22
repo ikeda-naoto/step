@@ -4,21 +4,21 @@
     <div class="c-form">
         <!-- 子STEPタイトル -->
         <div class="l-row c-form__group">
-            <div class="l-row__col12 l-row__col04-pc">
+            <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                 <label for="child_title" class="c-form__label">タイトル</label>
                 <span class="c-form__require">必須</span>
             </div>
-            <div class="l-row__col12 l-row__col08-pc">
+            <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                 <input id="child_title" type="text" class="c-input c-input--full" v-model="title">
             </div>
         </div>
         <!-- 子STEP終了時間 -->
         <div class="l-row c-form__group">
-            <div class="l-row__col12 l-row__col04-pc">
+            <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                 <label for="time" class="c-form__label">目安達成時間</label>
                 <span class="c-form__require">必須</span>
             </div>
-            <div class="l-row__col12 l-row__col08-pc">
+            <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                 <select name="" id="time" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
                     <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
                 </select>
@@ -26,11 +26,11 @@
         </div>
         <!-- 子STEP内容 -->
         <div class="l-row c-form__group">
-            <div class="l-row__col12 l-row__col04-pc">
+            <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
                 <label for="child_content" class="c-form__label">STEP1の内容</label>
                 <span class="c-form__require">必須</span>
             </div>
-            <div class="l-row__col12 l-row__col08-pc">
+            <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                 <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="child_content" v-model="content"></textarea>
             </div>
         </div>

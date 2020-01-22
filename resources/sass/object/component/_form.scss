@@ -12,6 +12,9 @@
     @include sm() {
         padding: $space_7l $space_l;
     }
+    @include tab() {
+        padding: $space_7l $space_xl;
+    }
     &__group {
         margin: $space_3l 0;
     }

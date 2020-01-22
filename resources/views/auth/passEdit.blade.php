@@ -7,7 +7,7 @@
     <div class="l-container u-bg--light">
         <div class="l-row l-row--center l-site-width">
             <!-- メインカラム -->
-            <div class="l-row l-row--center l-row__col12 l-row__col08-pc">
+            <div class="l-row l-row--center l-row__col12--sm l-row__col10--tab l-row__col08--pc">
                 <form method="POST" action="/password" class="c-form p-auth">
                     @csrf
                     @method('PATCH')

@@ -1,5 +1,5 @@
 <template>
-    <div class="l-row__col12 l-row__col08-pc">
+    <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
         <!-- ページタイトル -->
         <h1 class="c-title--normal u-mb--5l">STEP一覧</h1>
         <p v-if="isShow" class="u-text--center u-fontsize--l">STEPがありません</p>

@@ -10,7 +10,7 @@
 <div class="l-container u-bg--light">
     <div class="l-row l-row--center l-site-width">
         <!-- メインカラム -->
-        <div class="l-row l-row--center l-row__col12 l-row__col08-pc">
+        <div class="l-row l-row--center l-row__col12--sm l-row__col10--tab l-row__col08--pc">
             <form method="POST" action="{{ route('login') }}" class="c-form p-auth">
                 @csrf
                 <h1 class="c-title--normal u-mb--5l">ログイン</h1>

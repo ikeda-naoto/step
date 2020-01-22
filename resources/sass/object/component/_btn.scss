@@ -85,6 +85,9 @@
         @include sm() {
           display: inline-block;
         }
+        @include tab() {
+            display: inline-block;
+          }
         transition: all .4s;
         box-sizing: border-box;
         position: relative;

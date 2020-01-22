@@ -10,7 +10,6 @@
         padding-left: $space_3l;
         @include sm() {
             padding: 0 $space_m;
-            // text-align: center;
         }
     }
     &__title {
@@ -66,6 +65,10 @@
         height: 230px;
         background-attachment: unset;
     }
+    @include tab() {
+        height: 430px;
+        background-attachment: unset;
+    }
     &__phrase {
         width: 100%;
         text-align: center;
@@ -82,6 +85,9 @@
         transform: translate(-50%,-50%);
         @include sm() {
             font-size: $font-size_xl;
+        }
+        @include tab() {
+            font-size: $font-size_3l;
         }
     }
 }
@@ -118,6 +124,11 @@
             top: -120px;
             right: 0;
         }
+        @include tab() {
+            width: 45%;
+            top: -170px;
+            right: 0;
+        }
     }
 }
 
@@ -127,11 +138,14 @@
 // ==============================
 .p-wall {
     &__list-item {
-        margin-top: $space_3l;
+        margin-top: $space_xl;
         position: relative;
-        // background: $background-color_light;
         padding: $space_xxl $space_xl;
         @include sm() {
+            margin-top: $space_xl;
+            padding: $space_xxl 0;
+        }
+        @include tab() {
             margin-top: $space_xl;
             padding: $space_xxl 0;
         }
@@ -143,7 +157,7 @@
         font-style: italic;
         text-align: center;
         position: relative;
-        top: 20px;
+        top: 34px;
         @include sm() {
             font-size: 56px;
             top: 14px;
@@ -151,13 +165,17 @@
     }
     &__textarea {
         margin-left: $space_l;
+        @include tab() {
+            margin-left: $space_xl;
+        }
     }
     &__title {
         font-size: $font-size_3l;
-        margin-bottom: $space_xxl;
+        margin-bottom: $space_xl;
         color: $font-color_base;
         font-family: $font-family_gothic;
-        font-weight: 600;
+        font-weight: bold;
+        line-height: 150%;
         @include sm() {
             font-size: $font-size_xxl;
             line-height: 150%;

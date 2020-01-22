@@ -98,7 +98,7 @@ $border-radius_m: 5px;
 $border-radius_l: 10px;
 
 // コンテンツサイズ
-$site-width: 1080px;
+$site-width: 1024px;
 
 // 余白サイズ
 $space_s: 5px;
@@ -121,9 +121,9 @@ $font-family_gothic: 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','�
 // ブレイクポイント
 $breakpoints: (
   'sm': 'screen and (max-width: 414px)',
-  'md': 'screen and (max-width: 768px)',
-  'lg': 'screen and (max-width: 1024px)',
-  'xl': 'screen and (max-width: 1200px)',
+  'tab': 'screen and (min-width: 415px) and (max-width: 959px)',
+  // 'lg': 'screen and (max-width: 1024px)',
+  'pc': 'screen and (min-width: 960px)',
 ) !default;
 
 // ==============================
@@ -134,12 +134,17 @@ $breakpoints: (
     @content;
   }
 }
-@mixin md($breakpoint: md) {
+@mixin tab($breakpoint: tab) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
 }
 
+@mixin pc($breakpoint: pc) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
 // ==============================
 // base
 // ==============================
