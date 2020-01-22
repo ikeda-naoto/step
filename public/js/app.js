@@ -1994,6 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3813,6 +3814,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -3820,6 +3822,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     stepListPanel: _stepListPanel__WEBPACK_IMPORTED_MODULE_1__["default"],
     pagination: _pagination__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      isShow: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    // STEP一覧に表示されるSTEPがなかったらその旨を伝えるメッセージを表示する
+    this.$store.watch(function (state, getters) {
+      return getters.getParentSteps;
+    }, function (newValue) {
+      _this.isShow = newValue.length === 0 ? true : false;
+    });
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['parentSteps']))
 });
@@ -62143,6 +62160,12 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "p-step-detail__body" }, [
+              _c("div", { staticClass: "u-text--right" }, [
+                _vm._v(
+                  "目安達成時間：" + _vm._s(_vm.childStep.time / 60) + "時間"
+                )
+              ]),
+              _vm._v(" "),
               _c("div", {
                 staticClass: "p-step-detail__textarea",
                 domProps: {
@@ -62638,7 +62661,7 @@ var render = function() {
               _vm._v(" "),
               _c("p", { staticClass: "c-panel__time" }, [
                 _vm._v(
-                  "\n                終了目安時間：" +
+                  "\n                目安達成時間：" +
                     _vm._s(
                       _vm.showTotalTime(
                         _vm.challengeStep.parent_step.child_steps
@@ -63232,7 +63255,7 @@ var render = function() {
         _c("div", { staticClass: "p-step-detail__foot" }, [
           _c("p", { staticClass: "u-text--right" }, [
             _vm._v(
-              "終了目安時間：" +
+              "目安達成時間：" +
                 _vm._s(_vm.showTotalTime(_vm.parentStep.child_steps)) +
                 "時間"
             )
@@ -64479,17 +64502,21 @@ var render = function() {
         _vm._v("STEP一覧")
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "l-row p-step-list" },
-        _vm._l(_vm.parentSteps, function(parentStep) {
-          return _c("stepListPanel", {
-            key: parentStep.id,
-            attrs: { parentStep: parentStep }
-          })
-        }),
-        1
-      ),
+      _vm.isShow
+        ? _c("p", { staticClass: "u-text--center u-fontsize--l" }, [
+            _vm._v("STEPがありません")
+          ])
+        : _c(
+            "div",
+            { staticClass: "l-row p-step-list" },
+            _vm._l(_vm.parentSteps, function(parentStep) {
+              return _c("stepListPanel", {
+                key: parentStep.id,
+                attrs: { parentStep: parentStep }
+              })
+            }),
+            1
+          ),
       _vm._v(" "),
       _c("pagination")
     ],
@@ -78094,20 +78121,21 @@ $(function () {
   var $jsAnimateFadeInTop = $('.js-animate-fadeIn-top');
   $jsAnimateFadeInTop.css('opacity', 0);
   $(window).scroll(function () {
-    if ($jsAnimateFadeInTop.length !== 0) {
-      var elemPos = $jsAnimateFadeInTop.eq(0).offset().top,
-          scroll = $(window).scrollTop(),
-          windowHeight = $(window).height();
+    var delaySpeed = 300,
+        fadeSpeed = 1000;
 
-      if (scroll > elemPos - windowHeight + 100) {
-        var delaySpeed = 400,
-            fadeSpeed = 2000;
-        $jsAnimateFadeInTop.each(function (i) {
+    if ($jsAnimateFadeInTop.length !== 0) {
+      $jsAnimateFadeInTop.each(function (i) {
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+
+        if (scroll > elemPos - windowHeight) {
           $(this).delay(i * delaySpeed).animate({
             opacity: 1
           }, fadeSpeed);
-        });
-      }
+        }
+      });
     }
   }); // フラッシュメッセージ表示
 
@@ -80782,6 +80810,11 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     from: 0,
     to: 0,
     categories: []
+  },
+  getters: {
+    getParentSteps: function getParentSteps(state) {
+      return state.parentSteps;
+    }
   },
   mutations: {
     // キーワード検索欄に入力された値を変数に代入

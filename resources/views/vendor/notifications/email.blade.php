@@ -5,8 +5,8 @@
 @else
 @if ($level === 'error')
 # @lang('Whoops!')
-@else
-# @lang('Hello!')
+{{-- @else
+# @lang('Hello!') --}}
 @endif
 @endif
 
@@ -51,7 +51,7 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "もし \":actionText\" ボタンが動かない場合は、このURLをブラウザにコピぺしてください\n".
+    "もし \":actionText\" ボタンが動作しない場合は、下記URLをよりパスワードの再設定を行ってください。\n".
     ': [:actionURL](:actionURL)',
     [
         'actionText' => $actionText,

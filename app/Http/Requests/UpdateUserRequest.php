@@ -27,7 +27,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'max:20',
             'introduction' => 'max:400',
-            'pic' => 'nullable|file|image',
+            'pic' => 'nullable|file|image|dimensions:width=320,height=240',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::user()->id],
         ];
     }

@@ -7,13 +7,13 @@
     <a href="" class="c-btn--pageTop js-scroll-top"><i class="fas fa-angle-double-up"></i></a>
     <div class="l-container p-lp u-p--0">
         <section class="p-baner">
-            <h1 class="p-baner__phrase ">
+            <h1 class="p-baner__phrase">
                 あなたの人生のSTEPを共有しよう
             </h1>
         </section>
         <div class="l-container u-bg--light">
             <div class="l-site-width">
-                <section class="p-about">
+                <section class="p-about js-animate-fadeIn">
                     <div class="p-lp__head">
                         <h3 class="p-lp__title--en">ABOUT</h3>
                         <h2 class="p-lp__title">STEPとは</h2>
@@ -50,19 +50,19 @@
             </div>
         </div>
         <div class="l-container">
-            <section class="p-wall">
+            <section class="p-wall js-animate-fadeIn">
                 <div class="l-site-width">
                     <div class="p-lp__head">
                         <h3 class="p-lp__title--en">CHALLENGE</h3>
                         <h2 class="p-lp__title">
                             大きな壁を乗り越えて、<br>
-                            個人の時代で価値ある人材へ
+                            知識の幅を広げる
                         </h2>
                     </div>
                     <div class="p-lp__inner">
                         <p class="p-lp__text">
                             変化の激しい今、その変化に取り残されないためにも、個の力をつけることが必要不可欠となりました。<br>
-                            しかし、学習をするうえでは<span class="u-marker--warning">必ず乗り越えなければならない壁にぶつかります。</span><br>
+                            しかし、学問は多種多様で学び方が異なるなど<span class="u-marker--warning">必ず乗り越えなければならない壁にぶつかります。</span><br>
                             「STEP」で学習をすることで、<span class="u-marker--warning">挫折せずに最短で効率よく学ぶことができます。</span>
                         </p> 
                         <div class="l-row l-row--center">
@@ -70,7 +70,7 @@
                         </div>
                         
                         <ul class="p-wall__list">
-                            <li class="l-row p-wall__list-item">
+                            <li class="l-row p-wall__list-item js-animate-fadeIn-top">
                                 <div class="p-wall__list-num">
                                     1
                                 </div>
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                             </li> 
-                            <li class="l-row p-wall__list-item">
+                            <li class="l-row p-wall__list-item js-animate-fadeIn-top">
                                 <div class="p-wall__list-num">
                                     2
                                 </div>
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                             </li> 
-                            <li class="l-row p-wall__list-item">
+                            <li class="l-row p-wall__list-item js-animate-fadeIn-top">
                                 <div class="p-wall__list-num">
                                     3
                                 </div>
@@ -115,11 +115,11 @@
             </section>
         </div>
         <div class="l-container u-p--0">
-            <section class="p-feature">
+            <section class="p-feature js-animate-fadeIn">
                 <h2 class="p-feature__title">STEPの特徴</h2>
                 <div class="l-site-width">
                     <ul class="l-row p-feature__list">
-                        <li class="l-row__col12 l-row__col04-pc p-feature__list-item">
+                        <li class="l-row__col12 l-row__col04-pc p-feature__list-item js-animate-fadeIn-top">
                             <div class="p-feature__inner">
                                 <h3 class="p-feature__content">STEPを作っているのは同じ学習者</h3>
                             </div>
@@ -127,7 +127,7 @@
                                 学習には人それぞれ「これが良かった」という順番と内容があります。また、一度学んだからこそわかる学習のポイントや挫折しやすいポイントなどもあるでしょう。弊社サービスではそのような経験をもとに、同じ学習者が「STEP」を作成、投稿し、学習者はその「STEP」をもとに学習を進めていくことができます。
                             </p>
                         </li>  
-                        <li class="l-row__col12 l-row__col04-pc p-feature__list-item">
+                        <li class="l-row__col12 l-row__col04-pc p-feature__list-item js-animate-fadeIn-top">
                             <div class="p-feature__inner">
                                 <h3 class="p-feature__content">学習方法に悩まず、正しい手順で学習ができる</h3>
                             </div>
@@ -135,7 +135,7 @@
                                 「STEP」にはそれぞれ学習の手順と内容が記載されています。その手順と内容に従って学習をすることで、初学者が陥りやすい誤った方法・方向での学習を防止できます。結果として、あなたが求めるスキルを最短で効率よく学ぶことができるでしょう。
                             </p>
                         </li>  
-                        <li class="l-row__col12 l-row__col04-pc p-feature__list-item">
+                        <li class="l-row__col12 l-row__col04-pc p-feature__list-item js-animate-fadeIn-top">
                             <div class="p-feature__inner">
                                 <h3 class="p-feature__content">ゲーム感覚で楽しみながら学べる</h3>
                             </div>
@@ -148,7 +148,7 @@
             </section>
         </div>
         <div class="l-container u-bg--light">
-            <section class="p-browse">
+            <section class="p-browse js-animate-fadeIn">
                 <div class="l-site-width">
                     <div class="p-lp__head">
                         <h3 class="p-lp__title--en">VIEW</h3>
@@ -168,7 +168,7 @@
                                 <div class="c-panel p-step-list__panel">
                                     <div class="c-panel__category p-step-list__category">{{ $parentStep->category->name }}</div>
                                     <div class="c-img p-step-list__img">
-                                        <img class="c-img__item--center" src="{{ !empty($parentStep->pic) ? asset('/storage/img/'.$parentStep->pic) : asset('/images/unknown.png') }}" alt="">
+                                        <img class="c-img__item--center" src="{{ !empty($parentStep->pic) ? asset('/storage/img/'.$parentStep->pic) : asset('/images/no-img.png') }}" alt="">
                                     </div>
                                     <div class="l-row l-row--between p-step-list__head">
                                         <h3 class="c-panel__title p-step-list__title">{{ $parentStep->parent_title }}</h3>

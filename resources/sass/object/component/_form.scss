@@ -1,3 +1,6 @@
+// ==============================
+// フォームコンポーネント
+// ==============================
 .c-form {
     width: 100%;
     padding: $space_7l;
@@ -41,7 +44,9 @@
         vertical-align: top;
     }
 }
-
+// ==============================
+// input（おもにtext）
+// ==============================
 .c-input {
     height: 50px;
     background: $background-color_form-item;
@@ -60,11 +65,16 @@
         background: $background-color_err;
     }
 }
-
+// ==============================
+// チェックボックス
+// ==============================
 .c-checkbox {
     width: 15px;
     height: 15px;
 }
+// ==============================
+// テキストエリア
+// ==============================
 .c-textarea {
     height: 80px;
     resize: none;
@@ -86,7 +96,9 @@
         width: 100%;
     }
 }
-
+// ==============================
+// セレクトボックス
+// ==============================
 .c-select {
     height: 50px;
     background: $background-color_form-item;
@@ -109,13 +121,15 @@
         }
     }
 }
-
+// ==============================
+// ファイルアップロード（ドラッグ&ドロップ）
+// ==============================
 .c-file-upload {
     position: relative;
     text-align: center;
     overflow: hidden;
-    width: 210px;
-    height: 150px;
+    width: 300px;
+    height: 200px;
     box-sizing: border-box;
     border: $border-m dashed $border-color_base; 
     background-color: $background-color_form-item;

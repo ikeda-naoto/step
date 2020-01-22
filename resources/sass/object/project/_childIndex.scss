@@ -7,7 +7,6 @@
     &__item {
         position: relative;
         margin-bottom: $space_5l;
-        //box-shadow: 0px 2px 5px $shadow-color_light;
         border-radius: $border-radius_l;
         -webkit-border-radius: $border-radius_l;
         -moz-border-radius: $border-radius_l;
@@ -52,6 +51,5 @@
     &__title {
         width: 100%;
         padding: 0 $space_l;
-        //font-size: $font-size_l;
     }
 }

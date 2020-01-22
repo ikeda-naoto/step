@@ -15,6 +15,9 @@ const store = new Vuex.Store({
     to: 0,
     categories: []
   },
+  getters: {
+    getParentSteps(state) { return state.parentSteps}
+  },
   mutations: {
     // キーワード検索欄に入力された値を変数に代入
     setSearchText (store, newValue) {

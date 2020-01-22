@@ -37,17 +37,17 @@ $(function() {
     let $jsAnimateFadeInTop = $('.js-animate-fadeIn-top');
     $jsAnimateFadeInTop.css('opacity', 0)
     $(window).scroll(function(){
+        let delaySpeed = 300,
+            fadeSpeed = 1000;
         if($jsAnimateFadeInTop.length !== 0) {
-            let elemPos = $jsAnimateFadeInTop.eq(0).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-            if(scroll > elemPos - windowHeight + 100) {
-                let delaySpeed = 400,
-                    fadeSpeed = 2000;
-                $jsAnimateFadeInTop.each(function(i){
-                    $(this).delay(i*(delaySpeed)).animate({opacity:1},fadeSpeed);
-                });
+            $jsAnimateFadeInTop.each(function(i){
+            let elemPos = $(this).offset().top,
+                scroll = $(window).scrollTop(),
+                windowHeight = $(window).height();
+            if(scroll > elemPos - windowHeight) {
+                $(this).delay(i*(delaySpeed)).animate({opacity:1},fadeSpeed);
             }
+        });
         }
     });
 

@@ -16,7 +16,7 @@
                 </div>
             </div>       
             <div class="p-step-detail__foot">
-                <p class="u-text--right">終了目安時間：{{ showTotalTime(parentStep.child_steps) }}時間</p>
+                <p class="u-text--right">目安達成時間：{{ showTotalTime(parentStep.child_steps) }}時間</p>
             </div>
         </div>
     </section>

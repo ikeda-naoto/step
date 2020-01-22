@@ -1,3 +1,6 @@
+// ==============================
+// 認証系
+// ==============================
 .p-auth {
     &__btn {
         width: 300px;
@@ -6,7 +9,7 @@
         margin: 0 auto;
     }
     &__lead {
-        color: #333;
+        color: $font-color_dark;
         margin-top: $space_xxl;
         margin-bottom: $space_3l;
         &::before, &::after{

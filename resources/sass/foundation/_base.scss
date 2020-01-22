@@ -4,15 +4,15 @@
 
 // カラーパレット
 $palette-white: #fff;
-$palette-white_opacity: rgba(255,255,255,.7);
+$palette-white_opacity-7: rgba(255,255,255,.7);
 $palette-black_base: #333;
 $palette-black_light: #4d4d4d;
-$palette-black_opacity: rgba(0,0,0,0.75);
+$palette-black_opacity-75: rgba(0,0,0,0.75);
+$palette-black_opacity-06: rgba(0,0,0,0.06);
 $palette-gray_light: #ebebeb;
 $palette-gray_base: #e4e4e4;
 $palette-gray_dark: #bebebe;
 $palette-navy: #0057a3;
-$palette-blue_light: #8cd7fa;
 $palette-blue_base: #3ba7da;
 $palette-yellow: #c7ba00ef;
 $palette-green: #1aa125;
@@ -36,13 +36,13 @@ $font-color_link: $palette-beige_dark;
 $background-color_main-light: $palette-beige_light;
 $background-color_main-dark: $palette-gray_base;
 $background-color_light: $palette-white;
-$background-color_light-opacity: $palette-white_opacity;
+$background-color_light-opacity: $palette-white_opacity-7;
 $background-color_step-content: $palette-gray_base;
 $background-color_base: $palette-navy;
 $background-color_form-item: $palette-gray_light;
 $background-color_active: $palette-gray_base;
 $background-color_err: $palette-red_light;
-$background-color_modal-back: $palette-black_opacity;
+$background-color_modal-back: $palette-black_opacity-75;
 $background-color_category: $palette-blue_base;
 $background-color_form-require: $palette-red;
 $background-color_form-option: $palette-gray_dark;
@@ -55,9 +55,8 @@ $marker-color_danger: $palette-red;
 
 
 // シャドウカラー
+$shadow-color_light: $palette-black_opacity-06;
 $shadow-color_dark: $palette-black_base;
-$shadow-color_light: $palette-black_light;
-$shadow-color_flash-message: $palette-blue_light;
 
 // ボタンカラー
 $btn-color_primary: $palette-blue_base;

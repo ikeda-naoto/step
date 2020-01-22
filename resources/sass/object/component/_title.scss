@@ -1,9 +1,13 @@
+// ==============================
+// タイトルコンポーネント
+// ==============================
 .c-title {
     &--small {
         text-align: center;
         font-family: $font-family_gothic;
         font-size: $font-size_xxl;
         font-weight: bold;
+        line-height: 120%;
         @include sm() {
             font-size: $font-size_l;
         }

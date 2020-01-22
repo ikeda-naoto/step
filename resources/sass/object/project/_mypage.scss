@@ -1,3 +1,6 @@
+// ==============================
+// 登録したSTEP
+// ==============================
 .p-registed-step {
     &__list {
         overflow: hidden;
@@ -43,15 +46,19 @@
         }
     }
 }
+// ==============================
+// チャレンジ中のSTEP
+// ==============================
 .p-challenge-step {
     margin-bottom: $space_5l;
     &__panel {
+        box-shadow: 0 2px 6px 1px $shadow-color_light;
         &:hover{
             opacity: 0.8;
         }
-    }
-    &__panel-container {
-        padding: 0 $space_m;
+        &-container {
+            padding: 0 $space_m;
+        }
     }
     &__img {
         width: 100%;
@@ -76,12 +83,10 @@
         position: relative;
         background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, $progressbar-color_back), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, $progressbar-color_back),color-stop(.75, $progressbar-color_back), color-stop(.75, transparent),to(transparent));
         background-size: 7px 7px;
-        // background-image: repeating-linear-gradient(45deg, transparent, transparent $space_s, $progressbar-color_back $space_s, $progressbar-color_back $space_m);
         &--bar {
             position: absolute;
             top: 0;
             left: 0;
-            
             height: 30px;
             background: $progressbar-color_front;
             border-radius: 30px;

@@ -69,7 +69,7 @@ class Common {
   }
   // ページネーションに必要なデータ作成メソッド
   public static function createPaginationData ($obj, $request) {
-    $perPage = 10;
+    $perPage = 6;
     return new LengthAwarePaginator(
       $obj->forPage($request->page, $perPage),
       count($obj),

@@ -1,11 +1,17 @@
+// ==============================
+// STEP一覧
+// ==============================
 .p-step-list {
     position: relative;
-    &__panel-container {
-        padding: 0 $space_l;
-        margin: $space_l 0;
-    }
-    &__panel:hover {
-        opacity: 0.8;
+    &__panel {
+        box-shadow: 0 2px 6px 1px $shadow-color_light;
+        &-container {
+            padding: 0 $space_l;
+            margin: $space_l 0;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
     }
     &__img {
         height: 214px;

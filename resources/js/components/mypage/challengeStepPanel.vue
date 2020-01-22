@@ -18,7 +18,7 @@
                     STEP
                 </p>
                 <p class="c-panel__time">
-                    終了目安時間：{{ showTotalTime(challengeStep.parent_step.child_steps) }}時間
+                    目安達成時間：{{ showTotalTime(challengeStep.parent_step.child_steps) }}時間
                 </p>
                 <div class="p-challenge-step__progress">
                     <div class="p-challenge-step__progress--bar" :style="{width: calcClearPercentage + '%'}">

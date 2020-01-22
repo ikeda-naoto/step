@@ -11,6 +11,7 @@
                 </div>
                 <!-- 子STEP内容 -->
                 <div class="p-step-detail__body">
+                    <div class="u-text--right">目安達成時間：{{ childStep.time / 60 }}時間</div>
                     <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(childStep.child_content)))">
                     </div>
                 </div>

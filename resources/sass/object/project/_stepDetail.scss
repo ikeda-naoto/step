@@ -1,3 +1,6 @@
+// ==============================
+// STEP詳細
+// ==============================
 .p-step-detail {
     position: relative;
     margin-bottom: $space_3l;
@@ -31,10 +34,12 @@
         margin-bottom: $space_l;
     } 
     &__body { 
+        margin: $space_m 0;
+    } 
+    &__textarea {
         width: 100%;
         min-height: 90px;
         padding: $space_m;
-        margin: $space_m 0;
         background: $background-color_step-content;
         box-sizing: border-box;
         border-radius: $border-radius_s;
@@ -48,5 +53,5 @@
                 text-decoration: underline;
             }
         }
-    } 
+    }
 }

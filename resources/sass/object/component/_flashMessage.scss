@@ -1,3 +1,6 @@
+// ==============================
+// セッションフラッシュメッセージ
+// ==============================
 .c-flash-message {
     display: none;
     position: fixed;
@@ -9,7 +12,7 @@
     width: 40%;
     height: 150px;
     z-index: 2;
-    box-shadow: 0 0 30px 0 $shadow-color_flash-message;
+    box-shadow: 0 0 50px 20px $shadow-color_light;
     background: $background-color_light-opacity;
     border-radius: $border-radius_m;
 	-webkit-border-radius: $border-radius_m;
