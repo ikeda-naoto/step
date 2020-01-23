@@ -14,7 +14,8 @@ $palette-gray_base: #e4e4e4;
 $palette-gray_dark: #bebebe;
 $palette-navy: #0057a3;
 $palette-blue_base: #3ba7da;
-$palette-yellow: #c7ba00ef;
+$palette-yellow: #b6ab0c;
+$palette-yellow_light: #fcec13;
 $palette-green: #1aa125;
 $palette-beige_base: #f8ebd5;
 $palette-beige_light: #f4f0e9;
@@ -50,7 +51,7 @@ $background-color_form-option: $palette-gray_dark;
 $icn-color_success: $palette-green;
 
 // マーカーカラー
-$marker-color_warnig: $palette-yellow;
+$marker-color_warnig: $palette-yellow_light;
 $marker-color_danger: $palette-red;
 
 
