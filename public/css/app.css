@@ -2020,6 +2020,14 @@ button:focus {
   margin-bottom: 40px;
 }
 
+@media screen and (max-width: 414px) {
+  .p-step-detail {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .p-step-detail__inner {
   width: 100%;
   padding: 60px 70px;
