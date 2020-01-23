@@ -15,8 +15,6 @@ require('./asset/jquery');
 
 window.Vue = require('vue');
 
-import "@babel/polyfill";
-
 Vue.prototype.$sanitize = sanitizeHTML;
 Vue.use(UUID);
 
