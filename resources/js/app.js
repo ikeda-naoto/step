@@ -5,7 +5,6 @@
  */
 
 import 'es6-promise/auto';
-import 'promise-polyfill/src/polyfill';
 import store from './store';
 import sanitizeHTML from 'sanitize-html';
 import UUID from 'vue-uuid';
