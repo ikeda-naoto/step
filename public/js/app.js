@@ -64749,12 +64749,7 @@ var render = function() {
               [
                 _c("input", {
                   staticClass: "c-file-upload__input-file",
-                  attrs: {
-                    type: "file",
-                    id: "img",
-                    accept: "",
-                    accept: "image/*"
-                  },
+                  attrs: { type: "file", id: "img", accept: "image/*" },
                   on: { change: _vm.onFileChange }
                 }),
                 _vm._v(" "),
