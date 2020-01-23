@@ -36,17 +36,7 @@
                  })
                 .catch(error => {
                     // 通信失敗の場合
-                    // バリデーション引っかかった場合（普通ありえないが念のため）
-                    if(error.response.data.errors) { 
-                        // エラーメッセージを変数に格納し、モーダルで表示する
-                        for (let key in error.response.data.errors) {
-                            this.errMsgs.push(error.response.data.errors[key][0]);
-                        }
-                    }
-                    // それ以外のエラーの場合
-                    else {
-                        alert('しばらく時間をおいてから再度試してください');
-                    }
+                    alert('しばらく時間をおいてから再度試してください');
                     this.isPush = !this.isPush
                 });
             } 

@@ -6,21 +6,21 @@ use Illuminate\Pagination\LengthAwarePaginator;
  
 class Common {
 
-  // 親STEPに紐づいているカテゴリーと子STEPのデータを取得するメソッド
+  // 親STEPに紐づいているカテゴリーと子STEPのデータを取得する
   public static function relationCategoryAndChildSteps($obj) {
     // カテゴリーデータを取得
     $obj->category;
     // 子STEPデータを取得
     $obj->childSteps;
   }
-  // 数字かどうかを判定するメソッド
+  // 数字かどうかを判定する
   public static function validNumber($text, $url = '/steps') {
     if(!ctype_digit($text)) {
       return redirect($url)->with('status', '不正な値が入力されました。')->throwResponse();
     }
     return true;
   }
-  // 引数にとられたレコードが存在するかを判定するメソッド
+  // 引数にとられたレコードが存在するかを判定する
   public static function isExist($val, $url = '/steps') {
     if(empty($val)) {
       return redirect($url)->with('status', '不正な値が入力されました。')->throwResponse();
@@ -28,7 +28,7 @@ class Common {
     return true;
   }
 
-  // 画像登録メソッド
+  // 画像登録処理
   public static function storePic($obj, $pic) {
     if(!empty($pic)){ // 画像データが送信されていた場合
        // 画像を保存
@@ -37,7 +37,7 @@ class Common {
       $obj->pic = basename($path); //
     }
   }
-  // STEP登録メソッド
+  // STEP登録or編集処理
   public static function storeStep($childTitle, $time, $childContent, $editFlg, $parentStep, $childSteps = array()) {
     for ($i = 0; $i < count($childTitle); $i++) { // 子STEPのタイトルの配列の要素数でループ回数を決定。(タイトルは必須項目なので、少なくとも一つはある)
       // 登録するデータをオブジェクトの形にする
@@ -67,7 +67,7 @@ class Common {
       session()->flash('status', $parentStep->parent_title . 'を編集しました。');
     }
   }
-  // ページネーションに必要なデータ作成メソッド
+  // ページネーションに必要なデータ作成
   public static function createPaginationData ($obj, $request) {
     $perPage = 6;
     return new LengthAwarePaginator(

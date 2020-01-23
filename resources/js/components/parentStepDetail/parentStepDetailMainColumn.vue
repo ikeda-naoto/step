@@ -17,13 +17,6 @@
         <childStepIndex
             :childSteps="parentStep.child_steps"
         ></childStepIndex>
-        <!-- チャレンジボタン -->
-        <!-- <challengeBtn
-            :parentStepId="parentStep.id"
-            :childStepId="parentStep.child_steps[0]['id']"
-            :user="user"
-            :challengeFlg="challengeFlg"
-        ></challengeBtn> -->
     </div>
 </template>
 

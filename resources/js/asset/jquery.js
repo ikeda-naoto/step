@@ -1,7 +1,6 @@
 $(function() {
-    // TOPへ戻るボタン
+    // TOPへ戻る
     let jsScrollTop = $('.js-scroll-top');  
-    // ボタンを隠す
     jsScrollTop.hide()  
     //スクロールが100に達したらボタン表示
     $(window).scroll(function () {
@@ -34,6 +33,7 @@ $(function() {
         });
     });
 
+    // LPのコンテンツ連続フェードイン
     let $jsAnimateFadeInTop = $('.js-animate-fadeIn-top');
     $jsAnimateFadeInTop.css('opacity', 0)
     $(window).scroll(function(){

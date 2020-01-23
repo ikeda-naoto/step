@@ -107,7 +107,7 @@
             }
         },
         methods : {
-            // axios通信用メソッド
+            // STEP登録処理
             onSubmit : function() {
                 this.isPush = !this.isPush;
                 // 各データを格納
@@ -134,6 +134,7 @@
                     },
                 };
                 let url = '';
+                // 登録か編集でURLを分ける
                 if(this.editFlg) {
                     url = '/steps/' + this.parentStepData.id;
                     config.headers['X-HTTP-Method-Override'] = 'PATCH';
@@ -165,7 +166,7 @@
                     this.isPush = !this.isPush;
                 });
             },
-            // 子STEP追加用メソッド
+            // 子STEP追加処理
             addChildStep: function() {
                 this.childSteps.push(
                     {

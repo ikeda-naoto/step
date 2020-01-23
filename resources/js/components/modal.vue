@@ -19,7 +19,7 @@
     export default {
         props: ['errMsgs'],
         methods : {
-            // エラーメッセージフラッシュ用メソッド
+            // エラーメッセージフラッシュする
             flashErrMsgs : function() {
                 this.$parent.errMsgs=[];
             },

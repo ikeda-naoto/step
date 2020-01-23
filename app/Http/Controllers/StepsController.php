@@ -12,11 +12,12 @@ use App\Http\Requests\CreateStepRequest;
 
 class StepsController extends Controller
 {
+    // ホーム画面表示
     public function index()
     {
         return view('steps.stepList');
     }
-
+    // 親STEP画面表示
     public function showParent($id) {
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/steps');
@@ -33,7 +34,7 @@ class StepsController extends Controller
         // このSTEPを作ったユーザの情報を取得
         $createUser = $parentStep->user;
 
-        // すでにチャレンジしているSTEPかを判定するフラグ
+        // ログインユーザーがすでにチャレンジしているSTEPかを判定するフラグ
         $challengeFlg = 0;
         // ログインしていてかつチャレンジしている場合
         if(Auth::check() && Auth::user()->challenges()->where('parent_step_id', $id)->exists()) {
@@ -43,7 +44,7 @@ class StepsController extends Controller
 
         return view('steps.parentStepDetail', compact('parentStep', 'createUser', 'challengeFlg'));
     }
-
+    // STEP登録画面表示
     public function create()
     {
         // カテゴリーデータを取得
@@ -53,13 +54,13 @@ class StepsController extends Controller
 
         return view('steps.registStep', compact('categories', 'editFlg'));
     }
-
+    // STEP登録処理
     public function store(CreateStepRequest $request)
     {
-        // 親STEP登録処理
         $parentStep = new ParentStep;
-        // 画像登録処理
+        // 画像が送信されてきていれば画像を保存
         Common::storePic($parentStep, $request->pic);
+        // 画像以外のデータを一括保存
         Auth::user()->parentSteps()->save($parentStep->fill($request->all()));
 
         // 子STEP登録処理
@@ -69,17 +70,17 @@ class StepsController extends Controller
         
         return response()->json(['flg'=> true]);
     }
-
+    // STEP編集画面表示
     public function edit($id) {
 
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/users/mypage');
-        // GETパラメータに該当するSTEPのレコードを取得
+        // GETパラメータに該当する親STEPのレコードを取得
         $parentStep = ParentStep::where('id', $id)->select(['id', 'parent_title', 'category_id', 'parent_content', 'pic'])->first();
         // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/users/mypage');
 
-        // 前の処理で取得した親STEPに該当する子STEPを取得
+        // 前の処理で取得した親STEPの子STEPを取得
         $childSteps = ChildStep::where('parent_step_id', $id)->select(['child_title', 'time', 'child_content'])->get();
 
         // 全カテゴリーのデータを取得
@@ -90,7 +91,7 @@ class StepsController extends Controller
 
         return view('steps.registStep', compact('parentStep', 'childSteps', 'categories', 'editFlg'));
     }
-
+    // STEP更新処理
     public function update(CreateStepRequest $request, $id) {
 
         // GETパラメータが数字かどうかチェック
@@ -98,14 +99,16 @@ class StepsController extends Controller
 
         // GETパラメータに該当するSTEPのレコードを取得
         $parentStep = ParentStep::find($id);
+
         // レコードが存在するかどうかチェック   
         Common::isExist($parentStep, '/users/mypage');
+
         // 親STEPを更新
         $parentStep->fill($request->all());
         Common::storePic($parentStep, $request->pic);
         $parentStep->save();
 
-        // 親STEPに該当する子STEPを取得
+        // 親STEPの子STEPを取得
         $childSteps = $parentStep->childSteps;
         // 子STEPを更新
         Common::storeStep($request->input('child_title'), $request->input('time'), $request->input('child_content'), true, $parentStep, $childSteps);
@@ -125,6 +128,7 @@ class StepsController extends Controller
 
         // GETパラメータに付与された親STEPのIDと子STEPのIDが紐づいているかチェック
         Common::isExist(ChildStep::where('parent_step_id', $parent_id)->where('id', $child_id)->first(), '/steps');
+
         // 親STEPとそれに紐づく子STEPを取得
         $parentStep = ParentStep::find($parent_id);
         $parentStep->childSteps;
@@ -132,7 +136,7 @@ class StepsController extends Controller
         // 表示する子STEPのデータを取得
         $showChildStep = ChildStep::find($child_id);
 
-        // ユーザーがログインしているるとき
+        // ユーザーがログインしているとき
         if(Auth::user()) {
             // ログインユーザーがこの子STEPの親STEPをチャレンジしている場合変数にそのレコードを代入
             $challengeStep = Challenge::where('user_id', Auth::user()->id)->where('parent_step_id', $parent_id)->first();

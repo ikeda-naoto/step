@@ -4,6 +4,7 @@
         <div class=" c-sidebar">
             <!-- STEP登録ボタン -->
             <registStepBtn></registStepBtn>
+            <!-- プロフィール -->
             <profile
                 :user="user"
                 title="マイページ"
@@ -15,12 +16,10 @@
 <script>
     import registStepBtn from '../registStepBtn';
     import profile from '../profile';
-    import mypageSidebarMenu from './mypageSidebarMenu';
     export default {
         components: {
             registStepBtn,
             profile,
-            mypageSidebarMenu
         },
         props: ['user'],
     }
