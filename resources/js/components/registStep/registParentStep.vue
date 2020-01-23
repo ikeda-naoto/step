@@ -17,12 +17,14 @@
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                    <select name="" id="category" class="c-select c-select--half-pc c-select--full-sm" v-model="category_id">
-                        <option value="">選択してください</option>
-                        <option v-for="category in categories" :key="category.id" :value="category.id">
-                            {{ category.name }}
-                        </option>
-                    </select>
+                    <label class="c-form__icn--select">
+                        <select name="" id="category" class="c-select c-select--half-pc c-select--full-sm" v-model="category_id">
+                            <option value="">選択してください</option>
+                            <option v-for="category in categories" :key="category.id" :value="category.id">
+                                {{ category.name }}
+                            </option>
+                        </select>
+                    </label>
                 </div>
             </div>
             <div class="l-row c-form__group">

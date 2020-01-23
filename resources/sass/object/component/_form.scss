@@ -30,6 +30,22 @@
     &__icn--send {
         color: $icn-color_success;
     }
+    &__icn--select {
+        position: relative; 
+        &:before {
+            position: absolute;
+            content: ""; 
+            top: 50%; 
+            right: 10px;
+            width:0px; 
+            height:0px; 
+            margin: -2px 0 0 0; 
+            border: 10px solid transparent;
+            border-top: 10px solid $border-color_dark;
+            pointer-events: none; 
+            z-index: 1;
+        }
+    }
     &__require {
         padding: $space_s;
         margin-left: $space_m;
@@ -103,6 +119,7 @@
 // セレクトボックス
 // ==============================
 .c-select {
+    position: relative;
     height: 50px;
     background: $background-color_form-item;
     border: none;
@@ -112,6 +129,12 @@
     border-radius: $border-radius_s;
 	-webkit-border-radius: $border-radius_s;
     -moz-border-radius: $border-radius_s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:-ms-expand{
+        display: none;
+    }
     &--half-pc {
         width: 50%;
     }

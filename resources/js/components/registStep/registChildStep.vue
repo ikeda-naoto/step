@@ -19,9 +19,11 @@
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                <select name="" id="time" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
-                    <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
-                </select>
+                <label class="c-form__icn--select">
+                    <select name="" id="time" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
+                        <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
+                    </select>
+                </label>
             </div>
         </div>
         <!-- 子STEP内容 -->
