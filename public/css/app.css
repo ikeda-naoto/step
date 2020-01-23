@@ -1198,6 +1198,7 @@ button:focus {
 }
 
 .c-flash-message__text {
+  width: 100%;
   text-align: center;
   color: #0057a3;
 }
