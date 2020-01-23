@@ -64,7 +64,7 @@ $(function() {
     $('.js-toggle-sp-menu').on('click', function () {
         // メニューバーをacriveに
         $(this).toggleClass('c-btn--trigger--active');
-        // メニュー 表示時、背景がスクロールしないように固定
+        // メニュー 表示時、背景がスクロールしないように固定する
         $('html').css({
             'overflow': 'hidden',
             'height': '100%'
