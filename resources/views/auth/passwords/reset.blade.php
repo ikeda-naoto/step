@@ -20,26 +20,26 @@
                     <span class="u-fontcolor--err">{{ $message }}</span>
                 @enderror
                 <div class="c-form__group">
-                    <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                    <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ $email ?? old('email') }}" autocomplete="email" autofocus>
                     @error('email')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
                     
                 </div>
                 <div class="c-form__group">
-                    <input type="password" class="c-input c-input--full @error('password') c-input--err @enderror" placeholder="パスワード" name="password" required autocomplete="new-password">
+                    <input type="password" class="c-input c-input--full @error('password') c-input--err @enderror" placeholder="パスワード" name="password" autocomplete="new-password">
                     @error('password')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="password" class="c-input c-input--full @error('password_confirmation') c-input--err @enderror" placeholder="パスワード（再入力）" name="password_confirmation" required autocomplete="new-password">
+                    <input type="password" class="c-input c-input--full @error('password_confirmation') c-input--err @enderror" placeholder="パスワード（再入力）" name="password_confirmation" autocomplete="new-password">
                     @error('password_confirmation')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="button" value="更新する" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
+                    <input type="submit" value="更新する" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
                 </div>
             </form>
         </div>
