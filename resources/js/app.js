@@ -3,6 +3,8 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
+import 'es6-promise/auto';
 import 'promise-polyfill/src/polyfill';
 import store from './store';
 import sanitizeHTML from 'sanitize-html';
