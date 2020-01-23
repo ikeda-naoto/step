@@ -92,7 +92,13 @@
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
         position: relative;
+        background-image: gradient(linear, 0 0, 100% 100%,color-stop(.25, $progressbar-color_back), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, $progressbar-color_back),color-stop(.75, $progressbar-color_back), color-stop(.75, transparent),to(transparent));
         background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, $progressbar-color_back), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, $progressbar-color_back),color-stop(.75, $progressbar-color_back), color-stop(.75, transparent),to(transparent));
+        background-image: -moz-gradient(linear, 0 0, 100% 100%,color-stop(.25, $progressbar-color_back), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, $progressbar-color_back),color-stop(.75, $progressbar-color_back), color-stop(.75, transparent),to(transparent));
+        background-image: -ms-gradient(linear, 0 0, 100% 100%,color-stop(.25, $progressbar-color_back), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, $progressbar-color_back),color-stop(.75, $progressbar-color_back), color-stop(.75, transparent),to(transparent));
+        -webkit-background-size:7px 7px;
+        -moz-background-size:7px 7px;
+        -ms-background-size:7px 7px;
         background-size: 7px 7px;
         &--bar {
             position: absolute;
