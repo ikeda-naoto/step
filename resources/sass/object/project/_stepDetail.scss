@@ -4,6 +4,12 @@
 .p-step-detail {
     position: relative;
     margin-bottom: $space_3l;
+    @include sm() {
+        width: 97%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     &__inner {
         width: 100%;
         padding: $space_5l $space_6l;
