@@ -39,7 +39,7 @@
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="submit" value="更新する" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
+                    <input type="button" value="更新する" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
                 </div>
             </form>
         </div>
