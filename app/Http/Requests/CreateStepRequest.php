@@ -27,7 +27,7 @@ class CreateStepRequest extends FormRequest
             'parent_title' => 'required|max:30',
             'category_id' => 'required|integer',
             'parent_content' => 'required|max:20000',
-            'pic' => 'nullable|file|image|dimensions:min_width=300, min_height=200',
+            'pic' => 'nullable|file|image',
             'child_title.*' => 'required|max:30',
             'time.*' => 'integer|min:1',
             'child_content.*' => 'required|max:20000',
