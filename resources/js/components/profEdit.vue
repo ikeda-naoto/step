@@ -87,13 +87,12 @@
         },
         mixins: [Mixin],
         methods : {
-            // axios通信用メソッド
+            // プロフィール編集処理
             onSubmit : function() {
                 this.isPush = !this.isPush;
                 let data = new FormData();
                 // 各データを格納
-                // csrfトークンを保存
-                data.append('_token', $('meta[name="csrf-token"]').attr('content'))
+                data.append('_token', $('meta[name="csrf-token"]').attr('content')) // csrfトークンを保存
                 data.append('name', this.name);
                 data.append('introduction', this.introduction);
                 !(typeof this.pic === 'string' || this.pic instanceof String) ? data.append('pic', this.pic) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。

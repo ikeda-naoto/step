@@ -77,7 +77,7 @@
                     pic: this.pic
                 });
             },
-            // 画像情報が入力されたら（画像はフォームバインディングできないため別途で行う）
+            // 画像情報が入力されたら親STEPの情報を更新する（画像はフォームバインディングできないため別途で行う）
             updatePic: function(val) {
                 this.pic = val;
                 this.updateParentData();

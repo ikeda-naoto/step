@@ -10,6 +10,7 @@ use App\lib\Common;
 
 class ChallengeController extends Controller
 {
+    // チャレンジ処理
     public function challenge(Request $request)
     {
         // 通常であれば引っかからないが念のためバリデーション
@@ -26,7 +27,7 @@ class ChallengeController extends Controller
         return response()->json(['flg'=> true]);
 
     }
-
+    // クリア処理
     public function clear(Request $request, $id)
     {
         // GETパラメータが数字かどうかチェック

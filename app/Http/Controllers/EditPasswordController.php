@@ -11,38 +11,27 @@ use App\User;
 
 class EditPasswordController extends Controller
 {
+    // パスワード変更画面表示
     public function edit()
     {
-        // // GETパラメータが数字かどうかチェック
-        // Common::validNumber($id, '/users/mypage');
-        // // GETパラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
-        // if((int)$id !== Auth::id()) {
-        //     return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
-        // }
-
         return view('auth.passEdit');
     }
-
+    // パスワード変更処理
     public function update(EditPassRequest $request)
     {
-        // // GETパラメータが数字かどうかチェック
-        // Common::validNumber($id, '/users/mypage');
-        // // GETパラメータの値が改ざんされていないか（ログイン中のユーザーIDと同じか）チェック
-        // if((int)$id !== Auth::id()) {
-        //     return redirect('/users/mypage')->with('status', '不正な値が入力されました。');
-        // }
-        
-        
         $user = Auth::user();
 
+        // 入力された古いパスワードが違っていた場合
         if (!Hash::check($request->input('password_old'), $user->password)) {
             return redirect()->back()->with('status', 'パスワードを変更できませんでした。');
         }
 
         $user = User::find($user->id);
+        // パスワードをハッシュ化して保存
         $user->password = Hash::make($request->get('password_new'));
         $user->save();
 
+        // トークン上書き
         $request->session()->regenerateToken();
 
         return redirect('/users/mypage')->with('status', 'パスワードを変更しました。');

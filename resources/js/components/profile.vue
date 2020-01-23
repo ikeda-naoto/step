@@ -20,9 +20,10 @@
         props: ['user', 'title'],
         mixins: [Mixin],
         computed: {
+            // プロフィールに表示する画像のパスを返す
             showImg: function() {
-                if(!this.user.pic) {
-                    return '/images/unknown.png';
+                if(!isset(this.user.pic)) { // プロフィール画像が登録されていなかったら
+                    return '/images/unknown.png'; 
                 }
                 return '/storage/img/' + this.user.pic;
             },
