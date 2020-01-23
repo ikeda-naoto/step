@@ -29,7 +29,7 @@ class CreateStepRequest extends FormRequest
             'parent_content' => 'required|max:20000',
             'pic' => 'nullable|file|image|dimensions:width=300,height=200',
             'child_title.*' => 'required|max:30',
-            'time.*' => 'required|integer',
+            'time.*' => 'integer|min:1',
             'child_content.*' => 'required|max:20000',
         ];
     }
@@ -38,6 +38,7 @@ class CreateStepRequest extends FormRequest
     {
         return [
             'required' => ':attributeは必須です。',
+            'min' => ':attributeを選択してください。'
         ];
     }
 
@@ -48,7 +49,7 @@ class CreateStepRequest extends FormRequest
             'parent_title' => 'STEPのタイトル',
             'category_id' => 'カテゴリー',
             'parent_content' => 'STEPの内容',
-            'pic' => '画像',
+            'pic' => 'STEP画像',
         ];
 
         foreach ($this->request->get('child_title') as $key => $value){
@@ -59,7 +60,7 @@ class CreateStepRequest extends FormRequest
                 $attributes,
                 [
                     "child_title.$key" => "STEP" . $stepNumber. "のタイトル",
-                    "time.$key" => "STEP" . $stepNumber. "の時間",
+                    "time.$key" => "STEP" . $stepNumber. "の目安達成時間",
                     "child_content.$key" => "STEP" . $stepNumber. "の内容",
                 ]
             );
