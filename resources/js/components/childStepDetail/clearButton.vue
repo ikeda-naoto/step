@@ -4,7 +4,7 @@
         無料会員登録をしてチャレンジ
     </a>
     <!-- すでにクリアしていたら -->
-    <div v-else-if="clearNum===childStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right">
+    <div v-else-if="clearNum >= childStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right">
         クリア済み
     </div>
     <!-- チャレンジしていないまたは前のSTEPをクリアしていなかったら -->
