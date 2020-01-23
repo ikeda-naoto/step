@@ -80610,11 +80610,11 @@ function extend() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.regexp.replace */ "./node_modules/core-js/modules/es6.regexp.replace.js");
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
-/* harmony import */ var sanitize_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sanitize-html */ "./node_modules/sanitize-html/dist/index.js");
-/* harmony import */ var sanitize_html__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sanitize_html__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/vue-uuid.es.js");
-/* harmony import */ var promise_polyfill_src_polyfill__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! promise-polyfill/src/polyfill */ "./node_modules/promise-polyfill/src/polyfill.js");
+/* harmony import */ var promise_polyfill_src_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! promise-polyfill/src/polyfill */ "./node_modules/promise-polyfill/src/polyfill.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+/* harmony import */ var sanitize_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sanitize-html */ "./node_modules/sanitize-html/dist/index.js");
+/* harmony import */ var sanitize_html__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sanitize_html__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/vue-uuid.es.js");
 
 
 /**
@@ -80632,8 +80632,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./asset/jquery */ "./resources/js/asset/jquery.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.prototype.$sanitize = sanitize_html__WEBPACK_IMPORTED_MODULE_2___default.a;
-Vue.use(vue_uuid__WEBPACK_IMPORTED_MODULE_3__["default"]);
+Vue.prototype.$sanitize = sanitize_html__WEBPACK_IMPORTED_MODULE_3___default.a;
+Vue.use(vue_uuid__WEBPACK_IMPORTED_MODULE_4__["default"]);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -80662,7 +80662,7 @@ Vue.filter('nl2br', function (text) {
 });
 var app = new Vue({
   el: '#app',
-  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"]
+  store: _store__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
