@@ -3032,7 +3032,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     // プロフィールに表示する画像のパスを返す
     showImg: function showImg() {
-      if (!isset(this.user.pic)) {
+      if (!this.isset(this.user.pic)) {
         // プロフィール画像が登録されていなかったら
         return '/images/unknown.png';
       }
