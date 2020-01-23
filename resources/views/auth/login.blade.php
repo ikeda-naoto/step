@@ -39,7 +39,7 @@
                 </div>
                 @if (Route::has('password.request'))
                     <div class="c-form__group">
-                        <input type="submit" value="ログイン" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
+                        <input type="button" value="ログイン" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
                         <div class="p-auth__help">
                             <a href="{{ route('password.request') }}" >パスワードを忘れた方はコチラ</a>
                         </div>

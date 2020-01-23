@@ -34,7 +34,7 @@
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="submit" value="新規会員登録" class="c-btn c-btn--medium c-btn--success c-btn--center" onclick="disabledButton(this);">
+                    <input type="button" value="新規会員登録" class="c-btn c-btn--medium c-btn--success c-btn--center" onclick="disabledButton(this);">
                 </div>
                 <div class="c-form__group">
                     <p class="l-row l-row--middle p-auth__lead">すでに登録している方はコチラ</p>
