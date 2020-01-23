@@ -74,7 +74,7 @@
                                 <div class="p-wall__list-num">
                                     1
                                 </div>
-                                <div class="l-row__col10--pc l-row__col10--tab p-wall__textarea">
+                                <div class="l-row__col10--sm l-row__col10--tab l-row__col10--pc  p-wall__textarea">
                                     <div class="p-wall__title">
                                         なにを学べばよいかわからない
                                     </div>
@@ -87,7 +87,7 @@
                                 <div class="p-wall__list-num">
                                     2
                                 </div>
-                                <div class="l-row__col10--pc l-row__col10--tab p-wall__textarea">
+                                <div class="l-row__col10--sm l-row__col10--tab l-row__col10--pc p-wall__textarea">
                                     <div class="p-wall__title">
                                         どうやって学習すれば良いかわからない
                                     </div>
@@ -100,7 +100,7 @@
                                 <div class="p-wall__list-num">
                                     3
                                 </div>
-                                <div class="l-row__col10--pc l-row__col10--tab p-wall__textarea">
+                                <div class="l-row__col10--sm l-row__col10--tab l-row__col10--pc p-wall__textarea">
                                     <div class="p-wall__title">
                                         モチベーションが続かない
                                     </div>
