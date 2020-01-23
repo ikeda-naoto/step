@@ -1,5 +1,5 @@
 <template>
-    <div class="l-row__col12--sm l-row__col09--tab l-row__col06--pc p-challenge-step__panel-container">
+    <div class="l-row__col12--sm l-row__col06--tab l-row__col06--pc p-challenge-step__panel-container">
         <a :href="'/steps/' + challengeStep.parent_step.id" class="c-panel p-challenge-step__panel">
             <div class="c-img p-challenge-step__img">
                 <img class="c-img__item--center" :src="showStepImg(challengeStep.parent_step.pic)" alt="">
@@ -9,16 +9,13 @@
                     {{ challengeStep.parent_step.parent_title }}
                 </h3>
             </div>
-            <div class="l-row l-row--between p-challenge-step__body">
+            <div class="p-challenge-step__body">
                 <p class="p-challenge-step__finish-num">
                     進捗状況
                     <span class="u-fontsize--l u-ml--s u-mr--s">
                         {{ challengeStep.clear_num }}/{{ challengeStep.parent_step.child_steps.length }}
                     </span>
                     STEP
-                </p>
-                <p class="c-panel__time">
-                    目安達成時間：{{ showTotalTime(challengeStep.parent_step.child_steps) }}時間
                 </p>
                 <div class="p-challenge-step__progress">
                     <div class="p-challenge-step__progress--bar" :style="{width: calcClearPercentage + '%'}">
@@ -27,6 +24,9 @@
                         </span>
                     </div> 
                 </div>
+                <p class="c-panel__time u-text--right">
+                    目安達成時間：{{ showTotalTime(challengeStep.parent_step.child_steps) }}時間
+                </p>
             </div>
         </a>    
     </div>

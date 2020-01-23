@@ -3,20 +3,23 @@
 // ==============================
 .c-panel {
     display: block;
+    height: 100%;
     position: relative;
     padding: $space_l;
     background: $background-color_light;
-    margin-bottom: $space_xxl;
     box-sizing: border-box;
     border-radius: $border-radius_m;
 	-webkit-border-radius: $border-radius_m;
     -moz-border-radius: $border-radius_m;
+    @include tab() {
+        padding: $space_m;
+    }
     &__category {
         position: absolute;
         text-align: center;
         color: $font-color_light;
         background: $background-color_category;
-        left: -20px;
+        left: -12px;
         &::before {
             position: absolute;
             content: '';
@@ -24,7 +27,7 @@
             left: 0;
             border: none;
             border-bottom: solid 15px transparent;
-            border-right: solid 20px $border-color_dark;
+            border-right: solid 12px $border-color_dark;
         }
     }
     &__title {
@@ -32,5 +35,8 @@
         font-family: $font-family_gothic;
         font-weight: bold;
         font-size: $font-size_l;
+        @include tab() {
+            font-size: $font-size_default;
+        }
     }
 }

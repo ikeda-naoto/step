@@ -9,26 +9,34 @@
             padding: 0 $space_l;
             margin: $space_l 0;
             @include tab() {
-                margin-left: auto;
-                margin-right: auto;
+                padding: 0 $space_m;
             }
         }
         &:hover {
             opacity: 0.8;
         }
+        @include tab() {
+            padding: $space_m;
+        }
     }
     &__img {
         height: 214px;
         margin-bottom: $space_m;
+        @include tab() {
+            height: 137px;
+        }
     }
     &__head {
         margin-bottom: $space_s;
         padding: 0 $space_s;
-        min-height: 53px;
+    
     }
     &__body {
         padding: 0 $space_s;
         font-size: $font-size_m;
+        @include tab() {
+            font-size: $font-size_s;
+        }
     }
     &__category {
         width: 140px;
