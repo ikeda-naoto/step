@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('fontawesome-free-5.11.2-web/js/all.min.js') }}" defer></script>
+    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
@@ -184,5 +185,6 @@
         obj.form.submit();
     }
 </script>
+<script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 </body>
 </html>
