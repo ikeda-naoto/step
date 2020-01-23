@@ -62217,7 +62217,7 @@ var render = function() {
         },
         [_vm._v("\n    無料会員登録をしてチャレンジ\n")]
       )
-    : _vm.clearNum === _vm.childStep.num
+    : _vm.clearNum >= _vm.childStep.num
     ? _c(
         "div",
         { staticClass: "c-btn c-btn--small c-btn--secondary c-btn--right" },
