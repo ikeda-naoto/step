@@ -20,13 +20,13 @@
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="email" name="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input type="email" name="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" value="{{ old('email') }}" autocomplete="email" autofocus>
                     @error('email')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="password" name="password" class="c-input c-input--full @error('password') c-input--err @enderror" placeholder="パスワード" required autocomplete="current-password">
+                    <input type="password" name="password" class="c-input c-input--full @error('password') c-input--err @enderror" placeholder="パスワード" autocomplete="current-password">
                     @error('password')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
@@ -39,7 +39,7 @@
                 </div>
                 @if (Route::has('password.request'))
                     <div class="c-form__group">
-                        <input type="button" value="ログイン" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
+                        <input type="submit" value="ログイン" class="c-btn c-btn--medium c-btn--primary c-btn--center" onclick="disabledButton(this);">
                         <div class="p-auth__help">
                             <a href="{{ route('password.request') }}" >パスワードを忘れた方はコチラ</a>
                         </div>

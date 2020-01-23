@@ -31,14 +31,14 @@
                         </p>
                     </div>
                     <div class="c-form__group">
-                        <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
                         @error('email')
                             <span class="u-fontcolor--err">{{ $message }}</span>
                         @enderror
                         
                     </div>
                     <div class="c-form__group">
-                        <input type="button" value="送信" class="c-btn c-btn--medium c-btn--primary c-btn--center" required autocomplete="email" autofocus onclick="disabledButton(this);">
+                        <input type="submit" value="送信" class="c-btn c-btn--medium c-btn--primary c-btn--center" required autocomplete="email" autofocus onclick="disabledButton(this);">
                     </div>
                 @endif
                 
