@@ -158,7 +158,9 @@
 
         
         <div class="c-flash-message js-flash-message">
-            <p class="c-flash-message__text">{{ session('status') }}</p>
+            <div class="l-row l-row--middle c-flash-message__inner">
+                <p class="c-flash-message__text">{{ session('status') }}</p>
+            </div>
         </div>
 
         @yield('breadcrumbs')
