@@ -7,6 +7,7 @@
 import store from './store';
 import sanitizeHTML from 'sanitize-html';
 import UUID from 'vue-uuid';
+import 'promise-polyfill/src/polyfill';
 
 require('./bootstrap');
 require('./asset/jquery');
