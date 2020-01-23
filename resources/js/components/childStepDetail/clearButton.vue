@@ -18,6 +18,7 @@
 </template>
 
 <script>
+    import Mixin from '../mixins/mixin';
     export default {
         props: ['parentStepId', 'childStep', 'clearNum', 'user', 'challengeFlg'],
         data: function() {
@@ -25,6 +26,7 @@
                 isPush: false
             }
         },
+        mixins: [Mixin],
         methods: {
             // クリア処理
             onClickClearBtn: function() {
@@ -45,8 +47,8 @@
                 })
                 .catch(error => {
                     // 通信失敗の場合
-                    alert('通信に失敗しました。しばらく時間を置いてからもう一度試してしてください。');
-                    this.isPush = !this.isPush
+                    // エラー処理
+                    this.errorHandling(error); 
                 });
             },
 
