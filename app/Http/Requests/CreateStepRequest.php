@@ -24,13 +24,13 @@ class CreateStepRequest extends FormRequest
     public function rules()
     {
         return [
-            'parent_title' => 'required|max:30',
+            'parent_title' => 'required|string|max:30',
             'category_id' => 'required|integer',
-            'parent_content' => 'required|max:20000',
+            'parent_content' => 'required|string|max:20000',
             'pic' => 'nullable|file|image',
-            'child_title.*' => 'required|max:30',
+            'child_title.*' => 'required|string|max:30',
             'time.*' => 'integer|min:1',
-            'child_content.*' => 'required|max:20000',
+            'child_content.*' => 'required|string|max:20000',
         ];
     }
 
