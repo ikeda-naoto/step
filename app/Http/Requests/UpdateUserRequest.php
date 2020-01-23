@@ -31,4 +31,13 @@ class UpdateUserRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::user()->id],
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'ニックネーム',
+            'introduction' => '自己紹介',
+            'pic' => 'プロフィール画像',
+        ];
+    }
 }
