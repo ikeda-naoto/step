@@ -234,8 +234,10 @@ button:focus {
 
 .l-row {
   display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -moz-flexbox;
+  display: -moz-flex;
   display: flex;
-  display: -ms-flexbox;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
 }
