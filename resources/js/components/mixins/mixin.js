@@ -27,6 +27,26 @@ export default {
             }
              
             return str.replace(regexp_url, regexp_makeLink);
+        },
+        // STEP登録とプロフィール登録のエラー処理
+        errorHandling: function(error) {
+            // 不明なエラーが起こった時
+            if(!this.isset(error.response)) {
+                alert('不正な操作が行われました。');
+                location.href = '/users/mypage';
+            }
+            // バリデーション引っかかった場合
+            else if(error.response.status === 422 || this.isset(error.response.data.errors)) { 
+                // エラーメッセージを変数に格納し、モーダルで表示する
+                for (let key in error.response.data.errors) {
+                    this.errMsgs.push(error.response.data.errors[key][0]);
+                }
+            }
+            // それ以外のエラーの場合
+            else {
+                alert('しばらく時間をおいてから再度試してください');
+            }
+            this.isPush = !this.isPush;
         }
     },
     computed: {

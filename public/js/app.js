@@ -2062,6 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 //
 //
 //
@@ -2081,6 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['parentStepId', 'childStep', 'clearNum', 'user', 'challengeFlg'],
   data: function data() {
@@ -2088,6 +2090,7 @@ __webpack_require__.r(__webpack_exports__);
       isPush: false
     };
   },
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   methods: {
     // クリア処理
     onClickClearBtn: function onClickClearBtn() {
@@ -2112,8 +2115,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         // 通信失敗の場合
-        alert('通信に失敗しました。しばらく時間を置いてからもう一度試してしてください。');
-        _this.isPush = !_this.isPush;
+        // エラー処理
+        _this.errorHandling(error);
       });
     }
   }
@@ -2621,6 +2624,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 //
 //
 //
@@ -2634,6 +2638,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['parentStepId', 'childStepId', 'user', 'challengeFlg'],
   data: function data() {
@@ -2641,6 +2646,7 @@ __webpack_require__.r(__webpack_exports__);
       isPush: false
     };
   },
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   methods: {
     // チャレンジ処理
     onClickChallengeBtn: function onClickChallengeBtn() {
@@ -2659,8 +2665,8 @@ __webpack_require__.r(__webpack_exports__);
         location.href = '/steps/' + _this.parentStepId + '/' + _this.childStepId;
       })["catch"](function (error) {
         // 通信失敗の場合
-        alert('しばらく時間をおいてから再度試してください');
-        _this.isPush = !_this.isPush;
+        // エラー処理
+        _this.errorHandling(error);
       });
     }
   }
@@ -2972,23 +2978,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('/users', data, config).then(function (res) {
         // 通信成功の場合
-        console.log(res.data); // マイページへ遷移
-
+        // マイページへ遷移
         location.href = '/users/mypage';
       })["catch"](function (error) {
         // 通信失敗の場合
-        // バリデーション引っかかった場合
-        if (error.response.data.errors) {
-          // エラーメッセージを変数に格納し、モーダルで表示する
-          for (var key in error.response.data.errors) {
-            _this.errMsgs.push(error.response.data.errors[key][0]);
-          }
-        } // それ以外のエラーの場合
-        else {
-            alert('しばらく時間をおいてから再度試してください');
-          }
-
-        _this.isPush = !_this.isPush;
+        // エラー処理
+        _this.errorHandling(error);
       });
     },
     updatePic: function updatePic(val) {
@@ -3459,23 +3454,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post(url, data, config).then(function (res) {
         // 通信成功の場合
-        console.log(res.data); // マイページへ遷移
-
+        // マイページへ遷移
         location.href = '/users/mypage';
       })["catch"](function (error) {
         // 通信失敗の場合
-        // バリデーション引っかかった場合
-        if (error.response.data.errors) {
-          // エラーメッセージを変数に格納し、モーダルで表示する
-          for (var _key in error.response.data.errors) {
-            _this2.errMsgs.push(error.response.data.errors[_key][0]);
-          }
-        } // それ以外のエラーの場合
-        else {
-            alert('しばらく時間をおいてから再度試してください');
-          }
-
-        _this2.isPush = !_this2.isPush;
+        // エラー処理
+        _this2.errorHandling(error);
       });
     },
     // 子STEP追加処理
@@ -78748,6 +78732,25 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       return str.replace(regexp_url, regexp_makeLink);
+    },
+    // STEP登録とプロフィール登録のエラー処理
+    errorHandling: function errorHandling(error) {
+      // 不明なエラーが起こった時
+      if (!this.isset(error.response)) {
+        alert('不正な操作が行われました。');
+        location.href = '/users/mypage';
+      } // バリデーション引っかかった場合
+      else if (error.response.status === 422 || this.isset(error.response.data.errors)) {
+          // エラーメッセージを変数に格納し、モーダルで表示する
+          for (var key in error.response.data.errors) {
+            this.errMsgs.push(error.response.data.errors[key][0]);
+          }
+        } // それ以外のエラーの場合
+        else {
+            alert('しばらく時間をおいてから再度試してください');
+          }
+
+      this.isPush = !this.isPush;
     }
   },
   computed: {
