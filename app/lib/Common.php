@@ -4,6 +4,7 @@ namespace App\lib;
 use App\ChildStep;
 use Illuminate\Pagination\LengthAwarePaginator;
  
+// 様々なコントローラで使われる共通のメソッドを定義
 class Common {
 
   // 親STEPに紐づいているカテゴリーと子STEPのデータを取得する
