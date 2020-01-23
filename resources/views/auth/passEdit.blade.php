@@ -29,10 +29,13 @@
                         @enderror
                     </div>
                     <div class="c-form__group">
-                        <input type="password" name="password_new_confirmation" class="c-input c-input--full" placeholder="新しいパスワード（再入力）" required autocomplete="new-password">
+                        <input type="password" name="password_new_confirmation" class="c-input c-input--full @error('password_new_confirmation')c-input--err @enderror" placeholder="新しいパスワード（再入力）" required autocomplete="new-password">
+                        @error('password_new_confirmation')
+                            <span class="u-fontcolor--err">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="c-form__group">
-                        <input type="submit" value="更新する" class="c-btn c-btn--primary c-btn--center c-btn--medium">
+                        <input type="submit" value="更新する" class="c-btn c-btn--primary c-btn--center c-btn--medium" onclick="disabledButton(this);">
                     </div>
                 </form>
             </div>

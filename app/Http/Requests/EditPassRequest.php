@@ -26,8 +26,9 @@ class EditPassRequest extends FormRequest
     public function rules()
     {
         return [
+            'password_old' => ['required', new AlphaNumHalf, 'min:6', 'max:30',],
             'password_new' => ['required',new AlphaNumHalf, 'min:6', 'max:30', 'confirmed'],
-            'password_old' => ['required', new AlphaNumHalf, 'min:6', 'max:30',]
+            'password_new_confirmation' => ['required'],
         ];
     }
 
@@ -43,6 +44,7 @@ class EditPassRequest extends FormRequest
         return [
             'password_new' => '新しいパスワード',
             'password_old' => '現在のパスワード',
+            'password_new_confirmation' => '新しいパスワード（再入力）',
         ];
     }
 

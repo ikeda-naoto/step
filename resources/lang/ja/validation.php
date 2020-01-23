@@ -142,6 +142,6 @@ return [
     |
     */
 
-    'attributes' => ['email' => 'メールアドレス', 'password' => 'パスワード'],
+    'attributes' => ['email' => 'メールアドレス', 'password' => 'パスワード', 'password_confirmation' => 'パスワード（再入力）'],
 
 ];

@@ -28,10 +28,10 @@
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="password" class="c-input c-input--full" placeholder="パスワード（再入力）" name="password_confirmation" required autocomplete="new-password">
-                    {{-- @error('password_confirmation')
+                    <input type="password" class="c-input c-input--full @error('password_confirmation') c-input--err @enderror" placeholder="パスワード（再入力）" name="password_confirmation" required autocomplete="new-password">
+                    @error('password_confirmation')
                         <span class="u-fontcolor--err">{{ $message }}</span>
-                    @enderror --}}
+                    @enderror
                 </div>
                 <div class="c-form__group">
                     <input type="submit" value="新規会員登録" class="c-btn c-btn--medium c-btn--success c-btn--center" onclick="disabledButton(this);">
