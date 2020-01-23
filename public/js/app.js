@@ -62134,10 +62134,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "l-row__col12--sm l-row__col08--tab l-row__col08--pc u-pr--l u-pl--l"
-    },
+    { staticClass: "l-row__col12--sm l-row__col08--tab l-row__col08--pc" },
     [
       _c("section", { staticClass: "p-step-detail" }, [
         _c(
@@ -62622,7 +62619,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "l-row__col12--sm l-row__col09--tab l-row__col06--pc p-challenge-step__panel-container"
+        "l-row__col12--sm l-row__col06--tab l-row__col06--pc p-challenge-step__panel-container"
     },
     [
       _c(
@@ -62656,65 +62653,58 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "l-row l-row--between p-challenge-step__body" },
-            [
-              _c("p", { staticClass: "p-challenge-step__finish-num" }, [
-                _vm._v("\n                進捗状況\n                "),
-                _c("span", { staticClass: "u-fontsize--l u-ml--s u-mr--s" }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.challengeStep.clear_num) +
-                      "/" +
-                      _vm._s(_vm.challengeStep.parent_step.child_steps.length) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v("\n                STEP\n            ")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "c-panel__time" }, [
+          _c("div", { staticClass: "p-challenge-step__body" }, [
+            _c("p", { staticClass: "p-challenge-step__finish-num" }, [
+              _vm._v("\n                進捗状況\n                "),
+              _c("span", { staticClass: "u-fontsize--l u-ml--s u-mr--s" }, [
                 _vm._v(
-                  "\n                目安達成時間：" +
-                    _vm._s(
-                      _vm.showTotalTime(
-                        _vm.challengeStep.parent_step.child_steps
-                      )
-                    ) +
-                    "時間\n            "
+                  "\n                    " +
+                    _vm._s(_vm.challengeStep.clear_num) +
+                    "/" +
+                    _vm._s(_vm.challengeStep.parent_step.child_steps.length) +
+                    "\n                "
                 )
               ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-challenge-step__progress" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "p-challenge-step__progress--bar",
-                    style: { width: _vm.calcClearPercentage + "%" }
-                  },
-                  [
-                    _vm.calcClearPercentage
-                      ? _c(
-                          "span",
-                          {
-                            staticClass:
-                              "p-challenge-step__progress--percentage"
-                          },
-                          [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(_vm.calcClearPercentage) +
-                                "%\n                    "
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ]
-                )
-              ])
-            ]
-          )
+              _vm._v("\n                STEP\n            ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-challenge-step__progress" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "p-challenge-step__progress--bar",
+                  style: { width: _vm.calcClearPercentage + "%" }
+                },
+                [
+                  _vm.calcClearPercentage
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "p-challenge-step__progress--percentage"
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.calcClearPercentage) +
+                              "%\n                    "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "c-panel__time u-text--right" }, [
+              _vm._v(
+                "\n                目安達成時間：" +
+                  _vm._s(
+                    _vm.showTotalTime(_vm.challengeStep.parent_step.child_steps)
+                  ) +
+                  "時間\n            "
+              )
+            ])
+          ])
         ]
       )
     ]
@@ -63317,10 +63307,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "l-row__col12--sm l-row__col08--tab l-row__col08--pc u-pr--l u-pl--l"
-    },
+    { staticClass: "l-row__col12--sm l-row__col08--tab l-row__col08--pc" },
     [
       _c("parentStepDetailItem", {
         attrs: {
@@ -64682,7 +64669,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "l-row__col12--sm l-row__col08--tab l-row__col06--pc p-step-list__panel-container"
+        "l-row__col12--sm l-row__col06--tab l-row__col06--pc p-step-list__panel-container"
     },
     [
       _c(

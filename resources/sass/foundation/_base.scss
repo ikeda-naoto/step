@@ -121,9 +121,9 @@ $font-family_gothic: 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','�
 // ブレイクポイント
 $breakpoints: (
   'sm': 'screen and (max-width: 414px)',
-  'tab': 'screen and (min-width: 415px) and (max-width: 959px)',
+  'tab': 'screen and (min-width: 415px) and (max-width: 991px)',
   // 'lg': 'screen and (max-width: 1024px)',
-  'pc': 'screen and (min-width: 960px)',
+  'pc': 'screen and (min-width: 992px)',
 ) !default;
 
 // ==============================

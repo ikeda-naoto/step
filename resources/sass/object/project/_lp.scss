@@ -60,14 +60,11 @@
     height: 600px;
     background-image: url('../img/baner.jpg');
     background-size: cover;
-    background-attachment: fixed;
     @include sm() {
         height: 230px;
-        background-attachment: unset;
     }
     @include tab() {
         height: 430px;
-        background-attachment: unset;
     }
     &__phrase {
         width: 100%;
@@ -115,12 +112,12 @@
         font-size: $font-size_default;
     }
     &__img {
+        width: 50%;
         position: absolute;
+        top: 0;
         right: -60px;
-        top: -55px;
         z-index: -1;
         @include sm() {
-            width: 50%;
             top: -120px;
             right: 0;
         }

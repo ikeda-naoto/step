@@ -25,11 +25,17 @@
         box-sizing: border-box;
         margin-bottom: $space_m;
         font-weight: bold;
+        @include tab() {
+            background-image: unset;
+        }
     }
     &__title {
         padding: 0 $space_m;
         font-size: $font-size_l;
         background: $background-color_main-light;
+        @include tab() {
+            font-size: $font-size_default;
+        }
     }
     &__icn {
         margin-right: $space_m;

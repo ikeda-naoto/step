@@ -1,5 +1,5 @@
 <template>
-<div class="l-row__col12--sm l-row__col08--tab l-row__col06--pc p-step-list__panel-container">
+<div class="l-row__col12--sm l-row__col06--tab l-row__col06--pc p-step-list__panel-container">
     <a :href="/steps/ + parentStep.id" class="c-panel p-step-list__panel">
         <div class="c-panel__category p-step-list__category">{{ parentStep.category.name }}</div>
         <div class="c-img p-step-list__img">
