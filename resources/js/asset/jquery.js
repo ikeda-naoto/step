@@ -77,6 +77,10 @@ $(function() {
             $jsToggleSpMenuTarget.css('transform', '');
         }
     });
-    
 });
+
+// スクロールを無効用関数
+function handleTouchMove(event) {
+    event.preventDefault();
+}
 
