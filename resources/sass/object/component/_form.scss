@@ -132,7 +132,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    &:-ms-expand{
+    &::-ms-expand{
         display: none;
     }
     &--half-pc {
@@ -146,6 +146,9 @@
             width: 100%;
         }
     }
+}
+select::-ms-expand {
+    display: none;
 }
 // ==============================
 // ファイルアップロード（ドラッグ&ドロップ）
