@@ -7,7 +7,7 @@
     box-sizing: border-box;
     @include sm() {
         width: 100%;
-        margin-top: $space_3l;
+        margin-top: $space_7l;
     }
     @include tab() {
         padding: $space_m;

@@ -7,7 +7,8 @@
         box-shadow: 0 2px 6px 1px $shadow-color_light;
         &-container {
             padding: 0 $space_l;
-            margin: $space_l 0;
+            margin-top: $space_l;
+            margin-bottom: $space_5l;
             @include tab() {
                 padding: 0 $space_m;
             }

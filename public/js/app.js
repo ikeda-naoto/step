@@ -81574,19 +81574,19 @@ $(function () {
     });
   }); // LPのコンテンツ連続フェードイン
 
-  var $jsAnimateFadeInTop = $('.js-animate-fadeIn-top');
-  $jsAnimateFadeInTop.css('opacity', 0);
+  var $jsAnimateFadeInContinuous = $('.js-animate-fadeIn-continuous');
+  $jsAnimateFadeInContinuous.css('opacity', 0);
   $(window).scroll(function () {
-    var delaySpeed = 300,
+    var delaySpeed = 500,
         fadeSpeed = 1000;
 
-    if ($jsAnimateFadeInTop.length !== 0) {
-      $jsAnimateFadeInTop.each(function (i) {
+    if ($jsAnimateFadeInContinuous.length !== 0) {
+      $jsAnimateFadeInContinuous.each(function (i) {
         var elemPos = $(this).offset().top,
             scroll = $(window).scrollTop(),
             windowHeight = $(window).height();
 
-        if (scroll > elemPos - windowHeight) {
+        if (scroll > elemPos - windowHeight + 100) {
           $(this).delay(i * delaySpeed).animate({
             opacity: 1
           }, fadeSpeed);

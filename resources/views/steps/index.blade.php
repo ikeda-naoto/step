@@ -70,7 +70,7 @@
                         </div>
                         
                         <ul class="p-wall__list">
-                            <li class="l-row p-wall__list-item js-animate-fadeIn-top">
+                            <li class="l-row p-wall__list-item js-animate-fadeIn">
                                 <div class="p-wall__list-num">
                                     1
                                 </div>
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                             </li> 
-                            <li class="l-row p-wall__list-item js-animate-fadeIn-top">
+                            <li class="l-row p-wall__list-item js-animate-fadeIn">
                                 <div class="p-wall__list-num">
                                     2
                                 </div>
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                             </li> 
-                            <li class="l-row p-wall__list-item js-animate-fadeIn-top">
+                            <li class="l-row p-wall__list-item js-animate-fadeIn">
                                 <div class="p-wall__list-num">
                                     3
                                 </div>
@@ -119,7 +119,7 @@
                 <h2 class="p-feature__title">STEPの特徴</h2>
                 <div class="l-site-width">
                     <ul class="l-row p-feature__list">
-                        <li class="l-row__col12--sm l-row__col04--tab l-row__col04--pc p-feature__list-item js-animate-fadeIn-top">
+                        <li class="l-row__col12--sm l-row__col04--tab l-row__col04--pc p-feature__list-item js-animate-fadeIn-continuous">
                             <div class="p-feature__inner">
                                 <h3 class="p-feature__content">STEPを作っているのは同じ学習者</h3>
                             </div>
@@ -127,7 +127,7 @@
                                 学習には人それぞれ「これが良かった」という順番と内容があります。また、一度学んだからこそわかる学習のポイントや挫折しやすいポイントなどもあるでしょう。弊社サービスではそのような経験をもとに、同じ学習者が「STEP」を作成、投稿し、学習者はその「STEP」をもとに学習を進めていくことができます。
                             </p>
                         </li>  
-                        <li class="l-row__col12--sm l-row__col04--tab l-row__col04--pc p-feature__list-item js-animate-fadeIn-top">
+                        <li class="l-row__col12--sm l-row__col04--tab l-row__col04--pc p-feature__list-item js-animate-fadeIn-continuous">
                             <div class="p-feature__inner">
                                 <h3 class="p-feature__content">学習方法に悩まず、正しい手順で学習ができる</h3>
                             </div>
@@ -135,7 +135,7 @@
                                 「STEP」にはそれぞれ学習の手順と内容が記載されています。その手順と内容に従って学習をすることで、初学者が陥りやすい誤った方法・方向での学習を防止できます。結果として、あなたが求めるスキルを最短で効率よく学ぶことができるでしょう。
                             </p>
                         </li>  
-                        <li class="l-row__col12--sm l-row__col04--tab l-row__col04--pc p-feature__list-item js-animate-fadeIn-top">
+                        <li class="l-row__col12--sm l-row__col04--tab l-row__col04--pc p-feature__list-item js-animate-fadeIn-continuous">
                             <div class="p-feature__inner">
                                 <h3 class="p-feature__content">ゲーム感覚で楽しみながら学べる</h3>
                             </div>
@@ -164,7 +164,7 @@
                     <h3 class="p-browse__title"><span>実際に登録されているSTEP一覧</span></h3>
                     <div class="l-row p-step-list">
                         @foreach ($parentSteps as $parentStep)
-                            <a href="{{ route('steps.showParent', $parentStep->id) }}" class="l-row__col12--sm  l-row__col06--tab l-row__col04--pc p-step-list__panel-container js-animate-fadeIn-top">
+                            <a href="{{ route('steps.showParent', $parentStep->id) }}" class="l-row__col12--sm  l-row__col06--tab l-row__col04--pc p-step-list__panel-container">
                                 <div class="c-panel p-step-list__panel">
                                     <div class="c-panel__category p-step-list__category">{{ $parentStep->category->name }}</div>
                                     <div class="c-img p-step-list__img">
