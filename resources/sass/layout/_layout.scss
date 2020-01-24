@@ -1,8 +1,8 @@
 .l-app {
     transition: all .5s;
-    @include pc() {
-        transition: none;
-    }
+    // @include pc() {
+    //     transition: none;
+    // }
 }
 
 // ==============================
