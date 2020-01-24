@@ -82324,7 +82324,7 @@ __webpack_require__.r(__webpack_exports__);
         url: url
       }); // ツイッターに投稿する内容を変数に代入
 
-      var text = encodeURIComponent(' | あなたの人生の「STEP」を共有しよう');
+      var text = ' | あなたの人生の「STEP」を共有しよう';
       console.log({
         text: text
       }); //シェアする画面を設定

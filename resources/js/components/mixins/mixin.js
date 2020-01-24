@@ -75,7 +75,7 @@ export default {
 
             console.log({ url });
             // ツイッターに投稿する内容を変数に代入
-            let text = encodeURIComponent(' | あなたの人生の「STEP」を共有しよう')
+            let text = ' | あなたの人生の「STEP」を共有しよう'
             console.log({text });
             //シェアする画面を設定
             let shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有';
