@@ -176,3 +176,13 @@ img{
 input:focus, textarea:focus, button:focus{
     outline: none;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+}
+

@@ -177,6 +177,16 @@ button:focus {
   outline: none;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 .l-app {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -1035,13 +1045,6 @@ button:focus {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c-select:-ms-expand {
-  display: none;
 }
 
 .c-select--half-pc {
@@ -1056,6 +1059,10 @@ button:focus {
   .c-select--full-sm {
     width: 100%;
   }
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 .c-file-upload {
