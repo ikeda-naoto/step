@@ -1,7 +1,3 @@
-function handleTouchMove(event) {
-    event.preventDefault();
-}
-
 $(function() {
     // TOPへ戻る
     let jsScrollTop = $('.js-scroll-top');  
@@ -68,27 +64,17 @@ $(function() {
     $('.js-toggle-sp-menu').on('click', function () {
         // メニューバーをacriveに
         $(this).toggleClass('c-btn--trigger--active');
-        // メニュー 表示時、背景がスクロールしないように固定する
-        // $('html').css({
-        //     'overflow': 'hidden',
-        //     'height': '100%'
-        // });
-        // スクロールを無効にする
-        document.addEventListener('touchmove', handleTouchMove, { passive: false });
         // メニューバーをクリックした時に動かす要素のDOMを取得
         let $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
         if($jsToggleSpMenuTarget.css('transform') === 'none') { // transformプロパティが設定されていなかったら
+            // スクロールを無効にする
+            document.addEventListener('touchmove', handleTouchMove, { passive: false });
             // 250px分左へ移動する
             $jsToggleSpMenuTarget.css('transform', 'translateX(-250px)');
-
         }else { // transformプロパティが設定されていたら
             // 元に戻す
-            $jsToggleSpMenuTarget.css('transform', '');
-            // $('html').css({
-            //     'overflow': '',
-            //     'height': ''
-            // });
             document.removeEventListener('touchmove', handleTouchMove, { passive: false });
+            $jsToggleSpMenuTarget.css('transform', '');
         }
     });
     

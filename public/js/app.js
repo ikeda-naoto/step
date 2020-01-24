@@ -81541,11 +81541,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.regexp.replace */ "./node_modules/core-js/modules/es6.regexp.replace.js");
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
 
-
-function handleTouchMove(event) {
-  event.preventDefault();
-}
-
 $(function () {
   // TOPへ戻る
   var jsScrollTop = $('.js-scroll-top');
@@ -81616,34 +81611,25 @@ $(function () {
 
   $('.js-toggle-sp-menu').on('click', function () {
     // メニューバーをacriveに
-    $(this).toggleClass('c-btn--trigger--active'); // メニュー 表示時、背景がスクロールしないように固定する
-    // $('html').css({
-    //     'overflow': 'hidden',
-    //     'height': '100%'
-    // });
-    // スクロールを無効にする
-
-    document.addEventListener('touchmove', handleTouchMove, {
-      passive: false
-    }); // メニューバーをクリックした時に動かす要素のDOMを取得
+    $(this).toggleClass('c-btn--trigger--active'); // メニューバーをクリックした時に動かす要素のDOMを取得
 
     var $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
 
     if ($jsToggleSpMenuTarget.css('transform') === 'none') {
       // transformプロパティが設定されていなかったら
-      // 250px分左へ移動する
+      // スクロールを無効にする
+      document.addEventListener('touchmove', handleTouchMove, {
+        passive: false
+      }); // 250px分左へ移動する
+
       $jsToggleSpMenuTarget.css('transform', 'translateX(-250px)');
     } else {
       // transformプロパティが設定されていたら
       // 元に戻す
-      $jsToggleSpMenuTarget.css('transform', ''); // $('html').css({
-      //     'overflow': '',
-      //     'height': ''
-      // });
-
       document.removeEventListener('touchmove', handleTouchMove, {
         passive: false
       });
+      $jsToggleSpMenuTarget.css('transform', '');
     }
   });
 });
