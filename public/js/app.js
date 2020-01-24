@@ -82319,9 +82319,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     twitterShare: function twitterShare() {
       // 現在のURLを取得
-      var url = encodeURIComponent(location.href); // ツイッターに投稿する内容を変数に代入
+      var url = encodeURIComponent(location.href);
+      console.log({
+        url: url
+      }); // ツイッターに投稿する内容を変数に代入
 
-      var text = encodeURIComponent(' | あなたの人生の「STEP」を共有しよう'); //シェアする画面を設定
+      var text = encodeURIComponent(' | あなたの人生の「STEP」を共有しよう');
+      console.log({
+        text: text
+      }); //シェアする画面を設定
 
       var shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有'; //シェア用の画面へ移行
 
