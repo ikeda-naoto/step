@@ -149,8 +149,6 @@ body {
   margin: 0;
   line-height: 150%;
   font-family: "Noto Sans JP", sans-serif;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 @media screen and (max-width: 414px) {
