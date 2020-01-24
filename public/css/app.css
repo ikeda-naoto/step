@@ -187,15 +187,17 @@ select::-ms-expand {
   display: none;
 }
 
-.l-app {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+@media screen and (max-width: 414px) {
+  .l-app {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 415px) and (max-width: 991px) {
   .l-app {
-    -webkit-transition: none;
-    transition: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
 }
 

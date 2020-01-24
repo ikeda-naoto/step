@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <div id="app" class="js-toggle-sp-menu-target l-app" v-cloak>
+    <div id="app" class="l-app js-toggle-sp-menu-target" v-cloak>
         <!-- ヘッダー -->
         <header class="l-header">
             <div class="p-header">

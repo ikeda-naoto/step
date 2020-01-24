@@ -1,7 +1,9 @@
 .l-app {
-    transition: all .5s;
-    @include pc() {
-        transition: none;
+    @include sm() {
+        transition: all .5s;
+    }
+    @include tab() {
+        transition: all .5s;
     }
 }
 

@@ -187,9 +187,9 @@
                     </div>
                     <div class="l-row u-mt--5l">
                         <a href="{{ route('register') }}" class="c-btn c-btn--center c-btn--success c-btn--big p-lp__btn">今すぐ無料会員登録</a>
-                    </div>        
-                </section>
-            </div>
+                    </div>    
+                </div>    
+            </section>
         </div>
     </div>
 @endsection

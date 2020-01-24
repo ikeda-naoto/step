@@ -81614,7 +81614,7 @@ $(function () {
       'height': '100%'
     }); // メニューバーをクリックした時に動かす要素のDOMを取得
 
-    $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
+    var $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
 
     if ($jsToggleSpMenuTarget.css('transform') === 'none') {
       // transformプロパティが設定されていなかったら

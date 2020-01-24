@@ -41,13 +41,13 @@ $(function() {
             fadeSpeed = 1000;
         if($jsAnimateFadeInContinuous.length !== 0) {
             $jsAnimateFadeInContinuous.each(function(i){
-            let elemPos = $(this).offset().top,
-                scroll = $(window).scrollTop(),
-                windowHeight = $(window).height();
-            if(scroll > elemPos - windowHeight + 100) {
-                $(this).delay(i*(delaySpeed)).animate({opacity:1},fadeSpeed);
-            }
-        });
+                let elemPos = $(this).offset().top,
+                    scroll = $(window).scrollTop(),
+                    windowHeight = $(window).height();
+                if(scroll > elemPos - windowHeight + 100) {
+                    $(this).delay(i*(delaySpeed)).animate({opacity:1},fadeSpeed);
+                }
+            });
         }
     });
 
@@ -70,7 +70,7 @@ $(function() {
             'height': '100%'
         });
         // メニューバーをクリックした時に動かす要素のDOMを取得
-        $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
+        let $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
         if($jsToggleSpMenuTarget.css('transform') === 'none') { // transformプロパティが設定されていなかったら
             // 250px分左へ移動する
             $jsToggleSpMenuTarget.css('transform', 'translateX(-250px)');
