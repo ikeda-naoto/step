@@ -185,17 +185,15 @@ select::-ms-expand {
   display: none;
 }
 
-@media screen and (max-width: 414px) {
-  .l-app {
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-  }
+.l-app {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-@media screen and (min-width: 415px) and (max-width: 991px) {
+@media screen and (min-width: 992px) {
   .l-app {
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: none;
+    transition: none;
   }
 }
 
