@@ -1,3 +1,7 @@
+function handleTouchMove(event) {
+    event.preventDefault();
+}
+
 $(function() {
     // TOPへ戻る
     let jsScrollTop = $('.js-scroll-top');  
@@ -70,9 +74,7 @@ $(function() {
         //     'height': '100%'
         // });
         // スクロールを無効にする
-        $(window).on('touchmove.noScroll', function(e) {
-            e.preventDefault();
-        });
+        document.addEventListener('touchmove', handleTouchMove, { passive: false });
         // メニューバーをクリックした時に動かす要素のDOMを取得
         let $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
         if($jsToggleSpMenuTarget.css('transform') === 'none') { // transformプロパティが設定されていなかったら
@@ -86,8 +88,9 @@ $(function() {
             //     'overflow': '',
             //     'height': ''
             // });
-            $(window).off('.noScroll');
+            document.removeEventListener('touchmove', handleTouchMove, { passive: false });
         }
     });
     
 });
+

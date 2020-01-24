@@ -81541,6 +81541,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.regexp.replace */ "./node_modules/core-js/modules/es6.regexp.replace.js");
 /* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
 
+
+function handleTouchMove(event) {
+  event.preventDefault();
+}
+
 $(function () {
   // TOPへ戻る
   var jsScrollTop = $('.js-scroll-top');
@@ -81618,8 +81623,8 @@ $(function () {
     // });
     // スクロールを無効にする
 
-    $(window).on('touchmove.noScroll', function (e) {
-      e.preventDefault();
+    document.addEventListener('touchmove', handleTouchMove, {
+      passive: false
     }); // メニューバーをクリックした時に動かす要素のDOMを取得
 
     var $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
@@ -81636,7 +81641,9 @@ $(function () {
       //     'height': ''
       // });
 
-      $(window).off('.noScroll');
+      document.removeEventListener('touchmove', handleTouchMove, {
+        passive: false
+      });
     }
   });
 });
