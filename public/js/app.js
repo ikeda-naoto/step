@@ -82254,7 +82254,7 @@ __webpack_require__.r(__webpack_exports__);
       var userAgent = window.navigator.userAgent.toLowerCase(); // 現在のURLを取得
 
       var url = encodeURIComponent(location.href),
-          // シェアするときのURLの保存する変数を定義
+          // シェアするときのURLを保存する変数を定義
       shareUrl = '';
 
       if (userAgent.indexOf('msie') != -1 || userAgent.indexOf('trident') != -1) {

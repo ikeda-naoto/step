@@ -5,7 +5,7 @@ export default {
             let userAgent = window.navigator.userAgent.toLowerCase();
             // 現在のURLを取得
             let url = encodeURIComponent(location.href),
-            // シェアするときのURLの保存する変数を定義
+            // シェアするときのURLを保存する変数を定義
                 shareUrl = '';
             if(userAgent.indexOf('msie') != -1 ||userAgent.indexOf('trident') != -1) { // IEの場合
                 shareUrl = 'https://twitter.com/intent/tweet?url=' + url;
