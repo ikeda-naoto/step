@@ -1061,10 +1061,6 @@ select::-ms-expand {
   }
 }
 
-select::-ms-expand {
-  display: none;
-}
-
 .c-file-upload {
   position: relative;
   text-align: center;
