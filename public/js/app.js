@@ -2758,13 +2758,12 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     twitterShare: _twitterShare__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  methods: {
-    // ツイッターシェア処理
-    onClickTwitterShare: function onClickTwitterShare() {
-      // ツイッターシェアするときのタイトル
-      var shareTitle = this.parentStep.parent_title;
-      this.twitterShare(shareTitle);
-    }
+  methods: {// ツイッターシェア処理
+    // onClickTwitterShare: function() {
+    //     // ツイッターシェアするときのタイトル
+    //     let shareTitle = this.parentStep.parent_title;
+    //     this.twitterShare(shareTitle);
+    // }
   }
 });
 
@@ -3945,6 +3944,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mixins/mixin */ "./resources/js/components/mixins/mixin.js");
 //
 //
 //
@@ -3953,7 +3953,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
 
 /***/ }),
 
@@ -66567,9 +66570,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("twitterShare", {
-          on: { onClickTwitterShare: _vm.onClickTwitterShare }
-        }),
+        _c("twitterShare"),
         _vm._v(" "),
         _c("div", { staticClass: "p-step-detail__body" }, [
           _c("div", {
@@ -68109,9 +68110,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "p-share" }, [
     _c(
-      "button",
+      "a",
       {
         staticClass: "c-btn p-share__btn p-share__btn--twitter",
+        attrs: { href: _vm.twitterShare },
         on: {
           click: function($event) {
             return _vm.$emit("onClickTwitterShare")
@@ -82246,22 +82248,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     // ツイッターシェア処理
-    twitterShare: function twitterShare(shareTitle) {
-      // 現在のURLを取得
-      var url = encodeURIComponent(location.href); // ツイッターに投稿する内容を変数に代入
-
-      var text = encodeURIComponent('aaa'); //シェアする画面を設定
-      // let shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有';
-      //シェア用の画面へ移行
-
-      var twlink1 = 'https://twitter.com/intent/tweet?text=';
-      var twlink2 = '%0a';
-      var twlink3 = '&url=';
-      var twlink4 = '&hashtags=';
-      var twlink5 = 'STEP,学習手順,共有';
-      var shareUrl = twlink1 + text + twlink2 + twlink3 + url + twlink4 + twlink5;
-      location.href = shareUrl;
-    },
     // 引数が存在するかを判定する
     isset: function isset(data) {
       if (data === "" || data === null || data === undefined) {
@@ -82330,6 +82316,16 @@ __webpack_require__.r(__webpack_exports__);
 
         return text.replace(/\n/g, '<br/>');
       };
+    },
+    twitterShare: function twitterShare() {
+      // 現在のURLを取得
+      var url = encodeURIComponent(location.href); // ツイッターに投稿する内容を変数に代入
+
+      var text = encodeURIComponent(' | あなたの人生の「STEP」を共有しよう'); //シェアする画面を設定
+
+      var shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有'; //シェア用の画面へ移行
+
+      return shareUrl;
     }
   }
 });
