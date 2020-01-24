@@ -81612,10 +81612,14 @@ $(function () {
   $('.js-toggle-sp-menu').on('click', function () {
     // メニューバーをacriveに
     $(this).toggleClass('c-btn--trigger--active'); // メニュー 表示時、背景がスクロールしないように固定する
+    // $('html').css({
+    //     'overflow': 'hidden',
+    //     'height': '100%'
+    // });
+    // スクロールを無効にする
 
-    $('html').css({
-      'overflow': 'hidden',
-      'height': '100%'
+    $(window).on('touchmove.noScroll', function (e) {
+      e.preventDefault();
     }); // メニューバーをクリックした時に動かす要素のDOMを取得
 
     var $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
@@ -81627,11 +81631,12 @@ $(function () {
     } else {
       // transformプロパティが設定されていたら
       // 元に戻す
-      $jsToggleSpMenuTarget.css('transform', '');
-      $('html').css({
-        'overflow': '',
-        'height': ''
-      });
+      $jsToggleSpMenuTarget.css('transform', ''); // $('html').css({
+      //     'overflow': '',
+      //     'height': ''
+      // });
+
+      $(window).off('.noScroll');
     }
   });
 });
