@@ -83,7 +83,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="p-dropdown__item">
-                                                    <a href="{{ route('logout') }}"　onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="l-row l-row--between l-row--middle p-dropdown__link">
                                                         <span>ログアウト</span><i class="fas fa-angle-right fa-lg p-dropdown__icn"></i>
                                                     </a>
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -144,7 +144,7 @@
                                     </a>
                                 </li>
                                 <li class="p-global-sidebar__item">
-                                    <a href="{{ route('logout') }}"　onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="p-global-sidebar__link">
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="p-global-sidebar__link">
                                         <p class="p-global-sidebar__text">ログアウト</p>
                                     </a>
                                 </li>

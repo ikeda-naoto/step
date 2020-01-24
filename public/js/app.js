@@ -67750,7 +67750,7 @@ var render = function() {
                 attrs: { type: "radio", name: "category", id: 0 },
                 domProps: { value: 0 },
                 on: {
-                  input: function($event) {
+                  change: function($event) {
                     return _vm.onInputCategory($event.target.value)
                   }
                 }
@@ -67782,7 +67782,7 @@ var render = function() {
                   attrs: { type: "radio", name: "category", id: category.id },
                   domProps: { value: category.id },
                   on: {
-                    input: function($event) {
+                    change: function($event) {
                       return _vm.onInputCategory($event.target.value)
                     }
                   }
