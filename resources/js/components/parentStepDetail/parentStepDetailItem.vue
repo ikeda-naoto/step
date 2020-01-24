@@ -9,7 +9,7 @@
                 <img :src="showStepImg(parentStep.pic)" alt="">
             </div>
             <twitterShare
-               
+               @onClickTwitterShare="onClickTwitterShare"
             ></twitterShare>
             <div class="p-step-detail__body">
                 <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(this.parentStep.parent_content)))">
@@ -33,11 +33,11 @@
         },
         methods: {
             // ツイッターシェア処理
-            // onClickTwitterShare: function() {
-            //     // ツイッターシェアするときのタイトル
-            //     let shareTitle = this.parentStep.parent_title;
-            //     this.twitterShare(shareTitle);
-            // }
+            onClickTwitterShare: function() {
+                // ツイッターシェアするときのタイトル
+                let shareTitle = this.parentStep.parent_title;
+                this.twitterShare(shareTitle);
+            }
         },
     }
 </script>

@@ -1,8 +1,8 @@
 <template>
     <div class="p-share">
-        <a :href="twitterShare" class="c-btn p-share__btn p-share__btn--twitter" @click="$emit('onClickTwitterShare')">
+        <button class="c-btn p-share__btn p-share__btn--twitter" @click="$emit('onClickTwitterShare')">
             <i class="fab fa-twitter p-share__icn"></i>ツイート
-        </a>
+        </button>
     </div>
 </template>
 

@@ -1,7 +1,23 @@
 export default {
     methods: {
         // ツイッターシェア処理
-
+        twitterShare: function(title) {
+            let userAgent = window.navigator.userAgent.toLowerCase();
+            // 現在のURLを取得
+            let url = encodeURIComponent(location.href),
+            // シェアするときのURLの保存する変数を定義
+                shareUrl = '';
+            if(userAgent.indexOf('msie') != -1 ||userAgent.indexOf('trident') != -1) { // IEの場合
+                shareUrl = 'https://twitter.com/intent/tweet?url=' + url;
+            }
+            else {
+                // ツイッターに投稿する内容を変数に代入
+                let text = encodeURIComponent(title + ' | あなたの人生の「STEP」を共有しよう');
+                shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有';
+            }
+            //シェア用の画面へ移行
+            location.href = shareUrl;
+        },
         // 引数が存在するかを判定する
         isset: function(data) {
             if(data === "" || data === null || data === undefined){
@@ -69,19 +85,5 @@ export default {
                 return text.replace(/\n/g, '<br/>');
             }
         },
-        twitterShare: function() {
-            // 現在のURLを取得
-            let url = encodeURIComponent(location.href);
-
-            console.log({ url });
-            // ツイッターに投稿する内容を変数に代入
-            let text = ' | あなたの人生の「STEP」を共有しよう'
-            console.log({text });
-            //シェアする画面を設定
-            let shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有';
-            //シェア用の画面へ移行
-            return shareUrl;
-        },
-
     },
 }
