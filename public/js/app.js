@@ -82251,9 +82251,15 @@ __webpack_require__.r(__webpack_exports__);
       var url = encodeURIComponent(location.href); // ツイッターに投稿する内容を変数に代入
 
       var text = encodeURIComponent('aaa'); //シェアする画面を設定
+      // let shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有';
+      //シェア用の画面へ移行
 
-      var shareUrl = 'https://twitter.com/intent/tweet?text=' + text + '%0a' + '&url=' + url + '&hashtags=' + 'STEP,学習手順,共有'; //シェア用の画面へ移行
-
+      var twlink1 = 'https://twitter.com/intent/tweet?text=';
+      var twlink2 = '%0a';
+      var twlink3 = '&url=';
+      var twlink4 = '&hashtags=';
+      var twlink5 = 'STEP,学習手順,共有';
+      var shareUrl = twlink1 + text + twlink2 + twlink3 + url + twlink4 + twlink5;
       location.href = shareUrl;
     },
     // 引数が存在するかを判定する
