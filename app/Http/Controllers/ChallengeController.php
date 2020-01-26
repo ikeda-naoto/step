@@ -49,7 +49,7 @@ class ChallengeController extends Controller
             session()->flash('status', 'おめでとうございます！次のSTEPが解放されました！');
         }else { // 次のSTEPがなかった場合
             $nextStepId = null;
-            session()->flash('status', 'おめでとうございます！' . $challenge->parentStep->parent_title . 'の全てのSTEPをクリアしました。');
+            session()->flash('status', 'おめでとうございます！' . $challenge->parentStep->title . 'の全てのSTEPをクリアしました。');
         }
         // トークン書き換え
         $request->session()->regenerateToken();

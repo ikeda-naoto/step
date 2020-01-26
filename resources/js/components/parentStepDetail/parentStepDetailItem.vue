@@ -3,7 +3,7 @@
         <div class="c-panel__category p-step-detail__category">{{ parentStep.category.name }}</div>
         <div class="p-step-detail__inner">
             <div class="p-step-detail__head">    
-                <h1 class="c-title--normal p-step-detail__title">「{{ parentStep.parent_title }}」</h1>
+                <h1 class="c-title--normal p-step-detail__title">「{{ parentStep.title }}」</h1>
             </div>    
             <div class="p-step-detail__img">
                 <img :src="showStepImg(parentStep.pic)" alt="">
@@ -12,7 +12,7 @@
                @onClickTwitterShare="onClickTwitterShare"
             ></twitterShare>
             <div class="p-step-detail__body">
-                <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(this.parentStep.parent_content)))">
+                <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(this.parentStep.content)))">
                 </div>
             </div>       
             <div class="p-step-detail__foot">
@@ -35,7 +35,7 @@
             // ツイッターシェア処理
             onClickTwitterShare: function() {
                 // ツイッターシェアするときのタイトル
-                let shareTitle = this.parentStep.parent_title;
+                let shareTitle = this.parentStep.title;
                 this.twitterShare(shareTitle);
             }
         },

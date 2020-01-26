@@ -1555,7 +1555,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 414px) {
   .p-baner__phrase {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 

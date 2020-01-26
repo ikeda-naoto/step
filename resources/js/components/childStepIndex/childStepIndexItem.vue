@@ -8,7 +8,7 @@
             </p>
         </div>
         <div class="l-row l-row--middle l-row__col10--sm l-row__col10--tab l-row__col10--pc p-child-index__right-container">
-            <h3 class="p-child-index__title">{{ childStep.child_title }}</h3>
+            <h3 class="p-child-index__title">{{ childStep.title }}</h3>
         </div>
     </a>
 </li>

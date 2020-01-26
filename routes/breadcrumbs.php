@@ -14,12 +14,12 @@ Breadcrumbs::for('steps', function ($trail) {
 
 Breadcrumbs::for('showParentStep', function ($trail, $parentStep) {
     $trail->parent('steps');
-    $trail->push($parentStep->parent_title, url('/steps/' . $parentStep->id));
+    $trail->push($parentStep->title, url('/steps/' . $parentStep->id));
 });
 
 Breadcrumbs::for('showChildStep', function ($trail, $parentStep, $childStep) {
     $trail->parent('showParentStep', $parentStep);
-    $trail->push($childStep->child_title, url('/steps/' . $parentStep->id . '/' . $childStep->id));
+    $trail->push($childStep->title, url('/steps/' . $parentStep->id . '/' . $childStep->id));
 });
 
 Breadcrumbs::for('mypage', function ($trail) {

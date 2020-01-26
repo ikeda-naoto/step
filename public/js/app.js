@@ -2009,7 +2009,7 @@ __webpack_require__.r(__webpack_exports__);
     // ツイッターにSTEP情報をシェアする
     onClickTwitterShare: function onClickTwitterShare() {
       // ツイッターシェアするときのタイトル
-      var shareTitle = '- ' + this.parentStep.parent_title + ' STEP' + this.childStep.num + ' ' + this.childStep.child_title + ' -';
+      var shareTitle = '- ' + this.parentStep.title + ' STEP' + this.childStep.num + ' ' + this.childStep.title + ' -';
       this.twitterShare(shareTitle);
     }
   }
@@ -2762,7 +2762,7 @@ __webpack_require__.r(__webpack_exports__);
     // ツイッターシェア処理
     onClickTwitterShare: function onClickTwitterShare() {
       // ツイッターシェアするときのタイトル
-      var shareTitle = this.parentStep.parent_title;
+      var shareTitle = this.parentStep.title;
       this.twitterShare(shareTitle);
     }
   }
@@ -3169,16 +3169,16 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.title = this.value.child_title;
+    this.title = this.value.title;
     this.time_value = this.value.time;
-    this.content = this.value.child_content;
+    this.content = this.value.content;
   },
   // 親コンポーネントのデータを更新する
   updated: function updated() {
     this.$emit('input', {
-      child_title: this.title,
+      title: this.title,
       time: this.time_value,
-      child_content: this.content
+      content: this.content
     });
   }
 });
@@ -3256,9 +3256,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.title = this.value.parent_title;
+    this.title = this.value.title;
     this.category_id = this.value.category_id;
-    this.content = this.value.parent_content;
+    this.content = this.value.content;
     this.pic = this.value.pic;
   },
   // 親STEPの情報が入力されたら
@@ -3269,9 +3269,9 @@ __webpack_require__.r(__webpack_exports__);
     // 親ステップの各情報を更新する（v-modelと同じ動き）
     updateParentData: function updateParentData() {
       this.$emit('input', {
-        parent_title: this.title,
+        title: this.title,
         category_id: this.category_id,
-        parent_content: this.content,
+        content: this.content,
         pic: this.pic
       });
     },
@@ -3364,9 +3364,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       // 親STEPの情婦を格納する連想配列
       parentStep: {
-        parent_title: '',
+        title: '',
         category_id: '',
-        parent_content: '',
+        content: '',
         pic: ''
       },
       // リストレンダリング時のキーを保存しておく配列（こうしないとフォーム入力バインディング時に、フォーカスが外れてしまうため）
@@ -3406,9 +3406,9 @@ __webpack_require__.r(__webpack_exports__);
       // STEP登録の場合
       // 配列へ子STEP1のオブジェクトを代入
       this.childSteps.push({
-        child_title: '',
+        title: '',
         time: 0,
-        child_content: ''
+        content: ''
       }); // オブジェクトに対応する一意のキーを配列へ代入
 
       this.uuid.push(vue_uuid__WEBPACK_IMPORTED_MODULE_5__["uuid"].v1());
@@ -3423,24 +3423,22 @@ __webpack_require__.r(__webpack_exports__);
 
       var data = new FormData(); // csrfトークンを保存
 
-      data.append('_token', $('meta[name="csrf-token"]').attr('content'));
+      data.append('_token', $('meta[name="csrf-token"]').attr('content')); // 親STEPの情報を配列に格納
 
       for (var key in this.parentStep) {
-        // 親STEPの情報をDBのカラム名に紐付けてそれぞれ保存
         if (key === 'pic') {
           // keyがpicのとき
-          !(typeof this.parentStep[key] === 'string' || this.parentStep[key] instanceof String) ? data.append(key, this.parentStep[key]) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
+          !(typeof this.parentStep[key] === 'string' || this.parentStep[key] instanceof String) ? data.append('parent_' + key, this.parentStep[key]) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
         } else {
           // それ以外の時
-          data.append(key, this.parentStep[key]);
+          data.append('parent_' + key, this.parentStep[key]);
         }
-      } // 子STEPの情報をDBのカラム名に紐付けて配列にして保存
+      } // 子STEPの情報を配列に格納
 
 
       for (var key1 in this.childSteps) {
         for (var key2 in this.childSteps[key1]) {
-          //console.log(this.childSteps[key1]);
-          data.append(key2 + '[]', this.childSteps[key1][key2]);
+          data.append('child_' + key2 + '[]', this.childSteps[key1][key2]);
         }
       }
 
@@ -3472,9 +3470,9 @@ __webpack_require__.r(__webpack_exports__);
     // 子STEP追加処理
     addChildStep: function addChildStep() {
       this.childSteps.push({
-        child_title: '',
+        title: '',
         time: 0,
-        child_content: ''
+        content: ''
       });
       this.uuid.push(vue_uuid__WEBPACK_IMPORTED_MODULE_5__["uuid"].v1());
     }
@@ -65598,7 +65596,7 @@ var render = function() {
                   _c("br"),
                   _vm._v(
                     "\n                    「" +
-                      _vm._s(_vm.childStep.child_title) +
+                      _vm._s(_vm.childStep.title) +
                       "」\n                "
                   )
                 ]
@@ -65617,7 +65615,7 @@ var render = function() {
                 domProps: {
                   innerHTML: _vm._s(
                     _vm.$sanitize(
-                      _vm.nl2br(_vm.autoLink(_vm.childStep.child_content))
+                      _vm.nl2br(_vm.autoLink(_vm.childStep.content))
                     )
                   )
                 }
@@ -65850,7 +65848,7 @@ var render = function() {
           },
           [
             _c("h3", { staticClass: "p-child-index__title" }, [
-              _vm._v(_vm._s(_vm.childStep.child_title))
+              _vm._v(_vm._s(_vm.childStep.title))
             ])
           ]
         )
@@ -66087,7 +66085,7 @@ var render = function() {
               [
                 _vm._v(
                   "\n                " +
-                    _vm._s(_vm.challengeStep.parent_step.parent_title) +
+                    _vm._s(_vm.challengeStep.parent_step.title) +
                     "\n            "
                 )
               ]
@@ -66369,7 +66367,7 @@ var render = function() {
         { staticClass: "l-row__col12--sm l-row__col08--tab l-row__col06--pc" },
         [
           _c("h3", { staticClass: "c-panel__title p-registed-step__title" }, [
-            _vm._v(_vm._s(_vm.registStep.parent_title))
+            _vm._v(_vm._s(_vm.registStep.title))
           ])
         ]
       ),
@@ -66561,7 +66559,7 @@ var render = function() {
       [
         _c("div", { staticClass: "p-step-detail__head" }, [
           _c("h1", { staticClass: "c-title--normal p-step-detail__title" }, [
-            _vm._v("「" + _vm._s(_vm.parentStep.parent_title) + "」")
+            _vm._v("「" + _vm._s(_vm.parentStep.title) + "」")
           ])
         ]),
         _vm._v(" "),
@@ -66580,9 +66578,7 @@ var render = function() {
             staticClass: "p-step-detail__textarea",
             domProps: {
               innerHTML: _vm._s(
-                _vm.$sanitize(
-                  _vm.nl2br(_vm.autoLink(this.parentStep.parent_content))
-                )
+                _vm.$sanitize(_vm.nl2br(_vm.autoLink(this.parentStep.content)))
               )
             }
           })
@@ -67371,7 +67367,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "c-textarea c-textarea--high c-textarea--full",
-                attrs: { name: "", id: "parent_title" },
+                attrs: { name: "", id: "parent_content" },
                 domProps: { value: _vm.content },
                 on: {
                   input: function($event) {
@@ -67442,7 +67438,7 @@ var staticRenderFns = [
       [
         _c(
           "label",
-          { staticClass: "c-form__label", attrs: { for: "parent_title" } },
+          { staticClass: "c-form__label", attrs: { for: "parent_content" } },
           [_vm._v("STEPの内容")]
         ),
         _vm._v(" "),
@@ -68017,7 +68013,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "l-row l-row--between p-step-list__head" }, [
             _c("h3", { staticClass: "c-panel__title p-step-list__title" }, [
-              _vm._v(_vm._s(_vm.parentStep.parent_title))
+              _vm._v(_vm._s(_vm.parentStep.title))
             ])
           ]),
           _vm._v(" "),

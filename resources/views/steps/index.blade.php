@@ -8,7 +8,7 @@
     <div class="l-container p-lp u-p--0">
         <section class="p-baner">
             <h1 class="p-baner__phrase">
-                あなたの人生のSTEPを共有しよう
+                あなたの人生の「STEP」を共有しよう
             </h1>
         </section>
         <div class="l-container u-bg--light">
@@ -161,7 +161,7 @@
                             STEPの登録・チャレンジには会員登録（無料）が必要です。
                         </p>
                     </div>
-                    <h3 class="p-browse__title"><span>実際に登録されているSTEP一覧</span></h3>
+                    <h3 class="p-browse__title"><span>実際に登録されているSTEP</span></h3>
                     <div class="l-row p-step-list">
                         @foreach ($parentSteps as $parentStep)
                             <a href="{{ route('steps.showParent', $parentStep->id) }}" class="l-row__col12--sm  l-row__col06--tab l-row__col04--pc p-step-list__panel-container">
@@ -171,7 +171,7 @@
                                         <img class="c-img__item--center" src="{{ !empty($parentStep->pic) ? asset('/storage/img/'.$parentStep->pic) : asset('/images/no-img.png') }}" alt="">
                                     </div>
                                     <div class="l-row l-row--between p-step-list__head">
-                                        <h3 class="c-panel__title p-step-list__title">{{ $parentStep->parent_title }}</h3>
+                                        <h3 class="c-panel__title p-step-list__title">{{ $parentStep->title }}</h3>
                                     </div>
                                     <div class="l-row l-row--between l-row--center p-step-list__body">
                                         <p class="p-step-list__time">目安達成時間：{{ $parentStep->time}}

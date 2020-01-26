@@ -74,16 +74,16 @@
             }
         },
         mounted: function() {
-             this.title = this.value.child_title;
+             this.title = this.value.title;
              this.time_value = this.value.time;
-             this.content = this.value.child_content;
+             this.content = this.value.content;
         },
         // 親コンポーネントのデータを更新する
         updated: function() {
             this.$emit('input', {
-                child_title: this.title,
+                title: this.title,
                 time: this.time_value,
-                child_content: this.content
+                content: this.content
             });
         },        
     }

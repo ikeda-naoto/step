@@ -3,6 +3,7 @@ namespace App\lib;
 
 use App\ChildStep;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
  
 // 様々なコントローラで使われる共通のメソッドを定義
 class Common {
@@ -14,6 +15,7 @@ class Common {
     // 子STEPデータを取得
     $obj->childSteps;
   }
+
   // 数字かどうかを判定する
   public static function validNumber($text, $url = '/steps') {
     if(!ctype_digit($text)) {
@@ -35,17 +37,31 @@ class Common {
        // 画像を保存
       $path = $pic->store('public/img');
       // 画像のファイル名をDBへ保存
-      $obj->pic = basename($path); //
+      $obj['pic'] = basename($path); //
     }
+    return $obj;
   }
-  // STEP登録or編集処理
-  public static function storeStep($childTitle, $time, $childContent, $editFlg, $parentStep, $childSteps = array()) {
-    for ($i = 0; $i < count($childTitle); $i++) { // 子STEPのタイトルの配列の要素数でループ回数を決定。(タイトルは必須項目なので、少なくとも一つはある)
+
+  // 親STEP登録or編集処理
+  public static function storeParentStep($request, $parentStep) {
+    // 画像以外のデータを一括保存
+    $parentStepData = array(
+      'title' => $request->input('parent_title'),
+      'category_id' => $request->input('parent_category_id'),
+      'content' => $request->input('parent_content'),
+    );
+    $parentStepData = Common::storePic($parentStepData, $request->parent_pic);
+    Auth::user()->parentSteps()->save($parentStep->fill($parentStepData));
+  }
+
+  // 子STEP登録or編集処理
+  public static function storeChildSteps($request, $editFlg, $parentStep, $childSteps = array()) {
+    for ($i = 0; $i < count($request->child_title); $i++) { // 子STEPのタイトルの配列の要素数でループ回数を決定。(タイトルは必須項目なので、少なくとも一つはある)
       // 登録するデータをオブジェクトの形にする
       $childStepData = array(
-          'child_title' => $childTitle[$i],
-          'time' => $time[$i],
-          'child_content' => $childContent[$i],
+          'title' => $request->child_title[$i],
+          'time' => $request->child_time[$i],
+          'content' => $request->child_content[$i],
           'num' => $i+1,
       );
       // 子STEP登録処理
@@ -65,9 +81,10 @@ class Common {
     if(!$editFlg) {
       session()->flash('status', '新しいSTEPを登録しました。');
     }else {
-      session()->flash('status', $parentStep->parent_title . 'を編集しました。');
+      session()->flash('status', $parentStep->title . 'を編集しました。');
     }
   }
+  
   // ページネーションに必要なデータ作成
   public static function createPaginationData ($obj, $request) {
     $perPage = 6;

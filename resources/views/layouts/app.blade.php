@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
     <meta charset="utf-8">
+    <link rel="canonical" href="https://step-share.com">
+    <!-- ================================ -->
+    <!-- metaタグ -->
+    <!-- ================================ -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="author" content="STEP">
+    <meta name="description" content="学習には人それぞれ「これが良かった」という「順番」と「内容」があります。「STEP」は人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、他の人はそれを見ながらその「STEP」を元に学習を進めていけるそんな学習支援サービスです。">
+    <meta name="keywords" content="勉強,学習,共有,手順,初心者">
+    <meta name="application-name" content="STEP - あなたの人生の「STEP」を共有しよう">
+    <!-- OGPタグ -->
+    <meta property="og:site_name" content="STEP">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="STEP">
+    <meta property="og:description" content="人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、他の人はそれを見ながらその「STEP」を元に学習を進めていけるサービス">
+    <meta property="og:url" content="https://step-share.com">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- 利用できる中で互換性のモードをしようするように指示できる -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- スマホで電話番号に対してリンクを貼らないようにする -->
+    <meta name="format-detection" content="telephone=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

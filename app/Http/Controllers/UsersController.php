@@ -19,11 +19,16 @@ class UsersController extends Controller
     {        
         // ログイン中のユーザーのレコードを取得
         $user = User::find(Auth::user()->id);
-        // データをDBに保存
-        $user->fill($request->all());
+        // 保存するデータをDBに
+        $userData = array(
+            'name' => $request->name,
+            'introduction' => $request->introduction,
+            'email' => $request->email,
+        );
         // 画像の送信があった場合は画像も保存する
-        Common::storePic($user, $request->pic);
-        $user->save();
+        $userData = Common::storePic($userData, $request->pic);
+        // データをDBに保存
+        $user->fill($userData)->save();
 
         // フラッシュメッセージを保存
         session()->flash('status', 'プロフィールを編集しました。');

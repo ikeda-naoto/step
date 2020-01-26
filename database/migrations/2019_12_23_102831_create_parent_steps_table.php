@@ -15,10 +15,10 @@ class CreateParentStepsTable extends Migration
     {
         Schema::create('parent_steps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('parent_title');
+            $table->string('title');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->text('parent_content');
+            $table->text('content');
             $table->string('pic')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

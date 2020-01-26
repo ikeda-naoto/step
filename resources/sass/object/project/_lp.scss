@@ -81,7 +81,7 @@
         -o-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
         @include sm() {
-            font-size: $font-size_xl;
+            font-size: $font-size_l;
         }
         @include tab() {
             font-size: $font-size_3l;

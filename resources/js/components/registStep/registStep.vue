@@ -63,9 +63,9 @@
             return {
                 // 親STEPの情婦を格納する連想配列
                 parentStep: {
-                    parent_title: '',
+                    title: '',
                     category_id: '',
-                    parent_content: '',
+                    content: '',
                     pic: '',
                 },
                 // リストレンダリング時のキーを保存しておく配列（こうしないとフォーム入力バインディング時に、フォーカスが外れてしまうため）
@@ -97,9 +97,9 @@
                 // 配列へ子STEP1のオブジェクトを代入
                 this.childSteps.push(
                     {
-                        child_title: '',
+                        title: '',
                         time: 0,
-                        child_content: '',
+                        content: '',
                     },
                 );
                 // オブジェクトに対応する一意のキーを配列へ代入
@@ -114,18 +114,18 @@
                 let data = new FormData();
                 // csrfトークンを保存
                 data.append('_token', $('meta[name="csrf-token"]').attr('content'));
-                for (let key in this.parentStep) { // 親STEPの情報をDBのカラム名に紐付けてそれぞれ保存
+                // 親STEPの情報を配列に格納
+                for (let key in this.parentStep) { 
                     if(key === 'pic') { // keyがpicのとき
-                        !(typeof this.parentStep[key] === 'string' || this.parentStep[key] instanceof String) ? data.append(key, this.parentStep[key]) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
+                        !(typeof this.parentStep[key] === 'string' || this.parentStep[key] instanceof String) ? data.append('parent_' + key, this.parentStep[key]) : false; // 型が文字列でないとき（ファイルの時）はdataに格納して送信。画像の登録をしない時にバリデーションに引っかかるのを防ぐため。
                     }else { // それ以外の時
-                        data.append(key, this.parentStep[key]);
+                        data.append('parent_' + key, this.parentStep[key]);
                     }
                 }
-                // 子STEPの情報をDBのカラム名に紐付けて配列にして保存
+                // 子STEPの情報を配列に格納
                 for(let key1 in this.childSteps) {
                     for (let key2 in this.childSteps[key1]) {
-                        //console.log(this.childSteps[key1]);
-                        data.append(key2 + '[]', this.childSteps[key1][key2]);
+                        data.append('child_' + key2 + '[]', this.childSteps[key1][key2]);
                     }
                 }
                 let config = {
@@ -158,9 +158,9 @@
             addChildStep: function() {
                 this.childSteps.push(
                     {
-                        child_title: '',
+                        title: '',
                         time: 0,
-                        child_content: '',
+                        content: '',
                     }
                 )
                 this.uuid.push(uuid.v1());

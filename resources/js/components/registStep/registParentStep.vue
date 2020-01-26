@@ -29,11 +29,11 @@
             </div>
             <div class="l-row c-form__group">
                 <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
-                    <label for="parent_title" class="c-form__label">STEPの内容</label>
+                    <label for="parent_content" class="c-form__label">STEPの内容</label>
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                    <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="parent_title" v-model="content"></textarea>
+                    <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="parent_content" v-model="content"></textarea>
                 </div>
             </div>
             <inputFile
@@ -60,9 +60,9 @@
             }
         },
         mounted: function() {
-             this.title = this.value.parent_title;
+             this.title = this.value.title;
              this.category_id = this.value.category_id;
-             this.content = this.value.parent_content;
+             this.content = this.value.content;
              this.pic = this.value.pic;
         },
         // 親STEPの情報が入力されたら
@@ -73,9 +73,9 @@
             // 親ステップの各情報を更新する（v-modelと同じ動き）
             updateParentData: function() {
                 this.$emit('input', {
-                    parent_title: this.title,
+                    title: this.title,
                     category_id: this.category_id,
-                    parent_content: this.content,
+                    content: this.content,
                     pic: this.pic
                 });
             },

@@ -2,7 +2,7 @@
 
 @section('breadcrumbs', Breadcrumbs::render('showParentStep', $parentStep))
 
-@section('title', $parentStep->parent_title)
+@section('title', $parentStep->title)
 
 @section('content')
     <parent-step-detail

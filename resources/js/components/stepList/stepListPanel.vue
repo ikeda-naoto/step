@@ -6,7 +6,7 @@
             <img class="c-img__item--center" :src="showStepImg(parentStep.pic)" alt="">
         </div>
         <div class="l-row l-row--between p-step-list__head">
-            <h3 class="c-panel__title p-step-list__title">{{ parentStep.parent_title }}</h3>
+            <h3 class="c-panel__title p-step-list__title">{{ parentStep.title }}</h3>
         </div>
         <div class="l-row l-row--between l-row--center p-step-list__body">
             <p class="p-step-list__time">目安達成時間：{{ showTotalTime(parentStep.child_steps) }}時間</p>

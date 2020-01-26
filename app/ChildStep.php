@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ChildStep extends Model
 {
     protected $fillable = [
-        'child_title', 'time', 'child_content', 'num'
+        'title', 'time', 'content', 'num'
     ];
 
     public function parent()

@@ -58,13 +58,13 @@ class StepsController extends Controller
     public function store(CreateStepRequest $request)
     {
         $parentStep = new ParentStep;
-        // 画像が送信されてきていれば画像を保存
-        Common::storePic($parentStep, $request->pic);
-        // 画像以外のデータを一括保存
-        Auth::user()->parentSteps()->save($parentStep->fill($request->all()));
+       
+        // 親STEP登録処理
+        Common::storeParentStep($request, $parentStep);
 
         // 子STEP登録処理
-        Common::storeStep($request->input('child_title'), $request->input('time'), $request->input('child_content'), false, $parentStep);
+        Common::storeChildSteps($request, false, $parentStep);
+
         // トークンを上書き
         $request->session()->regenerateToken();
         
@@ -76,12 +76,12 @@ class StepsController extends Controller
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/users/mypage');
         // GETパラメータに該当する親STEPのレコードを取得
-        $parentStep = ParentStep::where('id', $id)->select(['id', 'parent_title', 'category_id', 'parent_content', 'pic'])->first();
+        $parentStep = ParentStep::where('id', $id)->select(['id', 'title', 'category_id', 'content', 'pic'])->first();
         // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/users/mypage');
 
         // 前の処理で取得した親STEPの子STEPを取得
-        $childSteps = ChildStep::where('parent_step_id', $id)->select(['child_title', 'time', 'child_content'])->get();
+        $childSteps = ChildStep::where('parent_step_id', $id)->select(['title', 'time', 'content'])->get();
 
         // 全カテゴリーのデータを取得
         $categories = Category::all();
@@ -104,14 +104,12 @@ class StepsController extends Controller
         Common::isExist($parentStep, '/users/mypage');
 
         // 親STEPを更新
-        $parentStep->fill($request->all());
-        Common::storePic($parentStep, $request->pic);
-        $parentStep->save();
-
+        Common::storeParentStep($request, $parentStep);
+        
         // 親STEPの子STEPを取得
         $childSteps = $parentStep->childSteps;
         // 子STEPを更新
-        Common::storeStep($request->input('child_title'), $request->input('time'), $request->input('child_content'), true, $parentStep, $childSteps);
+        Common::storeChildSteps($request, true, $parentStep, $childSteps);
 
         // トークン上書き
         $request->session()->regenerateToken();

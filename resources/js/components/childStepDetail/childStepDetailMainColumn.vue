@@ -6,13 +6,13 @@
                     <!-- 子STEPタイトル -->
                     <h1 class="c-title--normal p-step-detail__title">
                         STEP{{ childStep.num }}<br>
-                        「{{ childStep.child_title }}」
+                        「{{ childStep.title }}」
                     </h1>
                 </div>
                 <!-- 子STEP内容 -->
                 <div class="p-step-detail__body">
                     <div class="u-text--right">目安達成時間：{{ childStep.time / 60 }}時間</div>
-                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(childStep.child_content)))">
+                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(childStep.content)))">
                     </div>
                 </div>
                 <!-- ツイッターシェアボタン -->
@@ -49,7 +49,7 @@
             // ツイッターにSTEP情報をシェアする
             onClickTwitterShare: function() {
                 // ツイッターシェアするときのタイトル
-                let shareTitle = '- ' + this.parentStep.parent_title + ' STEP' + this.childStep.num + ' ' + this.childStep.child_title + ' -';
+                let shareTitle = '- ' + this.parentStep.title + ' STEP' + this.childStep.num + ' ' + this.childStep.title + ' -';
                 this.twitterShare(shareTitle);
             }
         }

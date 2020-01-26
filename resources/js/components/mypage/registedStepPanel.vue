@@ -5,7 +5,7 @@
                 <img class="c-img__item--center" :src="showStepImg(registStep.pic)" alt="">
             </div>
             <div class="l-row__col12--sm l-row__col08--tab l-row__col06--pc">
-                <h3 class="c-panel__title p-registed-step__title">{{ registStep.parent_title }}</h3>
+                <h3 class="c-panel__title p-registed-step__title">{{ registStep.title }}</h3>
             </div>
             <a :href="'/steps/' + registStep.id + '/edit'" class="c-btn c-btn--primary c-btn--right c-btn--small p-registed-step__btn">
                 編集する
