@@ -58,7 +58,6 @@ const store = new Vuex.Store({
     // 入力されたキーワードを変数に代入し、新しいページネーションデータを取得する。
     inputSearchText({commit, dispatch}, newValue) {
       commit('setSearchText', newValue);
-      console.log(newValue);
       dispatch('getPaginationData', 1);
     }
   }

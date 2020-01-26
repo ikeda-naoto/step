@@ -84283,7 +84283,6 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       var commit = _ref4.commit,
           dispatch = _ref4.dispatch;
       commit('setSearchText', newValue);
-      console.log(newValue);
       dispatch('getPaginationData', 1);
     }
   }
