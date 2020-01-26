@@ -34,7 +34,7 @@ Breadcrumbs::for('login', function ($trail) {
 
 Breadcrumbs::for('register', function ($trail) {
     $trail->parent('home');
-    $trail->push('会員登録', url('/register'));
+    $trail->push('新規会員登録', url('/register'));
 });
 
 Breadcrumbs::for('registStep', function ($trail, $editFlg) {
