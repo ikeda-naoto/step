@@ -21,7 +21,7 @@
                         </p>
                 </div>
                 @else
-                    <h1 class="c-title--normal u-mb--5l">パスワードをお忘れですか？</h1>
+                    <h1 class="c-title--normal u-mb--5l">パスワードリセット</h1>
                     <div class="c-form__group">
                         <p class="u-text--center u-mb--m">
                             STEPに登録しているメールアドレスを入力してください。
