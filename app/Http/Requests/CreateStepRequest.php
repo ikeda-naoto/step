@@ -29,19 +29,11 @@ class CreateStepRequest extends FormRequest
             'parent_content' => 'required|max:20000',
             'parent_pic' => 'nullable|file|image',
             'child_title.*' => 'required|max:30',
-            'child_time.*' => 'integer|min:1',
+            'child_time.*' => 'required|integer',
             'child_content.*' => 'required|max:20000',
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'required' => ':attributeは必須です。',
-            'min' => ':attributeを選択してください。'
-        ];
-    }
-
+    
     public function attributes()
     {
 

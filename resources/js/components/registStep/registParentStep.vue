@@ -54,7 +54,7 @@
         data: function() {
             return {
                 title: '',
-                category_id: 0,
+                category_id: '',
                 content: '',
                 pic: ''
             }

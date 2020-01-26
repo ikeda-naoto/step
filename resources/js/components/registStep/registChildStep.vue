@@ -45,10 +45,10 @@
         data: function() {
             return {
                 title: '',
-                time_value: 0,
+                time_value: '',
                 content: '',
                 times: [
-                    { minute: 0, text: '選択してください' },
+                    { minute: '', text: '選択してください' },
                     { minute: 15, text: '15分' },
                     { minute: 30, text: '30分' },
                     { minute: 60, text: '1時間' },

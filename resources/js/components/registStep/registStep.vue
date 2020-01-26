@@ -98,7 +98,7 @@
                 this.childSteps.push(
                     {
                         title: '',
-                        time: 0,
+                        time: '',
                         content: '',
                     },
                 );
@@ -159,7 +159,7 @@
                 this.childSteps.push(
                     {
                         title: '',
-                        time: 0,
+                        time: '',
                         content: '',
                     }
                 )
