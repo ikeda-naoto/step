@@ -3697,7 +3697,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     onChangeSearchText: function onChangeSearchText(newValue) {
       // Enter以外のキーボード入力だった場合はリターン
       if (event.keyCode !== 13) return;
-      this.inputSearchText(newValue);
+      this.inputSearchText(encodeURIComponent(newValue));
     }
   })
 });
@@ -67852,7 +67852,7 @@ var render = function() {
       _c("input", {
         staticClass: "c-sidebar__input",
         attrs: { type: "text" },
-        domProps: { value: _vm.searchText },
+        domProps: { value: decodeURIComponent(_vm.searchText) },
         on: {
           keydown: function($event) {
             if (
@@ -84283,6 +84283,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       var commit = _ref4.commit,
           dispatch = _ref4.dispatch;
       commit('setSearchText', newValue);
+      console.log(newValue);
       dispatch('getPaginationData', 1);
     }
   }

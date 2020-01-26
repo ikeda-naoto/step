@@ -29,7 +29,8 @@ Route::middleware('api')->get('/steps', function (Request $request) {
     }
     // キーワード検索された場合
     if(isset($request->keyword)) {
-        $parentSteps  = $parentSteps->where('title', 'LIKE', "%{$request->keyword}%");
+        $text =(urldecode($request->keyword));
+        $parentSteps  = $parentSteps->where('title', 'LIKE', "%{$text}%");
     }
     // STEP作成日で降順にソートして取得
     $parentSteps = $parentSteps->orderBy('created_at', 'desc')->get();
