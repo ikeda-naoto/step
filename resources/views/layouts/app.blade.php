@@ -17,7 +17,7 @@
     <meta property="og:title" content="STEP">
     <meta property="og:description" content="人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、他の人はそれを見ながらその「STEP」を元に学習を進めていけるサービス">
     <meta property="og:url" content="https://step-share.com/">
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta property="og:image" content="{{ asset('images/logo_eyecatch.png') }}">
     <meta name="twitter:card" content="summary_large_image">
     <!-- 利用できる中で互換性のモードをしようするように指示できる -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
