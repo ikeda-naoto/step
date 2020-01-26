@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
     <meta charset="utf-8">
-    <link rel="canonical" href="https://step-share.com">
+    <link rel="canonical" href="https://step-share.com/">
     <!-- ================================ -->
     <!-- metaタグ -->
     <!-- ================================ -->
@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="STEP">
     <meta property="og:description" content="人それぞれの「この順番でこういったものを学んでいったのが良かった」という「STEP」を投稿し、他の人はそれを見ながらその「STEP」を元に学習を進めていけるサービス">
-    <meta property="og:url" content="https://step-share.com">
+    <meta property="og:url" content="https://step-share.com/">
     <meta property="og:image" content="{{ asset('images/logo.png') }}">
     <meta name="twitter:card" content="summary_large_image">
     <!-- 利用できる中で互換性のモードをしようするように指示できる -->
