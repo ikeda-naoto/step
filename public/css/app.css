@@ -244,6 +244,7 @@ select::-ms-expand {
 @media screen and (min-width: 415px) and (max-width: 991px) {
   .l-container {
     width: 100%;
+    min-height: calc(100vh - 190px - 66.66px);
     padding: 80px 15px;
   }
 }
@@ -2346,13 +2347,7 @@ select::-ms-expand {
   padding: 10px;
 }
 
-@media screen and (min-width: 415px) and (max-width: 991px) {
-  .p-error404 {
-    min-height: calc(100vh - 190px - 66.66px);
-  }
-}
-
-.p-error404__inner {
+.p-error404 {
   padding-top: 60px;
   padding-bottom: 20px;
   background: #fff;

@@ -44,6 +44,8 @@
     }
     @include tab() {
         width: 100%;
+        // タブレット時のヘッダーとフッターの高さを引いた高さ
+        min-height: calc(100vh - 190px - 66.66px);
         padding: $space_7l $space_l;
     }
 }

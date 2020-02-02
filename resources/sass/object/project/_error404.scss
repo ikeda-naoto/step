@@ -1,14 +1,7 @@
 .p-error404 {
-    @include tab() {
-        // タブレット時のヘッダーの高さとフッターの高さを引く
-        min-height: calc(100vh - 190px - 66.66px);
-    }
-    &__inner {
-        padding-top: $space_5l;
-        padding-bottom: $space_xl;
-        background: $background-color_light;
-
-    }
+    padding-top: $space_5l;
+    padding-bottom: $space_xl;
+    background: $background-color_light;
     &__text {
         text-align: center;
         margin-top: $space_3l;
