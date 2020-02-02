@@ -2348,7 +2348,7 @@ select::-ms-expand {
 
 @media screen and (min-width: 415px) and (max-width: 991px) {
   .p-error404 {
-    min-height: calc(100vh - 380px - 66.66px);
+    min-height: calc(100vh - 190px - 66.66px);
   }
 }
 
