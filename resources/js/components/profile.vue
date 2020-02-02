@@ -8,7 +8,7 @@
             <h3 class="c-sidebar__prof-name">
                 {{ isset(user.name) ? user.name : '名無しさん' }}
             </h3>
-            <div class="c-sidebar__prof-intro" v-html="$sanitize(nl2br(user.introduction))">
+            <div class="c-sidebar__prof-intro" v-html="$sanitize(nl2br(user.introduction))" v-if="isset(user.introduction)">
             </div>
         </div>
     </div>

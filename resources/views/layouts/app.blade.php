@@ -52,10 +52,10 @@
                         <div class="p-header__logo">
                             <a href="/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
-                        <div class="c-btn--trigger js-toggle-sp-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                        <div class="c-trigger js-toggle-sp-menu">
+                            <span class="c-trigger__icn"></span>
+                            <span class="c-trigger__icn"></span>
+                            <span class="c-trigger__icn"></span>
                         </div>
                         <nav class="p-header__nav">
                             <ul class="p-nav l-row">

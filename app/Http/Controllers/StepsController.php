@@ -76,9 +76,14 @@ class StepsController extends Controller
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/users/mypage');
         // GETパラメータに該当する親STEPのレコードを取得
-        $parentStep = ParentStep::where('id', $id)->select(['id', 'title', 'category_id', 'content', 'pic'])->first();
+        $parentStep = ParentStep::where('id', $id)->select(['id', 'title', 'category_id', 'content', 'pic', 'user_id'])->first();
         // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/users/mypage');
+
+        // STEPを登録したユーザーと編集しようとしているユーザーが異なる場合
+        if($parentStep->user_id !== Auth::user()->id) {
+            return redirect('/users/mypage')->with('status', '不正な値が入力されました。')->throwResponse();
+        }
 
         // 前の処理で取得した親STEPの子STEPを取得
         $childSteps = ChildStep::where('parent_step_id', $id)->select(['title', 'time', 'content'])->get();

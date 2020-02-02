@@ -1,0 +1,24 @@
+.p-error404 {
+    @include tab() {
+        height: calc(100vh - 380px - 66.66px);
+    }
+    &__inner {
+        padding-top: $space_5l;
+        padding-bottom: $space_xl;
+        background: $background-color_light;
+
+    }
+    &__text {
+        text-align: center;
+        margin-top: $space_3l;
+    }
+    &__img {
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        @include sm() {
+            width: 40%;
+            margin-top: $space_l;
+        }
+    }
+}

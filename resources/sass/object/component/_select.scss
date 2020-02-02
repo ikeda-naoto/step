@@ -1,0 +1,26 @@
+// ==============================
+// セレクトボックス
+// ==============================
+.c-select {
+    position: relative;
+    height: 50px;
+    background: $background-color_form-item;
+    border: none;
+    padding: $space_m;
+    box-sizing: border-box;
+    font-size: $font-size_default;
+    border-radius: $border-radius_s;
+	-webkit-border-radius: $border-radius_s;
+    -moz-border-radius: $border-radius_s;
+    &--half-pc {
+        width: 50%;
+    }
+    &--full-pc {
+        width: 100%;
+    }
+    &--full-sm {
+        @include sm() {
+            width: 100%;
+        }
+    }
+}

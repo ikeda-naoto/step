@@ -1,0 +1,71 @@
+// ==============================
+// FEATURE
+// ==============================
+.p-feature {
+    &__title {
+        color: $font-color_light;
+        background: $background-color_base;
+        text-align: center;
+        font-size: $font-size_xxl;
+        padding: $space_4l 0;
+        line-height: 150%;
+        @include sm() {
+            padding: $space_3l 0;
+            font-size: $font-size_l;
+        }
+    }
+    &__list {
+        margin: $space_7l 0;
+        @include sm() {
+            margin: $space_3l 0;
+        }
+    }
+    &__list-item {
+        min-height: 400px;
+        padding: 0 $space_l;
+        &:first-child .p-feature__inner {
+            background-image: url('../img/studyperson.jpg');
+        }
+        &:last-child .p-feature__inner {
+            background-image: url('../img/game.jpg');
+        }
+        @include sm() {
+            min-height: 0;
+            margin-bottom: $space_3l;
+        }
+    }
+    &__inner {
+        position: relative;
+        width: 100%;
+        padding-top: 66.7%;
+        background-size: cover;
+        background-image: url('../img/hint.jpg');
+        &:before {
+            content: '';
+            background: $background-color_light;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    &__content {
+        position: absolute;
+        width: 70%;
+        padding: $space_xl $space_l;
+        border-top: $border_m solid $border-color_base;
+        border-bottom: $border_m solid $border-color_base;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+    }
+    &__text {
+        margin-top: $space_m;
+        font-size: $font-size_m;
+    }
+}

@@ -1,5 +1,7 @@
 .p-footer {
-    padding: $space_3l;
+    height: 190px;
+    box-sizing: border-box;
+    padding: $space_xl;
     text-align: center;
     &__logo {
         width: 200px;

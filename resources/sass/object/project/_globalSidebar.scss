@@ -1,0 +1,35 @@
+.p-global-sidebar {
+    display: none;
+    padding: 0 $space_s;
+    @include sm() {
+        display: block;
+    }
+    @include tab() {
+        display: block;
+    }
+    &__item {
+        
+        border-top: $border_m solid $border-color_light;
+        &:last-child {
+            border-bottom: $border_m solid $border-color_light;
+        }
+    }
+    &__link {
+        display: block;
+        padding: $space_xl $space_m;
+    }
+    &__text {
+        color: $font-color_light;
+    }
+    &__userinfo {
+        padding: $space_xl $space_m;
+    }
+    &__img {
+        width: 40px;
+        height: 40px;
+        margin-right: $space_l;
+    }
+    &__name {
+        color: $font-color_light;
+    }
+}

@@ -1,0 +1,48 @@
+.p-nav {
+    @include sm() {
+        display: none;
+    }
+    @include tab() {
+        display: none;
+    }
+    &__item {
+        border-left: $border_s solid $border-color_light;
+        &:last-child{
+            border-right: $border_s solid $border-color_light;
+        }
+    }
+    &__item:hover &__text::after{
+        width: 100%;
+    }
+    &__link {
+        display: block;
+        padding: $space_l $space_xxl;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &__text {
+        position: relative;
+        min-width: 80px;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 $space_s;
+        text-align: center;
+        &::after {
+            background: $border-color_base;
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 2px;
+            left: 0;
+            position: absolute;
+            transition: .5s all;
+            width: 0;
+        }
+    }
+    &__img {
+        width: 28px;
+        height: 28px;
+        margin-right: $space_m;
+    }
+}

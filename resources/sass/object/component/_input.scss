@@ -1,0 +1,21 @@
+// ==============================
+// input（おもにtext）
+// ==============================
+.c-input {
+    height: 50px;
+    background: $background-color_form-item;
+    border: none;
+    padding: $space_m;
+    box-sizing: border-box;
+    font-size: $font-size_default;
+    border-radius: $border-radius_s;
+	-webkit-border-radius: $border-radius_s;
+    -moz-border-radius: $border-radius_s;
+    &--full {
+        width: 100%;
+    }
+    &--err  {
+        border: 1px solid $font-color_err;
+        background: $background-color_err;
+    }
+}

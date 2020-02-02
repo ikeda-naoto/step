@@ -1,0 +1,24 @@
+// ==============================
+// テキストエリア
+// ==============================
+.c-textarea {
+    height: 80px;
+    resize: none;
+    background: $background-color_form-item;
+    border: none;
+    padding: $space_m;
+    box-sizing: border-box;
+    font-size: $font-size_default;
+    border-radius: $border-radius_s;
+	-webkit-border-radius: $border-radius_s;
+    -moz-border-radius: $border-radius_s;
+    &--low {
+        height: 150px;
+    }
+    &--high {
+        height: 500px;
+    }
+    &--full {
+        width: 100%;
+    }
+}

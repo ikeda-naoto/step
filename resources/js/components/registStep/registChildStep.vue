@@ -29,7 +29,7 @@
         <!-- 子STEP内容 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
-                <label for="child_content" class="c-form__label">STEP1の内容</label>
+                <label for="child_content" class="c-form__label">STEP{{ index + 1 }}の内容</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">

@@ -20,7 +20,8 @@
                                 <span class="c-form__option">任意</span>
                             </div>
                             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                                <input v-model="name" id="name" name="name" type="text" class="c-input c-input--full">
+                                <input v-model="name" id="name" name="name" type="text" class="c-input c-input--full" :class="name.length > 20 ? 'c-input--err' : ''">
+                                <span class="u-fontcolor--err" v-if="name.length > 20">ニックネームは20文字以下にしてください。</span>
                             </div>
                         </div>
                         <!-- 自己紹介入力欄 -->
@@ -86,6 +87,8 @@
             }
         },
         mixins: [Mixin],
+        computed: {
+        },
         methods : {
             // プロフィール編集処理
             onSubmit : function() {

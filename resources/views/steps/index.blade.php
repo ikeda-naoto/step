@@ -161,7 +161,7 @@
                             STEPの登録・チャレンジには会員登録（無料）が必要です。
                         </p>
                     </div>
-                    <h3 class="p-browse__title"><span>実際に登録されているSTEP</span></h3>
+                    <h3 class="p-browse__title"><span class="p-browse__text--title">実際に登録されているSTEP</span></h3>
                     <div class="l-row p-step-list">
                         @foreach ($parentSteps as $parentStep)
                             <a href="{{ route('steps.showParent', $parentStep->id) }}" class="l-row__col12--sm  l-row__col06--tab l-row__col04--pc p-step-list__panel-container">

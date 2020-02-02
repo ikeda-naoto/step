@@ -1,0 +1,36 @@
+// ==============================
+// VIEW
+// ==============================
+.p-browse {
+    &__title {
+        font-size: $font-size_xxl;
+        font-family: $font-family_gothic;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        margin: $space_5l 0;
+        @include sm() {
+            margin: $space_xxl 0;
+            font-size: $font-size_default;
+        }
+        &:before {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: $background-color_base;
+        }
+    }
+    &__text--title {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        margin: 0 2.5em;
+        padding: 0 1em;
+        background-color: $background-color_main-light;
+        text-align: left;
+    }
+}

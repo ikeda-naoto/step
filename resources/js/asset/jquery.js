@@ -63,7 +63,7 @@ $(function() {
     // レスポンシブデザインのハンバーガーメニュー
     $('.js-toggle-sp-menu').on('click', function () {
         // メニューバーをacriveに
-        $(this).toggleClass('c-btn--trigger--active');
+        $(this).toggleClass('c-trigger--active');
         // メニューバーをクリックした時に動かす要素のDOMを取得
         let $jsToggleSpMenuTarget = $('.js-toggle-sp-menu-target');
         if($jsToggleSpMenuTarget.css('transform') === 'none') { // transformプロパティが設定されていなかったら
