@@ -2220,6 +2220,16 @@ select::-ms-expand {
   margin: 40px 0;
 }
 
+.p-regist-step__delete-icn {
+  position: absolute;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #fff;
+  top: 15px;
+  right: 5px;
+  cursor: pointer;
+}
+
 .p-child-index {
   margin-top: 40px;
 }

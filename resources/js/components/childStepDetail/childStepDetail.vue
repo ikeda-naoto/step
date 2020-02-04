@@ -5,7 +5,8 @@
             <!-- メインカラム -->
             <childStepDetailMainColumn
                 :parentStep="parentStep"
-                :childStep="showChildStep"
+                :firstChildStepId="childSteps[0]['id']"
+                :showChildStep="showChildStep"
                 :clearNum="clearNum"
                 :user="user"
                 :challengeFlg="challengeFlg"

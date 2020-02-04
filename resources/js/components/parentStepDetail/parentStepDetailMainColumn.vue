@@ -6,13 +6,13 @@
             :parentStep="parentStep"
             :challengeFlg="challengeFlg"
         ></parentStepDetailItem>
-        <!-- チャレンジボタン -->
-        <challengeBtn
+        <!-- チャレンジボタン等 -->
+        <parentStepDetailBtns
             :parentStepId="parentStep.id"
-            :childStepId="parentStep.child_steps[0]['id']"
+            :firstChildStepId="parentStep.child_steps[0]['id']"
             :user="user"
             :challengeFlg="challengeFlg"
-        ></challengeBtn>
+        ></parentStepDetailBtns>
         <!-- 子STEPインデックス -->
         <childStepIndex
             :childSteps="parentStep.child_steps"
@@ -23,12 +23,12 @@
 <script>
     import parentStepDetailItem from './parentStepDetailItem';
     import childStepIndex from '../childStepIndex/childStepIndex';
-    import challengeBtn from './challengeBtn';
+    import parentStepDetailBtns from './parentStepDetailBtns';
     export default {
         components: {
             parentStepDetailItem,
             childStepIndex,
-            challengeBtn,
+            parentStepDetailBtns
         },
         props: ['parentStep', 'user', 'challengeFlg'],
     }

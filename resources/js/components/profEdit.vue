@@ -55,9 +55,6 @@
                         <div class="l-row c-form__group">
                             <button type="button" class="c-btn c-btn--success c-btn--right c-btn--small u-mt--l" @click="onSubmit" :disabled="isPush">編集する</button>
                         </div>
-                        <div class="c-form__group p-prof-edit__help">
-                            <a href="/password/edit">パスワードの変更はコチラ</a>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,11 @@
 <template>
 <div class="p-regist-step__child">
-    <h2 class="p-regist-step__num">STEP{{ index + 1 }}</h2>
+    <div class="u-position--relative">
+        <h2 class="p-regist-step__num">STEP{{ index + 1 }}</h2>
+        <div class="p-regist-step__delete-icn" v-if="showIcnFlg" @click="$emit('onClickDeleteIcn', index)">
+            <i class="fas fa-minus fa-2x"></i>
+        </div>
+    </div>
     <div class="c-form">
         <!-- 子STEPタイトル -->
         <div class="l-row c-form__group">
@@ -41,7 +46,7 @@
 </template>
 <script>
     export default {
-        props: ['index', 'value'],
+        props: ['index', 'value', 'showIcnFlg'],
         data: function() {
             return {
                 title: '',

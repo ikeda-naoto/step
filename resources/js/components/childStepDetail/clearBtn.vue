@@ -1,18 +1,5 @@
 <template>
-    <!-- ログインしていなかったら -->
-    <a href="/register" v-if="user===null" class="c-btn c-btn--medium c-btn--success c-btn--right">
-        無料会員登録をしてチャレンジ
-    </a>
-    <!-- すでにクリアしていたら -->
-    <div v-else-if="clearNum >= childStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right">
-        クリア済み
-    </div>
-    <!-- チャレンジしていないまたは前のSTEPをクリアしていなかったら -->
-    <div v-else-if="!challengeFlg || clearNum + 1 < childStep.num" class="c-btn c-btn--small c-btn--warning c-btn--right c-btn--pale u-pt--l u-pb--l">
-        クリアで解放
-    </div>
-    <!-- チャレンジしていて前のSTEPをクリアしていたら -->
-    <button v-else class="c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickClearBtn" :disabled="isPush">
+    <button class="c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickClearBtn" :disabled="isPush">
         クリア！
     </button>
 </template>
@@ -20,7 +7,7 @@
 <script>
     import Mixin from '../mixins/mixin';
     export default {
-        props: ['parentStepId', 'childStep', 'clearNum', 'user', 'challengeFlg'],
+        props: ['parentStepId'],
         data: function() {
             return {
                 isPush: false

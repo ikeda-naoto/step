@@ -5,14 +5,14 @@
                 <div class="p-step-detail__head">
                     <!-- 子STEPタイトル -->
                     <h1 class="c-title--normal p-step-detail__title">
-                        STEP{{ childStep.num }}<br>
-                        「{{ childStep.title }}」
+                        STEP{{ showChildStep.num }}<br>
+                        「{{ showChildStep.title }}」
                     </h1>
                 </div>
                 <!-- 子STEP内容 -->
                 <div class="p-step-detail__body">
-                    <div class="u-text--right">目安達成時間：{{ childStep.time / 60 }}時間</div>
-                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(childStep.content)))">
+                    <div class="u-text--right">目安達成時間：{{ showChildStep.time / 60 }}時間</div>
+                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(showChildStep.content)))">
                     </div>
                 </div>
                 <!-- ツイッターシェアボタン -->
@@ -20,14 +20,15 @@
                     @onClickTwitterShare="onClickTwitterShare"
                 ></twitterShare>
                 <div class="l-row p-step-detail__foot">
-                    <!-- クリアボタン -->
-                    <clearButton
+                    <!-- クリアボタン等 -->
+                    <childStepDetailBtns
                         :parentStepId="parentStep.id"
-                        :childStep="childStep"
+                        :firstChildStepId="firstChildStepId"
+                        :showChildStep="showChildStep"
                         :clearNum="clearNum"
                         :user="user"
                         :challengeFlg="challengeFlg"
-                    ></clearButton>
+                    ></childStepDetailBtns>
                 </div>
             </div>
         </section>
@@ -35,21 +36,21 @@
 </template>
 
 <script>
-    import clearButton from './clearButton';
+    import childStepDetailBtns from './childStepDetailBtns';
     import twitterShare from '../twitterShare';
     import Mixin from '../mixins/mixin';
     export default {
         components: {
-            clearButton,
+            childStepDetailBtns,
             twitterShare
         },
-        props: ['parentStep', 'childStep', 'clearNum', 'user', 'challengeFlg'],
+        props: ['parentStep', 'firstChildStepId', 'showChildStep', 'clearNum', 'user', 'challengeFlg'],
         mixins: [Mixin],
         methods: {
             // ツイッターにSTEP情報をシェアする
             onClickTwitterShare: function() {
                 // ツイッターシェアするときのタイトル
-                let shareTitle = '- ' + this.parentStep.title + ' STEP' + this.childStep.num + ' ' + this.childStep.title + ' -';
+                let shareTitle = '- ' + this.parentStep.title + ' STEP' + this.showChildStep.num + ' ' + this.showChildStep.title + ' -';
                 this.twitterShare(shareTitle);
             }
         }

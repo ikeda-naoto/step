@@ -102,6 +102,11 @@
                                                     </a>
                                                 </li>
                                                 <li class="p-dropdown__item">
+                                                    <a href="{{ route('password.edit') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                        <span>パスワード変更</span><i class="fas fa-angle-right fa-lg p-dropdown__icn"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="p-dropdown__item">
                                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="l-row l-row--between l-row--middle p-dropdown__link">
                                                         <span>ログアウト</span><i class="fas fa-angle-right fa-lg p-dropdown__icn"></i>
                                                     </a>
@@ -160,6 +165,11 @@
                                 <li class="p-global-sidebar__item">
                                     <a href="{{ route('users.edit') }}" class="p-global-sidebar__link">
                                         <p class="p-global-sidebar__text">プロフィール変更</p>
+                                    </a>
+                                </li>
+                                <li class="p-global-sidebar__item">
+                                    <a href="{{ route('password.edit') }}" class="p-global-sidebar__link">
+                                        <p class="p-global-sidebar__text">パスワード変更</p>
                                     </a>
                                 </li>
                                 <li class="p-global-sidebar__item">

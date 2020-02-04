@@ -10,4 +10,13 @@
         padding: $space_xl $space_l;
         margin: $space_3l 0;
     }
+    &__delete-icn {
+        position: absolute;
+        padding-right: $space_m;
+        padding-left: $space_m;
+        color: $font-color_light;
+        top: 15px;
+        right: 5px;
+        cursor: pointer;
+    }
 }

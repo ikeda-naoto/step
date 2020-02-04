@@ -18,12 +18,16 @@
                         :editFlg="editFlg"
                     ></registParentStep>                    
                     <!-- 子STEP登録フォーム -->
-                    <registChildStep
-                        v-for="(childStep, index) in childSteps"
-                        :key="uuid[index]"
-                        :index="index"
-                        v-model="childSteps[index]"
-                    ></registChildStep>
+                    <transition-group name="fade">
+                        <registChildStep
+                            v-for="(childStep, index) in childSteps"
+                            :key="uuid[index]"
+                            :index="index"
+                            :showIcnFlg="childSteps.length!==1 ? true : false"
+                            v-model="childSteps[index]"
+                            @onClickDeleteIcn="onClickDeleteIcn"
+                        ></registChildStep>
+                    </transition-group>
 
                     <div class="u-mt--xxl"> 
                         <button class="c-btn c-btn--success c-btn--small" @click="addChildStep">
@@ -107,6 +111,21 @@
             }
         },
         methods : {
+            onClickDeleteIcn: function(index) {
+                // 警告表示のテキスト
+                let alertMsg = 'STEP' + (index + 1) + 'を削除してよろしいですか？';
+                if(this.editFlg) { // 編集画面の時
+                    // テキストを追加
+                    alertMsg = alertMsg + '\n\n※画面下部の「編集する」をクリックするまで変更は反映されません';
+                }
+                if(!confirm(alertMsg)) { // キャンセルがクリックされたら
+                    return;
+                }
+                // 削除する子STEPに紐づくキーを配列から削除
+                this.uuid.splice(index, 1);
+                // 削除する子STEPを配列から削除
+                this.childSteps.splice(index, 1);
+            },
             // STEP登録処理
             onSubmit : function() {
                 this.isPush = !this.isPush;
@@ -168,3 +187,12 @@
         }
     }
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>

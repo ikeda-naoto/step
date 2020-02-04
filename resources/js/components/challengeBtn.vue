@@ -1,20 +1,13 @@
 <template>
-    <div class="l-row">
-        <button v-if="user && !challengeFlg" class="c-btn c-btn--small c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickChallengeBtn">
-            チャレンジ！
-        </button>
-        <a href="/register" v-else-if="!user" class="c-btn c-btn--medium c-btn--success c-btn--right">
-            無料会員登録をしてチャレンジ
-        </a>
-        <div v-else class="c-btn c-btn--small c-btn--secondary c-btn--right">チャレンジ中</div>
-    </div>
-
+    <button class="c-btn c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickChallengeBtn">
+        STEPにチャレンジする
+    </button>
 </template>
 
 <script>
-    import Mixin from '../mixins/mixin';
+    import Mixin from './mixins/mixin';
     export default {
-        props: ['parentStepId', 'childStepId', 'user', 'challengeFlg'],
+        props: ['parentStepId', 'firstChildStepId'],
         data: function() {
             return {
                 isPush: false
@@ -34,7 +27,7 @@
                 axios.post('/challenge', data)
                 .then(res => {
                     // STEP１へ遷移
-                    location.href = '/steps/' + this.parentStepId + '/' + this.childStepId;
+                    location.href = '/steps/' + this.parentStepId + '/' + this.firstChildStepId;
                  })
                 .catch(error => {
                     // 通信失敗の場合

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChallengeStepsTable extends Migration
+class CreateClearTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateChallengeStepsTable extends Migration
      */
     public function up()
     {
-        Schema::create('challenges', function (Blueprint $table) {
+        Schema::create('clears', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('parent_step_id');
-            $table->foreign('parent_step_id')->references('id')->on('parent_steps');
+            $table->unsignedBigInteger('challenge_id');
+            $table->foreign('challenge_id')->references('id')->on('challenges');
+            $table->unsignedBigInteger('child_step_id');
+            $table->foreign('child_step_id')->references('id')->on('child_steps');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -30,6 +32,6 @@ class CreateChallengeStepsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('challenges');
+        Schema::dropIfExists('clears');
     }
 }
