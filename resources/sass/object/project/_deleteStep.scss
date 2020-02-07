@@ -1,0 +1,21 @@
+.p-delete-step {
+    width: 100%;
+    &__img {
+        width: 15%; 
+        margin-right: auto;
+        margin-left: auto;
+        @include tab() {
+            width: 25%; 
+        }
+        @include sm() {
+            width: 35%; 
+        }
+    }
+    &__text {
+        color: $font-color_pale; 
+        text-align:center;
+        font-size: $font-size_xxl; 
+        margin-top: $space_7l;
+        line-height: 130%;
+    }
+}

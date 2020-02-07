@@ -11,7 +11,7 @@ $palette-black_opacity-75: rgba(0,0,0,0.75);
 $palette-black_opacity-06: rgba(0,0,0,0.06);
 $palette-gray_light: #ebebeb;
 $palette-gray_base: #e4e4e4;
-$palette-gray_dark: #bebebe;
+$palette-gray_dark: #A7A7A7;
 $palette-navy: #0057a3;
 $palette-blue_base: #3ba7da;
 $palette-yellow: #b6ab0c;
@@ -22,6 +22,7 @@ $palette-beige_light: #f4f0e9;
 $palette-beige_dark: #918241;
 $palette-red_light: #ffecec;
 $palette-red: #fd6363;
+$palette-red_dark: #ff4242;
 
 // フォントカラー
 $font-color_default: $palette-black_light;
@@ -32,6 +33,7 @@ $font-color_err: $palette-red;
 $font-color_success: $palette-navy;
 $font-color_base : $palette-navy;
 $font-color_link: $palette-beige_dark;
+$font-color_pale: $palette-gray_dark;
 
 // 背景カラー
 $background-color_main-light: $palette-beige_light;
@@ -61,6 +63,7 @@ $shadow-color_dark: $palette-black_base;
 
 // ボタンカラー
 $btn-color_primary: $palette-blue_base;
+$btn-color_danger: $palette-red_dark;
 $btn-color_success: $palette-green;
 $btn-color_warning: $palette-yellow;
 $btn-color_disabled: $palette-gray_dark;
@@ -159,6 +162,10 @@ body{
     @include sm() {
       font-size: $font-size_m;
     }
+}
+
+button, input, select, textarea {
+  font-family : inherit;
 }
 
 a{

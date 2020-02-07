@@ -13,7 +13,7 @@
                 <p class="p-challenge-step__finish-num">
                     進捗状況
                     <span class="u-fontsize--l u-ml--s u-mr--s">
-                        {{ challengeStep.clear_num }}/{{ challengeStep.parent_step.child_steps.length }}
+                        {{ challengeStep.clearNum }}/{{ challengeStep.parent_step.child_steps.length }}
                     </span>
                     STEP
                 </p>
@@ -40,7 +40,7 @@
         computed: {
             // STEPの進捗度を計算する
             calcClearPercentage: function(){
-                return Math.round((this.challengeStep.clear_num / this.challengeStep.parent_step.child_steps.length) * 100);
+                return Math.round((this.challengeStep.clearNum / this.challengeStep.parent_step.child_steps.length) * 100);
             }
         }
     }

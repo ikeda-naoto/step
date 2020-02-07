@@ -3,9 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ParentStep extends Model
 {
+    use SoftDeletes;
+
+    protected $table = 'parent_steps';
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'title', 'category_id', 'content', 'pic', 
     ];

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Challenge extends Model
+class Clear extends Model
 {
     protected $fillable = [
-        'parent_step_id', 'user_id',
+        'challenge_id', 'child_step_id', 'user_id', 
     ];
 
     public function user()
@@ -15,7 +15,7 @@ class Challenge extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function parentStep()
+    public function challenge()
     {
         return $this->belongsTo('App\ParentStep');
     }

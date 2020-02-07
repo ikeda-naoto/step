@@ -2,7 +2,7 @@
 <div class="p-regist-step__child">
     <div class="u-position--relative">
         <h2 class="p-regist-step__num">STEP{{ index + 1 }}</h2>
-        <div class="p-regist-step__delete-icn" v-if="showIcnFlg" @click="$emit('onClickDeleteIcn', index)">
+        <div class="p-regist-step__delete-icn" v-if="showIcnFlg" @click="$emit('onClickDeleteIcn', index, id)">
             <i class="fas fa-minus fa-2x"></i>
         </div>
     </div>
@@ -10,11 +10,11 @@
         <!-- 子STEPタイトル -->
         <div class="l-row c-form__group">
             <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
-                <label for="child_title" class="c-form__label">タイトル</label>
+                <label :for="'child_title' + index" class="c-form__label">タイトル</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                <input id="child_title" type="text" class="c-input c-input--full" v-model="title">
+                <input :id="'child_title' + index" type="text" class="c-input c-input--full" v-model="title">
             </div>
         </div>
         <!-- 子STEP終了時間 -->
@@ -49,6 +49,7 @@
         props: ['index', 'value', 'showIcnFlg'],
         data: function() {
             return {
+                id: '',
                 title: '',
                 time_value: '',
                 content: '',
@@ -79,6 +80,7 @@
             }
         },
         mounted: function() {
+             this.id = this.value.id;
              this.title = this.value.title;
              this.time_value = this.value.time;
              this.content = this.value.content;
@@ -86,6 +88,7 @@
         // 親コンポーネントのデータを更新する
         updated: function() {
             this.$emit('input', {
+                id: this.id,
                 title: this.title,
                 time: this.time_value,
                 content: this.content

@@ -8,7 +8,7 @@
         <registAndChallengeBtn
             v-else-if="!isset(user)"
         ></registAndChallengeBtn>
-        <div v-else class="c-btn c-btn--small c-btn--secondary c-btn--right">チャレンジ中</div>
+        <div v-else class="c-btn c-btn--small c-btn--secondary c-btn--right u-pt--l u-pb--l">チャレンジ中</div>
     </div>
 
 </template>

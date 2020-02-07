@@ -7,6 +7,7 @@ use App\Challenge;
 use App\ChildStep;
 use Illuminate\Support\Facades\Auth;
 use App\lib\Common;
+use App\Clear;
 
 class ChallengeController extends Controller
 {
@@ -32,17 +33,29 @@ class ChallengeController extends Controller
     {
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/steps');
+        $childStep = ChildStep::find($id);
+        Common::isExist($childStep, '/mypage');
+
         // ログインしているユーザーの該当するチャレンジレコードを取得
-        $challenge = Challenge::where('user_id', Auth::user()->id)->where('parent_step_id', $id)->first();
+        $challenge = Challenge::where('user_id', Auth::user()->id)->where('parent_step_id', $childStep->parent_step_id)->first();
         // もしレコードがなかったら
         if(empty($challenge)) {
             return redirect('/steps')->with('status', '不正な値が入力されました。');
         }
         // チャレンジのクリア数を1つ増やす
-        $challenge->clear_num = $challenge->clear_num + 1;
-        $challenge->save();
+        // $challenge->clear_num = $challenge->clear_num + 1;
+        // $challenge->save();
+
+        $clear = new Clear;
+        $data = array(
+            'challenge_id' => $challenge->id,
+            'child_step_id' => $childStep->id
+        );
+
+        Auth::user()->clears()->save($clear->fill($data));
+
         // 次のSTEPのレコードを取得
-        $nextStep = ChildStep::where('parent_step_id', $challenge->parent_step_id)->where('num', '>',  $challenge->clear_num)->first();
+        $nextStep = ChildStep::where('parent_step_id', $childStep->parent_step_id)->where('num', '>', $childStep->num)->first();
 
         if(!empty($nextStep)) { // 次のSTEPがあった場合
             $nextStepId = $nextStep->id;

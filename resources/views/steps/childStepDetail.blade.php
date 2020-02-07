@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('breadcrumbs', Breadcrumbs::render('showChildStep', $parentStep, $showChildStep))
-
+@if($parentStep->deleted_at===null)
+    @section('breadcrumbs', Breadcrumbs::render('showChildStep', $parentStep, $showChildStep))
+@endif
 @section('title', $showChildStep->title)
 
 @section('content')

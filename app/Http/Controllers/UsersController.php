@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\lib\Common;
 use App\Http\Requests\UpdateUserRequest;
+use App\Clear;
+use App\ParentStep;
 
 class UsersController extends Controller
 {
@@ -50,9 +52,11 @@ class UsersController extends Controller
         $challengeSteps = Auth::user()->challenges()->latest()->get();
         foreach ($challengeSteps as $challengeStep) {
             // 取得したチャレンジ情報に親STEPの情報を付与する
-            $challengeStep->parentStep;
+            $challengeStep->parent_step = ParentStep::withTrashed()->find($challengeStep->parent_step_id);
+            // 取得したチャレンジ情報にクリア数を付与する
+            $challengeStep->clearNum = Clear::where('challenge_id', $challengeStep->id)->count();
             // 子STEPとカテゴリーの情報を付与する
-            Common::relationCategoryAndChildSteps($challengeStep->parentStep);
+            Common::relationCategoryAndChildSteps($challengeStep->parent_step);
         }
 
         return view('steps.mypage', compact('registSteps', 'challengeSteps'));

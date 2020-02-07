@@ -51,9 +51,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/steps/create', 'StepsController@create')->name('steps.create');
     Route::get('/steps/{id}/edit', 'StepsController@edit')->name('steps.edit');
     Route::patch('/steps/{id}', 'StepsController@update')->name('steps.update');
+    Route::delete('/steps/{id}/delete', 'StepsController@destroy')->name('steps.destroy');
     Route::post('/steps', 'StepsController@store')->name('steps.store');
     Route::post('/challenge', 'ChallengeController@challenge');
     Route::post('/challenge/{id}/clear', 'ChallengeController@clear');
+
 });
 
 Route::get('/steps', 'StepsController@index')->name('steps.index');

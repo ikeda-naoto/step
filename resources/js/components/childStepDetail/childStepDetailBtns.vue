@@ -21,6 +21,7 @@
     <clearBtn
         v-else
         :parentStepId="parentStepId"
+        :showChildStepId="showChildStep.id"
     ></clearBtn>
 </template>
 

@@ -1967,6 +1967,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _childStepDetailMainColumn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./childStepDetailMainColumn */ "./resources/js/components/childStepDetail/childStepDetailMainColumn.vue");
 /* harmony import */ var _childStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./childStepDetailSidebar */ "./resources/js/components/childStepDetail/childStepDetailSidebar.vue");
+/* harmony import */ var _deleteStep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../deleteStep */ "./resources/js/components/deleteStep.vue");
 //
 //
 //
@@ -1988,12 +1989,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     childStepDetailMainColumn: _childStepDetailMainColumn__WEBPACK_IMPORTED_MODULE_0__["default"],
-    childStepDetailSidebar: _childStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__["default"]
+    childStepDetailSidebar: _childStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    deleteStep: _deleteStep__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: ['parentStep', 'childSteps', 'showChildStep', 'clearNum', 'user', 'challengeFlg']
 });
@@ -2013,6 +2021,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _challengeBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../challengeBtn */ "./resources/js/components/challengeBtn.vue");
 /* harmony import */ var _clearBtn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./clearBtn */ "./resources/js/components/childStepDetail/clearBtn.vue");
 /* harmony import */ var _registAndChallengeBtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../registAndChallengeBtn */ "./resources/js/components/registAndChallengeBtn.vue");
+//
 //
 //
 //
@@ -2180,7 +2189,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['parentStepId'],
+  props: ['parentStepId', 'showChildStepId'],
   data: function data() {
     return {
       isPush: false
@@ -2198,7 +2207,7 @@ __webpack_require__.r(__webpack_exports__);
         _token: $('meta[name="csrf-token"]').attr('content')
       }; // axios通信
 
-      axios.post('/challenge/' + this.parentStepId + '/clear', data).then(function (res) {
+      axios.post('/challenge/' + this.showChildStepId + '/clear', data).then(function (res) {
         // 通信成功の場合
         if (res.data.nextStepId === null) {
           // 次のSTEPがない場合
@@ -2307,6 +2316,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ['childSteps']
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/deleteStep.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/deleteStep.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -2475,7 +2508,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     // STEPの進捗度を計算する
     calcClearPercentage: function calcClearPercentage() {
-      return Math.round(this.challengeStep.clear_num / this.challengeStep.parent_step.child_steps.length * 100);
+      return Math.round(this.challengeStep.clearNum / this.challengeStep.parent_step.child_steps.length * 100);
     }
   }
 });
@@ -2663,10 +2696,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['registStep'],
-  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  data: function data() {
+    return {
+      isPush: false,
+      csrf: $('meta[name="csrf-token"]').attr('content')
+    };
+  },
+  mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  methods: {
+    deleteStep: function deleteStep() {
+      if (!confirm("削除しますか")) {
+        event.preventDefault();
+        return;
+      }
+
+      this.isPush = !this.isPush;
+      return;
+    }
+  }
 });
 
 /***/ }),
@@ -2722,6 +2786,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parentStepDetailMainColumn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parentStepDetailMainColumn */ "./resources/js/components/parentStepDetail/parentStepDetailMainColumn.vue");
 /* harmony import */ var _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parentStepDetailSidebar */ "./resources/js/components/parentStepDetail/parentStepDetailSidebar.vue");
+/* harmony import */ var _deleteStep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../deleteStep */ "./resources/js/components/deleteStep.vue");
 //
 //
 //
@@ -2740,12 +2805,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     parentStepDetailMainColumn: _parentStepDetailMainColumn__WEBPACK_IMPORTED_MODULE_0__["default"],
-    parentStepDetailSidebar: _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__["default"]
+    parentStepDetailSidebar: _parentStepDetailSidebar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    deleteStep: _deleteStep__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: ['parentStep', 'user', 'createUser', 'challengeFlg']
 });
@@ -3197,6 +3269,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['index', 'value', 'showIcnFlg'],
   data: function data() {
     return {
+      id: '',
       title: '',
       time_value: '',
       content: '',
@@ -3270,6 +3343,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    this.id = this.value.id;
     this.title = this.value.title;
     this.time_value = this.value.time;
     this.content = this.value.content;
@@ -3277,6 +3351,7 @@ __webpack_require__.r(__webpack_exports__);
   // 親コンポーネントのデータを更新する
   updated: function updated() {
     this.$emit('input', {
+      id: this.id,
       title: this.title,
       time: this.time_value,
       content: this.content
@@ -3479,7 +3554,8 @@ __webpack_require__.r(__webpack_exports__);
       // 子STEPの情報を保存しておく配列
       childSteps: [],
       errMsgs: [],
-      isPush: false
+      isPush: false,
+      deleteChildStepId: []
     };
   },
   created: function created() {
@@ -3511,6 +3587,7 @@ __webpack_require__.r(__webpack_exports__);
       // STEP登録の場合
       // 配列へ子STEP1のオブジェクトを代入
       this.childSteps.push({
+        id: '',
         title: '',
         time: '',
         content: ''
@@ -3520,7 +3597,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    onClickDeleteIcn: function onClickDeleteIcn(index) {
+    onClickDeleteIcn: function onClickDeleteIcn(index, id) {
       // 警告表示のテキスト
       var alertMsg = 'STEP' + (index + 1) + 'を削除してよろしいですか？';
 
@@ -3538,7 +3615,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.uuid.splice(index, 1); // 削除する子STEPを配列から削除
 
-      this.childSteps.splice(index, 1);
+      this.childSteps.splice(index, 1); // DBに登録済みの子STEPが削除された場合、その子STEPのIDを配列に格納
+
+      this.isset(id) ? this.deleteChildStepId.push(id) : false;
     },
     // STEP登録処理
     onSubmit: function onSubmit() {
@@ -3563,9 +3642,17 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var key1 in this.childSteps) {
         for (var key2 in this.childSteps[key1]) {
-          data.append('child_' + key2 + '[]', this.childSteps[key1][key2]);
+          if (key2 !== 'id') {
+            data.append('child_' + key2 + '[]', this.childSteps[key1][key2]);
+          }
         }
-      }
+      } // 削除する子STEPのidを配列に格納（削除する子STEPがない時は処理が行われない）
+
+
+      for (var i in this.deleteChildStepId) {
+        data.append('deleteChildStepId[]', this.deleteChildStepId[i]);
+      } // data.append('deleteChildStepId', deleteChildStepId);
+
 
       var config = {
         headers: {
@@ -3595,6 +3682,7 @@ __webpack_require__.r(__webpack_exports__);
     // 子STEP追加処理
     addChildStep: function addChildStep() {
       this.childSteps.push({
+        id: '',
         title: '',
         time: '',
         content: ''
@@ -66307,6 +66395,7 @@ var render = function() {
     "button",
     {
       staticClass: "c-btn c-btn--warning c-btn--right u-pt--l u-pb--l",
+      attrs: { disabled: _vm.isPush },
       on: { click: _vm.onClickChallengeBtn }
     },
     [_vm._v("\n    STEPにチャレンジする\n")]
@@ -66339,20 +66428,26 @@ var render = function() {
       "div",
       { staticClass: "l-row l-site-width" },
       [
-        _c("childStepDetailMainColumn", {
-          attrs: {
-            parentStep: _vm.parentStep,
-            firstChildStepId: _vm.childSteps[0]["id"],
-            showChildStep: _vm.showChildStep,
-            clearNum: _vm.clearNum,
-            user: _vm.user,
-            challengeFlg: _vm.challengeFlg
-          }
-        }),
-        _vm._v(" "),
-        _c("childStepDetailSidebar", { attrs: { childSteps: _vm.childSteps } })
+        _vm.parentStep.deleted_at === null
+          ? [
+              _c("childStepDetailMainColumn", {
+                attrs: {
+                  parentStep: _vm.parentStep,
+                  firstChildStepId: _vm.childSteps[0]["id"],
+                  showChildStep: _vm.showChildStep,
+                  clearNum: _vm.clearNum,
+                  user: _vm.user,
+                  challengeFlg: _vm.challengeFlg
+                }
+              }),
+              _vm._v(" "),
+              _c("childStepDetailSidebar", {
+                attrs: { childSteps: _vm.childSteps }
+              })
+            ]
+          : _c("deleteStep")
       ],
-      1
+      2
     )
   ])
 }
@@ -66402,7 +66497,12 @@ var render = function() {
         },
         [_vm._v("\n    クリアで解放\n")]
       )
-    : _c("clearBtn", { attrs: { parentStepId: _vm.parentStepId } })
+    : _c("clearBtn", {
+        attrs: {
+          parentStepId: _vm.parentStepId,
+          showChildStepId: _vm.showChildStep.id
+        }
+      })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -66726,6 +66826,45 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/deleteStep.vue?vue&type=template&id=bbba9fbc&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/deleteStep.vue?vue&type=template&id=bbba9fbc& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-delete-step" }, [
+      _c("div", { staticClass: "p-delete-step__img" }, [
+        _c("img", { attrs: { src: "/images/logo_icn_delete.png", alt: "" } })
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "p-delete-step__text" }, [
+        _vm._v("\n        該当するSTEPは投稿者によって削除されました\n    ")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/inputFile.vue?vue&type=template&id=1e5ab8aa&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/inputFile.vue?vue&type=template&id=1e5ab8aa& ***!
@@ -66927,7 +67066,7 @@ var render = function() {
               _c("span", { staticClass: "u-fontsize--l u-ml--s u-mr--s" }, [
                 _vm._v(
                   "\n                    " +
-                    _vm._s(_vm.challengeStep.clear_num) +
+                    _vm._s(_vm.challengeStep.clearNum) +
                     "/" +
                     _vm._s(_vm.challengeStep.parent_step.child_steps.length) +
                     "\n                "
@@ -67202,13 +67341,89 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
-        "a",
+        "div",
         {
           staticClass:
-            "c-btn c-btn--primary c-btn--right c-btn--small p-registed-step__btn",
-          attrs: { href: "/steps/" + _vm.registStep.id + "/edit" }
+            "l-row l-row__col12--sm l-row__col12--tab l-row__col04--pc"
         },
-        [_vm._v("\n            編集する\n        ")]
+        [
+          _c(
+            "div",
+            {
+              staticClass: "l-row__col06--sm l-row__col06--tab l-row__col06--pc"
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "c-btn c-btn--center c-btn--primary p-registed-step__btn",
+                  attrs: { href: "/steps/" + _vm.registStep.id + "/edit" }
+                },
+                [_vm._v("\n                    編集\n                ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "l-row__col06--sm l-row__col06--tab l-row__col06--pc"
+            },
+            [
+              _c(
+                "form",
+                {
+                  attrs: {
+                    action: "/steps/" + _vm.registStep.id + "/delete",
+                    method: "post"
+                  },
+                  on: { submit: _vm.deleteStep }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.csrf,
+                        expression: "csrf"
+                      }
+                    ],
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.csrf = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_method", value: "DELETE" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "c-btn c-btn--center c-btn--danger p-registed-step__btn",
+                      attrs: { disabled: _vm.isPush }
+                    },
+                    [
+                      _vm._v(
+                        "\n                         削除\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        ]
       )
     ])
   ])
@@ -67292,17 +67507,23 @@ var render = function() {
       "div",
       { staticClass: "l-row l-site-width" },
       [
-        _c("parentStepDetailMainColumn", {
-          attrs: {
-            parentStep: _vm.parentStep,
-            user: _vm.user,
-            challengeFlg: _vm.challengeFlg
-          }
-        }),
-        _vm._v(" "),
-        _c("parentStepDetailSidebar", { attrs: { createUser: _vm.createUser } })
+        _vm.parentStep.deleted_at === null
+          ? [
+              _c("parentStepDetailMainColumn", {
+                attrs: {
+                  parentStep: _vm.parentStep,
+                  user: _vm.user,
+                  challengeFlg: _vm.challengeFlg
+                }
+              }),
+              _vm._v(" "),
+              _c("parentStepDetailSidebar", {
+                attrs: { createUser: _vm.createUser }
+              })
+            ]
+          : _c("deleteStep")
       ],
-      1
+      2
     )
   ])
 }
@@ -67343,7 +67564,10 @@ var render = function() {
         ? _c("registAndChallengeBtn")
         : _c(
             "div",
-            { staticClass: "c-btn c-btn--small c-btn--secondary c-btn--right" },
+            {
+              staticClass:
+                "c-btn c-btn--small c-btn--secondary c-btn--right u-pt--l u-pb--l"
+            },
             [_vm._v("チャレンジ中")]
           )
     ],
@@ -67901,7 +68125,7 @@ var render = function() {
               staticClass: "p-regist-step__delete-icn",
               on: {
                 click: function($event) {
-                  return _vm.$emit("onClickDeleteIcn", _vm.index)
+                  return _vm.$emit("onClickDeleteIcn", _vm.index, _vm.id)
                 }
               }
             },
@@ -67912,7 +68136,24 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "c-form" }, [
       _c("div", { staticClass: "l-row c-form__group" }, [
-        _vm._m(0),
+        _c(
+          "div",
+          {
+            staticClass: "l-row__col12--sm l-row__col04--tab l-row__col04--pc"
+          },
+          [
+            _c(
+              "label",
+              {
+                staticClass: "c-form__label",
+                attrs: { for: "child_title" + _vm.index }
+              },
+              [_vm._v("タイトル")]
+            ),
+            _vm._v(" "),
+            _c("span", { staticClass: "c-form__require" }, [_vm._v("必須")])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -67930,7 +68171,7 @@ var render = function() {
                 }
               ],
               staticClass: "c-input c-input--full",
-              attrs: { id: "child_title", type: "text" },
+              attrs: { id: "child_title" + _vm.index, type: "text" },
               domProps: { value: _vm.title },
               on: {
                 input: function($event) {
@@ -67946,7 +68187,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "l-row c-form__group" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
@@ -68049,24 +68290,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "l-row__col12--sm l-row__col04--tab l-row__col04--pc" },
-      [
-        _c(
-          "label",
-          { staticClass: "c-form__label", attrs: { for: "child_title" } },
-          [_vm._v("タイトル")]
-        ),
-        _vm._v(" "),
-        _c("span", { staticClass: "c-form__require" }, [_vm._v("必須")])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -83171,6 +83394,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_childStepIndexList_vue_vue_type_template_id_119b1a9c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_childStepIndexList_vue_vue_type_template_id_119b1a9c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/deleteStep.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/deleteStep.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _deleteStep_vue_vue_type_template_id_bbba9fbc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./deleteStep.vue?vue&type=template&id=bbba9fbc& */ "./resources/js/components/deleteStep.vue?vue&type=template&id=bbba9fbc&");
+/* harmony import */ var _deleteStep_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./deleteStep.vue?vue&type=script&lang=js& */ "./resources/js/components/deleteStep.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _deleteStep_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _deleteStep_vue_vue_type_template_id_bbba9fbc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _deleteStep_vue_vue_type_template_id_bbba9fbc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/deleteStep.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/deleteStep.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/deleteStep.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteStep_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./deleteStep.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/deleteStep.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteStep_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/deleteStep.vue?vue&type=template&id=bbba9fbc&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/deleteStep.vue?vue&type=template&id=bbba9fbc& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteStep_vue_vue_type_template_id_bbba9fbc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./deleteStep.vue?vue&type=template&id=bbba9fbc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/deleteStep.vue?vue&type=template&id=bbba9fbc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteStep_vue_vue_type_template_id_bbba9fbc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteStep_vue_vue_type_template_id_bbba9fbc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

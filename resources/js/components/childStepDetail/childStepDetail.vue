@@ -2,6 +2,7 @@
     <!-- メインコンテンツ -->
     <div class="l-container u-bg--light">
         <div class="l-row l-site-width">
+            <template v-if="parentStep.deleted_at===null">
             <!-- メインカラム -->
             <childStepDetailMainColumn
                 :parentStep="parentStep"
@@ -15,6 +16,10 @@
             <childStepDetailSidebar
                 :childSteps="childSteps"
             ></childStepDetailSidebar>
+            </template>
+            <deleteStep
+                v-else
+            ></deleteStep>
         </div>
     </div>
 </template>
@@ -22,10 +27,12 @@
 <script>
     import childStepDetailMainColumn from './childStepDetailMainColumn';
     import childStepDetailSidebar from './childStepDetailSidebar';
+    import deleteStep from '../deleteStep';
     export default {
         components: {
             childStepDetailMainColumn,
-            childStepDetailSidebar
+            childStepDetailSidebar,
+            deleteStep
         },
         props: ['parentStep', 'childSteps', 'showChildStep', 'clearNum', 'user', 'challengeFlg']
     }

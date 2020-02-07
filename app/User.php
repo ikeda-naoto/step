@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Challenge');
     }
+
+    public function clears()
+    {
+        return $this->hasMany('App\Clear');
+    }
 }

@@ -10,6 +10,7 @@
     -webkit-appearance: none;
     border-radius: 0;
     border: none;
+    line-height: 150%;
     @include sm() {
         min-width: 100%;
         margin-right: auto;
@@ -45,6 +46,10 @@
     &--primary {
         color: $font-color_light;
         background: $btn-color_primary;
+    }
+    &--danger {
+        color: $font-color_light;
+        background: $btn-color_danger;
     }
     &--success {
         color: $font-color_light;

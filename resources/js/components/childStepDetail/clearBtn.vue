@@ -7,7 +7,7 @@
 <script>
     import Mixin from '../mixins/mixin';
     export default {
-        props: ['parentStepId'],
+        props: ['parentStepId', 'showChildStepId'],
         data: function() {
             return {
                 isPush: false
@@ -21,7 +21,7 @@
                 // csrfトークンを保存
                 let data = { _token: $('meta[name="csrf-token"]').attr('content')}
                 // axios通信
-                axios.post('/challenge/' + this.parentStepId + '/clear', data)
+                axios.post('/challenge/' + this.showChildStepId + '/clear', data)
                 .then(res => {
                     // 通信成功の場合
                     if(res.data.nextStepId === null) { // 次のSTEPがない場合

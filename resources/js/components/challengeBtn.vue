@@ -1,5 +1,5 @@
 <template>
-    <button class="c-btn c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickChallengeBtn">
+    <button class="c-btn c-btn--warning c-btn--right u-pt--l u-pb--l" @click="onClickChallengeBtn" :disabled="isPush">
         STEPにチャレンジする
     </button>
 </template>

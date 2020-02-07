@@ -17,7 +17,8 @@
     }
     &__title {
         font-size: $font-size_xl;
-        margin-left: $space_l;
+        padding-left: $space_l;
+        word-wrap: break-word;
         @include sm() {
             font-size: $font-size_l;
             margin-top: $space_l;
@@ -41,9 +42,13 @@
         text-align: right;
     }
     &__btn {
+        width: 96%;
         @include tab() {
             margin-top: $space_l;
-            width: 150px
+            // width: 150px
+        }
+        @include sm() {
+            min-width: 96%;
         }
     }
 }

@@ -78,6 +78,7 @@
                 childSteps: [],
                 errMsgs: [],
                 isPush: false,
+                deleteChildStepId: []
             }
         },
         created: function() {
@@ -101,6 +102,7 @@
                 // 配列へ子STEP1のオブジェクトを代入
                 this.childSteps.push(
                     {
+                        id: '',
                         title: '',
                         time: '',
                         content: '',
@@ -111,7 +113,7 @@
             }
         },
         methods : {
-            onClickDeleteIcn: function(index) {
+            onClickDeleteIcn: function(index, id) {
                 // 警告表示のテキスト
                 let alertMsg = 'STEP' + (index + 1) + 'を削除してよろしいですか？';
                 if(this.editFlg) { // 編集画面の時
@@ -125,6 +127,8 @@
                 this.uuid.splice(index, 1);
                 // 削除する子STEPを配列から削除
                 this.childSteps.splice(index, 1);
+                // DBに登録済みの子STEPが削除された場合、その子STEPのIDを配列に格納
+                this.isset(id) ? this.deleteChildStepId.push(id) : false;
             },
             // STEP登録処理
             onSubmit : function() {
@@ -144,9 +148,18 @@
                 // 子STEPの情報を配列に格納
                 for(let key1 in this.childSteps) {
                     for (let key2 in this.childSteps[key1]) {
-                        data.append('child_' + key2 + '[]', this.childSteps[key1][key2]);
+                        if(key2 !== 'id') {
+                            data.append('child_' + key2 + '[]', this.childSteps[key1][key2]);
+                        }
                     }
                 }
+                // 削除する子STEPのidを配列に格納（削除する子STEPがない時は処理が行われない）
+                for(let i in this.deleteChildStepId) {
+                    data.append('deleteChildStepId[]', this.deleteChildStepId[i]);
+                }
+
+                // data.append('deleteChildStepId', deleteChildStepId);
+
                 let config = {
                     headers: {
                         'content-type': 'multipart/form-data',
@@ -177,6 +190,7 @@
             addChildStep: function() {
                 this.childSteps.push(
                     {
+                        id: '',
                         title: '',
                         time: '',
                         content: '',

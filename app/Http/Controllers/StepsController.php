@@ -9,6 +9,7 @@ use App\ChildStep;
 use Illuminate\Support\Facades\Auth;
 use App\lib\Common;
 use App\Http\Requests\CreateStepRequest;
+use App\Clear;
 
 class StepsController extends Controller
 {
@@ -23,10 +24,14 @@ class StepsController extends Controller
         Common::validNumber($id, '/steps');
 
         // GETパラメータから親STEPのレコードを取得
-        $parentStep = ParentStep::find($id);
+        $parentStep = ParentStep::withTrashed()->find($id);
         
         // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/steps');
+
+        // if(empty($parentStep)) {
+        //     abort(404);
+        // }
 
         // 親STEPに紐づくカテゴリーと子STEPデータを取得
         Common::relationCategoryAndChildSteps($parentStep);
@@ -57,6 +62,9 @@ class StepsController extends Controller
     // STEP登録処理
     public function store(CreateStepRequest $request)
     {
+
+        logger($request);
+
         $parentStep = new ParentStep;
        
         // 親STEP登録処理
@@ -86,7 +94,7 @@ class StepsController extends Controller
         }
 
         // 前の処理で取得した親STEPの子STEPを取得
-        $childSteps = ChildStep::where('parent_step_id', $id)->select(['title', 'time', 'content'])->get();
+        $childSteps = ChildStep::where('parent_step_id', $id)->select(['id', 'title', 'time', 'content'])->get();
 
         // 全カテゴリーのデータを取得
         $categories = Category::all();
@@ -99,6 +107,8 @@ class StepsController extends Controller
     // STEP更新処理
     public function update(CreateStepRequest $request, $id) {
 
+        logger($request);
+
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/users/mypage');
 
@@ -107,6 +117,14 @@ class StepsController extends Controller
 
         // レコードが存在するかどうかチェック   
         Common::isExist($parentStep, '/users/mypage');
+        
+        // 子STEPが削除されていたら
+        if(!empty($request->deleteChildStepId)) { 
+            foreach ($request->deleteChildStepId as $key => $value) {
+                // 該当する子STEPを削除
+                ChildStep::find($value)->delete();
+            }
+        }
 
         // 親STEPを更新
         Common::storeParentStep($request, $parentStep);
@@ -123,6 +141,21 @@ class StepsController extends Controller
 
     }
 
+    public function destroy($id) {
+        // GETパラメータが数字かどうかチェック
+        Common::validNumber($id, '/users/mypage');
+
+        $parentStep = ParentStep::find($id);
+
+        // レコードが存在するかどうかチェック  
+        Common::isExist($parentStep, '/users/mypage');
+
+        // STEPを論理削除する
+        $parentStep->delete();
+        
+        return redirect('/users/mypage')->with('status', $parentStep->title.'を削除しました');
+    }
+
     public function showChild($parent_id, $child_id)
     {
         // GETパラメータが数字かどうかチェック
@@ -133,7 +166,7 @@ class StepsController extends Controller
         Common::isExist(ChildStep::where('parent_step_id', $parent_id)->where('id', $child_id)->first(), '/steps');
 
         // 親STEPとそれに紐づく子STEPを取得
-        $parentStep = ParentStep::find($parent_id);
+        $parentStep = ParentStep::withTrashed()->find($parent_id);
         $parentStep->childSteps;
 
         // 表示する子STEPのデータを取得
@@ -152,7 +185,7 @@ class StepsController extends Controller
             // チャレンジフラグを1に
             $challengeFlg = 1;
             // STEPのクリア数を代入
-            $clear_num = $challengeStep->clear_num;
+            $clear_num = Clear::where('challenge_id', $challengeStep->id)->count();
         }
 
         return view('steps.childStepDetail', compact('parentStep', 'showChildStep', 'clear_num', 'challengeFlg'));
