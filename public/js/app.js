@@ -2722,7 +2722,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixins_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   methods: {
     deleteStep: function deleteStep() {
-      if (!confirm("削除しますか")) {
+      if (!confirm(this.registStep.title + "を削除してよろしいですか？")) {
         event.preventDefault();
         return;
       }
@@ -3651,8 +3651,7 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var i in this.deleteChildStepId) {
         data.append('deleteChildStepId[]', this.deleteChildStepId[i]);
-      } // data.append('deleteChildStepId', deleteChildStepId);
-
+      }
 
       var config = {
         headers: {

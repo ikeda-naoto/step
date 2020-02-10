@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'ホーム')
+@section('title', 'STEP')
 
 @section('content')
     {{-- トップへのスクロールボタン --}}

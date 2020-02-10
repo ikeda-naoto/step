@@ -158,8 +158,6 @@
                     data.append('deleteChildStepId[]', this.deleteChildStepId[i]);
                 }
 
-                // data.append('deleteChildStepId', deleteChildStepId);
-
                 let config = {
                     headers: {
                         'content-type': 'multipart/form-data',

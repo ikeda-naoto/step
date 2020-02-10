@@ -23,12 +23,20 @@ class Common {
     }
     return true;
   }
+  
   // 引数にとられたレコードが存在するかを判定する
   public static function isExist($val, $url = '/steps') {
     if(empty($val)) {
       return redirect($url)->with('status', '不正な値が入力されました。')->throwResponse();
     }
     return true;
+  }
+
+  // 引数とログイン中のユーザーのIDが一致するかチェック
+  public static function validUser($userId) {
+    if($userId !== Auth::user()->id) {
+      return redirect('/users/mypage')->with('status', 'ユーザーが違います')->throwResponse();
+    }
   }
 
   // 画像登録処理

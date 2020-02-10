@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\lib\Common;
 use App\Http\Requests\CreateStepRequest;
 use App\Clear;
+use Illuminate\Http\Request;
 
 class StepsController extends Controller
 {
@@ -28,10 +29,6 @@ class StepsController extends Controller
         
         // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/steps');
-
-        // if(empty($parentStep)) {
-        //     abort(404);
-        // }
 
         // 親STEPに紐づくカテゴリーと子STEPデータを取得
         Common::relationCategoryAndChildSteps($parentStep);
@@ -88,10 +85,8 @@ class StepsController extends Controller
         // レコードが存在するかどうかチェック
         Common::isExist($parentStep, '/users/mypage');
 
-        // STEPを登録したユーザーと編集しようとしているユーザーが異なる場合
-        if($parentStep->user_id !== Auth::user()->id) {
-            return redirect('/users/mypage')->with('status', '不正な値が入力されました。')->throwResponse();
-        }
+        // STEPを登録したユーザーと編集しようとしているユーザーが同じかどうかチェック
+        Common::validUser($parentStep->user_id);
 
         // 前の処理で取得した親STEPの子STEPを取得
         $childSteps = ChildStep::where('parent_step_id', $id)->select(['id', 'title', 'time', 'content'])->get();
@@ -117,12 +112,15 @@ class StepsController extends Controller
 
         // レコードが存在するかどうかチェック   
         Common::isExist($parentStep, '/users/mypage');
-        
-        // 子STEPが削除されていたら
+
+        // STEPを登録したユーザーと編集しようとしているユーザーが同じかどうかチェック
+        Common::validUser($parentStep->user_id);
+
+        // 子STEPを削除する場合
         if(!empty($request->deleteChildStepId)) { 
             foreach ($request->deleteChildStepId as $key => $value) {
-                // 該当する子STEPを削除
-                ChildStep::find($value)->delete();
+                // 該当する子STEPを削除（念のため親STEPと子STEPが紐づいていることを確認）
+                ChildStep::where('parent_step_id', $parentStep->id)->where('id', $value)->delete();
             }
         }
 
@@ -131,6 +129,7 @@ class StepsController extends Controller
         
         // 親STEPの子STEPを取得
         $childSteps = $parentStep->childSteps;
+
         // 子STEPを更新
         Common::storeChildSteps($request, true, $parentStep, $childSteps);
 
@@ -141,7 +140,8 @@ class StepsController extends Controller
 
     }
 
-    public function destroy($id) {
+    public function destroy(Request $request, $id) {
+        
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/users/mypage');
 
@@ -150,8 +150,14 @@ class StepsController extends Controller
         // レコードが存在するかどうかチェック  
         Common::isExist($parentStep, '/users/mypage');
 
+        // STEPを登録したユーザーと削除しようとしているユーザーが同じかどうかチェック
+        Common::validUser($parentStep->user_id);
+
         // STEPを論理削除する
         $parentStep->delete();
+
+        // トークンを上書き
+        $request->session()->regenerateToken();
         
         return redirect('/users/mypage')->with('status', $parentStep->title.'を削除しました');
     }
