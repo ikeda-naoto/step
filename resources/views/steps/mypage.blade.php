@@ -5,6 +5,7 @@
 @section('title', 'マイページ')
 
 @section('content')
+{{ $a }}
     <!-- メインコンテンツ -->
     <my-page
         :regist-steps="{{ $registSteps }}"
