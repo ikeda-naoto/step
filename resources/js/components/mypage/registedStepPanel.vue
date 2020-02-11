@@ -41,9 +41,10 @@
         mixins: [Mixin],
         methods: {
             deleteStep: function() {
-                if(!confirm(this.registStep.title + "を削除してよろしいですか？")) {
-                     event.preventDefault();
-                     return;
+                if(!confirm(this.registStep.title + "を削除してよろしいですか？")) { // アラートを表示し、キャンセルがクリックされたら
+                    // フォーム送信をキャンセルする
+                    event.preventDefault();
+                    return;
                 }
                 this.isPush = !this.isPush;
                 return;

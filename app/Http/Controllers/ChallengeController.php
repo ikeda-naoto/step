@@ -17,7 +17,6 @@ class ChallengeController extends Controller
         // 通常であれば引っかからないが念のためバリデーション
         $request->validate([
             'parent_step_id' => 'required|integer',
-            'clear_num' => 'required',
         ]);
         
         $challenge = new Challenge;

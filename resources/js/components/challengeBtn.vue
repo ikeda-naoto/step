@@ -21,7 +21,6 @@
                 let data = { 
                     _token: $('meta[name="csrf-token"]').attr('content'),　// csrfトークンを保存
                     parent_step_id : this.parentStepId,
-                    clear_num: 0
                 }
                 // axios通信
                 axios.post('/challenge', data)

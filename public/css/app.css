@@ -2711,6 +2711,10 @@ select::-ms-expand {
   padding-left: 60px;
 }
 
+.u-fontcolor--err {
+  color: #fd6363;
+}
+
 .u-fontsize--s {
   font-size: 12px;
 }
@@ -2729,10 +2733,6 @@ select::-ms-expand {
 
 .u-fontsize--xxl {
   font-size: 30px;
-}
-
-.u-fontcolor--err {
-  color: #fd6363;
 }
 
 .u-text--left {

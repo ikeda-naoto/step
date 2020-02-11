@@ -1938,8 +1938,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         _token: $('meta[name="csrf-token"]').attr('content'),
         // csrfトークンを保存
-        parent_step_id: this.parentStepId,
-        clear_num: 0
+        parent_step_id: this.parentStepId
       }; // axios通信
 
       axios.post('/challenge', data).then(function (res) {
@@ -2723,6 +2722,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     deleteStep: function deleteStep() {
       if (!confirm(this.registStep.title + "を削除してよろしいですか？")) {
+        // アラートを表示し、キャンセルがクリックされたら
+        // フォーム送信をキャンセルする
         event.preventDefault();
         return;
       }
@@ -3555,6 +3556,7 @@ __webpack_require__.r(__webpack_exports__);
       childSteps: [],
       errMsgs: [],
       isPush: false,
+      // 削除する子STEPのIDを保存しておく配列
       deleteChildStepId: []
     };
   },
@@ -3597,6 +3599,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    // 子STEP削除処理
     onClickDeleteIcn: function onClickDeleteIcn(index, id) {
       // 警告表示のテキスト
       var alertMsg = 'STEP' + (index + 1) + 'を削除してよろしいですか？';
@@ -3608,7 +3611,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (!confirm(alertMsg)) {
-        // キャンセルがクリックされたら
+        // アラートを表示し、キャンセルがクリックされたら
         return;
       } // 削除する子STEPに紐づくキーを配列から削除
 

@@ -78,6 +78,7 @@
                 childSteps: [],
                 errMsgs: [],
                 isPush: false,
+                // 削除する子STEPのIDを保存しておく配列
                 deleteChildStepId: []
             }
         },
@@ -113,6 +114,7 @@
             }
         },
         methods : {
+            // 子STEP削除処理
             onClickDeleteIcn: function(index, id) {
                 // 警告表示のテキスト
                 let alertMsg = 'STEP' + (index + 1) + 'を削除してよろしいですか？';
@@ -120,7 +122,7 @@
                     // テキストを追加
                     alertMsg = alertMsg + '\n\n※画面下部の「編集する」をクリックするまで変更は反映されません';
                 }
-                if(!confirm(alertMsg)) { // キャンセルがクリックされたら
+                if(!confirm(alertMsg)) { // アラートを表示し、キャンセルがクリックされたら
                     return;
                 }
                 // 削除する子STEPに紐づくキーを配列から削除

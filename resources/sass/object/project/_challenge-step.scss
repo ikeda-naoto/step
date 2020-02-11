@@ -37,16 +37,15 @@
     &__progress {
         width: 100%;
         height: 30px;
-        //background: ;
         margin-top: $space_s;
         border-radius: 30px;
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
         position: relative;
-        background-image: linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%,                           $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
-        background-image: -webkit-linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%,                           $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
-        background-image: -moz-linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%,                           $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
-        background-image: -ms-linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%,                           $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
+        background-image: linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%, $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
+        background-image: -webkit-linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%, $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
+        background-image: -moz-linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%, $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
+        background-image: -ms-linear-gradient(-45deg,$progressbar-color_back 25%,transparent 25%,transparent 50%, $progressbar-color_back 50%,$progressbar-color_back 75%,transparent 75%,transparent);
         -webkit-background-size:7px 7px;
         -moz-background-size:7px 7px;
         -ms-background-size:7px 7px;
