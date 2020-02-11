@@ -84,7 +84,7 @@ class StepsController extends Controller
         Common::isExist($parentStep, '/users/mypage');
 
         // STEPを登録したユーザーと編集しようとしているユーザーが同じかどうかチェック
-        Common::validUser($parentStep->user_id);
+        Common::validUser($id);
 
         // 前の処理で取得した親STEPの子STEPを取得
         $childSteps = ChildStep::where('parent_step_id', $id)->select(['id', 'title', 'time', 'content'])->get();
