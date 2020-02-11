@@ -5,7 +5,8 @@
 @section('title', 'マイページ')
 
 @section('content')
-{{ $a }}
+{{ gettype($a) }}
+{{ gettype($registSteps->user_id) }}
     <!-- メインコンテンツ -->
     <my-page
         :regist-steps="{{ $registSteps }}"
