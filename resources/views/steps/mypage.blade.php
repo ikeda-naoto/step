@@ -6,7 +6,12 @@
 
 @section('content')
 {{ gettype($a) }}
-{{ gettype($registSteps->user_id) }}
+<br>
+@foreach ($registSteps as $registStep) 
+    {{gettype($registStep->user_id)}}
+@endforeach
+
+
     <!-- メインコンテンツ -->
     <my-page
         :regist-steps="{{ $registSteps }}"
