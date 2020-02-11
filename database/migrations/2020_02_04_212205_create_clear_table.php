@@ -19,8 +19,6 @@ class CreateClearTable extends Migration
             $table->foreign('challenge_id')->references('id')->on('challenges');
             $table->unsignedBigInteger('child_step_id');
             $table->foreign('child_step_id')->references('id')->on('child_steps')->onDelete('cascade');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

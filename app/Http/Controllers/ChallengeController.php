@@ -34,7 +34,8 @@ class ChallengeController extends Controller
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/steps');
         $childStep = ChildStep::find($id);
-        Common::isExist($childStep, '/mypage');
+        // レコードが存在しているかチェック
+        Common::isExist($childStep, '/steps');
 
         // ログインしているユーザーの該当するチャレンジレコードを取得
         $challenge = Challenge::where('user_id', Auth::user()->id)->where('parent_step_id', $childStep->parent_step_id)->first();
@@ -42,17 +43,16 @@ class ChallengeController extends Controller
         if(empty($challenge)) {
             return redirect('/steps')->with('status', '不正な値が入力されました。');
         }
-        // チャレンジのクリア数を1つ増やす
-        // $challenge->clear_num = $challenge->clear_num + 1;
-        // $challenge->save();
 
-        $clear = new Clear;
+        // DBに登録するデータを配列に格納
         $data = array(
             'challenge_id' => $challenge->id,
             'child_step_id' => $childStep->id
         );
 
-        Auth::user()->clears()->save($clear->fill($data));
+        // クリア情報をDBに登録
+        $clear = new Clear;
+        $clear->fill($data)->save();
 
         // 次のSTEPのレコードを取得
         $nextStep = ChildStep::where('parent_step_id', $childStep->parent_step_id)->where('num', '>', $childStep->num)->first();
