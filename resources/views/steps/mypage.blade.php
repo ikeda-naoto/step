@@ -5,13 +5,6 @@
 @section('title', 'マイページ')
 
 @section('content')
-{{ gettype($a) }}
-<br>
-@foreach ($registSteps as $registStep) 
-    {{gettype($registStep->user_id)}}
-@endforeach
-
-
     <!-- メインコンテンツ -->
     <my-page
         :regist-steps="{{ $registSteps }}"

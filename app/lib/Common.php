@@ -34,7 +34,7 @@ class Common {
 
   // 引数とログイン中のユーザーのIDが一致するかチェック
   public static function validUser($userId) {
-    if($userId !== Auth::user()->id) {
+    if((int)$userId !== Auth::user()->id) {
       return redirect('/users/mypage')->with('status', '違うユーザーです')->throwResponse();
     }
   }

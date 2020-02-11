@@ -59,8 +59,7 @@ class UsersController extends Controller
             Common::relationCategoryAndChildSteps($challengeStep->parent_step);
         }
 
-        $a = Auth::user()->id;
-        return view('steps.mypage', compact('registSteps', 'challengeSteps', 'a'));
+        return view('steps.mypage', compact('registSteps', 'challengeSteps'));
     }
 
 

@@ -20,7 +20,7 @@
         @include sm(){
             width: 250px;
             height: 100%;
-            padding-top: 100px;
+            padding-top: $space_8l;
             background: $background-color_base;
             position: fixed;
             top: 0;
