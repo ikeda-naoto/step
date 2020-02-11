@@ -4,7 +4,7 @@
         v-if="!isset(user)"
     ></registAndChallengeBtn>
     <!-- すでにクリアしていたら -->
-    <div v-else-if="clearNum >= showChildStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right">
+    <div v-else-if="clearNum >= showChildStep.num" class="c-btn c-btn--small c-btn--secondary c-btn--right u-pt--l u-pb--l">
         クリア済み
     </div>
     <!-- チャレンジしていなかったら -->

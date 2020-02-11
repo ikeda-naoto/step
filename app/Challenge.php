@@ -19,4 +19,9 @@ class Challenge extends Model
     {
         return $this->belongsTo('App\ParentStep');
     }
+
+    public function clears()
+    {
+        return $this->hasMany('App\Clear');
+    }
 }

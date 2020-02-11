@@ -60,8 +60,6 @@ class StepsController extends Controller
     public function store(CreateStepRequest $request)
     {
 
-        logger($request);
-
         $parentStep = new ParentStep;
        
         // 親STEP登録処理
@@ -101,8 +99,6 @@ class StepsController extends Controller
     }
     // STEP更新処理
     public function update(CreateStepRequest $request, $id) {
-
-        logger($request);
 
         // GETパラメータが数字かどうかチェック
         Common::validNumber($id, '/users/mypage');

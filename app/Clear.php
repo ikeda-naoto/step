@@ -17,6 +17,6 @@ class Clear extends Model
 
     public function challenge()
     {
-        return $this->belongsTo('App\ParentStep');
+        return $this->belongsTo('App\Challenge');
     }
 }

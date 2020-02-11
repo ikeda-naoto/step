@@ -19,7 +19,7 @@ class Common {
   // 数字かどうかを判定する
   public static function validNumber($text, $url = '/steps') {
     if(!ctype_digit($text)) {
-      return redirect($url)->with('status', '不正な値が入力されました。')->throwResponse();
+      return redirect($url)->with('status', '不正な値が入力されました')->throwResponse();
     }
     return true;
   }
@@ -27,7 +27,7 @@ class Common {
   // 引数にとられたレコードが存在するかを判定する
   public static function isExist($val, $url = '/steps') {
     if(empty($val)) {
-      return redirect($url)->with('status', '不正な値が入力されました。')->throwResponse();
+      return redirect($url)->with('status', '不正な値が入力されました')->throwResponse();
     }
     return true;
   }
@@ -35,7 +35,7 @@ class Common {
   // 引数とログイン中のユーザーのIDが一致するかチェック
   public static function validUser($userId) {
     if($userId !== Auth::user()->id) {
-      return redirect('/users/mypage')->with('status', 'ユーザーが違います')->throwResponse();
+      return redirect('/users/mypage')->with('status', '不正な値が入力されました')->throwResponse();
     }
   }
 

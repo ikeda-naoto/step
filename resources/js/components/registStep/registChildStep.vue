@@ -3,7 +3,7 @@
     <div class="u-position--relative">
         <h2 class="p-regist-step__num">STEP{{ index + 1 }}</h2>
         <div class="p-regist-step__delete-icn" v-if="showIcnFlg" @click="$emit('onClickDeleteIcn', index, id)">
-            <i class="fas fa-minus fa-2x"></i>
+            <i class="fas fa-trash-alt fa-2x"></i>
         </div>
     </div>
     <div class="c-form">
