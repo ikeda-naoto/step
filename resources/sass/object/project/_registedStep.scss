@@ -43,6 +43,8 @@
     }
     &__btn {
         width: 96%;
+        margin-top: 0;
+        margin-bottom: 0;
         @include tab() {
             margin-top: $space_l;
             // width: 150px

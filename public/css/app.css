@@ -1998,6 +1998,8 @@ select::-ms-expand {
 
 .p-registed-step__btn {
   width: 96%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 415px) and (max-width: 991px) {
