@@ -5,6 +5,7 @@
 @section('title', 'マイページ')
 
 @section('content')
+    {{ Auth::user()->id }}
     <!-- メインコンテンツ -->
     <my-page
         :regist-steps="{{ $registSteps }}"
