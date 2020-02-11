@@ -1333,7 +1333,7 @@ select::-ms-expand {
   .p-header__nav {
     width: 250px;
     height: 100%;
-    padding-top: 30px;
+    padding-top: 50px;
     background: #0057a3;
     position: fixed;
     top: 0;
