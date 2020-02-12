@@ -16,7 +16,7 @@
                 <h1 class="c-title--normal u-mb--5l">新規会員登録</h1>
                 <div class="c-form__group">
 
-                    <input type="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ old('email') }}" autocomplete="email">
+                    <input type="text" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" name="email" value="{{ old('email') }}" autocomplete="email">
                     @error('email')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror

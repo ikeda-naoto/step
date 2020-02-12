@@ -55,7 +55,7 @@
                                 <span class="c-form__require">必須</span>
                             </div>
                             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                                <input v-model="email" name="email" id="email" type="email" class="c-input c-input--full" value="email" required autocomplete="email">
+                                <input v-model="email" name="email" id="email" type="text" class="c-input c-input--full" value="email" required autocomplete="email">
                             </div>
                         </div>
                         <!-- 送信ボタン -->

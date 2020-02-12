@@ -20,7 +20,7 @@
                     @enderror
                 </div>
                 <div class="c-form__group">
-                    <input type="email" name="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" value="{{ old('email') }}" autocomplete="email" autofocus>
+                    <input type="text" name="email" class="c-input c-input--full @error('email') c-input--err @enderror" placeholder="メールアドレス" value="{{ old('email') }}" autocomplete="email" autofocus>
                     @error('email')
                         <span class="u-fontcolor--err">{{ $message }}</span>
                     @enderror
