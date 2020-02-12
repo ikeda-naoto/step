@@ -15,7 +15,7 @@
         width: 100%;
     }
     &--err  {
-        border: 1px solid $font-color_err;
+        border: $border_s solid $font-color_err;
         background: $background-color_err;
     }
 }

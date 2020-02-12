@@ -21,7 +21,9 @@
                             </div>
                             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                                 <input v-model="name" id="name" name="name" type="text" class="c-input c-input--full" :class="name.length > 20 ? 'c-input--err' : ''">
-                                <span class="u-fontcolor--err" v-if="name.length > 20">ニックネームは20文字以下にしてください。</span>
+                                <span class="u-fontcolor--err" v-if="name.length > 20">
+                                    ニックネームは20文字以下にしてください。
+                                </span>
                             </div>
                         </div>
                         <!-- 自己紹介入力欄 -->
@@ -31,8 +33,20 @@
                                 <span class="c-form__option">任意</span>
                             </div>
                             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                                <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--low c-textarea--full" id="intro"></textarea>
-                                <div class="u-text--right"><span :class="introduction.length > 400 ? 'u-fontcolor--err' : false">{{ introduction.length }}</span>/400</div>
+                                <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--low c-textarea--full" :class="introduction.length > 400 ? 'c-textarea--err' : ''" id="intro"></textarea>
+                                <div class="l-row l-row--between">
+                                    <div>
+                                        <span class="u-fontcolor--err" v-if="introduction.length > 400">
+                                            自己紹介は400文字以下にしてください。
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span :class="introduction.length > 400 ? 'u-fontcolor--err' : false">
+                                            {{ introduction.length }}
+                                        </span>
+                                        /400
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- プロフィール画像 -->

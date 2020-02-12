@@ -8,7 +8,10 @@
                     <span class="c-form__require">必須</span>
                 </div>
                 <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                    <input id="parent_title" type="text" class="c-input c-input--full" v-model="title">
+                    <input id="parent_title" type="text" class="c-input c-input--full" :class="title.length > 30 ? 'c-input--err' : ''" v-model="title">
+                    <span class="u-fontcolor--err" v-if="title.length > 30">
+                        タイトルは30文字以下にしてください。
+                    </span>
                 </div>
             </div>
             <div class="l-row c-form__group">
