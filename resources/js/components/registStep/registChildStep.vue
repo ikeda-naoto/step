@@ -23,12 +23,12 @@
         <!-- 子STEP終了時間 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
-                <label for="time" class="c-form__label">目安達成時間</label>
+                <label :for="'time' + index" class="c-form__label">目安達成時間</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                 <label class="c-form__icn--select">
-                    <select name="" id="time" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
+                    <select name="" :id="'time' + index" class="c-select c-select--half-pc c-select--full-sm" v-model="time_value">
                         <option v-for="time in times" :key="time.minute" :value="time.minute">{{ time.text }}</option>
                     </select>
                 </label>
@@ -37,11 +37,11 @@
         <!-- 子STEP内容 -->
         <div class="l-row c-form__group">
             <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
-                <label for="child_content" class="c-form__label">STEP{{ index + 1 }}の内容</label>
+                <label :for="'child_content' + index" class="c-form__label">STEP{{ index + 1 }}の内容</label>
                 <span class="c-form__require">必須</span>
             </div>
             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
-                <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="child_content" v-model="content"></textarea>
+                <textarea class="c-textarea c-textarea--high c-textarea--full" name="" :id="'child_content' + index" v-model="content"></textarea>
             </div>
         </div>
     </div>
