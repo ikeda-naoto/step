@@ -52,6 +52,12 @@ class Handler extends ExceptionHandler
                 return response()->view('errors.404');
             }
         }
+
+        // Exceptionは500エラーとして扱う
+        if (!$this->isHttpException($exception)) {
+            abort(500);
+        }
+
         return parent::render($request, $exception);
     }
 }
