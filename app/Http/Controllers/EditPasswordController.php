@@ -34,6 +34,6 @@ class EditPasswordController extends Controller
         // トークン上書き
         $request->session()->regenerateToken();
 
-        return redirect('/users/mypage')->with('status', 'パスワードを変更しました。');
+        return redirect('/mypage')->with('status', 'パスワードを変更しました。');
     }
 }

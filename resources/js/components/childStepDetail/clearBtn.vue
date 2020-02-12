@@ -26,7 +26,7 @@
                     // 通信成功の場合
                     if(res.data.nextStepId === null) { // 次のSTEPがない場合
                         // マイページへ遷移
-                        location.href = '/users/mypage';
+                        location.href = '/mypage';
                     }else{ // それ以外
                         // 次のSTEPへ遷移
                         location.href = '/steps/' + this.parentStepId + '/' + res.data.nextStepId;

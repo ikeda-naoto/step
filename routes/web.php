@@ -43,9 +43,9 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/users/edit', 'UsersController@edit')->name('users.edit');
-    Route::patch('/users', 'UsersController@update')->name('users.update');
-    Route::get('/users/mypage', 'UsersController@mypage')->name('mypage');
+    Route::get('/mypage/edit', 'UsersController@edit')->name('mypage.edit');
+    Route::patch('/mypage', 'UsersController@update')->name('mypage.update');
+    Route::get('/mypage', 'UsersController@index')->name('mypage.index');
     Route::get('/password/edit', 'EditPasswordController@edit')->name('password.edit');
     Route::patch('/password', 'EditPasswordController@update')->name('password.update');
     Route::get('/steps/create', 'StepsController@create')->name('steps.create');

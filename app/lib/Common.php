@@ -35,7 +35,7 @@ class Common {
   // 引数とログイン中のユーザーのIDが一致するかチェック
   public static function validUser($userId) {
     if((int)$userId !== Auth::user()->id) {
-      return redirect('/users/mypage')->with('status', '不正な値が入力されました')->throwResponse();
+      return redirect('/mypage')->with('status', '不正な値が入力されました')->throwResponse();
     }
   }
 

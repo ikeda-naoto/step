@@ -40,7 +40,7 @@ export default {
             // 不明なエラーが起こった時
             if(!this.isset(error.response)) {
                 alert('不正な操作が行われました。');
-                location.href = '/users/mypage';
+                location.href = '/mypage';
             }
             // バリデーション引っかかった場合
             else if(error.response.status === 422 || this.isset(error.response.data.errors)) { 

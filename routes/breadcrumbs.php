@@ -26,7 +26,7 @@ Breadcrumbs::for('showChildStep', function ($trail, $parentStep, $childStep) {
 // ホーム > マイページ
 Breadcrumbs::for('mypage', function ($trail) {
     $trail->parent('home');
-    $trail->push('マイページ', url('/users/mypage'));
+    $trail->push('マイページ', url('/mypage'));
 });
 
 // ホーム > ログイン
@@ -50,5 +50,5 @@ Breadcrumbs::for('registStep', function ($trail, $editFlg) {
 // ホーム > プロフィール編集
 Breadcrumbs::for('profEdit', function ($trail) {
     $trail->parent('home');
-    $trail->push('プロフィール編集', url('/users/edit'));
+    $trail->push('プロフィール編集', url('/mypage/edit'));
 });

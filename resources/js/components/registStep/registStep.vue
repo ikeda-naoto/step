@@ -178,7 +178,7 @@
                 .then(res => {
                     // 通信成功の場合
                     // マイページへ遷移
-                    location.href = '/users/mypage';
+                    location.href = '/mypage';
                  })
                 .catch(error => {
                     // 通信失敗の場合

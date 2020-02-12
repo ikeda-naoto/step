@@ -118,11 +118,11 @@
                     },
                 };
                 // axios通信
-                axios.post('/users', data, config,)
+                axios.post('/mypage', data, config,)
                 .then(res => {
                     // 通信成功の場合
                     // マイページへ遷移
-                    location.href = '/users/mypage';
+                    location.href = '/mypage';
                  })
                 .catch(error => {
                     // 通信失敗の場合

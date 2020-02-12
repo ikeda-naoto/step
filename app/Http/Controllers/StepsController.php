@@ -77,11 +77,11 @@ class StepsController extends Controller
     public function edit($id) {
 
         // GETパラメータが数字かどうかチェック
-        Common::validNumber($id, '/users/mypage');
+        Common::validNumber($id, '/mypage');
         // GETパラメータに該当する親STEPのレコードを取得
         $parentStep = ParentStep::where('id', $id)->select(['id', 'title', 'category_id', 'content', 'pic', 'user_id'])->first();
         // レコードが存在するかどうかチェック
-        Common::isExist($parentStep, '/users/mypage');
+        Common::isExist($parentStep, '/mypage');
 
         // STEPを登録したユーザーと編集しようとしているユーザーが同じかどうかチェック
         Common::validUser($parentStep->user_id);
@@ -101,13 +101,13 @@ class StepsController extends Controller
     public function update(CreateStepRequest $request, $id) {
 
         // GETパラメータが数字かどうかチェック
-        Common::validNumber($id, '/users/mypage');
+        Common::validNumber($id, '/mypage');
 
         // GETパラメータに該当するSTEPのレコードを取得
         $parentStep = ParentStep::find($id);
 
         // レコードが存在するかどうかチェック   
-        Common::isExist($parentStep, '/users/mypage');
+        Common::isExist($parentStep, '/mypage');
 
         // STEPを登録したユーザーと編集しようとしているユーザーが同じかどうかチェック
         Common::validUser($parentStep->user_id);
@@ -139,12 +139,12 @@ class StepsController extends Controller
     public function destroy(Request $request, $id) {
         
         // GETパラメータが数字かどうかチェック
-        Common::validNumber($id, '/users/mypage');
+        Common::validNumber($id, '/mypage');
 
         $parentStep = ParentStep::find($id);
 
         // レコードが存在するかどうかチェック  
-        Common::isExist($parentStep, '/users/mypage');
+        Common::isExist($parentStep, '/mypage');
 
         // STEPを登録したユーザーと削除しようとしているユーザーが同じかどうかチェック
         Common::validUser($parentStep->user_id);
@@ -155,7 +155,7 @@ class StepsController extends Controller
         // トークンを上書き
         $request->session()->regenerateToken();
         
-        return redirect('/users/mypage')->with('status', $parentStep->title.'を削除しました');
+        return redirect('/mypage')->with('status', $parentStep->title.'を削除しました');
     }
 
     public function showChild($parent_id, $child_id)

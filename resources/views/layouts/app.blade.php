@@ -92,12 +92,12 @@
                                         <div class="p-dropdown__menu">
                                             <ul class="p-dropdown__list">
                                                 <li class="p-dropdown__item">
-                                                    <a href="{{ route('mypage') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                    <a href="{{ route('mypage.index') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
                                                         <span>マイページ</span><i class="fas fa-angle-right fa-lg p-dropdown__icn"></i>
                                                     </a>
                                                 </li>
                                                 <li class="p-dropdown__item">
-                                                    <a href="{{ route('users.edit') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
+                                                    <a href="{{ route('mypage.edit') }}" class="l-row l-row--between l-row--middle p-dropdown__link">
                                                         <span>プロフィール変更</span><i class="fas fa-angle-right fa-lg p-dropdown__icn"></i>
                                                     </a>
                                                 </li>
@@ -158,12 +158,12 @@
                                     </a>
                                 </li>
                                 <li class="p-global-sidebar__item">
-                                    <a href="{{ route('mypage') }}" class="p-global-sidebar__link">
+                                    <a href="{{ route('mypage.index') }}" class="p-global-sidebar__link">
                                         <p class="p-global-sidebar__text">マイページ</p>
                                     </a>
                                 </li>
                                 <li class="p-global-sidebar__item">
-                                    <a href="{{ route('users.edit') }}" class="p-global-sidebar__link">
+                                    <a href="{{ route('mypage.edit') }}" class="p-global-sidebar__link">
                                         <p class="p-global-sidebar__text">プロフィール変更</p>
                                     </a>
                                 </li>
