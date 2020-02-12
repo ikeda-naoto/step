@@ -20,5 +20,8 @@
         font-size: $font-size_xxl; 
         margin-top: $space_7l;
         line-height: 130%;
+        @include sm() {
+            font-size: $font-size_l; 
+        }
     }
 }
