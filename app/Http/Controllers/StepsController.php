@@ -161,8 +161,8 @@ class StepsController extends Controller
     public function showChild($parent_id, $child_id)
     {
         // GETパラメータが数字かどうかチェック
-        Common::validNumber($parent_id, '/users/mypage');
-        Common::validNumber($child_id, '/users/mypage');
+        Common::validNumber($parent_id, '/steps');
+        Common::validNumber($child_id, '/steps');
 
         // GETパラメータに付与された親STEPのIDと子STEPのIDが紐づいているかチェック
         Common::isExist(ChildStep::where('parent_step_id', $parent_id)->where('id', $child_id)->first(), '/steps');
