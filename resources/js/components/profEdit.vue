@@ -34,18 +34,11 @@
                             </div>
                             <div class="l-row__col12--sm l-row__col08--tab l-row__col08--pc">
                                 <textarea v-model="introduction" name="introduction" class="c-textarea c-textarea--low c-textarea--full" :class="introduction.length > 400 ? 'c-textarea--err' : ''" id="intro"></textarea>
-                                <div class="l-row l-row--between">
-                                    <div class="l-row__col10--sm l-row__col10--tab l-row__col10--pc">
-                                        <span class="u-fontcolor--err" v-if="introduction.length > 400">
-                                            自己紹介は400文字以下にしてください。
-                                        </span>
-                                    </div>
-                                    <div class="l-row__col02--sm l-row__col02--tab l-row__col02--pc u-text--right">
-                                        <span :class="introduction.length > 400 ? 'u-fontcolor--err' : false">
-                                            {{ introduction.length }}
-                                        </span>
-                                        /400
-                                    </div>
+                                <div class="u-text--right">
+                                    <span :class="introduction.length > 400 ? 'u-fontcolor--err' : false">
+                                        {{ introduction.length }}
+                                    </span>
+                                    /400
                                 </div>
                             </div>
                         </div>
