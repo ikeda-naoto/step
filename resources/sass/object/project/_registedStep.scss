@@ -47,7 +47,6 @@
         margin-bottom: 0;
         @include tab() {
             margin-top: $space_l;
-            // width: 150px
         }
         @include sm() {
             min-width: 96%;
