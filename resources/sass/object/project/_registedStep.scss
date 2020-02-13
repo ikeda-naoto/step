@@ -45,6 +45,8 @@
         width: 96%;
         margin-top: 0;
         margin-bottom: 0;
+        padding-left: $space_xxl;
+        padding-right: $space_xxl;
         @include tab() {
             margin-top: $space_l;
         }
