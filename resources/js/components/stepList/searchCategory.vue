@@ -39,7 +39,9 @@
                 VueScrollTo.scrollTo('#top', 1000, {
                     easing: 'ease'
                 })
-                this.inputCategory(newValue);
+                setTimeout(() => {
+                    this.inputCategory(newValue);
+                }, 1000);
             },
         },
     }
