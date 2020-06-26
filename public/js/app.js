@@ -3866,7 +3866,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // 選択カテゴリーが変更されたらstoreの情報を書き換える
     onInputCategory: function onInputCategory(newValue) {
       this.inputCategory(newValue);
-      window.scrollTo(0, 0);
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 100);
     }
   })
 });

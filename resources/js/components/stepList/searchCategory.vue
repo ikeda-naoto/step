@@ -36,7 +36,9 @@
             // 選択カテゴリーが変更されたらstoreの情報を書き換える
             onInputCategory: function(newValue) {
                 this.inputCategory(newValue);
-                window.scrollTo(0, 0)
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 100);
             },
         },
     }
