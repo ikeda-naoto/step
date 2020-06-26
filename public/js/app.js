@@ -3868,12 +3868,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapActions"])(['inputCategory']), {
     // 選択カテゴリーが変更されたらstoreの情報を書き換える
     onInputCategory: function onInputCategory(newValue) {
+      vue_scrollto__WEBPACK_IMPORTED_MODULE_7___default.a.scrollTo('#top', 1000, {
+        easing: 'ease'
+      });
       this.inputCategory(newValue);
-      setTimeout(function () {
-        vue_scrollto__WEBPACK_IMPORTED_MODULE_7___default.a.scrollTo('#top', 1000, {
-          easing: 'ease-in-out'
-        });
-      }, 100);
     }
   })
 });
