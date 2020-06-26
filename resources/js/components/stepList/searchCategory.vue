@@ -41,7 +41,7 @@
                 })
                 setTimeout(() => {
                     this.inputCategory(newValue);
-                }, 1000);
+                }, 800);
             },
         },
     }

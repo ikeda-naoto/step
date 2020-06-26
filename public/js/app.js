@@ -3875,7 +3875,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
       setTimeout(function () {
         _this.inputCategory(newValue);
-      }, 1000);
+      }, 800);
     }
   })
 });
