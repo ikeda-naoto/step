@@ -37,6 +37,7 @@
     }
     &__title {
         line-height: 150%;
+        word-wrap: break-word;
     }
     &__img { 
         width: 100%;
@@ -54,6 +55,7 @@
         border-radius: $border-radius_s;
         -webkit-border-radius: $border-radius_s;
         -moz-border-radius: $border-radius_s;
+        word-wrap: break-word;
         & a {
             word-break: break-all;
             color: $font-color_link;

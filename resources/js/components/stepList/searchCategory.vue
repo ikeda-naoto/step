@@ -13,8 +13,7 @@
                 <input type="radio" name="category" :id="category.id"  class="c-sidebar__radio" :value="category.id" @change="onInputCategory($event.target.value)">
                 <label :for="category.id" class="c-sidebar__label">
                     {{ category.name }}
-                </label>
-                    
+                </label> 
             </li>
         </ul>
     </div>
@@ -37,6 +36,13 @@
             // 選択カテゴリーが変更されたらstoreの情報を書き換える
             onInputCategory: function(newValue) {
                 this.inputCategory(newValue);
+                this.scrollTop();
+            },
+            scrollTop: function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
             }
         },
     }
