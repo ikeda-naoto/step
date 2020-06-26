@@ -219,7 +219,7 @@ select::-ms-expand {
 }
 
 .l-site-width {
-  width: 87%;
+  width: 1080px;
   margin: 0 auto;
 }
 
@@ -2331,6 +2331,8 @@ select::-ms-expand {
 .p-child-index__title {
   width: 100%;
   padding: 0 15px;
+  word-wrap: break-word;
+  box-sizing: border-box;
 }
 
 .p-share {

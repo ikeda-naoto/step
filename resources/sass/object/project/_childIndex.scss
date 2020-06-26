@@ -54,5 +54,7 @@
     &__title {
         width: 100%;
         padding: 0 $space_l;
+        word-wrap: break-word;
+        box-sizing: border-box;
     }
 }

@@ -42,7 +42,7 @@
         [v-cloak] {opacity: 0;}
     </style>
 </head>
-<body>
+<body id="top">
     <div id="app" class="l-app js-toggle-sp-menu-target" v-cloak>
         <!-- ヘッダー -->
         <header class="l-header">
