@@ -20,7 +20,6 @@
     import { mapState } from 'vuex'
     import stepListPanel from './stepListPanel';
     import pagination from './pagination';
-    import VueScrollTo from 'vue-scrollto'
     export default {
         components: {
             stepListPanel,
@@ -39,11 +38,6 @@
                     this.isShow = newValue.length === 0 ? true : false;
                 }
             )
-        },
-        updated() {
-            VueScrollTo.scrollTo('#top', 1000, {
-                easing: 'ease-in-out'
-            })
         },
         computed: {
             ...mapState([
