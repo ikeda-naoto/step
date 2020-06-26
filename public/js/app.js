@@ -3928,6 +3928,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       // Enter以外のキーボード入力だった場合はリターン
       if (event.keyCode !== 13) return;
       this.inputSearchText(encodeURIComponent(newValue));
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 200);
     }
   })
 });

@@ -24,6 +24,9 @@
                 // Enter以外のキーボード入力だった場合はリターン
                 if (event.keyCode !== 13) return;
                 this.inputSearchText(encodeURIComponent(newValue));
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 200);
             }
         },
     }
