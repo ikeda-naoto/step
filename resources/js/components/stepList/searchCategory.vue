@@ -22,7 +22,6 @@
 
 <script>
     import { mapState, mapActions } from 'vuex'
-    import VueScrollTo from 'vue-scrollto'
     export default {
         computed: {
             ...mapState([
@@ -36,12 +35,8 @@
             ]),
             // 選択カテゴリーが変更されたらstoreの情報を書き換える
             onInputCategory: function(newValue) {
-                VueScrollTo.scrollTo('#top', 1000, {
-                    easing: 'ease'
-                })
-                setTimeout(() => {
-                    this.inputCategory(newValue);
-                }, 800);
+                this.inputCategory(newValue);
+
             },
         },
     }

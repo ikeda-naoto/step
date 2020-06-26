@@ -3824,8 +3824,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es6.object.keys */ "./node_modules/core-js/modules/es6.object.keys.js");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue_scrollto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-scrollto */ "./node_modules/vue-scrollto/vue-scrollto.js");
-/* harmony import */ var vue_scrollto__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_scrollto__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -3862,20 +3860,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapState"])(['categories', 'selectCategory'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapActions"])(['inputCategory']), {
     // 選択カテゴリーが変更されたらstoreの情報を書き換える
     onInputCategory: function onInputCategory(newValue) {
-      var _this = this;
-
-      vue_scrollto__WEBPACK_IMPORTED_MODULE_7___default.a.scrollTo('#top', 1000, {
-        easing: 'ease'
-      });
-      setTimeout(function () {
-        _this.inputCategory(newValue);
-      }, 800);
+      this.inputCategory(newValue);
     }
   })
 });
@@ -4036,6 +4026,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _stepListPanel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepListPanel */ "./resources/js/components/stepList/stepListPanel.vue");
 /* harmony import */ var _pagination__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pagination */ "./resources/js/components/stepList/pagination.vue");
+/* harmony import */ var vue_scrollto__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-scrollto */ "./node_modules/vue-scrollto/vue-scrollto.js");
+/* harmony import */ var vue_scrollto__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_scrollto__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -4070,6 +4062,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     stepListPanel: _stepListPanel__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -4088,6 +4081,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return getters.getParentSteps;
     }, function (newValue) {
       _this.isShow = newValue.length === 0 ? true : false;
+    });
+  },
+  updated: function updated() {
+    vue_scrollto__WEBPACK_IMPORTED_MODULE_9___default.a.scrollTo('#top', 1000, {
+      easing: 'ease-in-out'
     });
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapState"])(['parentSteps']))
