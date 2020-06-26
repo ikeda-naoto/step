@@ -3869,6 +3869,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // 選択カテゴリーが変更されたらstoreの情報を書き換える
     onInputCategory: function onInputCategory(newValue) {
       this.inputCategory(newValue);
+      vue_scrollto__WEBPACK_IMPORTED_MODULE_7___default.a.scrollTo('#top', 1000, {
+        easing: 'ease-in-out'
+      });
     }
   })
 });
@@ -68891,14 +68894,6 @@ var render = function() {
           _c(
             "li",
             {
-              directives: [
-                {
-                  name: "scroll-to",
-                  rawName: "v-scroll-to",
-                  value: "#top",
-                  expression: "'#top'"
-                }
-              ],
               staticClass: "c-sidebar__list-item",
               class: [
                 _vm.selectCategory === 0 ? "c-sidebar__list-item--active" : ""
@@ -68928,14 +68923,6 @@ var render = function() {
             return _c(
               "li",
               {
-                directives: [
-                  {
-                    name: "scroll-to",
-                    rawName: "v-scroll-to",
-                    value: "#top",
-                    expression: "'#top'"
-                  }
-                ],
                 key: category.id,
                 staticClass: "c-sidebar__list-item",
                 class: [
@@ -83172,8 +83159,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sanitize_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sanitize-html */ "./node_modules/sanitize-html/dist/index.js");
 /* harmony import */ var sanitize_html__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sanitize_html__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vue_uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-uuid */ "./node_modules/vue-uuid/dist/vue-uuid.es.js");
-/* harmony import */ var vue_scrollto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-scrollto */ "./node_modules/vue-scrollto/vue-scrollto.js");
-/* harmony import */ var vue_scrollto__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_scrollto__WEBPACK_IMPORTED_MODULE_5__);
 
 
 /**
@@ -83186,7 +83171,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./asset/jquery */ "./resources/js/asset/jquery.js");
@@ -83194,7 +83178,6 @@ __webpack_require__(/*! ./asset/jquery */ "./resources/js/asset/jquery.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.prototype.$sanitize = sanitize_html__WEBPACK_IMPORTED_MODULE_3___default.a;
 Vue.use(vue_uuid__WEBPACK_IMPORTED_MODULE_4__["default"]);
-Vue.use(vue_scrollto__WEBPACK_IMPORTED_MODULE_5___default.a);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -8,7 +8,6 @@ import 'es6-promise/auto';
 import store from './store';
 import sanitizeHTML from 'sanitize-html';
 import UUID from 'vue-uuid';
-import VueScrollTo from 'vue-scrollto';
 
 require('./bootstrap');
 require('./asset/jquery');
@@ -17,7 +16,6 @@ window.Vue = require('vue');
 
 Vue.prototype.$sanitize = sanitizeHTML;
 Vue.use(UUID);
-Vue.use(VueScrollTo)
 
 /**
  * The following block of code may be used to automatically register your
