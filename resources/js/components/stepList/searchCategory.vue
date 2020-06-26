@@ -37,9 +37,11 @@
             // 選択カテゴリーが変更されたらstoreの情報を書き換える
             onInputCategory: function(newValue) {
                 this.inputCategory(newValue);
-                VueScrollTo.scrollTo('#top', 1000, {
-                    easing: 'ease-in-out'
-                })
+                setTimeout(function() {
+                    VueScrollTo.scrollTo('#top', 1000, {
+                        easing: 'ease-in-out'
+                    })
+                }, 100)
             },
         },
     }
