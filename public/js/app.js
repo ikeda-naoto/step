@@ -3868,7 +3868,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.inputCategory(newValue);
       setTimeout(function () {
         window.scrollTo(0, 0);
-      }, 100);
+      }, 200);
     }
   })
 });
