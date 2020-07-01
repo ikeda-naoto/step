@@ -2,13 +2,12 @@
 
 @section('title', 'パスワードリセット')
 
-@section('content')
+@section('main')
 <!-- メインコンテンツ -->
-<div class="l-container u-bg--light">
-    <div class="l-row l-row--center l-site-width">
+    <div class="p-auth l-row l-row--center">
         <!-- メインカラム -->
         <div class="l-row l-row--center l-row__col12--sm l-row__col08--pc">
-            <form method="POST" action="{{ route('password.email') }}" class="c-form p-auth">
+            <form method="POST" action="{{ route('password.email') }}" class="c-form">
                 @csrf
                 @if (session('success'))
                     <div class="c-form__group">
@@ -45,5 +44,5 @@
             </form>
         </div>
     </div>
-</div>
+{{-- </div> --}}
 @endsection

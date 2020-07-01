@@ -2,13 +2,12 @@
 
 @section('title', 'パスワード変更')
 
-@section('content')
+@section('main')
     <!-- メインコンテンツ -->
-    <div class="l-container u-bg--light">
-        <div class="l-row l-row--center l-site-width">
+        <div class="l-row l-row--center p-auth">
             <!-- メインカラム -->
             <div class="l-row l-row--center l-row__col12--sm l-row__col10--tab l-row__col08--pc">
-                <form method="POST" action="/password" class="c-form p-auth">
+                <form method="POST" action="/password" class="c-form">
                     @csrf
                     @method('PATCH')
                     <h1 class="c-title--normal u-mb--5l">パスワード変更</h1>
@@ -40,5 +39,4 @@
                 </form>
             </div>
         </div>
-    </div>
 @endsection

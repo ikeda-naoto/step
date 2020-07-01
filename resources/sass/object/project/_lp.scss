@@ -2,9 +2,13 @@
 // ランディングページ
 // ==============================
 .p-lp {
+    width: 100%;
     font-size: $font-size_l;
     @include sm() {
         font-size: $font-size_m;
+    }
+    &__group {
+        padding: $space_7l 0;
     }
     &__head {
         padding-left: $space_3l;

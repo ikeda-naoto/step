@@ -8,11 +8,11 @@
             <div class="p-step-detail__img">
                 <img :src="showStepImg(parentStep.pic)" alt="">
             </div>
-            <twitterShare
+            <twitterShareComponent
                @onClickTwitterShare="onClickTwitterShare"
-            ></twitterShare>
+            ></twitterShareComponent>
             <div class="p-step-detail__body">
-                <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(this.parentStep.content)))">
+                <div class="p-step-detail__textarea" v-text="parentStep.content">
                 </div>
             </div>       
             <div class="p-step-detail__foot">
@@ -24,12 +24,18 @@
 
 <script>
     import Mixin from '../mixins/mixin';
-    import twitterShare from '../twitterShare';
+    import twitterShareComponent from '../twitterShareComponent';
+    import sanitizeHTML from 'sanitize-html';
     export default {
         props: ['user', 'parentStep', 'challengeFlg'],
+        data: function() {
+            return {
+                a: "<div>あいうえお</div>"
+            }
+        },
         mixins: [Mixin],
         components: {
-            twitterShare
+            twitterShareComponent
         },
         methods: {
             // ツイッターシェア処理

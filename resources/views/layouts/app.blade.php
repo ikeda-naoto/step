@@ -193,9 +193,16 @@
         </div>
 
         @yield('breadcrumbs')
+
+        @yield('baner')
         
         <main class="py-4">
-            @yield('content')
+            <div class="l-container">
+                <div class="l-row l-site-width">
+                    @yield('main')
+                    @yield('sidebar')
+                </div>
+            </div>
         </main>
         <footer class="l-footer">
             <div class="p-footer">

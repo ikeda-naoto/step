@@ -38,6 +38,7 @@
     width: 100%;
     padding: $space_7l $space_xl;
     box-sizing: border-box;
+    background: $background-color_main-light;
     @include sm() {
         width: 100%;
         min-height: calc(100vh - 190px - 73px);

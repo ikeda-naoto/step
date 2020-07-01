@@ -12,23 +12,23 @@
                 <!-- 子STEP内容 -->
                 <div class="p-step-detail__body">
                     <div class="u-text--right">目安達成時間：{{ showChildStep.time / 60 }}時間</div>
-                    <div class="p-step-detail__textarea" v-html="$sanitize(nl2br(autoLink(showChildStep.content)))">
+                    <div class="p-step-detail__textarea" v-text="showChildStep.content">
                     </div>
                 </div>
                 <!-- ツイッターシェアボタン -->
-                <twitterShare
+                <twitterShareComponent
                     @onClickTwitterShare="onClickTwitterShare"
-                ></twitterShare>
+                ></twitterShareComponent>
                 <div class="l-row p-step-detail__foot">
                     <!-- クリアボタン等 -->
-                    <childStepDetailBtns
+                    <btnsComponent
                         :parentStepId="parentStep.id"
                         :firstChildStepId="firstChildStepId"
                         :showChildStep="showChildStep"
                         :clearNum="clearNum"
                         :user="user"
                         :challengeFlg="challengeFlg"
-                    ></childStepDetailBtns>
+                    ></btnsComponent>
                 </div>
             </div>
         </section>
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-    import childStepDetailBtns from './childStepDetailBtns';
-    import twitterShare from '../twitterShare';
+    import btnsComponent from './btnsComponent';
+    import twitterShareComponent from '../twitterShareComponent';
     import Mixin from '../mixins/mixin';
     export default {
         components: {
-            childStepDetailBtns,
-            twitterShare
+            btnsComponent,
+            twitterShareComponent
         },
         props: ['parentStep', 'firstChildStepId', 'showChildStep', 'clearNum', 'user', 'challengeFlg'],
         mixins: [Mixin],

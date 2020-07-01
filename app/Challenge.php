@@ -17,7 +17,7 @@ class Challenge extends Model
 
     public function parentStep()
     {
-        return $this->belongsTo('App\ParentStep');
+        return $this->belongsTo('App\ParentStep')->withTrashed();
     }
 
     public function clears()

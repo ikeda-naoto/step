@@ -4,16 +4,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import Vue from 'vue'
 import 'es6-promise/auto';
-import store from './store';
 import sanitizeHTML from 'sanitize-html';
 import UUID from 'vue-uuid';
 
 require('./bootstrap');
 require('./asset/jquery');
 
-window.Vue = require('vue');
-
+// window.Vue = require('vue');
 Vue.prototype.$sanitize = sanitizeHTML;
 Vue.use(UUID);
 
@@ -29,12 +28,14 @@ Vue.use(UUID);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 
-Vue.component('prof-edit', require('./components/profEdit.vue').default);
-Vue.component('regist-step', require('./components/registStep/registStep.vue').default);
-Vue.component('step-list', require('./components/stepList/stepList.vue').default);
-Vue.component('parent-step-detail', require('./components/parentStepDetail/parentStepDetail.vue').default);
-Vue.component('my-page', require('./components/mypage/mypage.vue').default);
-Vue.component('child-step-detail', require('./components/childStepDetail/childStepDetail.vue').default);
+Vue.component('prof-edit-component', require('./components/profEditComponent.vue').default);
+Vue.component('regist-step-component', require('./components/registStep/registStepComponent.vue').default);
+Vue.component('step-list-component', require('./components/stepList/stepListComponent.vue').default);
+Vue.component('parent-step-detail-component', require('./components/parentStepDetail/parentStepDetailComponent.vue').default);
+Vue.component('child-step-detail-component', require('./components/childStepDetail/childStepDetailComponent.vue').default);
+Vue.component('challenge-step-component', require('./components/mypage/challengeStepComponent.vue').default);
+Vue.component('registed-step-component', require('./components/mypage/registedStepComponent.vue').default);
+Vue.component('child-step-index-component', require('./components/childStepIndex/childStepIndexComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -42,12 +43,6 @@ Vue.component('child-step-detail', require('./components/childStepDetail/childSt
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// サニタイズ
-Vue.filter('nl2br', function (text) {
-    return text.replace(/\n/g, '<br/>');
-})
-
 const app = new Vue({
     el: '#app',
-    store,
 });

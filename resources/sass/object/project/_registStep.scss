@@ -3,6 +3,9 @@
 // ==============================
 .p-regist-step {
     width: 100%;
+    &__inner {
+        width: 100%;
+    }
     &__num {
         color: $font-color_light;
         background: $background-color_base;

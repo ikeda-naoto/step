@@ -1,17 +1,17 @@
 <template>
-    <div>
+    <div class="l-row l-row--center p-prof-edit">
         <!-- モーダル -->
         <!-- エラーメッセージがある時に表示 -->
-        <modal
+        <modalComponent
             v-show="errMsgs.length" 
             :errMsgs="errMsgs"
-        ></modal>
+        ></modalComponent>
         <!-- メインコンテンツ -->
-        <div class="l-container u-bg--light">
-            <div class="l-row l-row--center l-site-width">
+        <!-- <div class="l-container u-bg--light">
+            <div class="l-row l-row--center l-site-width"> -->
                 <!-- メインカラム -->
                 <div class="l-row l-row--center l-row__col12--sm l-row__col12--tab l-row__col10--pc">
-                    <div class="c-form p-prof-edit">
+                    <div class="c-form">
                         <h1 class="c-title--normal u-mb--5l">プロフィール編集</h1>
                         <!-- ニックネーム入力欄 -->
                         <div class="l-row c-form__group">
@@ -43,11 +43,11 @@
                             </div>
                         </div>
                         <!-- プロフィール画像 -->
-                        <inputFile
+                        <inputFileComponent
                             text="プロフィール画像"
                             :pic="user.pic"
                             @updatePic="updatePic"
-                        ></inputFile>
+                        ></inputFileComponent>
                         <!-- メールアドレス入力欄 -->
                         <div class="l-row c-form__group">
                             <div class="l-row__col12--sm l-row__col04--tab l-row__col04--pc">
@@ -65,18 +65,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 </template>
 
 <script>
-    import inputFile from './inputFile';
-    import modal from './modal';
+    import inputFileComponent from './inputFileComponent';
+    import modalComponent from './modalComponent';
     import Mixin from './mixins/mixin';
     export default {
         components: {
-            inputFile,
-            modal
+            inputFileComponent,
+            modalComponent
         },
         props: ['user'],
         data: function() {

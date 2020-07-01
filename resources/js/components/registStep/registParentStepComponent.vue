@@ -39,19 +39,19 @@
                     <textarea class="c-textarea c-textarea--high c-textarea--full" name="" id="parent_content" v-model="content"></textarea>
                 </div>
             </div>
-            <inputFile
+            <inputFileComponent
                 text="STEP画像"
                 :pic="pic"
                 @updatePic="updatePic"
-            ></inputFile>
+            ></inputFileComponent>
         </div>
     </div>
 </template>
 <script>
-    import inputFile from '../inputFile';
+    import inputFileComponent from '../inputFileComponent';
     export default {
         components: {
-            inputFile,
+            inputFileComponent,
         },
         props: ['value', 'categories', 'editFlg'],
         data: function() {

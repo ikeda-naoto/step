@@ -54,7 +54,7 @@ export default {
                 alert('しばらく時間をおいてから再度試してください');
             }
             this.isPush = !this.isPush;
-        }
+        },
     },
     computed: {
         // STEPのアイキャッチ画像を返す

@@ -1,32 +1,32 @@
 <template>
 
-<div>
-    <modal
+<div class="l-row l-row--center p-regist-step">
+    <modalComponent
         v-show="errMsgs.length" 
         :errMsgs="errMsgs"
-    ></modal>
+    ></modalComponent>
     <!-- メインコンテンツ -->
-    <div class="l-container u-bg--light">
-        <div class="l-row l-row--center l-site-width">
+    <!-- <div class="l-container u-bg--light">
+        <div class="l-row l-row--center l-site-width"> -->
             <!-- メインカラム -->
             <div class="l-row l-row--center l-row__col12--sm l-row__col12--tab l-row__col10--pc">
-                <div class="p-regist-step">
+                <div class="p-regist-step__inner">
                     <!-- 親STEP登録フォーム -->
-                    <registParentStep
+                    <registParentStepComponent
                         :categories="categories"
                         v-model="parentStep"
                         :editFlg="editFlg"
-                    ></registParentStep>                    
+                    ></registParentStepComponent>                    
                     <!-- 子STEP登録フォーム -->
                     <transition-group name="fade">
-                        <registChildStep
+                        <registChildStepComponent
                             v-for="(childStep, index) in childSteps"
                             :key="uuid[index]"
                             :index="index"
                             :showIcnFlg="childSteps.length!==1 ? true : false"
                             v-model="childSteps[index]"
                             @onClickDeleteIcn="onClickDeleteIcn"
-                        ></registChildStep>
+                        ></registChildStepComponent>
                     </transition-group>
 
                     <div class="u-mt--xxl"> 
@@ -42,24 +42,22 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 </div>
 </template>
 
 <script>
-    import inputFile from '../inputFile';
-    import modal from '../modal';
-    import registChildStep from './registChildStep';
+    import modalComponent from '../modalComponent';
+    import registChildStepComponent from './registChildStepComponent';
     import Mixin from '../mixins/mixin';
-    import registParentStep from './registParentStep';
+    import registParentStepComponent from './registParentStepComponent';
     import { uuid } from 'vue-uuid';
     export default {
         components: {
-            inputFile,
-            modal,
-            registParentStep,
-            registChildStep,
+            modalComponent,
+            registParentStepComponent,
+            registChildStepComponent,
         },
         props: ['parentStepData', 'childStepsData', 'categories', 'editFlg'],
         mixins: [Mixin],

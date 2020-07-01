@@ -5,13 +5,12 @@
 
 @section('title', '新規会員登録')
 
-@section('content')
+@section('main')
 <!-- メインコンテンツ -->
-<div class="l-container u-bg--light">
-    <div class="l-row l-row--center l-site-width">
+    <div class="p-auth l-row l-row--center">
         <!-- メインカラム -->
         <div class="l-row l-row--center l-row__col12--sm l-row__col10--tab l-row__col08--pc">
-            <form method="POST" action="{{ route('register') }}" class="c-form p-auth">
+            <form method="POST" action="{{ route('register') }}" class="c-form">
                 @csrf
                 <h1 class="c-title--normal u-mb--5l">新規会員登録</h1>
                 <div class="c-form__group">
@@ -46,5 +45,4 @@
             </form>
         </div>
     </div>
-</div>
 @endsection

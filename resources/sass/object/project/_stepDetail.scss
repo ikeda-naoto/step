@@ -56,6 +56,7 @@
         -webkit-border-radius: $border-radius_s;
         -moz-border-radius: $border-radius_s;
         word-wrap: break-word;
+        white-space:pre-wrap;
         & a {
             word-break: break-all;
             color: $font-color_link;

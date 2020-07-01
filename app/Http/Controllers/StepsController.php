@@ -15,9 +15,36 @@ use Illuminate\Http\Request;
 class StepsController extends Controller
 {
     // ホーム画面表示
-    public function index()
+    public function index(Request $request)
     {
-        return view('steps.stepList');
+        $c_id = (int)$request->c_id;
+        $keyword = $request->keyword;
+
+        $parentSteps = ParentStep::query();
+        // 全て以外のカテゴリーが選択された場合
+        if($c_id !== 0) {
+            $parentSteps = $parentSteps->where('category_id', $request->c_id);
+        }
+        // キーワード検索された場合
+        if(isset($keyword)) {
+            $keyword = $request->keyword;
+            $parentSteps  = $parentSteps->where('title', 'LIKE', "%{$keyword}%");
+        }
+        // STEP作成日で降順にソートして取得
+        $parentSteps = $parentSteps->orderBy('created_at', 'desc')->paginate(10);
+
+        $groups  = ParentStep::with('category')->get();
+
+        // それぞれの親STEPに紐づくカテゴリーと子STEPデータを取得
+        // foreach ($parentSteps as $parentStep) {
+        //     Common::relationCategoryAndChildSteps($parentStep);
+        // }
+        // ページネーションに必要なデータを生成
+        // $paginationData = Common::createPaginationData($parentSteps, $request);
+        // カテゴリーデータ取得
+        $categories = Category::all();
+
+        return view('steps.stepList', compact('parentSteps', 'categories', 'c_id', 'keyword', 'groups'));
     }
     // 親STEP画面表示
     public function showParent($id) {
@@ -169,7 +196,7 @@ class StepsController extends Controller
 
         // 親STEPとそれに紐づく子STEPを取得
         $parentStep = ParentStep::withTrashed()->find($parent_id);
-        $parentStep->childSteps;
+        // $parentStep->childSteps;
 
         // 表示する子STEPのデータを取得
         $showChildStep = ChildStep::find($child_id);

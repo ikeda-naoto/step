@@ -4,8 +4,8 @@
 
 @section('title', 'プロフィール編集')
 
-@section('content')
-    <prof-edit
+@section('main')
+    <prof-edit-component
         :user="{{ $user }}"
-    ></prof-edit>
+    ></prof-edit-component>
 @endsection

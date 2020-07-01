@@ -1,13 +1,13 @@
 <template>
     <div class="l-row">
-        <challengeBtn
+        <challengeBtnComponent
             v-if="user && !challengeFlg"
             :parentStepId="parentStepId"
             :firstChildStepId="firstChildStepId"
-        ></challengeBtn>
-        <registAndChallengeBtn
+        ></challengeBtnComponent>
+        <registAndChallengeBtnComponent
             v-else-if="!isset(user)"
-        ></registAndChallengeBtn>
+        ></registAndChallengeBtnComponent>
         <div v-else class="c-btn c-btn--small c-btn--secondary c-btn--right u-pt--l u-pb--l">チャレンジ中</div>
     </div>
 
@@ -15,13 +15,13 @@
 
 <script>
     import Mixin from '../mixins/mixin';
-    import challengeBtn from '../challengeBtn';
-    import registAndChallengeBtn from '../registAndChallengeBtn';
+    import challengeBtnComponent from '../challengeBtnComponent';
+    import registAndChallengeBtnComponent from '../registAndChallengeBtnComponent';
     export default {
         props: ['parentStepId', 'firstChildStepId', 'user', 'challengeFlg'],
         components: {
-            challengeBtn,
-            registAndChallengeBtn
+            challengeBtnComponent,
+            registAndChallengeBtnComponent
         },
         mixins: [Mixin],
     }

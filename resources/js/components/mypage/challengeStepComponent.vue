@@ -1,19 +1,19 @@
 <template>
     <div class="l-row__col12--sm l-row__col06--tab l-row__col06--pc p-challenge-step__panel-container">
-        <a :href="'/steps/' + challengeStep.parent_step.id" class="c-panel p-challenge-step__panel">
+        <a :href="'/steps/' + parentStep.id" class="c-panel p-challenge-step__panel">
             <div class="c-img p-challenge-step__img">
-                <img class="c-img__item--center" :src="showStepImg(challengeStep.parent_step.pic)" alt="">
+                <img class="c-img__item--center" :src="showStepImg(parentStep.pic)" alt="">
             </div>
             <div class="p-challenge-step__head">
                 <h3 class="c-panel__title p-challenge-step__title">
-                    {{ challengeStep.parent_step.title }}
+                    {{ parentStep.title }}
                 </h3>
             </div>
             <div class="p-challenge-step__body">
                 <p class="p-challenge-step__finish-num">
                     進捗状況
                     <span class="u-fontsize--l u-ml--s u-mr--s">
-                        {{ challengeStep.clearNum }}/{{ challengeStep.parent_step.child_steps.length }}
+                        {{ clears.length }}/{{ childSteps.length }}
                     </span>
                     STEP
                 </p>
@@ -25,7 +25,7 @@
                     </div> 
                 </div>
                 <p class="c-panel__time u-text--right">
-                    目安達成時間：{{ showTotalTime(challengeStep.parent_step.child_steps) }}時間
+                    目安達成時間：{{ showTotalTime(childSteps)}}時間
                 </p>
             </div>
         </a>    
@@ -33,15 +33,19 @@
 </template>
 
 <script>
-    import Mixin from '../mixins/mixin';
-    export default {
-        props: ['challengeStep'],
-        mixins: [Mixin],
-        computed: {
-            // STEPの進捗度を計算する
-            calcClearPercentage: function(){
-                return Math.round((this.challengeStep.clearNum / this.challengeStep.parent_step.child_steps.length) * 100);
-            }
+import Mixin from '../mixins/mixin';
+export default {
+    props: ['challenge', 'parentStep', 'childSteps', 'clears'],
+    mixins: [Mixin],
+    computed: {
+        // STEPの進捗度を計算する
+        calcClearPercentage: function(){
+            return Math.round((this.clears.length / this.childSteps.length) * 100);
         }
     }
+}
 </script>
+
+<style>
+
+</style>

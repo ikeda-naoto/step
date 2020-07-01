@@ -26,7 +26,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "sanitize-html": "^1.20.1",
+        "sanitize-html": "^1.18.2",
         "vee-validate": "^2.2.10",
         "vue-scrollto": "^2.18.1",
         "vue-uuid": "^1.1.1",

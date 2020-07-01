@@ -2,22 +2,27 @@
 // ページネーションコンポーネント
 // ==============================
 .c-pagination {
-    &__num {
-        display: block;
-        padding: $space_m $space_l;
+    &__item {
+        width: 40px;
+        height: 46px;
         background: $background-color_light;
+        text-align: center;
+        line-height: 46px;
         border: $border_s solid $border-color_light;
         border-radius: $border-radius_s;
         -webkit-border-radius: $border-radius_s;
         -moz-border-radius: $border-radius_s;
-        &:hover {
-            color: $font-color_light;
-            background: $background-color_base;
-        }
         &--active {
             color: $font-color_light;
             background: $background-color_base;
+        }
 
+    }
+    &__link {
+        display: block;
+        &:hover {
+            color: $font-color_light;
+            background: $background-color_base;
         }
     }
 }

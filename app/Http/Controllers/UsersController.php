@@ -15,24 +15,12 @@ class UsersController extends Controller
     public function index()
     {
         // ログイン中のユーザーが登録した親STEPのレコードを取得
-        $registSteps = Auth::user()->parentSteps()->latest()->get();
-        // 各親STEPに子STEPとカテゴリーの情報を付与する
-        foreach ($registSteps as $registStep) {
-            Common::relationCategoryAndChildSteps($registStep);
-        }
+        $registedSteps = Auth::user()->parentSteps()->latest()->get();
         
         // ログイン中のユーザーのチャレンジ情報を取得
-        $challengeSteps = Auth::user()->challenges()->latest()->get();
-        foreach ($challengeSteps as $challengeStep) {
-            // 取得したチャレンジ情報に親STEPの情報を付与する
-            $challengeStep->parent_step = ParentStep::withTrashed()->find($challengeStep->parent_step_id);
-            // 取得したチャレンジ情報にクリア数を付与する
-            $challengeStep->clearNum = Clear::where('challenge_id', $challengeStep->id)->count();
-            // 子STEPとカテゴリーの情報を付与する
-            Common::relationCategoryAndChildSteps($challengeStep->parent_step);
-        }
+        $challenges = Auth::user()->challenges()->latest()->get();
     
-        return view('steps.mypage', compact('registSteps', 'challengeSteps'));
+        return view('steps.mypage', compact('registedSteps', 'challenges'));
     }
     // プロフィール変更画面を表示
     public function edit()
